@@ -1,0 +1,51 @@
+app APMLDevSite:
+  title: APML - The Universal Language for Human-AI Collaboration
+  description: Official home of APML language - Code that reads like conversation
+  version: 1.0.0
+  
+  interface:
+    show hero_section:
+      headline: Code that reads like conversation
+      subheadline: Build applications through natural human-AI collaboration
+      tagline: More natural than markdown, more powerful than code
+      
+    display trinity_principle:
+      title: The Trinity Principle
+      subtitle: Every application expressed through three message types
+      app_to_user: Display, output, communication to users
+      user_to_app: Interaction, input, commands from users  
+      app_to_app: Processing, logic, internal workflows
+      
+    show specification_section:
+      title: Interactive Language Specification
+      subtitle: Explore every aspect of APML syntax and semantics
+      content: Complete grammar definition and examples
+      
+    display playground_section:
+      title: Try APML Playground
+      subtitle: Interactive editor with real-time compilation
+      features: Live editor, real-time preview, example templates
+      
+    show examples_gallery:
+      title: Real-world Examples
+      subtitle: See APML in action across different industries
+      categories: Simple apps, business applications, enterprise solutions
+      
+    display tools_ecosystem:
+      title: Tools and Compilers
+      subtitle: Complete development ecosystem for APML
+      vue_compiler: Stable and ready for production
+      swift_compiler: Coming Q2 2025
+      kotlin_compiler: Coming Q2 2025
+      
+    show community_section:
+      title: Join the APML Community
+      subtitle: Connect with developers building the future
+      github: GitHub organization with 500+ members
+      discord: Discord community with 1200+ developers
+      forum: Community forum with 2500+ posts
+      
+    display commercial_bridge:
+      title: Ready to Build Production Apps?
+      subtitle: Take APML to the next level with ADE
+      call_to_action: Try ADE Free

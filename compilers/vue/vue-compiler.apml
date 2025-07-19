@@ -1,0 +1,42 @@
+compiler_documentation VueCompiler:
+  title: APML to Vue.js Compiler
+  description: Convert APML specifications to modern Vue.js applications
+  version: 1.0.0
+  status: stable_production_ready
+  
+  download_info:
+    package_name: apml-vue-compiler
+    install_command: npm install -g @apml/vue-compiler
+    download_url: ./downloads/apml-vue-compiler-1.0.0.zip
+    source_code: https://github.com/apml-org/apml-vue-compiler
+    
+  quick_start:
+    install: npm install -g @apml/vue-compiler
+    compile: apml-vue my-app.apml ./my-vue-app
+    run: cd my-vue-app && npm install && npm run dev
+    
+  features:
+    typescript_support: Generated code uses TypeScript
+    vite_integration: Modern build tooling
+    component_generation: APML patterns become Vue components
+    router_configuration: Automatic routing setup
+    responsive_design: Mobile-first generated layouts
+    production_ready: Optimized builds for deployment
+    
+  example_transformation:
+    input_apml: |
+      app TodoApp:
+        title: My Todo List
+        
+        data Task:
+          title: text required
+          completed: boolean default false
+          
+        interface:
+          show task_list:
+            for each task in tasks:
+              display task_item:
+                title: task.title
+                checkbox: task.completed
+                
+    output_result: Complete Vue.js application with reactive data management and component architecture
