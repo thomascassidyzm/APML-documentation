@@ -13,18 +13,12 @@
           <h2>Research Planning</h2>
           <div class="element research_method_selector">
             <h3>Research Method Selector</h3>
-            <div class="element-content">
-              <p>Element type: display</p>
-            </div>
           </div>
         </section>
         <section class="interface-section research_execution">
           <h2>Research Execution</h2>
           <div class="element interview_guide_generator">
             <h3>Interview Guide Generator</h3>
-            <div class="element-content">
-              <p>Element type: display</p>
-            </div>
           </div>
         </section>
         <section class="apml-source">
@@ -76,22 +70,30 @@ const apmlSpec = {
         "research_method_selector": {
           "type": "display",
           "properties": {},
-          "content": {}
+          "content": {},
+          "sections": {}
         }
       },
       "flows": [],
-      "content": {}
+      "content": {},
+      "methodologies": {},
+      "frameworks": {},
+      "patterns": {}
     },
     "research_execution": {
       "elements": {
         "interview_guide_generator": {
           "type": "display",
           "properties": {},
-          "content": {}
+          "content": {},
+          "sections": {}
         }
       },
       "flows": [],
-      "content": {}
+      "content": {},
+      "methodologies": {},
+      "frameworks": {},
+      "patterns": {}
     }
   },
   "logic": {
@@ -579,7 +581,7 @@ const appMetadata = {
   margin-bottom: 1rem;
 }
 
-.property {
+.property-item {
   display: flex;
   margin-bottom: 0.5rem;
   padding: 0.5rem;
@@ -597,6 +599,99 @@ const appMetadata = {
 .property-value {
   color: #f8fafc;
   flex: 1;
+}
+
+.methodology-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1rem;
+}
+
+.methodology-card {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  padding: 1.5rem;
+  transition: all 0.3s ease;
+}
+
+.methodology-card:hover {
+  transform: translateY(-2px);
+  border-color: rgba(99, 102, 241, 0.3);
+  box-shadow: 0 8px 25px rgba(99, 102, 241, 0.15);
+}
+
+.methodology-card h5 {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: #f8fafc;
+  margin-bottom: 1rem;
+}
+
+.methodology-stat {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+  padding: 0.5rem;
+  background: rgba(99, 102, 241, 0.1);
+  border-radius: 6px;
+}
+
+.stat-label {
+  font-weight: 500;
+  color: #cbd5e1;
+}
+
+.stat-value {
+  font-weight: 600;
+  color: #6366f1;
+}
+
+.methodology-description {
+  color: #94a3b8;
+  line-height: 1.5;
+  margin-bottom: 0.75rem;
+}
+
+.methodology-description strong {
+  color: #e2e8f0;
+}
+
+.element-properties {
+  margin-bottom: 1.5rem;
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.02);
+  border-radius: 8px;
+}
+
+.element-properties h4 {
+  font-size: 1.125rem;
+  color: #6366f1;
+  margin-bottom: 1rem;
+}
+
+.simple-content {
+  margin-top: 1rem;
+}
+
+.content-item {
+  margin-bottom: 1.5rem;
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.02);
+  border-radius: 8px;
+}
+
+.content-item h5 {
+  font-size: 1rem;
+  color: #e2e8f0;
+  margin-bottom: 0.5rem;
+}
+
+.content-item p {
+  color: #94a3b8;
+  line-height: 1.5;
 }
 
 .apml-source {
