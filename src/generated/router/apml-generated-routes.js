@@ -113,6 +113,17 @@ const APMLGeneratedRoutes = [
 }
   },
   {
+    path: '/apmldevelopmentmethodology',
+    name: 'APMLDEVELOPMENTMETHODOLOGY',
+    component: () => import('../pages/APMLDEVELOPMENTMETHODOLOGYPage.vue'),
+    meta: {
+      "title": "A P M L D E V E L O P M E N T M E T H O D O L O G Y",
+      "showInNav": false,
+      "apmlGenerated": true,
+      "componentName": "APMLDEVELOPMENTMETHODOLOGYPage"
+}
+  },
+  {
     path: '/components',
     name: 'ComponentRegistry',
     component: () => import('../pages/ComponentRegistryPage.vue'),

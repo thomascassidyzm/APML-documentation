@@ -1431,7 +1431,8 @@ const appMetadata = {
     // Define which pages should show in navigation
     const showInNavPages = [
       'LanguageSpecPage', 
-      'PatternLibraryIndexPage'
+      'PatternLibraryIndexPage',
+      'APMLDevelopmentMethodologyPage'
     ]
     
     return {
@@ -2226,6 +2227,7 @@ const validatedFiles = [
   'src/patterns/design-intelligence.apml',
   'src/patterns/business-strategy-patterns.apml',
   'src/APML-SPECIFICATION.apml',
+  'src/APML-DEVELOPMENT-METHODOLOGY.apml',
   'src/registry/components-registry.apml',
   'src/registry/themes-gallery.apml'
 ].map(file => path.join(process.cwd(), file))
