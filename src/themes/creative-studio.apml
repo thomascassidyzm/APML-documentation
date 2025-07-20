@@ -1,0 +1,391 @@
+# Creative Studio Theme - Design Agency Vibes
+
+metadata:
+  document_type: "STYLEGUIDE" 
+  owner: "ADE_ThemeSystem"
+  created_at: "2025-01-20T1500"
+  version: "1.0"
+  purpose: "Design agency aesthetic for creative and artistic applications"
+
+styleguide:
+  name: "Creative Studio"
+  version: "1.0"
+  philosophy: "Bold expression, creative freedom, and artistic inspiration"
+  
+  tokens:
+    colors:
+      # Primary brand colors - Vibrant creative palette
+      primary: 
+        50: "#fdf4ff"
+        100: "#fae8ff" 
+        200: "#f5d0fe"
+        300: "#f0abfc"
+        400: "#e879f9"
+        500: "#d946ef"  # Hot magenta
+        600: "#c026d3"
+        700: "#a21caf"
+        800: "#86198f"
+        900: "#701a75"
+      
+      # Secondary colors - Electric cyan
+      secondary:
+        50: "#ecfeff"
+        100: "#cffafe"
+        200: "#a5f3fc"
+        300: "#67e8f9"
+        400: "#22d3ee"
+        500: "#06b6d4"  # Electric cyan
+        600: "#0891b2"
+        700: "#0e7490"
+        800: "#155e75"
+        900: "#164e63"
+      
+      # Background system - Dark creative canvas
+      background:
+        primary: "#0a0a0a"     # Deep black
+        secondary: "#171717"   # Charcoal
+        tertiary: "#262626"    # Dark gray
+        overlay: "rgba(10, 10, 10, 0.9)"
+      
+      # Surface colors - Creative layers
+      surface:
+        primary: "#171717"     # Dark cards
+        secondary: "#262626"   # Elevated surfaces
+        tertiary: "#404040"    # Interactive surfaces
+        glass: "rgba(23, 23, 23, 0.8)"
+      
+      # Text hierarchy - High contrast on dark
+      text:
+        primary: "#fafafa"     # Near white
+        secondary: "#d4d4d8"   # Light gray
+        tertiary: "#a1a1aa"    # Medium gray
+        inverse: "#0a0a0a"     # Black on light
+      
+      # Interactive feedback - Creative energetic
+      feedback:
+        success: "#22c55e"     # Vibrant green
+        error: "#ff6b6b"       # Coral red
+        warning: "#fbbf24"     # Golden yellow
+        info: "#3b82f6"        # Electric blue
+        
+      # Button states - Creative energy
+      button:
+        primary_bg: "linear-gradient(135deg, #d946ef, #06b6d4)"
+        primary_hover: "linear-gradient(135deg, #c026d3, #0891b2)"
+        primary_active: "linear-gradient(135deg, #a21caf, #0e7490)"
+        secondary_bg: "transparent"
+        secondary_border: "#404040"
+        secondary_hover: "#262626"
+      
+      # Creative accent colors
+      accent:
+        orange: "#f97316"      # Creative orange
+        lime: "#84cc16"        # Fresh lime
+        rose: "#f43f5e"        # Artistic rose
+        violet: "#8b5cf6"      # Creative violet
+        amber: "#f59e0b"       # Golden amber
+    
+    typography:
+      font_family:
+        primary: "'Space Grotesk', 'Inter', sans-serif"  # Modern geometric
+        display: "'Clash Display', 'Space Grotesk', sans-serif"  # Creative headers
+        mono: "'JetBrains Mono', 'Fira Code', monospace"
+      
+      sizes:
+        xs: "0.75rem"     # 12px
+        sm: "0.875rem"    # 14px
+        base: "1rem"      # 16px
+        lg: "1.125rem"    # 18px
+        xl: "1.25rem"     # 20px
+        "2xl": "1.5rem"   # 24px
+        "3xl": "1.875rem" # 30px
+        "4xl": "2.25rem"  # 36px
+        "5xl": "3rem"     # 48px
+        "6xl": "4rem"     # 64px
+        "7xl": "5rem"     # 80px - Creative display
+      
+      weights:
+        light: 300
+        normal: 400
+        medium: 500
+        semibold: 600
+        bold: 700
+        extrabold: 800
+        black: 900
+      
+      line_heights:
+        tight: 1.1
+        normal: 1.4
+        relaxed: 1.6
+        loose: 1.8
+    
+    spacing:
+      unit: "0.25rem"  # 4px base
+      scale: [0, 1, 2, 3, 4, 5, 6, 8, 10, 12, 16, 20, 24, 32, 40, 48, 56, 64, 80, 96]
+      
+      xs: "0.5rem"      # 8px
+      sm: "0.75rem"     # 12px
+      md: "1rem"        # 16px
+      lg: "1.5rem"      # 24px
+      xl: "2rem"        # 32px
+      "2xl": "3rem"     # 48px
+      "3xl": "4rem"     # 64px
+      "4xl": "6rem"     # 96px - Creative spacing
+    
+    radius:
+      none: "0"
+      sm: "0.25rem"     # 4px
+      base: "0.5rem"    # 8px
+      md: "0.75rem"     # 12px
+      lg: "1rem"        # 16px
+      xl: "1.5rem"      # 24px
+      "2xl": "2rem"     # 32px
+      "3xl": "3rem"     # 48px - Artistic rounding
+      full: "9999px"
+    
+    shadows:
+      sm: "0 2px 4px 0 rgba(217, 70, 239, 0.1)"
+      base: "0 4px 8px 0 rgba(217, 70, 239, 0.15)"
+      md: "0 8px 16px 0 rgba(217, 70, 239, 0.2)"
+      lg: "0 16px 32px 0 rgba(217, 70, 239, 0.25)"
+      xl: "0 24px 48px 0 rgba(217, 70, 239, 0.3)"
+      "2xl": "0 32px 64px 0 rgba(217, 70, 239, 0.4)"
+      inner: "inset 0 2px 8px 0 rgba(0, 0, 0, 0.3)"
+      
+      # Creative colored shadows
+      magenta_glow: "0 0 40px rgba(217, 70, 239, 0.6)"
+      cyan_glow: "0 0 40px rgba(6, 182, 212, 0.6)"
+      rainbow_glow: "0 0 50px rgba(217, 70, 239, 0.4), 0 0 80px rgba(6, 182, 212, 0.3)"
+      neon_glow: "0 0 20px currentColor"
+    
+    animation:
+      duration:
+        instant: "0ms"
+        fast: "200ms"
+        normal: "400ms"
+        slow: "600ms"
+        slower: "800ms"
+        slowest: "1200ms"
+        creative: "1500ms"  # For artistic transitions
+      
+      easing:
+        linear: "cubic-bezier(0, 0, 1, 1)"
+        ease_in: "cubic-bezier(0.4, 0, 1, 1)"
+        ease_out: "cubic-bezier(0, 0, 0.2, 1)"
+        ease_in_out: "cubic-bezier(0.4, 0, 0.2, 1)"
+        bounce: "cubic-bezier(0.68, -0.55, 0.265, 1.55)"
+        elastic: "cubic-bezier(0.175, 0.885, 0.32, 1.275)"
+        artistic: "cubic-bezier(0.25, 0.46, 0.45, 0.94)"
+
+  component_styles:
+    # Creative hero sections
+    hero:
+      background: "linear-gradient(135deg, background.primary, background.secondary)"
+      padding: "spacing.4xl spacing.xl"
+      text_align: "center"
+      
+      title:
+        font_family: "typography.font_family.display"
+        font_size: "typography.sizes.7xl"
+        font_weight: "typography.weights.black"
+        background: "linear-gradient(135deg, primary.400, secondary.400, accent.orange)"
+        background_clip: "text"
+        color: "transparent"
+        margin_bottom: "spacing.xl"
+        
+      subtitle:
+        font_size: "typography.sizes.xl"
+        color: "text.secondary"
+        margin_bottom: "spacing.2xl"
+        line_height: "typography.line_heights.relaxed"
+        
+      cta_button:
+        background: "button.primary_bg"
+        color: "text.inverse"
+        padding: "spacing.lg spacing.2xl"
+        border_radius: "radius.xl"
+        font_weight: "typography.weights.bold"
+        shadow: "shadows.magenta_glow"
+        animation: "pulse 2s infinite"
+        
+        hover:
+          transform: "scale(1.05) translateY(-2px)"
+          shadow: "shadows.rainbow_glow"
+    
+    # Creative portfolio grid
+    portfolio_grid:
+      display: "grid"
+      grid_template_columns: "repeat(auto-fit, minmax(300px, 1fr))"
+      gap: "spacing.xl"
+      padding: "spacing.2xl"
+      
+      project_card:
+        background: "surface.primary"
+        border_radius: "radius.2xl"
+        overflow: "hidden"
+        shadow: "shadows.lg"
+        transition: "animation.duration.slow animation.easing.elastic"
+        
+        hover:
+          transform: "translateY(-8px) rotate(1deg)"
+          shadow: "shadows.rainbow_glow"
+          
+        image_container:
+          aspect_ratio: "16/9"
+          background: "linear-gradient(45deg, primary.500, secondary.500)"
+          
+        content:
+          padding: "spacing.xl"
+          
+          title:
+            font_size: "typography.sizes.xl"
+            font_weight: "typography.weights.bold"
+            color: "text.primary"
+            margin_bottom: "spacing.sm"
+            
+          description:
+            color: "text.secondary"
+            line_height: "typography.line_heights.relaxed"
+            
+          tags:
+            display: "flex"
+            gap: "spacing.sm"
+            margin_top: "spacing.md"
+            
+            tag:
+              background: "primary.500"
+              color: "text.inverse"
+              padding: "spacing.xs spacing.sm"
+              border_radius: "radius.full"
+              font_size: "typography.sizes.xs"
+              font_weight: "typography.weights.medium"
+    
+    # Creative navigation
+    navigation:
+      background: "rgba(23, 23, 23, 0.8)"
+      backdrop_filter: "blur(20px)"
+      border_bottom: "1px solid surface.tertiary"
+      padding: "spacing.md spacing.xl"
+      
+      logo:
+        font_family: "typography.font_family.display"
+        font_size: "typography.sizes.2xl"
+        font_weight: "typography.weights.black"
+        background: "linear-gradient(135deg, primary.400, secondary.400)"
+        background_clip: "text"
+        color: "transparent"
+        
+      nav_items:
+        display: "flex"
+        gap: "spacing.lg"
+        
+      nav_link:
+        color: "text.secondary"
+        padding: "spacing.sm spacing.md"
+        border_radius: "radius.lg"
+        font_weight: "typography.weights.medium"
+        transition: "animation.duration.normal"
+        
+        hover:
+          color: "primary.400"
+          background: "surface.secondary"
+          transform: "translateY(-1px)"
+          
+        active:
+          color: "primary.400"
+          background: "primary.500/10"
+          shadow: "shadows.neon_glow"
+    
+    # Creative buttons with personality
+    buttons:
+      primary:
+        background: "button.primary_bg"
+        color: "text.inverse"
+        padding: "spacing.md spacing.xl"
+        border_radius: "radius.xl"
+        font_weight: "typography.weights.bold"
+        shadow: "shadows.magenta_glow"
+        transition: "animation.duration.normal animation.easing.elastic"
+        
+        hover:
+          transform: "scale(1.05)"
+          shadow: "shadows.rainbow_glow"
+          
+        active:
+          transform: "scale(0.98)"
+          
+      secondary:
+        background: "transparent"
+        border: "2px solid primary.500"
+        color: "primary.400"
+        padding: "spacing.md spacing.xl"
+        border_radius: "radius.xl"
+        font_weight: "typography.weights.semibold"
+        
+        hover:
+          background: "primary.500/10"
+          border_color: "primary.400"
+          color: "primary.300"
+          shadow: "shadows.neon_glow"
+          
+      ghost:
+        background: "transparent"
+        color: "text.secondary"
+        padding: "spacing.md spacing.lg"
+        border_radius: "radius.lg"
+        
+        hover:
+          background: "surface.secondary"
+          color: "text.primary"
+    
+    # Creative forms
+    forms:
+      input:
+        background: "surface.secondary"
+        border: "2px solid surface.tertiary"
+        border_radius: "radius.lg"
+        padding: "spacing.md spacing.lg"
+        font_size: "typography.sizes.base"
+        color: "text.primary"
+        transition: "animation.duration.normal"
+        
+        focus:
+          border_color: "primary.500"
+          box_shadow: "0 0 20px rgba(217, 70, 239, 0.3)"
+          
+        error:
+          border_color: "feedback.error"
+          box_shadow: "0 0 20px rgba(255, 107, 107, 0.3)"
+          
+      label:
+        font_weight: "typography.weights.semibold"
+        color: "text.primary"
+        margin_bottom: "spacing.sm"
+        
+      textarea:
+        min_height: "120px"
+        resize: "vertical"
+
+  responsive_design:
+    philosophy: "Creative-first responsive design with artistic flair"
+    
+    breakpoints:
+      xs: "0px"
+      sm: "640px"
+      md: "768px"
+      lg: "1024px"
+      xl: "1280px"
+      "2xl": "1536px"
+    
+    layout_guidelines:
+      portfolio_masonry:
+        mobile: "Single column with full-width cards"
+        tablet: "Two-column masonry layout"
+        desktop: "Three-column creative grid with varying heights"
+        large: "Four-column showcase with parallax effects"
+
+compliance:
+  follows_protocol: "APML_UNIVERSAL_DOCUMENTATION_PROTOCOL.apml"
+  theme_category: "Creative"
+  personality: "Bold, Artistic, Expressive, Energetic"
+  use_cases: ["Design Agencies", "Creative Portfolios", "Art Platforms", "Innovation Labs"]

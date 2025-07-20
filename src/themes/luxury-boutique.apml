@@ -1,0 +1,450 @@
+# Luxury Boutique Theme - Premium Experiences
+
+metadata:
+  document_type: "STYLEGUIDE" 
+  owner: "ADE_ThemeSystem"
+  created_at: "2025-01-20T1500"
+  version: "1.0"
+  purpose: "Luxury and premium aesthetic for high-end applications and experiences"
+
+styleguide:
+  name: "Luxury Boutique"
+  version: "1.0"
+  philosophy: "Elegance in every pixel. Luxury through restraint. Premium through perfection."
+  
+  tokens:
+    colors:
+      # Primary brand colors - Rich gold and deep charcoal
+      primary: 
+        50: "#fffbeb"
+        100: "#fef3c7" 
+        200: "#fde68a"
+        300: "#fcd34d"
+        400: "#fbbf24"
+        500: "#d4af37"  # Classic luxury gold
+        600: "#b8860b"
+        700: "#92400e"
+        800: "#78350f"
+        900: "#451a03"
+      
+      # Secondary colors - Deep sophisticated navy
+      secondary:
+        50: "#f8fafc"
+        100: "#f1f5f9"
+        200: "#e2e8f0"
+        300: "#cbd5e1"
+        400: "#94a3b8"
+        500: "#1e293b"  # Sophisticated charcoal
+        600: "#475569"
+        700: "#334155"
+        800: "#1e293b"
+        900: "#0f172a"
+      
+      # Background system - Elegant creams and whites
+      background:
+        primary: "#fefefe"     # Pure luxury white
+        secondary: "#faf9f7"   # Warm cream
+        tertiary: "#f5f4f0"    # Rich cream
+        overlay: "rgba(254, 254, 254, 0.95)"
+      
+      # Surface colors - Premium materials
+      surface:
+        primary: "#ffffff"     # Pure white
+        secondary: "#faf9f7"   # Cream surface
+        tertiary: "#f5f4f0"    # Rich surface
+        glass: "rgba(255, 255, 255, 0.9)"
+        marble: "linear-gradient(135deg, #faf9f7, #f5f4f0)"
+      
+      # Text hierarchy - Luxury contrast
+      text:
+        primary: "#1a1a1a"     # Rich black
+        secondary: "#4a4a4a"   # Charcoal
+        tertiary: "#6a6a6a"    # Medium gray
+        accent: "#d4af37"      # Gold accent
+        inverse: "#ffffff"     # White on dark
+      
+      # Interactive feedback - Sophisticated tones
+      feedback:
+        success: "#065f46"     # Rich forest green
+        error: "#991b1b"       # Deep burgundy
+        warning: "#92400e"     # Amber brown
+        info: "#1e40af"        # Deep sapphire
+        
+      # Button states - Premium materials
+      button:
+        primary_bg: "linear-gradient(135deg, #d4af37, #b8860b)"
+        primary_hover: "linear-gradient(135deg, #b8860b, #92400e)"
+        primary_active: "linear-gradient(135deg, #92400e, #78350f)"
+        secondary_bg: "transparent"
+        secondary_border: "#e5e7eb"
+        secondary_hover: "#faf9f7"
+      
+      # Luxury accent colors
+      accent:
+        rose_gold: "#e8b4b8"   # Rose gold
+        platinum: "#e5e4e2"    # Platinum
+        emerald: "#065f46"     # Emerald
+        sapphire: "#1e40af"    # Sapphire
+        pearl: "#f8f6f0"       # Pearl
+        ebony: "#1a1a1a"       # Ebony
+    
+    typography:
+      font_family:
+        primary: "'Playfair Display', Georgia, serif"  # Luxury serif
+        sans: "'Inter', 'Avenir', sans-serif"          # Clean sans
+        mono: "'SF Mono', Monaco, monospace"
+      
+      sizes:
+        xs: "0.75rem"     # 12px
+        sm: "0.875rem"    # 14px
+        base: "1rem"      # 16px
+        lg: "1.125rem"    # 18px
+        xl: "1.25rem"     # 20px
+        "2xl": "1.5rem"   # 24px
+        "3xl": "1.875rem" # 30px
+        "4xl": "2.5rem"   # 40px
+        "5xl": "3.5rem"   # 56px
+        "6xl": "4.5rem"   # 72px
+        "7xl": "6rem"     # 96px - Luxury display
+      
+      weights:
+        light: 300
+        normal: 400
+        medium: 500
+        semibold: 600
+        bold: 700
+        extrabold: 800
+        black: 900
+      
+      line_heights:
+        tight: 1.2
+        normal: 1.5
+        relaxed: 1.7
+        loose: 2
+        luxury: 1.3      # Perfect for luxury text
+    
+    spacing:
+      unit: "0.25rem"  # 4px base
+      scale: [0, 1, 2, 3, 4, 5, 6, 8, 10, 12, 16, 20, 24, 32, 40, 48, 56, 64, 80, 96]
+      
+      # Generous luxury spacing
+      xs: "0.75rem"     # 12px
+      sm: "1rem"        # 16px
+      md: "1.5rem"      # 24px
+      lg: "2rem"        # 32px
+      xl: "3rem"        # 48px
+      "2xl": "4rem"     # 64px
+      "3xl": "6rem"     # 96px
+      "4xl": "8rem"     # 128px
+      "5xl": "12rem"    # 192px - Ultra luxury
+    
+    radius:
+      none: "0"
+      sm: "0.125rem"    # 2px
+      base: "0.375rem"  # 6px
+      md: "0.5rem"      # 8px
+      lg: "0.75rem"     # 12px
+      xl: "1rem"        # 16px
+      "2xl": "1.5rem"   # 24px
+      "3xl": "2rem"     # 32px
+      full: "9999px"
+    
+    shadows:
+      none: "none"
+      sm: "0 1px 3px 0 rgba(212, 175, 55, 0.1)"
+      base: "0 2px 6px 0 rgba(212, 175, 55, 0.15)"
+      md: "0 4px 12px 0 rgba(212, 175, 55, 0.2)"
+      lg: "0 8px 24px 0 rgba(212, 175, 55, 0.25)"
+      xl: "0 16px 48px 0 rgba(212, 175, 55, 0.3)"
+      "2xl": "0 24px 64px 0 rgba(212, 175, 55, 0.4)"
+      inner: "inset 0 2px 8px 0 rgba(0, 0, 0, 0.1)"
+      
+      # Luxury material shadows
+      gold_glow: "0 0 30px rgba(212, 175, 55, 0.5)"
+      platinum_glow: "0 0 30px rgba(229, 228, 226, 0.7)"
+      embossed: "inset 0 1px 0 rgba(255, 255, 255, 0.5), 0 1px 2px rgba(0, 0, 0, 0.1)"
+      debossed: "inset 0 -1px 0 rgba(0, 0, 0, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.5)"
+      velvet: "0 8px 32px rgba(0, 0, 0, 0.12), 0 0 0 1px rgba(0, 0, 0, 0.05)"
+    
+    animation:
+      duration:
+        instant: "0ms"
+        fast: "300ms"
+        normal: "500ms"
+        slow: "750ms"
+        slower: "1000ms"
+        slowest: "1500ms"
+        luxury: "800ms"   # Smooth luxury timing
+      
+      easing:
+        linear: "cubic-bezier(0, 0, 1, 1)"
+        ease_in: "cubic-bezier(0.4, 0, 1, 1)"
+        ease_out: "cubic-bezier(0, 0, 0.2, 1)"
+        ease_in_out: "cubic-bezier(0.4, 0, 0.2, 1)"
+        luxury: "cubic-bezier(0.23, 1, 0.32, 1)"  # Smooth luxury easing
+
+  component_styles:
+    # Luxury hero sections
+    hero:
+      background: "surface.marble"
+      padding: "spacing.5xl spacing.xl"
+      text_align: "center"
+      position: "relative"
+      
+      overlay:
+        background: "linear-gradient(135deg, rgba(212, 175, 55, 0.1), transparent)"
+        
+      title:
+        font_family: "typography.font_family.primary"
+        font_size: "typography.sizes.7xl"
+        font_weight: "typography.weights.light"
+        color: "text.primary"
+        margin_bottom: "spacing.xl"
+        line_height: "typography.line_heights.luxury"
+        letter_spacing: "-0.02em"
+        
+      subtitle:
+        font_family: "typography.font_family.sans"
+        font_size: "typography.sizes.xl"
+        color: "text.secondary"
+        margin_bottom: "spacing.2xl"
+        line_height: "typography.line_heights.relaxed"
+        max_width: "700px"
+        margin_left: "auto"
+        margin_right: "auto"
+        
+      cta_button:
+        background: "button.primary_bg"
+        color: "text.inverse"
+        padding: "spacing.lg spacing.2xl"
+        border_radius: "radius.lg"
+        font_family: "typography.font_family.sans"
+        font_weight: "typography.weights.semibold"
+        letter_spacing: "0.025em"
+        shadow: "shadows.gold_glow"
+        transition: "animation.duration.luxury animation.easing.luxury"
+        
+        hover:
+          background: "button.primary_hover"
+          transform: "translateY(-3px)"
+          shadow: "shadows.xl"
+    
+    # Premium product cards
+    product_card:
+      background: "surface.primary"
+      border: "1px solid #f5f4f0"
+      border_radius: "radius.2xl"
+      overflow: "hidden"
+      shadow: "shadows.velvet"
+      transition: "animation.duration.luxury animation.easing.luxury"
+      
+      hover:
+        transform: "translateY(-8px)"
+        shadow: "shadows.2xl"
+        border_color: "accent.rose_gold"
+        
+      image_container:
+        aspect_ratio: "4/3"
+        background: "surface.marble"
+        position: "relative"
+        
+        overlay:
+          background: "linear-gradient(to bottom, transparent, rgba(0, 0, 0, 0.1))"
+          
+      content:
+        padding: "spacing.2xl"
+        
+        title:
+          font_family: "typography.font_family.primary"
+          font_size: "typography.sizes.2xl"
+          font_weight: "typography.weights.medium"
+          color: "text.primary"
+          margin_bottom: "spacing.sm"
+          
+        description:
+          font_family: "typography.font_family.sans"
+          color: "text.secondary"
+          line_height: "typography.line_heights.relaxed"
+          margin_bottom: "spacing.lg"
+          
+        price:
+          font_family: "typography.font_family.primary"
+          font_size: "typography.sizes.xl"
+          font_weight: "typography.weights.semibold"
+          color: "text.accent"
+          
+        action:
+          margin_top: "spacing.xl"
+    
+    # Elegant navigation
+    navigation:
+      background: "rgba(255, 255, 255, 0.95)"
+      backdrop_filter: "blur(20px)"
+      border_bottom: "1px solid #f5f4f0"
+      padding: "spacing.lg spacing.2xl"
+      
+      logo:
+        font_family: "typography.font_family.primary"
+        font_size: "typography.sizes.2xl"
+        font_weight: "typography.weights.semibold"
+        color: "text.accent"
+        letter_spacing: "-0.01em"
+        
+      nav_items:
+        display: "flex"
+        gap: "spacing.2xl"
+        
+      nav_link:
+        font_family: "typography.font_family.sans"
+        color: "text.secondary"
+        padding: "spacing.sm spacing.md"
+        border_radius: "radius.md"
+        font_weight: "typography.weights.medium"
+        letter_spacing: "0.01em"
+        transition: "animation.duration.normal animation.easing.luxury"
+        
+        hover:
+          color: "text.primary"
+          background: "surface.secondary"
+          
+        active:
+          color: "text.accent"
+          background: "rgba(212, 175, 55, 0.1)"
+    
+    # Luxury buttons
+    buttons:
+      primary:
+        background: "button.primary_bg"
+        color: "text.inverse"
+        padding: "spacing.md spacing.xl"
+        border_radius: "radius.lg"
+        font_family: "typography.font_family.sans"
+        font_weight: "typography.weights.semibold"
+        letter_spacing: "0.025em"
+        shadow: "shadows.gold_glow"
+        transition: "animation.duration.luxury animation.easing.luxury"
+        
+        hover:
+          background: "button.primary_hover"
+          transform: "translateY(-2px)"
+          shadow: "shadows.xl"
+          
+      secondary:
+        background: "button.secondary_bg"
+        border: "1px solid button.secondary_border"
+        color: "text.primary"
+        padding: "spacing.md spacing.xl"
+        border_radius: "radius.lg"
+        font_family: "typography.font_family.sans"
+        font_weight: "typography.weights.medium"
+        
+        hover:
+          background: "button.secondary_hover"
+          border_color: "text.accent"
+          color: "text.accent"
+          
+      luxury:
+        background: "transparent"
+        border: "2px solid text.accent"
+        color: "text.accent"
+        padding: "spacing.md spacing.xl"
+        border_radius: "radius.lg"
+        font_family: "typography.font_family.sans"
+        font_weight: "typography.weights.semibold"
+        letter_spacing: "0.025em"
+        
+        hover:
+          background: "text.accent"
+          color: "text.inverse"
+          shadow: "shadows.gold_glow"
+    
+    # Premium forms
+    forms:
+      input:
+        background: "surface.primary"
+        border: "1px solid #e5e7eb"
+        border_radius: "radius.lg"
+        padding: "spacing.lg spacing.xl"
+        font_family: "typography.font_family.sans"
+        font_size: "typography.sizes.base"
+        color: "text.primary"
+        transition: "animation.duration.normal animation.easing.luxury"
+        
+        focus:
+          border_color: "text.accent"
+          outline: "none"
+          box_shadow: "0 0 0 3px rgba(212, 175, 55, 0.1)"
+          
+        error:
+          border_color: "feedback.error"
+          box_shadow: "0 0 0 3px rgba(153, 27, 27, 0.1)"
+          
+      label:
+        font_family: "typography.font_family.sans"
+        font_weight: "typography.weights.medium"
+        color: "text.primary"
+        margin_bottom: "spacing.sm"
+        letter_spacing: "0.01em"
+        
+      textarea:
+        min_height: "150px"
+        resize: "vertical"
+        
+    # Testimonial cards
+    testimonial:
+      background: "surface.marble"
+      border_radius: "radius.2xl"
+      padding: "spacing.2xl"
+      shadow: "shadows.velvet"
+      
+      quote:
+        font_family: "typography.font_family.primary"
+        font_size: "typography.sizes.xl"
+        font_style: "italic"
+        color: "text.primary"
+        line_height: "typography.line_heights.relaxed"
+        margin_bottom: "spacing.xl"
+        
+        before:
+          content: "\""
+          font_size: "typography.sizes.4xl"
+          color: "text.accent"
+          
+        after:
+          content: "\""
+          font_size: "typography.sizes.4xl"
+          color: "text.accent"
+          
+      author:
+        font_family: "typography.font_family.sans"
+        font_weight: "typography.weights.semibold"
+        color: "text.accent"
+        
+      title:
+        font_family: "typography.font_family.sans"
+        color: "text.secondary"
+        font_size: "typography.sizes.sm"
+
+  responsive_design:
+    philosophy: "Luxury-first responsive design with generous spacing"
+    
+    breakpoints:
+      xs: "0px"
+      sm: "640px"
+      md: "768px"
+      lg: "1024px"
+      xl: "1280px"
+      "2xl": "1536px"
+    
+    layout_guidelines:
+      luxury_layout:
+        mobile: "Single column with premium spacing"
+        tablet: "Elegant two-column with focus on content"
+        desktop: "Asymmetrical luxury layout with visual hierarchy"
+        large: "Ultra-wide luxury showcase with dramatic spacing"
+
+compliance:
+  follows_protocol: "APML_UNIVERSAL_DOCUMENTATION_PROTOCOL.apml"
+  theme_category: "Premium"
+  personality: "Elegant, Sophisticated, Premium, Exclusive"
+  use_cases: ["Luxury Brands", "High-End E-commerce", "Premium Services", "Exclusive Platforms"]

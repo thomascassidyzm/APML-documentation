@@ -1,0 +1,124 @@
+component SidebarNavigation:
+  title: "Collapsible Sidebar Navigation"
+  description: "Responsive sidebar with nested navigation, user profile, and collapse functionality"
+  version: "1.0.0"
+  apml_specification_version: "0.9.0"
+  category: "navigation"
+  tags: ["sidebar", "navigation", "responsive", "collapsible"]
+
+data NavigationItem:
+  id: unique_id
+  label: text required
+  icon: text optional
+  url: url optional
+  children: list of NavigationItem optional
+  badge_count: number optional
+  is_active: boolean default false
+  is_expanded: boolean default false
+  permission_required: text optional
+
+data UserProfile:
+  name: text required
+  email: email required
+  avatar: url optional
+  role: text required
+  plan: text optional
+
+interface sidebar_navigation:
+  show sidebar_container:
+    width: 280px when expanded, 64px when collapsed
+    position: fixed left
+    height: full viewport
+    background: glassmorphism with dark theme
+    z_index: 1000
+    
+    display sidebar_header:
+      show logo_section:
+        when expanded:
+          logo_image: company logo
+          brand_text: "APML.dev"
+        when collapsed:
+          logo_icon: compact logo
+          
+      show collapse_toggle:
+        icon: chevron_left when expanded, chevron_right when collapsed
+        tooltip: "Collapse sidebar" or "Expand sidebar"
+        
+    display navigation_menu:
+      for each item in navigation_items:
+        show nav_item:
+          icon: item.icon
+          label: item.label when sidebar_expanded
+          active_indicator: left border highlight when item.is_active
+          badge: item.badge_count when present
+          
+          if item.children exists:
+            show expand_arrow:
+              direction: down when item.is_expanded, right when collapsed
+              
+            when item.is_expanded:
+              show nested_items:
+                for each child in item.children:
+                  display child_nav_item:
+                    icon: child.icon
+                    label: child.label when sidebar_expanded
+                    indent: 16px additional padding
+                    
+    display sidebar_footer:
+      show user_profile_section:
+        when expanded:
+          avatar: user.avatar or default_avatar
+          name: user.name
+          role: user.role
+          dropdown_arrow: settings menu access
+        when collapsed:
+          avatar_only: user.avatar or default_avatar
+          
+      show settings_dropdown:
+        when user_profile_clicked:
+          profile_link: "View Profile"
+          settings_link: "Account Settings" 
+          help_link: "Help & Support"
+          divider: visual separator
+          logout_link: "Sign Out"
+
+logic navigation_behavior:
+  when user clicks collapse_toggle:
+    toggle sidebar_expanded_state
+    save preference to user_settings
+    animate width_transition smoothly
+    
+    if collapsing:
+      hide all_text_labels
+      collapse all_expanded_items
+    else:
+      show all_text_labels with fade_in
+      restore previous_expansion_states
+      
+  when user clicks nav_item:
+    if item.children exists:
+      toggle item.is_expanded
+      animate expansion with slide_down effect
+    else:
+      set item.is_active to true
+      set all_other_items.is_active to false
+      navigate to item.url
+      
+  when user hovers nav_item and sidebar_collapsed:
+    show tooltip with item.label
+    position tooltip to right of sidebar
+    
+  when screen_width < 768px:
+    auto_collapse sidebar
+    show overlay when expanded
+    close sidebar when overlay_clicked
+    
+  process active_state_management:
+    when route_changes:
+      update navigation_item.is_active based on current_url
+      auto_expand parent_items for active_child
+      
+  when user clicks outside sidebar on mobile:
+    if sidebar_expanded:
+      collapse sidebar
+      remove overlay

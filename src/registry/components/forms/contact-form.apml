@@ -1,0 +1,203 @@
+component ContactForm:
+  title: "Multi-Step Contact Form"
+  description: "Progressive contact form with validation, file uploads, and spam protection"
+  version: "1.0.0"
+  apml_specification_version: "0.9.0"
+  category: "forms"
+  tags: ["contact", "multi-step", "validation", "file-upload"]
+
+data ContactSubmission:
+  contact_type: sales | support | partnership | general
+  first_name: text required
+  last_name: text required
+  email: email required
+  company: text optional
+  phone: text optional
+  subject: text required
+  message: text required
+  attachments: list of File optional
+  priority: low | medium | high | urgent default medium
+  newsletter_signup: boolean default false
+  submitted_at: timestamp auto
+  ip_address: text auto
+  user_agent: text auto
+
+data FormStep:
+  step_number: number required
+  title: text required
+  is_complete: boolean default false
+  is_current: boolean default false
+  validation_errors: list of text
+
+interface contact_form:
+  show form_container:
+    title: "Get in Touch"
+    subtitle: "We'd love to hear from you. Send us a message and we'll respond as soon as possible."
+    
+    display progress_indicator:
+      step_1: "Contact Type"
+      step_2: "Your Information" 
+      step_3: "Message Details"
+      step_4: "Review & Submit"
+      
+      for each step in form_steps:
+        show step_indicator:
+          number: step.step_number
+          title: step.title
+          state: completed when step.is_complete
+          state: current when step.is_current
+          state: pending when not yet reached
+          
+    show step_1_contact_type:
+      when current_step is 1:
+        title: "How can we help you?"
+        
+        display contact_options:
+          sales_option:
+            icon: briefcase
+            title: "Sales Inquiry"
+            description: "Learn about our products and pricing"
+            
+          support_option:
+            icon: life_buoy
+            title: "Technical Support"
+            description: "Get help with implementation or issues"
+            
+          partnership_option:
+            icon: handshake
+            title: "Partnership"
+            description: "Explore collaboration opportunities"
+            
+          general_option:
+            icon: chat_bubble
+            title: "General Question"
+            description: "Any other questions or feedback"
+            
+    show step_2_information:
+      when current_step is 2:
+        title: "Tell us about yourself"
+        
+        display personal_info:
+          first_name_input:
+            placeholder: "First name"
+            validation: required, minimum 2 characters
+            
+          last_name_input:
+            placeholder: "Last name"
+            validation: required, minimum 2 characters
+            
+          email_input:
+            placeholder: "Work email address"
+            validation: email format required
+            
+          company_input:
+            placeholder: "Company name (optional)"
+            autocomplete: organization
+            
+          phone_input:
+            placeholder: "Phone number (optional)"
+            format: international phone format
+            validation: valid phone when provided
+            
+    show step_3_message:
+      when current_step is 3:
+        title: "Share your message"
+        
+        display message_details:
+          subject_input:
+            placeholder: "Brief subject line"
+            validation: required, maximum 100 characters
+            character_counter: show remaining characters
+            
+          message_textarea:
+            placeholder: "Tell us more about your question or request..."
+            validation: required, minimum 50 characters
+            rows: 6
+            character_counter: show character count
+            
+          priority_selector:
+            options: low, medium, high, urgent
+            default: medium
+            help_text: "Help us prioritize your request"
+            
+          file_upload:
+            accepted_types: .pdf, .doc, .docx, .png, .jpg
+            max_file_size: 10MB
+            max_files: 3
+            drag_drop: true
+            
+          newsletter_checkbox:
+            label: "Subscribe to our newsletter for updates and tips"
+            help_text: "You can unsubscribe at any time"
+            
+    show step_4_review:
+      when current_step is 4:
+        title: "Review your submission"
+        
+        display summary:
+          contact_type: display selected type with icon
+          personal_info: show name, email, company
+          message_preview: show subject and first 100 characters
+          attachments: list uploaded files with sizes
+          
+        show captcha_verification:
+          type: hcaptcha or recaptcha
+          required: true
+          
+        display submit_section:
+          submit_button:
+            text: "Send Message"
+            loading_text: "Sending your message..."
+            disabled: until captcha_verified
+            
+          privacy_notice:
+            text: "By submitting this form, you agree to our Privacy Policy"
+            privacy_link: link to privacy policy
+
+logic form_behavior:
+  when user selects contact_type:
+    set submission.contact_type
+    advance to step_2
+    mark step_1 as complete
+    
+  when user completes step_2:
+    validate all_required_fields
+    if validation_passes:
+      advance to step_3
+      mark step_2 as complete
+    else:
+      show validation_errors
+      
+  when user completes step_3:
+    validate message_requirements
+    process file_uploads
+    if validation_passes:
+      advance to step_4
+      mark step_3 as complete
+      
+  when user submits final_form:
+    verify captcha_response
+    perform spam_detection
+    
+    if all_checks_pass:
+      save submission to database
+      send confirmation_email to user
+      notify appropriate_team based on contact_type
+      show success_message
+      track form_completion
+    else:
+      show appropriate error_message
+      
+  process file_upload:
+    validate file_type and size
+    scan for malware
+    generate secure_filename
+    upload to secure_storage
+    
+  when user clicks previous_step:
+    return to previous_step
+    preserve all_entered_data
+    
+  auto_save_progress:
+    save form_data to browser_storage every 30 seconds
+    restore on page_reload if data_exists

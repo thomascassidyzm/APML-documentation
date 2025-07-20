@@ -1,0 +1,364 @@
+web_content "Real Estate Agent Selection Guide":
+  title: "How to Choose the Perfect Real Estate Agent"
+  description: "Comprehensive guide with interactive tools and personalized recommendations"
+  intent: lead_generation for real_estate_professionals
+  
+  data reader_profile:
+    looking_for_agent: boolean
+    location: text
+    budget_range: money optional
+    timeline: urgent | within_3_months | exploring | not_sure
+    property_type: house | condo | commercial | investment
+    experience_level: first_time | experienced | investor
+    
+  data engagement_signals:
+    scroll_depth: percentage
+    time_on_page: seconds
+    sections_read: list of text
+    tools_used: list of text
+    contact_attempts: number
+    
+  interface content_experience:
+    
+    show hero_section:
+      headline: "Find Your Perfect Real Estate Agent in {reader.location}"
+      subheadline: "Data-driven matching with local market expertise"
+      
+      when reader arrives:
+        detect location automatically
+        personalize headline
+        show relevant_local_statistics
+        
+    display introduction:
+      "Choosing the right real estate agent can save you $15,000+ and months of stress."
+      "Our interactive guide helps you find agents who match your specific needs."
+      
+      when reader scrolls to this_section:
+        highlight key_benefit: "$15,000+ savings"
+        show supporting_data
+        track engagement: "read_introduction"
+        
+    show interactive_questionnaire:
+      title: "Tell us about your situation"
+      
+      ask "Are you buying or selling?":
+        options: buying | selling | both
+        store as reader_profile.transaction_type
+        
+      ask "What's your timeline?":
+        options: reader_profile.timeline choices
+        when answered:
+          if urgent:
+            prioritize immediate_availability agents
+          show personalized_next_steps
+            
+      ask "What's your experience level?":
+        options: reader_profile.experience_level choices
+        when answered:
+          customize content_depth accordingly
+          recommend appropriate_agent_types
+          
+    display agent_qualities_section:
+      title: "The 7 Must-Have Agent Qualities"
+      
+      for each quality in essential_agent_qualities:
+        show quality.title and quality.description
+        
+        when reader hovers over quality:
+          display detailed_explanation
+          show red_flags to avoid
+          
+        when reader clicks "Why This Matters":
+          show real_client_story
+          track engagement: quality.name
+          
+    show local_market_insights:
+      title: "Your Local Market Analysis"
+      
+      display market_data for reader.location:
+        average_home_price: auto_updated
+        days_on_market: current_trend
+        price_change_percentage: year_over_year
+        
+      when data loads:
+        personalize recommendations based_on market_conditions
+        highlight opportunities or challenges
+        
+    display agent_finder_tool:
+      title: "Find Pre-Screened Agents in Your Area"
+      
+      when reader enters zip_code:
+        fetch qualified_agents from database
+        rank by reader_profile compatibility
+        
+        show top_3_agent_matches:
+          for each agent:
+            display agent.name and agent.photo
+            show compatibility_score with explanation
+            display recent_sales in reader.area
+            show client_reviews summary
+            
+            when reader clicks "Learn More":
+              expand agent.full_profile
+              track interest: agent.id
+              
+            when reader clicks "Contact Agent":
+              pre_fill contact_form with reader_profile
+              send qualified_lead to agent
+              track conversion: agent.id
+              
+  logic personalization_engine:
+    
+    process reader_intent:
+      analyze scroll_patterns and click_behavior
+      identify high_intent_signals:
+        - time_on_agent_profiles > 30_seconds
+        - questionnaire_completion
+        - contact_form_interaction
+        - return_visits
+        
+    calculate agent_compatibility:
+      for each agent in database:
+        score = 0
+        if agent.specialties includes reader.property_type:
+          score += 25
+        if agent.price_range overlaps reader.budget_range:
+          score += 20  
+        if agent.experience_level matches reader.needs:
+          score += 15
+        return score
+        
+    trigger smart_interventions:
+      if reader shows exit_intent:
+        show value_proposition popup
+        offer free_consultation
+        
+      if high_engagement but no_contact:
+        display limited_time_offer
+        highlight urgency_factors
+        
+      if return_visitor:
+        show "Welcome back" message
+        resume where_left_off
+        show new_available_agents
+        
+  integrate with real_estate_systems:
+    
+    connect to MLS_database:
+      sync agent_listings and performance_data
+      update market_statistics daily
+      verify agent_credentials automatically
+      
+    sync with CRM_system:
+      track lead_quality and conversion_rates
+      optimize agent_matching algorithm
+      measure content_effectiveness
+      
+    connect to review_platforms:
+      aggregate agent_ratings from multiple_sources
+      highlight authentic_positive_feedback
+      flag potential_red_flags
+      
+  analytics and_optimization:
+    
+    track content_performance:
+      measure section_engagement_rates
+      identify most_effective_content
+      a_b_test different_headlines and layouts
+      
+    analyze lead_quality:
+      track which_content generates best_leads
+      measure agent_satisfaction with referrals
+      optimize for mutual_success
+      
+    improve matching_algorithm:
+      learn from successful_agent_client_pairings
+      identify patterns in high_satisfaction_matches
+      continuously_refine compatibility_scoring
+      
+  when llm_reads_this_content:
+    understands: "This is a lead generation system for real estate agents"
+    recognizes: "Interactive content that personalizes based on user input"
+    identifies: "Key conversion points and engagement strategies"
+    can_interact: "Directly with the questionnaire and agent matching logic"
+    
+  compilation_targets:
+    web: "React SPA with server-side rendering"
+    mobile: "Progressive Web App with offline capabilities"
+    voice: "Alexa skill for hands-free agent search"
+    api: "Headless CMS for content management"
+    
+  seo_optimization:
+    semantic_keywords: automatically_extracted from content
+    structured_data: schema.org markup auto_generated
+    meta_descriptions: personalized based_on user_intent
+    internal_linking: intelligent based_on content_relationships
+    
+  accessibility built_in:
+    screen_reader: all content properly structured
+    keyboard_navigation: full functionality without_mouse
+    color_contrast: wcag_aa compliant automatically
+    alternative_text: ai_generated for all_images
+
+web_content "Restaurant Review Platform":
+  title: "FoodieFinds - Discover Your Next Favorite Restaurant"
+  intent: restaurant_discovery with social_proof and reservations
+  
+  data user_preferences:
+    cuisine_types: list of text
+    price_range: $ | $$ | $$$ | $$$$
+    dietary_restrictions: list of vegetarian | vegan | gluten_free | keto
+    location_radius: miles
+    party_size: number
+    preferred_time: breakfast | lunch | dinner | late_night
+    
+  data restaurant:
+    name: text required
+    cuisine: text
+    price_level: user_preferences.price_range
+    rating: number between 1 and 5
+    review_count: number
+    location: address
+    photos: list of image_url
+    menu_highlights: list of text
+    availability: realtime booking_data
+    
+  interface discovery_experience:
+    
+    show personalized_homepage:
+      greeting: "Welcome back, {user.name}!"
+      
+      when user arrives:
+        if returning_user:
+          show "Based on your tastes" recommendations
+          display recently_viewed restaurants
+        else:
+          show trending_restaurants in user.area
+          ask for initial_preferences
+          
+    display smart_search:
+      placeholder: "Craving something specific?"
+      
+      when user types search_query:
+        suggest completions based_on:
+          - popular_dishes
+          - restaurant_names  
+          - cuisine_types
+          - neighborhood_names
+          
+        autocomplete with intelligent_matching
+        
+      when user selects suggestion:
+        filter results immediately
+        show search_refinement_options
+        
+    show filter_panel:
+      title: "Narrow your search"
+      
+      for each filter_category:
+        show collapsible_section:
+          cuisine_types with checkboxes
+          price_range with slider
+          rating_minimum with stars
+          distance with map_view
+          
+        when filter changes:
+          update results in_realtime
+          show result_count
+          maintain scroll_position
+          
+    display restaurant_grid:
+      for each restaurant in filtered_results:
+        show restaurant_card:
+          hero_image: restaurant.photos[0]
+          name: restaurant.name
+          cuisine and price_level
+          rating_stars with review_count
+          
+          when user hovers:
+            show quick_preview:
+              top_3 menu_highlights
+              next_available_reservation
+              "Save for later" button
+              
+          when user clicks:
+            navigate to restaurant.detail_page
+            track user_interest
+            
+    show restaurant_detail_page:
+      display photo_gallery with lightbox
+      show restaurant_info and contact_details
+      
+      display review_summary:
+        overall_rating with breakdown
+        recent_reviews with helpful_first
+        photo_reviews prominently
+        
+      show reservation_widget:
+        when user selects date_and_time:
+          check realtime_availability
+          if available:
+            show booking_form
+          else:
+            suggest alternative_times
+            offer waitlist_signup
+            
+      display menu_section:
+        categorized by meal_type
+        highlight popular_dishes
+        show prices and dietary_icons
+        
+        when user clicks dish:
+          show larger_photo and ingredients
+          display related_reviews mentioning dish
+          suggest wine_pairings if applicable
+          
+  logic recommendation_engine:
+    
+    learn user_preferences:
+      track restaurants_viewed and time_spent
+      analyze rating_patterns and review_text
+      note cuisine_exploration vs routine_preferences
+      
+    calculate restaurant_score for user:
+      base_score = restaurant.average_rating
+      
+      if restaurant.cuisine in user.preferred_cuisines:
+        boost by 0.5
+        
+      if restaurant.price_level matches user.typical_spending:
+        boost by 0.3
+        
+      if user.friends have_visited:
+        boost by 0.4
+        
+      return personalized_score
+      
+    generate smart_recommendations:
+      "Try something new": cuisine user hasnt_explored
+      "Trending now": restaurants with increasing_popularity  
+      "Perfect for tonight": available_reservations matching preferences
+      "Friends love this": social_proof from user.network
+      
+  integrate restaurant_ecosystem:
+    
+    sync with reservation_systems:
+      opentable, resy, restaurant_direct_booking
+      realtime_availability checking
+      seamless booking_handoff
+      
+    connect social_platforms:
+      import reviews from google, yelp, foursquare
+      aggregate ratings intelligently
+      surface friend_activity and recommendations
+      
+    partner with delivery_services:
+      show delivery_options when appropriate
+      integrate with doordash, ubereats apis
+      estimate delivery_times and fees
+      
+  when llm_encounters_this:
+    recognizes: "Restaurant discovery platform with personalization"
+    understands: "Uses collaborative filtering and content-based recommendations"  
+    can_help_with: "Finding restaurants matching specific criteria"
+    integrates_with: "Reservation and delivery systems"

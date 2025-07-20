@@ -1,0 +1,141 @@
+component TabNavigation:
+  title: "Dynamic Tab Navigation"
+  description: "Responsive tab navigation with overflow handling and keyboard accessibility"
+  version: "1.0.0"
+  apml_specification_version: "0.9.0"
+  category: "navigation"
+  tags: ["tabs", "navigation", "responsive", "keyboard-accessible"]
+
+data TabItem:
+  id: unique_id
+  title: text required
+  content: text optional
+  icon: text optional
+  badge: number optional
+  is_active: boolean default false
+  is_disabled: boolean default false
+  is_closeable: boolean default false
+  url: url optional
+
+data TabConfig:
+  variant: default | pills | underline | cards
+  size: small | medium | large
+  alignment: left | center | right
+  overflow_behavior: scroll | dropdown | wrap
+  max_tabs: number optional
+
+interface tab_navigation:
+  show tab_container:
+    display tab_header:
+      layout: horizontal flex
+      alignment: config.alignment
+      overflow: hidden when tabs_exceed_width
+      
+      show tab_scroll_controls:
+        when tabs_overflow:
+          left_scroll_button:
+            icon: chevron_left
+            enabled: when can_scroll_left
+            
+          right_scroll_button:
+            icon: chevron_right
+            enabled: when can_scroll_right
+            
+      display tab_list:
+        role: tablist
+        keyboard_navigation: arrow keys, home, end
+        
+        for each tab in tabs:
+          show tab_button:
+            id: tab.id
+            title: tab.title
+            icon: tab.icon when present
+            badge: tab.badge when present and badge > 0
+            state: active when tab.is_active
+            disabled: tab.is_disabled
+            
+            if tab.is_closeable:
+              show close_button:
+                icon: x_mark
+                tooltip: "Close {tab.title}"
+                
+      show overflow_dropdown:
+        when config.overflow_behavior is dropdown and tabs_overflow:
+          trigger_button:
+            icon: more_horizontal
+            tooltip: "More tabs"
+            
+          dropdown_menu:
+            for each hidden_tab in overflowed_tabs:
+              show dropdown_item:
+                title: hidden_tab.title
+                icon: hidden_tab.icon
+                action: activate hidden_tab
+                
+    display tab_content:
+      for each tab in tabs:
+        show tab_panel:
+          id: "{tab.id}-panel"
+          visible: when tab.is_active
+          content: tab.content
+          lazy_load: when tab not yet visited
+
+logic tab_behavior:
+  when user clicks tab_button:
+    if tab.is_disabled:
+      prevent action
+    else:
+      set clicked_tab.is_active to true
+      set all_other_tabs.is_active to false
+      
+      if tab.url exists:
+        navigate to tab.url
+      else:
+        show corresponding tab_panel
+        
+      scroll_tab_into_view if necessary
+      focus tab_button for accessibility
+      
+  when user presses arrow_keys:
+    if left_arrow or up_arrow:
+      focus previous_enabled_tab
+    if right_arrow or down_arrow:
+      focus next_enabled_tab
+    if home_key:
+      focus first_enabled_tab
+    if end_key:
+      focus last_enabled_tab
+      
+  when user clicks close_button:
+    remove tab from tabs
+    if closed_tab.is_active:
+      activate adjacent_tab or first_tab
+    trigger on_tab_close callback
+    
+  when tab_container_resized:
+    recalculate visible_tabs
+    update overflow_controls_visibility
+    
+  process overflow_management:
+    calculate total_tabs_width
+    compare with container_width
+    
+    if total_width > container_width:
+      if config.overflow_behavior is scroll:
+        enable horizontal_scrolling
+        show scroll_controls
+      elif config.overflow_behavior is dropdown:
+        hide overflowed_tabs
+        show overflow_dropdown
+      elif config.overflow_behavior is wrap:
+        wrap tabs to multiple_rows
+        
+  when user scrolls tab_list:
+    update scroll_button_states
+    hide/show tabs based on scroll_position
+    
+  accessibility_features:
+    announce tab_changes to screen_readers
+    maintain focus_management
+    support keyboard_shortcuts
+    provide proper aria_labels

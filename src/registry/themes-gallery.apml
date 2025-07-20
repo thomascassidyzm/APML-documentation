@@ -1,0 +1,124 @@
+app ThemesGallery:
+  title: "APML Themes Gallery"
+  description: "Visual theme library with live previews and one-click downloads"
+  version: "1.0.0"
+  apml_specification_version: "0.9.0"
+
+data Theme:
+  id: unique_id
+  name: text required
+  description: text required
+  category: corporate | creative | minimal | gaming | educational
+  preview_url: url required
+  download_url: url required
+  author: text required
+  downloads: number default 0
+  rating: number default 0
+  screenshots: list of url
+  color_palette: list of text
+  created_at: timestamp auto
+  last_updated: timestamp auto
+
+data ThemeCategory:
+  id: unique_id
+  name: text required
+  description: text required
+  icon: text required
+  theme_count: number auto
+
+interface themes_gallery:
+  show gallery_header:
+    title: "Theme Gallery"
+    subtitle: "Beautiful, ready-to-use themes for your APML applications"
+    
+    display gallery_stats:
+      themes_stat:
+        number: count all themes
+        label: "Themes Available"
+        
+      categories_stat:
+        number: count all categories
+        label: "Style Categories"
+        
+      downloads_stat:
+        number: sum all theme downloads
+        label: "Total Downloads"
+        
+  show featured_themes_section:
+    title: "Featured Themes"
+    
+    display featured_carousel:
+      for each theme in top_rated_themes:
+        show theme_hero_card:
+          large_preview: theme.screenshots[0]
+          overlay_info:
+            name: theme.name
+            description: theme.description
+            author: theme.author
+            rating: theme.rating stars
+            
+          action_buttons:
+            live_preview: "View Live Demo"
+            download_theme: "Download Theme"
+            
+  display theme_categories:
+    for each category in theme_categories:
+      show category_section:
+        header:
+          icon: category.icon
+          title: category.name
+          description: category.description
+          theme_count: category.theme_count + " themes"
+          
+        theme_grid:
+          for each theme in category.themes:
+            display theme_card:
+              preview_image: theme.screenshots[0]
+              
+              theme_info:
+                name: theme.name
+                author: theme.author
+                downloads: theme.downloads + " downloads"
+                
+              color_palette:
+                for each color in theme.color_palette:
+                  show color_swatch: color
+                  
+              card_actions:
+                preview_button: "Live Preview"
+                download_button: "Download"
+                details_link: "View Details"
+
+logic gallery_operations:
+  when user clicks live_preview:
+    open preview_modal with theme.preview_url
+    track theme_preview_analytics
+    
+  when user clicks download_theme:
+    initiate theme_download from theme.download_url
+    increment theme.downloads count
+    track download_analytics
+    show download_instructions
+    
+  when user clicks theme_card:
+    navigate to theme_detail_page
+    show full_screenshots_gallery
+    display theme_specifications
+    show installation_instructions
+    
+  process theme_installation:
+    when user downloads theme:
+      provide APML_theme_file
+      include installation_guide
+      show integration_examples
+      offer support_resources
+      
+  calculate theme_ratings:
+    average user_ratings for each theme
+    weight by download_count and usage_time
+    update featured_themes based on popularity
+    
+  when theme_preview_loads:
+    render live_application using theme
+    allow user_interaction within preview
+    show theme_customization_options

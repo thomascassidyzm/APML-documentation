@@ -52,6 +52,18 @@ data APMLDevSiteContent:
       subtitle: Interactive editor with real-time compilation
       features: Live editor, real-time preview, example templates
       
+    show component_registry:
+      title: Component Registry
+      subtitle: Production-ready APML components for instant integration
+      categories: Authentication, Navigation, Forms, Dashboards
+      features: Live previews, one-click copy, semantic search
+      
+    display themes_gallery:
+      title: Theme Gallery
+      subtitle: Beautiful visual themes with live previews
+      categories: Corporate, Creative, Minimal, Gaming, Educational
+      features: Live demos, instant download, color palettes
+      
     show examples_gallery:
       title: Real-world Examples
       subtitle: See APML in action across different industries

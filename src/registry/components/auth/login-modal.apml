@@ -1,0 +1,126 @@
+component LoginModal:
+  title: "Login Modal Dialog"
+  description: "Secure login modal with social auth and password recovery"
+  version: "1.0.0"
+  apml_specification_version: "0.9.0"
+  category: "authentication"
+  tags: ["login", "modal", "social-auth", "security"]
+
+data LoginCredentials:
+  email: email required
+  password: text required
+  remember_me: boolean default false
+
+data SocialProvider:
+  name: google | github | microsoft | apple
+  client_id: text required
+  auth_url: url required
+  icon: url required
+
+data LoginAttempt:
+  email: email required
+  timestamp: timestamp auto
+  success: boolean required
+  ip_address: text auto
+  user_agent: text auto
+
+interface login_modal:
+  show modal_overlay:
+    backdrop: semi_transparent_dark
+    close_on_outside_click: true
+    escape_key_closes: true
+    
+  display modal_content:
+    title: "Welcome Back"
+    subtitle: "Sign in to your account"
+    
+    show login_form:
+      email_input:
+        placeholder: "Enter your email"
+        autofocus: true
+        autocomplete: email
+        validation: email format required
+        
+      password_input:
+        type: password
+        placeholder: "Enter your password"
+        autocomplete: current_password
+        show_hide_toggle: true
+        
+      remember_me_checkbox:
+        label: "Keep me signed in"
+        tooltip: "You'll stay signed in on this device"
+        
+      login_button:
+        text: "Sign In"
+        primary_style: true
+        loading_text: "Signing you in..."
+        
+      forgot_password_link:
+        text: "Forgot your password?"
+        action: show password_reset_flow
+        
+    display social_login:
+      separator: "Or continue with"
+      
+      for each provider in social_providers:
+        show social_button:
+          provider: provider.name
+          icon: provider.icon
+          text: "Continue with {provider.name}"
+          
+    show signup_prompt:
+      text: "Don't have an account?"
+      signup_link: "Sign up for free"
+      action: close modal, show signup_flow
+
+logic authentication:
+  when user submits login_form:
+    validate email_format
+    validate password_not_empty
+    
+    if validation_passes:
+      check rate_limiting for email
+      if too_many_attempts:
+        show error: "Too many login attempts. Please try again in 15 minutes."
+      else:
+        attempt user_authentication
+        log login_attempt
+        
+        if authentication_successful:
+          if remember_me_checked:
+            set long_term_session
+          else:
+            set short_term_session
+          close modal
+          redirect to dashboard
+          track login_success
+        else:
+          show error: "Invalid email or password"
+          increment failed_attempts for email
+          
+  when user clicks social_button:
+    initiate oauth_flow with provider
+    redirect to provider.auth_url
+    
+  when oauth_callback_received:
+    validate oauth_token
+    if token_valid:
+      create or update user_account
+      set user_session
+      close modal
+      redirect to dashboard
+    else:
+      show error: "Social login failed. Please try again."
+      
+  when user clicks close_modal:
+    clear form_data
+    hide modal
+    return focus to trigger_element
+    
+  process security_monitoring:
+    track login_attempts by ip_address
+    detect suspicious_patterns
+    if brute_force_detected:
+      temporarily_block ip_address
+      notify security_team

@@ -1,0 +1,110 @@
+app ComponentsRegistry:
+  title: "APML Component Registry"
+  description: "Production-ready APML components for instant integration"
+  version: "1.0.0"
+  apml_specification_version: "0.9.0"
+
+data Component:
+  id: unique_id
+  title: text required
+  description: text required
+  category: authentication | navigation | forms | dashboards
+  tags: list of text
+  version: text required
+  file_path: text required
+  author: text optional
+  downloads: number default 0
+  last_updated: timestamp auto
+
+data Category:
+  id: unique_id
+  name: text required
+  icon: text required
+  component_count: number auto
+
+data ComponentRegistry:
+  total_components: number auto
+  categories: list of Category
+  featured_components: list of Component
+  search_query: text optional
+  selected_category: text default "all"
+
+interface components_registry:
+  show registry_header:
+    title: "Component Registry"
+    subtitle: "Production-ready APML components for instant integration"
+    
+    display registry_stats:
+      total_components_stat:
+        number: count all components
+        label: "Components"
+        
+      categories_stat:
+        number: count all categories
+        label: "Categories"
+        
+      specification_stat:
+        number: "100%"
+        label: "APML v0.9.0"
+        
+  display search_and_filters:
+    show search_input:
+      placeholder: "Search components..."
+      binding: registry.search_query
+      
+    show category_filters:
+      for each category in categories:
+        display filter_button:
+          icon: category.icon
+          label: category.name
+          active: when selected_category equals category.id
+          
+  show components_grid:
+    for each component in filtered_components:
+      display component_card:
+        header:
+          title: component.title
+          category_badge: component.category
+          
+        description: component.description
+        
+        tags_section:
+          for each tag in component.tags:
+            show tag_chip: tag
+            
+        footer:
+          version_info: "v" + component.version
+          action_buttons:
+            preview_button: "Preview"
+            copy_button: "Copy APML"
+            
+logic registry_operations:
+  when user types in search_input:
+    filter components by title, description, or tags
+    update components_grid display
+    
+  when user clicks category_filter:
+    set selected_category to clicked category
+    filter components by category
+    update components_grid display
+    
+  when user clicks component_card:
+    navigate to component_detail_view
+    track component_view_analytics
+    
+  when user clicks preview_button:
+    open component_preview_modal
+    load component_code from file_path
+    render live_preview
+    
+  when user clicks copy_button:
+    read component_file from registry
+    copy APML_code to clipboard
+    show success_notification
+    track component_copy_analytics
+    
+  process component_loading:
+    load all_components from registry_directory
+    parse component_metadata from files
+    calculate category_counts
+    sort by popularity and last_updated

@@ -1,0 +1,116 @@
+component SignupFlow:
+  title: "User Registration Flow"
+  description: "Complete signup process with validation and email verification"
+  version: "1.0.0"
+  apml_specification_version: "0.9.0"
+  category: "authentication"
+  tags: ["signup", "registration", "validation", "email"]
+  
+data User:
+  email: email unique required
+  password: text required
+  confirm_password: text required
+  first_name: text required
+  last_name: text required
+  terms_accepted: boolean required
+  marketing_consent: boolean default false
+  created_at: timestamp auto
+  verification_token: unique_id auto
+  is_verified: boolean default false
+
+data ValidationError:
+  field: text required
+  message: text required
+  type: required | format | match | length
+
+interface signup_flow:
+  show signup_form:
+    title: "Create Your Account"
+    subtitle: "Join thousands of developers building with APML"
+    
+    display form_fields:
+      email_input:
+        placeholder: "Enter your email"
+        validation: email format required
+        error_message: "Please enter a valid email address"
+        
+      password_input:
+        type: password
+        placeholder: "Choose a strong password"
+        validation: minimum 8 characters, mixed case, numbers
+        strength_indicator: show password strength meter
+        
+      confirm_password_input:
+        type: password
+        placeholder: "Confirm your password"
+        validation: must match password_input
+        
+      first_name_input:
+        placeholder: "First name"
+        validation: required, minimum 2 characters
+        
+      last_name_input:
+        placeholder: "Last name"
+        validation: required, minimum 2 characters
+        
+      terms_checkbox:
+        label: "I agree to the Terms of Service and Privacy Policy"
+        validation: required
+        links: terms_url, privacy_url
+        
+      marketing_checkbox:
+        label: "Send me updates about new APML features and components"
+        validation: optional
+    
+    display signup_button:
+      text: "Create Account"
+      state: enabled when all_validations_pass
+      loading_text: "Creating your account..."
+      
+  show verification_step:
+    when signup_successful:
+      title: "Check Your Email"
+      message: "We've sent a verification link to {user.email}"
+      resend_button: "Resend verification email"
+      edit_email_link: "Use a different email"
+
+logic signup_operations:
+  when user submits signup_form:
+    validate all_required_fields_present
+    validate email_format_correct
+    validate password_meets_requirements
+    validate passwords_match
+    validate terms_accepted is true
+    
+    if validation_passes:
+      check email_already_exists
+      if email_exists:
+        show error: "An account with this email already exists"
+      else:
+        create user_account
+        generate verification_token
+        send verification_email
+        show verification_step
+        
+  when user clicks resend_verification:
+    if last_sent < 1 minute ago:
+      show error: "Please wait before requesting another email"
+    else:
+      generate new_verification_token
+      send verification_email
+      show success: "Verification email sent"
+      
+  when user clicks verification_link:
+    validate verification_token
+    if token_valid:
+      update user.is_verified to true
+      redirect to dashboard
+      show welcome_message
+    else:
+      show error: "Invalid or expired verification link"
+      offer resend_option
+
+integrations:
+  email_service: send verification emails
+  analytics: track signup_conversion_rate
+  security: rate_limit signup_attempts

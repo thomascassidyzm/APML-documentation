@@ -1,0 +1,63 @@
+app APMLRegistry:
+  title: "APML Component and Theme Registry"
+  description: "Comprehensive registry for APML components and themes"
+  version: "1.0.0"
+  apml_specification_version: "0.9.0"
+
+data Component:
+  id: unique_id
+  title: text required
+  description: text required
+  category: authentication | navigation | forms | dashboards
+  tags: list of text
+  version: text required
+  file_path: text required
+  downloads: number default 0
+
+data Theme:
+  id: unique_id
+  name: text required
+  description: text required
+  category: corporate | creative | minimal | gaming
+  preview_url: url required
+  downloads: number default 0
+  color_palette: list of text
+
+interface registry_navigation:
+  show main_sections:
+    components_section:
+      title: "Component Registry"
+      subtitle: "Production-ready APML components"
+      url: "/components"
+      
+    themes_section:
+      title: "Theme Gallery"
+      subtitle: "Beautiful visual themes"
+      url: "/themes"
+      
+    examples_section:
+      title: "Examples"
+      subtitle: "Real-world applications"
+      url: "/examples"
+      
+    playground_section:
+      title: "Playground"
+      subtitle: "Try APML live"
+      url: "/playground"
+
+logic registry_routing:
+  when user navigates to "/components":
+    load components_registry_page
+    display all_components with filtering
+    
+  when user navigates to "/themes":
+    load themes_gallery_page
+    display all_themes with previews
+    
+  when user clicks component_card:
+    show component_preview_modal
+    load component_source_code
+    
+  when user clicks theme_preview:
+    open theme_live_demo
+    track preview_analytics

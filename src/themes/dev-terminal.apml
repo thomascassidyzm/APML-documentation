@@ -1,0 +1,418 @@
+# Dev Terminal Theme - Technical Precision
+
+metadata:
+  document_type: "STYLEGUIDE" 
+  owner: "ADE_ThemeSystem"
+  created_at: "2025-01-20T1500"
+  version: "1.0"
+  purpose: "Terminal-inspired aesthetic for developer tools and technical applications"
+
+styleguide:
+  name: "Dev Terminal"
+  version: "1.0"
+  philosophy: "Function over form. Precision over aesthetics. Power over polish."
+  
+  tokens:
+    colors:
+      # Primary brand colors - Terminal green
+      primary: 
+        50: "#f0fdf4"
+        100: "#dcfce7" 
+        200: "#bbf7d0"
+        300: "#86efac"
+        400: "#4ade80"
+        500: "#00ff41"  # Classic terminal green
+        600: "#16a34a"
+        700: "#15803d"
+        800: "#166534"
+        900: "#14532d"
+      
+      # Secondary colors - Electric blue
+      secondary:
+        50: "#eff6ff"
+        100: "#dbeafe"
+        200: "#bfdbfe"
+        300: "#93c5fd"
+        400: "#60a5fa"
+        500: "#00d9ff"  # Electric cyan
+        600: "#2563eb"
+        700: "#1d4ed8"
+        800: "#1e40af"
+        900: "#1e3a8a"
+      
+      # Background system - Dark terminal
+      background:
+        primary: "#0a0a0a"     # Pure black
+        secondary: "#1a1a1a"   # Dark gray
+        tertiary: "#2a2a2a"    # Lighter gray
+        overlay: "rgba(10, 10, 10, 0.95)"
+      
+      # Surface colors - Terminal surfaces
+      surface:
+        primary: "#1a1a1a"     # Terminal background
+        secondary: "#2a2a2a"   # Elevated panels
+        tertiary: "#3a3a3a"    # Interactive surfaces
+        glass: "rgba(26, 26, 26, 0.9)"
+      
+      # Text hierarchy - Terminal colors
+      text:
+        primary: "#00ff41"     # Terminal green
+        secondary: "#00d9ff"   # Electric cyan
+        tertiary: "#888888"    # Gray
+        muted: "#666666"       # Darker gray
+        inverse: "#0a0a0a"     # Black on light
+        white: "#ffffff"       # Pure white
+      
+      # Interactive feedback - Terminal status colors
+      feedback:
+        success: "#00ff41"     # Terminal green
+        error: "#ff3333"       # Terminal red
+        warning: "#ffff00"     # Terminal yellow
+        info: "#00d9ff"        # Terminal cyan
+        
+      # Button states - Technical colors
+      button:
+        primary_bg: "#00ff41"
+        primary_hover: "#00cc33"
+        primary_active: "#009926"
+        secondary_bg: "transparent"
+        secondary_border: "#3a3a3a"
+        secondary_hover: "#2a2a2a"
+      
+      # Syntax highlighting colors
+      syntax:
+        keyword: "#ff79c6"     # Pink
+        string: "#f1fa8c"      # Yellow
+        comment: "#6272a4"     # Purple
+        function: "#8be9fd"    # Cyan
+        variable: "#ffb86c"    # Orange
+        number: "#bd93f9"      # Purple
+        operator: "#50fa7b"    # Green
+    
+    typography:
+      font_family:
+        primary: "'JetBrains Mono', 'Fira Code', 'SF Mono', monospace"
+        mono: "'JetBrains Mono', 'Fira Code', 'SF Mono', monospace"
+        sans: "'Inter', 'Roboto', sans-serif"  # Fallback for UI
+      
+      sizes:
+        xs: "0.75rem"     # 12px
+        sm: "0.8125rem"   # 13px - Terminal size
+        base: "0.875rem"  # 14px - Terminal default
+        lg: "1rem"        # 16px
+        xl: "1.125rem"    # 18px
+        "2xl": "1.25rem"  # 20px
+        "3xl": "1.5rem"   # 24px
+        "4xl": "2rem"     # 32px
+        "5xl": "2.5rem"   # 40px
+        "6xl": "3rem"     # 48px
+      
+      weights:
+        light: 300
+        normal: 400
+        medium: 500
+        semibold: 600
+        bold: 700
+      
+      line_heights:
+        tight: 1.2
+        normal: 1.4
+        relaxed: 1.6
+        code: 1.5        # Perfect for code
+    
+    spacing:
+      unit: "0.25rem"  # 4px base - precise grid
+      scale: [0, 1, 2, 3, 4, 5, 6, 8, 10, 12, 16, 20, 24, 32, 40, 48, 56, 64]
+      
+      # Technical spacing
+      xs: "0.25rem"     # 4px
+      sm: "0.5rem"      # 8px
+      md: "0.75rem"     # 12px
+      lg: "1rem"        # 16px
+      xl: "1.5rem"      # 24px
+      "2xl": "2rem"     # 32px
+      "3xl": "3rem"     # 48px
+    
+    radius:
+      none: "0"         # Sharp edges preferred
+      sm: "0.125rem"    # 2px - minimal
+      base: "0.25rem"   # 4px
+      md: "0.375rem"    # 6px
+      lg: "0.5rem"      # 8px - maximum for terminal
+      xl: "0.75rem"     # 12px
+      full: "9999px"
+    
+    shadows:
+      none: "none"
+      sm: "0 1px 2px 0 rgba(0, 255, 65, 0.1)"
+      base: "0 1px 3px 0 rgba(0, 255, 65, 0.2)"
+      md: "0 4px 6px -1px rgba(0, 255, 65, 0.2)"
+      lg: "0 10px 15px -3px rgba(0, 255, 65, 0.3)"
+      xl: "0 20px 25px -5px rgba(0, 255, 65, 0.4)"
+      "2xl": "0 25px 50px -12px rgba(0, 255, 65, 0.5)"
+      inner: "inset 0 2px 4px 0 rgba(0, 0, 0, 0.5)"
+      
+      # Terminal glows
+      terminal_glow: "0 0 20px rgba(0, 255, 65, 0.5)"
+      cyan_glow: "0 0 20px rgba(0, 217, 255, 0.5)"
+      error_glow: "0 0 20px rgba(255, 51, 51, 0.5)"
+      scan_line: "inset 0 1px 0 rgba(0, 255, 65, 0.3)"
+    
+    animation:
+      duration:
+        instant: "0ms"
+        fast: "100ms"     # Snappy terminal feel
+        normal: "200ms"
+        slow: "300ms"
+        slower: "500ms"
+        terminal: "50ms"  # Ultra-fast terminal
+      
+      easing:
+        linear: "cubic-bezier(0, 0, 1, 1)"
+        ease_in: "cubic-bezier(0.4, 0, 1, 1)"
+        ease_out: "cubic-bezier(0, 0, 0.2, 1)"
+        ease_in_out: "cubic-bezier(0.4, 0, 0.2, 1)"
+        terminal: "steps(10, end)"  # Stepped animation
+
+  component_styles:
+    # Terminal window
+    terminal_window:
+      background: "background.primary"
+      border: "1px solid surface.tertiary"
+      border_radius: "radius.lg"
+      overflow: "hidden"
+      shadow: "shadows.terminal_glow"
+      
+      header:
+        background: "surface.secondary"
+        padding: "spacing.sm spacing.md"
+        border_bottom: "1px solid surface.tertiary"
+        display: "flex"
+        align_items: "center"
+        gap: "spacing.sm"
+        
+        title:
+          color: "text.secondary"
+          font_size: "typography.sizes.sm"
+          font_family: "typography.font_family.mono"
+          
+        controls:
+          display: "flex"
+          gap: "spacing.xs"
+          
+          button:
+            width: "12px"
+            height: "12px"
+            border_radius: "radius.full"
+            border: "none"
+            
+          close: { background: "#ff5f56" }
+          minimize: { background: "#ffbd2e" }
+          maximize: { background: "#27ca3f" }
+      
+      content:
+        padding: "spacing.md"
+        font_family: "typography.font_family.mono"
+        font_size: "typography.sizes.sm"
+        line_height: "typography.line_heights.code"
+        color: "text.primary"
+        
+      prompt:
+        color: "text.primary"
+        
+        before:
+          content: "$ "
+          color: "text.secondary"
+          
+      cursor:
+        background: "text.primary"
+        width: "8px"
+        height: "14px"
+        animation: "blink 1s infinite"
+    
+    # Code blocks
+    code_block:
+      background: "surface.primary"
+      border: "1px solid surface.tertiary"
+      border_radius: "radius.md"
+      padding: "spacing.lg"
+      overflow_x: "auto"
+      
+      pre:
+        font_family: "typography.font_family.mono"
+        font_size: "typography.sizes.sm"
+        line_height: "typography.line_heights.code"
+        color: "text.white"
+        margin: "0"
+        
+      line_numbers:
+        color: "text.muted"
+        margin_right: "spacing.md"
+        user_select: "none"
+    
+    # Developer navigation
+    navigation:
+      background: "surface.primary"
+      border_bottom: "1px solid surface.tertiary"
+      padding: "spacing.sm spacing.md"
+      
+      logo:
+        font_family: "typography.font_family.mono"
+        font_size: "typography.sizes.lg"
+        font_weight: "typography.weights.bold"
+        color: "text.primary"
+        
+        before:
+          content: "> "
+          color: "text.secondary"
+          
+      nav_items:
+        display: "flex"
+        gap: "spacing.lg"
+        
+      nav_link:
+        color: "text.tertiary"
+        padding: "spacing.xs spacing.sm"
+        border_radius: "radius.sm"
+        font_family: "typography.font_family.mono"
+        font_size: "typography.sizes.sm"
+        text_decoration: "none"
+        transition: "animation.duration.terminal"
+        
+        hover:
+          color: "text.primary"
+          background: "surface.secondary"
+          
+        active:
+          color: "text.primary"
+          background: "surface.tertiary"
+          shadow: "shadows.scan_line"
+    
+    # Technical buttons
+    buttons:
+      primary:
+        background: "button.primary_bg"
+        color: "background.primary"
+        padding: "spacing.sm spacing.md"
+        border: "none"
+        border_radius: "radius.sm"
+        font_family: "typography.font_family.mono"
+        font_size: "typography.sizes.sm"
+        font_weight: "typography.weights.medium"
+        shadow: "shadows.terminal_glow"
+        transition: "animation.duration.terminal"
+        
+        hover:
+          background: "button.primary_hover"
+          transform: "translateY(-1px)"
+          
+        active:
+          transform: "translateY(0)"
+          
+      secondary:
+        background: "button.secondary_bg"
+        border: "1px solid button.secondary_border"
+        color: "text.secondary"
+        padding: "spacing.sm spacing.md"
+        border_radius: "radius.sm"
+        font_family: "typography.font_family.mono"
+        font_size: "typography.sizes.sm"
+        
+        hover:
+          background: "button.secondary_hover"
+          border_color: "text.tertiary"
+          color: "text.primary"
+          
+      danger:
+        background: "feedback.error"
+        color: "background.primary"
+        border: "none"
+        shadow: "shadows.error_glow"
+        
+        hover:
+          background: "#cc0000"
+    
+    # Developer forms
+    forms:
+      input:
+        background: "surface.secondary"
+        border: "1px solid surface.tertiary"
+        border_radius: "radius.sm"
+        padding: "spacing.sm spacing.md"
+        font_family: "typography.font_family.mono"
+        font_size: "typography.sizes.sm"
+        color: "text.primary"
+        
+        focus:
+          border_color: "text.primary"
+          outline: "none"
+          box_shadow: "0 0 0 2px rgba(0, 255, 65, 0.2)"
+          
+        error:
+          border_color: "feedback.error"
+          box_shadow: "0 0 0 2px rgba(255, 51, 51, 0.2)"
+          
+      label:
+        font_family: "typography.font_family.mono"
+        font_size: "typography.sizes.sm"
+        color: "text.secondary"
+        margin_bottom: "spacing.xs"
+        
+        before:
+          content: "# "
+          color: "syntax.comment"
+          
+      textarea:
+        min_height: "120px"
+        resize: "vertical"
+        font_family: "typography.font_family.mono"
+    
+    # Status indicators
+    status:
+      online:
+        color: "feedback.success"
+        
+        before:
+          content: "● "
+          
+      offline:
+        color: "text.muted"
+        
+        before:
+          content: "● "
+          
+      error:
+        color: "feedback.error"
+        
+        before:
+          content: "✗ "
+          
+      warning:
+        color: "feedback.warning"
+        
+        before:
+          content: "⚠ "
+
+  responsive_design:
+    philosophy: "Terminal-first responsive design with fixed-width priorities"
+    
+    breakpoints:
+      xs: "0px"
+      sm: "640px"
+      md: "768px"
+      lg: "1024px"
+      xl: "1280px"
+      "2xl": "1536px"
+    
+    layout_guidelines:
+      terminal_layout:
+        mobile: "Full-width terminal with horizontal scroll"
+        tablet: "Comfortable terminal width with side panels"
+        desktop: "Multi-panel IDE-style layout"
+        large: "Ultra-wide terminal with multiple panes"
+
+compliance:
+  follows_protocol: "APML_UNIVERSAL_DOCUMENTATION_PROTOCOL.apml"
+  theme_category: "Technical"
+  personality: "Precise, Functional, Professional, Power-User"
+  use_cases: ["Developer Tools", "Code Editors", "Terminal Applications", "Technical Documentation"]

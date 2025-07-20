@@ -1,0 +1,116 @@
+component Breadcrumbs:
+  title: "Smart Breadcrumb Navigation"
+  description: "Dynamic breadcrumbs with auto-collapse, custom separators, and schema markup"
+  version: "1.0.0"
+  apml_specification_version: "0.9.0"
+  category: "navigation"
+  tags: ["breadcrumbs", "navigation", "seo", "responsive"]
+
+data BreadcrumbItem:
+  title: text required
+  url: url optional
+  icon: text optional
+  is_current: boolean default false
+  is_clickable: boolean default true
+
+data BreadcrumbConfig:
+  separator: "/" | ">" | "•" | custom_icon
+  max_items: number default 5
+  collapse_behavior: smart | always | never
+  show_home_icon: boolean default true
+  schema_markup: boolean default true
+
+interface breadcrumb_navigation:
+  show breadcrumb_container:
+    semantic_element: nav
+    aria_label: "Breadcrumb navigation"
+    
+    display breadcrumb_list:
+      if config.schema_markup:
+        microdata: BreadcrumbList schema
+        
+      show home_item:
+        when config.show_home_icon:
+          icon: home
+          title: "Home"
+          url: "/"
+          
+      process breadcrumb_items:
+        if items.length > config.max_items:
+          show collapsed_breadcrumbs:
+            first_item: items[0]
+            ellipsis_item: 
+              text: "..."
+              dropdown_trigger: true
+            last_items: items[-2:]
+        else:
+          show all_breadcrumb_items
+          
+      for each item in visible_items:
+        show breadcrumb_item:
+          if not item.is_current:
+            link_element: clickable navigation
+            url: item.url
+            title: item.title
+            icon: item.icon when present
+          else:
+            current_page_indicator:
+              title: item.title
+              aria_current: "page"
+              non_clickable: true
+              
+          if not last_item:
+            show separator:
+              symbol: config.separator
+              aria_hidden: true
+              
+    show collapsed_dropdown:
+      when ellipsis_clicked:
+        display hidden_items:
+          for each hidden_item in collapsed_items:
+            show dropdown_link:
+              title: hidden_item.title
+              url: hidden_item.url
+              action: navigate and update_breadcrumbs
+
+logic breadcrumb_behavior:
+  when page_navigation_occurs:
+    update current_page_breadcrumb
+    generate breadcrumb_trail from url_path
+    set previous_items.is_current to false
+    set current_item.is_current to true
+    
+  when user clicks breadcrumb_link:
+    navigate to item.url
+    track breadcrumb_navigation_analytics
+    
+  when breadcrumb_container_resized:
+    if config.collapse_behavior is smart:
+      recalculate visible_breadcrumbs
+      auto_collapse when space_limited
+      
+  process intelligent_collapsing:
+    calculate available_width
+    measure breadcrumb_items_width
+    
+    if total_width > available_width:
+      start_collapsing from middle_items
+      preserve first_item and last_two_items
+      show ellipsis_dropdown for hidden_items
+      
+  generate schema_markup:
+    when config.schema_markup is true:
+      create structured_data:
+        type: BreadcrumbList
+        itemListElement: for each breadcrumb with position and url
+        
+  accessibility_enhancements:
+    provide proper aria_labels
+    support keyboard_navigation
+    announce breadcrumb_changes to screen_readers
+    ensure sufficient color_contrast
+    
+  when ellipsis_dropdown_opens:
+    focus first_dropdown_item
+    close on escape_key or outside_click
+    support arrow_key_navigation within dropdown
