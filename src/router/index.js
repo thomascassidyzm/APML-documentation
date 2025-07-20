@@ -4,6 +4,7 @@ import SpecificationPage from '../pages/SpecificationPage.vue'
 import PlaygroundPage from '../pages/PlaygroundPage.vue'
 import ExamplesPage from '../pages/ExamplesPage.vue'
 import PatternLibraryRoutes from './pattern-library-routes.js'
+import ConversationRoutes from './conversation-routes.js'
 
 const routes = [
   {
@@ -30,8 +31,10 @@ const routes = [
     component: ExamplesPage,
     meta: { showInNav: true, title: 'Examples', icon: 'light-bulb' }
   },
-  // Pattern Library Routes
-  ...PatternLibraryRoutes
+  // Pattern Library Routes  
+  ...PatternLibraryRoutes,
+  // Conversation-Preserving Routes
+  ...ConversationRoutes
 ]
 
 const router = createRouter({
