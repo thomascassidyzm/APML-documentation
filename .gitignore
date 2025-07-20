@@ -101,3 +101,32 @@ temp/
 *.njsproj
 *.sln
 *.sw?
+
+# Vue/Vite specific
+.vite/
+dist/
+*.local
+
+# UnoCSS
+uno.css
+.uno.css
+
+# Auto-generated files
+src/components/auto-generated/
+src/pages/auto-generated/
+*.generated.*
+*-generated.*
+
+# Pattern compilation outputs
+src/patterns/**/compiled/
+src/patterns/**/*.compiled.*
+
+# CSS Maps and compiled assets
+*.css.map
+*.js.map
+assets/
+
+# Test outputs
+test-results/
+playwright-report/
+coverage/
