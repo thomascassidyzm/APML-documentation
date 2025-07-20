@@ -30,6 +30,12 @@
               <li><strong>App→App:</strong> Processing, logic, internal workflows</li>
             </ul>
           </div>
+          
+          <div class="content-section">
+            <h2>APML v0.9.0 Syntax Example</h2>
+            <p>Here's a complete APML application demonstrating the Trinity Principle:</p>
+            <APMLCodeBlock :code="exampleCode" />
+          </div>
       </div>
     </main>
   </div>
@@ -37,8 +43,78 @@
 
 <script setup>
 import { ref, onMounted } from 'vue'
+import APMLCodeBlock from '../components/APMLCodeBlock.vue'
 
 const loading = ref(false)
+
+const exampleCode = ref(`app TodoManager:
+  title: "Personal Task Manager"
+  description: "Complete APML application demonstrating Trinity Principle"
+  version: 1.0
+  apml_specification_version: "0.9.0"
+  
+data Task:
+  id: unique_id
+  title: text required
+  priority: high | medium | low default medium
+  status: pending | in_progress | completed default pending
+  due_date: date optional
+  created_at: timestamp auto
+  updated_at: timestamp auto
+  
+data User:
+  id: unique_id
+  name: text required
+  email: email unique
+  tasks: list of Task
+  
+interface task_management:
+  # App→User: Display information to users
+  show welcome_header:
+    greeting: "Welcome back, " + user.name
+    task_summary: count tasks where status is pending
+    
+  display task_creation_form:
+    title_input: text required
+    priority_selector: high | medium | low
+    due_date_picker: date optional
+    
+  # User→App: Handle user interactions  
+  show task_list:
+    for each task in user.tasks:
+      display task_card:
+        title: task.title
+        priority_badge: task.priority
+        status_indicator: task.status
+        if task.due_date < today:
+          highlight as overdue
+          
+logic task_operations:
+  # App→App: Internal processing workflows
+  when user submits task_form:
+    validate task.title is not empty
+    if validation_passes:
+      create new_task with user_input
+      add to user.tasks
+      clear form_fields
+      show success_notification
+      
+  when user marks_task_complete:
+    update task.status to completed
+    set task.updated_at to now
+    trigger completion_animation
+    calculate productivity_metrics
+    
+  process productivity_analytics:
+    completed_this_week = count tasks where status is completed and updated_at > week_ago
+    completion_rate = (completed_this_week / total_tasks) * 100
+    generate weekly_insights
+    
+  calculate overdue_tasks:
+    overdue_count = count tasks where due_date < today and status is not completed
+    if overdue_count > 0:
+      show overdue_warning
+      suggest reschedule_options`)
 
 onMounted(() => {
   console.log('Specification Section page loaded')
