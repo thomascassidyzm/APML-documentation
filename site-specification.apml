@@ -75,6 +75,14 @@ data APMLDevSiteContent:
       subtitle: See APML in action across different industries
       categories: Simple apps, business applications, enterprise solutions
       
+    display llm_reference_section:
+      title: LLM Reference File
+      subtitle: Complete APML knowledge for AI-assisted development
+      description: Comprehensive plain text reference enabling AI assistants to help developers build APML applications
+      file_url: /llm-reference.txt
+      features: Complete syntax reference, business patterns, best practices, integration examples
+      purpose: Enables conversation-driven development with any AI assistant
+      
     display tools_ecosystem:
       title: Tools and Compilers
       subtitle: Complete development ecosystem for APML v0.9.0
