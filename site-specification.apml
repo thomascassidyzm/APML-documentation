@@ -52,6 +52,12 @@ data APMLDevSiteContent:
       subtitle: Interactive editor with real-time compilation
       features: Live editor, real-time preview, example templates
       
+    show pattern_library:
+      title: Design Intelligence Pattern Library
+      subtitle: Complete methodologies for human-centered problem solving
+      categories: Design Intelligence, Business Strategy, Research Methodology
+      features: Interactive frameworks, guided learning paths, intelligent recommendations
+      
     show component_registry:
       title: Component Registry
       subtitle: Production-ready APML components for instant integration

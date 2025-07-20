@@ -1,0 +1,275 @@
+app BusinessStrategyPatterns:
+  title: "Strategic Business Design & Model Innovation Patterns"
+  description: "APML-based frameworks for business model design, competitive strategy, and organizational transformation"
+  version: "1.0.0"
+  apml_specification_version: "0.9.0"
+
+data BusinessModel:
+  value_propositions: list of text required
+  customer_segments: list of text required
+  revenue_streams: list of text required
+  key_partnerships: list of text
+  key_resources: list of text required
+  key_activities: list of text required
+  cost_structure: list of text required
+  channels: list of text required
+  customer_relationships: list of text required
+
+data CompetitiveStrategy:
+  market_position: cost_leader | differentiator | focused_niche
+  competitive_advantages: list of text required
+  barrier_strategies: list of text
+  market_entry_approach: text required
+  value_chain_optimization: list of text
+
+data StrategicObjective:
+  goal: text required
+  success_metrics: list of text required
+  timeline: text required
+  resource_requirements: list of text
+  risk_factors: list of text
+  dependencies: list of text
+
+interface strategic_planning:
+  show business_model_canvas:
+    title: "Business Model Design Workshop"
+    
+    display canvas_sections:
+      value_propositions_section:
+        title: "Value Propositions"
+        prompt: "What value do you deliver to customers?"
+        examples: "Cost reduction, convenience, performance, customization"
+        
+      customer_segments_section:
+        title: "Customer Segments"
+        prompt: "Who are your most important customers?"
+        examples: "Mass market, niche market, segmented, diversified"
+        
+      revenue_streams_section:
+        title: "Revenue Streams"
+        prompt: "How do you generate revenue from each segment?"
+        examples: "Asset sale, subscription, licensing, advertising"
+        
+    when user completes canvas_section:
+      validate completeness_and_consistency
+      highlight potential_conflicts_or_gaps
+      suggest optimization_opportunities
+      
+  display lean_canvas:
+    when startup_or_new_product_context:
+      show problem_solution_fit_focus:
+        problems_section: "Top 3 problems you solve"
+        solutions_section: "Top 3 features addressing problems"
+        unique_value_proposition: "Single compelling message"
+        unfair_advantage: "Something that cannot be easily copied"
+        
+      show metrics_and_validation:
+        key_metrics: "Numbers that tell you how your business is doing"
+        channels: "Path to customers"
+        cost_structure: "Customer acquisition costs, distribution costs"
+        revenue_streams: "Revenue model, lifetime value"
+        
+  show competitive_analysis:
+    title: "Strategic Positioning & Competitive Advantage"
+    
+    display porter_five_forces:
+      threat_of_new_entrants:
+        barriers_to_entry: list of industry_specific_barriers
+        capital_requirements: assessment of_financial_barriers
+        brand_loyalty: evaluation of_customer_switching_costs
+        
+      bargaining_power_of_suppliers:
+        supplier_concentration: analysis of_supplier_market_structure
+        switching_costs: cost_to_change_suppliers
+        availability_of_substitutes: alternative_supplier_options
+        
+      bargaining_power_of_buyers:
+        buyer_concentration: analysis of_customer_market_structure
+        price_sensitivity: how_price_affects_purchase_decisions
+        switching_costs: cost_for_customers_to_change_providers
+        
+      threat_of_substitute_products:
+        substitute_availability: alternative_solutions_in_market
+        relative_price_performance: value_comparison_with_substitutes
+        switching_costs: effort_required_to_adopt_substitutes
+        
+      competitive_rivalry:
+        number_of_competitors: market_concentration_analysis
+        growth_rate: industry_growth_trends
+        differentiation: uniqueness_of_products_and_services
+
+logic strategic_decision_frameworks:
+  pattern swot_analysis_execution:
+    when strategic_situation_assessment_needed:
+      identify internal_strengths:
+        core_competencies and unique_resources
+        strong_brand_reputation and customer_loyalty
+        operational_efficiencies and cost_advantages
+        talented_team and organizational_culture
+        
+      identify internal_weaknesses:
+        resource_constraints and capability_gaps
+        operational_inefficiencies and quality_issues
+        weak_brand_positioning or customer_perception
+        organizational_structure_limitations
+        
+      identify external_opportunities:
+        market_growth_trends and emerging_segments
+        technological_advancements and innovations
+        regulatory_changes_creating_new_possibilities
+        competitor_weaknesses_to_exploit
+        
+      identify external_threats:
+        competitive_pressure and market_saturation
+        economic_downturns and regulatory_restrictions
+        technological_disruption and changing_customer_preferences
+        supply_chain_vulnerabilities
+        
+  pattern okr_strategic_alignment:
+    when organizational_goal_setting_required:
+      define objectives:
+        inspirational_and_significant_goals
+        qualitative_and_time_bound_targets
+        aligned_with_company_mission_and_vision
+        
+      create key_results:
+        measurable_and_specific_outcomes
+        numeric_targets_with_clear_success_criteria
+        ambitious_but_achievable_within_timeframe
+        
+      cascade objectives_through_organization:
+        align_team_okrs with company_objectives
+        ensure_individual_contributions_support_team_goals
+        create_transparency_and_accountability_mechanisms
+        
+  pattern blue_ocean_strategy:
+    when seeking_uncontested_market_space:
+      map current_competitive_landscape:
+        identify factors_industry_competes_on
+        plot_competitor_positions across_these_factors
+        recognize areas_of_intense_competition
+        
+      eliminate factors_industry_takes_for_granted:
+        question_assumptions_about_necessary_features
+        remove_costly_features_that_add_little_value
+        challenge_traditional_industry_boundaries
+        
+      reduce factors_below_industry_standard:
+        identify_over_served_customer_needs
+        simplify_offerings_to_reduce_costs
+        focus_resources_on_differentiation_areas
+        
+      raise factors_above_industry_standard:
+        enhance_features_that_truly_matter_to_customers
+        exceed_expectations_in_key_value_areas
+        create_superior_customer_experience
+        
+      create factors_industry_has_never_offered:
+        introduce_entirely_new_value_elements
+        combine_features_from_different_industries
+        address_unmet_customer_needs
+
+logic business_model_innovation:
+  pattern platform_strategy_design:
+    when connecting_multiple_customer_groups:
+      identify platform_participants:
+        producers_who_create_value
+        consumers_who_use_value
+        third_party_developers_who_extend_platform
+        
+      design network_effects:
+        direct_network_effects between_same_user_groups
+        indirect_network_effects between_different_groups
+        data_network_effects from_usage_insights
+        
+      create platform_governance:
+        rules_for_participation and quality_standards
+        pricing_strategies for different_participant_types
+        conflict_resolution_mechanisms
+        innovation_incentive_structures
+        
+  pattern subscription_model_optimization:
+    when transitioning_from_transactional_to_recurring_revenue:
+      design tiered_offering_structure:
+        basic_tier with essential_features
+        premium_tiers with advanced_capabilities
+        enterprise_tier with custom_solutions
+        
+      optimize customer_lifecycle:
+        acquisition_strategies to attract_subscribers
+        onboarding_process to demonstrate_value_quickly
+        engagement_mechanisms to increase_usage
+        retention_strategies to reduce_churn
+        expansion_opportunities to increase_revenue_per_customer
+        
+  pattern ecosystem_business_model:
+    when creating_interconnected_value_networks:
+      map ecosystem_participants:
+        core_partners providing_essential_capabilities
+        complementary_partners adding_adjacent_value
+        customer_partners co_creating_solutions
+        
+      design value_exchange_mechanisms:
+        revenue_sharing_across_ecosystem_partners
+        data_sharing_for_mutual_benefit
+        customer_sharing_and cross_referrals
+        joint_innovation_and_co_development
+
+logic digital_transformation_strategy:
+  pattern digital_business_model_evolution:
+    when traditional_business_needs_digital_enhancement:
+      assess digital_maturity:
+        current_technology_capabilities
+        digital_customer_touchpoints
+        data_utilization_sophistication
+        organizational_digital_skills
+        
+      identify digitization_opportunities:
+        process_automation_potential
+        customer_experience_digital_enhancement
+        new_digital_revenue_streams
+        data_monetization_possibilities
+        
+      design transformation_roadmap:
+        quick_wins_for_immediate_impact
+        medium_term_capability_building
+        long_term_business_model_innovation
+        change_management_and_skill_development
+        
+  pattern data_strategy_integration:
+    when leveraging_data_as_strategic_asset:
+      inventory data_assets:
+        customer_behavior_and_preference_data
+        operational_efficiency_metrics
+        market_and_competitive_intelligence
+        product_usage_and_performance_data
+        
+      design data_value_creation:
+        personalization_and_customization_capabilities
+        predictive_analytics_for_decision_making
+        new_data_driven_products_and_services
+        operational_optimization_insights
+        
+  pattern agile_strategy_implementation:
+    when operating_in_uncertain_environments:
+      implement strategy_experimentation:
+        hypothesis_driven_strategic_initiatives
+        rapid_prototyping_of_strategic_options
+        portfolio_approach_to_strategic_bets
+        
+      create adaptive_planning_processes:
+        quarterly_strategy_reviews_and_adjustments
+        scenario_planning_for_multiple_futures
+        option_value_thinking_for_strategic_investments
+
+integrations:
+  design_intelligence_connection:
+    use user_research_patterns for customer_insight
+    apply validation_frameworks for strategy_testing
+    leverage systems_thinking for ecosystem_design
+    
+  apml_ecosystem_integration:
+    generate business_applications from strategic_frameworks
+    compile strategic_plans into executable_roadmaps
+    connect to theme_aware_compilation for strategic_communication
+    integrate with ade_workflow for strategy_implementation

@@ -1,0 +1,346 @@
+app DesignIntelligenceFramework:
+  title: "Complete Pattern Library for Design Thinking & Solution Generation"
+  description: "Comprehensive APML-based methodologies for human-centered problem solving and innovation"
+  version: "1.0.0"
+  apml_specification_version: "0.9.0"
+
+data DesignMethod:
+  id: unique_id
+  name: text required
+  category: user_research | problem_framing | ideation | validation | business_model | service_design | systems_thinking
+  complexity_level: simple | intermediate | advanced
+  time_required: quick | medium | extensive
+  team_size: individual | small_team | large_team
+  required_skills: list of text
+  tools_needed: list of text
+  expected_outcomes: list of text
+
+data TransformationPattern:
+  id: unique_id
+  trigger_condition: text required
+  input_requirements: list of text
+  process_steps: list of text
+  decision_points: list of text
+  expected_outputs: list of text
+  success_criteria: list of text
+  failure_modes: list of text
+  iteration_triggers: list of text
+
+data UserContext:
+  problem_type: customer_experience | business_strategy | product_innovation | service_improvement | organizational_change
+  urgency_level: exploratory | standard | urgent | crisis
+  resources_available: minimal | adequate | abundant
+  team_experience: novice | intermediate | expert
+  stakeholder_involvement: low | medium | high
+  constraints: list of text
+
+data MethodologyStack:
+  primary_framework: DesignMethod required
+  supporting_methods: list of DesignMethod
+  sequence_order: list of text
+  integration_points: list of text
+  customization_notes: text optional
+
+interface methodology_discovery:
+  show framework_library:
+    title: "Design Intelligence Pattern Library"
+    subtitle: "Choose methodologies based on your context and goals"
+    
+    display category_overview:
+      user_research_section:
+        title: "Understanding Users & Context"
+        methods_count: count methods where category is user_research
+        complexity_range: "Simple to Advanced"
+        
+      problem_framing_section:
+        title: "Defining & Framing Problems"
+        methods_count: count methods where category is problem_framing
+        complexity_range: "Intermediate to Advanced"
+        
+      ideation_section:
+        title: "Generating Solutions"
+        methods_count: count methods where category is ideation
+        complexity_range: "Simple to Intermediate"
+        
+      validation_section:
+        title: "Testing & Validation"
+        methods_count: count methods where category is validation
+        complexity_range: "Intermediate to Advanced"
+        
+      business_model_section:
+        title: "Strategic Business Design"
+        methods_count: count methods where category is business_model
+        complexity_range: "Advanced"
+        
+  when user clicks category_section:
+    show detailed_methods:
+      for each method in selected_category.methods:
+        display method_card:
+          name: method.name
+          description: method.description
+          time_estimate: method.time_required
+          team_size: method.team_size
+          complexity_indicator: method.complexity_level
+          preview_button: "Learn More"
+          
+  show context_analyzer:
+    title: "Smart Methodology Recommendation"
+    subtitle: "Tell us about your situation for personalized guidance"
+    
+    display context_form:
+      problem_description: textarea required
+      problem_type_selector: customer_experience | business_strategy | product_innovation | service_improvement | organizational_change
+      timeline_selector: days | weeks | months
+      team_size_input: number required
+      experience_level: novice | intermediate | expert
+      budget_constraints: text optional
+      
+  when user submits context_form:
+    analyze user_context
+    generate methodology_recommendations
+    show personalized_stack
+
+interface methodology_execution:
+  show selected_framework_guide:
+    when framework_selected:
+      title: "Step-by-Step Guide: {selected_method.name}"
+      
+      display preparation_phase:
+        required_materials: selected_method.tools_needed
+        team_preparation: "Roles and responsibilities"
+        time_allocation: selected_method.time_required
+        success_metrics: selected_method.success_criteria
+        
+      show process_steps:
+        for each step in selected_method.process_steps:
+          display step_card:
+            step_number: auto-increment
+            instruction: step.description
+            time_estimate: step.duration
+            deliverable: step.expected_output
+            next_action: step.transition_logic
+            
+      display integration_guidance:
+        when multiple_methods_in_stack:
+          show handoff_points:
+            "How outputs from this method feed into next methodology"
+          show synthesis_opportunities:
+            "Where insights can be combined across methods"
+            
+  show progress_tracking:
+    current_step_indicator: visual progress bar
+    completed_deliverables: checklist of outputs
+    team_feedback_collection: quick polls and observations
+    adaptation_suggestions: "Based on your progress, consider these adjustments"
+
+logic intelligent_recommendation_engine:
+  process context_analysis:
+    when user describes problem_context:
+      extract key_characteristics:
+        complexity_indicators from problem_description
+        stakeholder_involvement from context
+        time_constraints from timeline
+        resource_availability from team_and_budget
+        
+      classify problem_type:
+        if mentions "customer satisfaction" or "user experience":
+          set primary_focus to customer_experience
+        if mentions "revenue" or "growth" or "market":
+          set primary_focus to business_strategy
+        if mentions "new features" or "innovation":
+          set primary_focus to product_innovation
+          
+      assess team_readiness:
+        match experience_level to method_complexity
+        validate team_size against method_requirements
+        identify skill_gaps and training_needs
+        
+  generate methodology_recommendation:
+    create base_stack:
+      if problem_type is customer_experience:
+        recommend user_research_methods first
+        add validation_methods for testing
+        include service_design for implementation
+        
+      if problem_type is business_strategy:
+        recommend business_model_methods first
+        add systems_thinking for complexity
+        include validation for market_testing
+        
+      if problem_type is product_innovation:
+        recommend ideation_methods first
+        add user_research for insight
+        include validation for concept_testing
+        
+    optimize_for_constraints:
+      if timeline is short:
+        prefer quick_methods over extensive_methods
+        suggest parallel_execution where_possible
+        
+      if team_experience is novice:
+        include guided_templates and examples
+        recommend simpler_variations of complex_methods
+        add checkpoint_reviews for course_correction
+        
+      if resources_are_minimal:
+        prioritize high_impact_low_cost methods
+        suggest virtual_alternatives to in_person_methods
+        
+  process pattern_learning:
+    when methodology_completed:
+      collect outcome_metrics:
+        time_actual vs time_estimated
+        quality_of_insights generated
+        stakeholder_satisfaction scores
+        implementation_success_rate
+        
+      identify pattern_improvements:
+        if time_exceeded_estimate:
+          update method.time_required with realistic_duration
+        if insights_quality_low:
+          enhance method.preparation_requirements
+        if stakeholder_satisfaction_low:
+          improve method.communication_guidance
+          
+      update recommendation_algorithm:
+        strengthen successful_pattern_matches
+        flag problematic_combinations
+        enhance context_classification_accuracy
+
+logic framework_transformation_patterns:
+  pattern user_journey_to_solution:
+    when user_research reveals journey_pain_points:
+      identify friction_moments in current_experience
+      map emotional_states at each_touchpoint
+      prioritize improvement_opportunities by impact_and_effort
+      generate solution_concepts targeting highest_priority_friction
+      
+  pattern jobs_to_be_done_analysis:
+    when users struggle_to_articulate_needs:
+      focus on job_context rather than demographics
+      identify functional_emotional_social jobs
+      map job_executor_journey from awareness_to_completion
+      design solutions that help_users_accomplish_jobs_better
+      
+  pattern five_whys_root_cause:
+    when surface_problem_symptoms_appear:
+      ask "why does this problem occur" five_times_minimum
+      document each_layer of causation
+      identify systemic_vs_symptomatic_issues
+      target solutions at root_cause_level
+      
+  pattern how_might_we_generation:
+    when problem_statement_is_too_broad:
+      rephrase as "How might we..." question
+      generate multiple_variations with different_perspectives
+      balance specificity_with_openness for solution_space
+      use as_launching_point for ideation_sessions
+      
+  pattern business_model_canvas:
+    when business_strategy_needs_clarification:
+      map value_propositions to customer_segments
+      identify key_partnerships and resources_required
+      design revenue_streams and cost_structure
+      validate assumptions_through_customer_development
+      
+  pattern service_blueprint_design:
+    when customer_experience_spans_multiple_touchpoints:
+      map customer_actions across_entire_journey
+      identify frontstage_employee_actions visible_to_customers
+      document backstage_processes supporting_frontstage
+      highlight failure_points and improvement_opportunities
+      
+  pattern hypothesis_driven_validation:
+    when assumptions_need_testing:
+      convert assumptions_into_testable_hypotheses
+      design minimum_viable_experiments
+      define success_metrics and learning_goals
+      implement build_measure_learn cycle
+      
+logic complexity_navigation:
+  pattern cynefin_framework_application:
+    when problem_complexity_is_unclear:
+      assess if situation_is simple_complicated_complex_or_chaotic
+      
+      if simple:
+        apply best_practices and proven_solutions
+      if complicated:
+        bring_in_experts and analyze_thoroughly
+      if complex:
+        run safe_to_fail_experiments and probe_sense_respond
+      if chaotic:
+        act_immediately to stabilize then_assess
+        
+  pattern systems_thinking_approach:
+    when problems_have_multiple_interconnected_causes:
+      map system_boundaries and key_stakeholders
+      identify feedback_loops and delay_patterns
+      look for leverage_points where small_changes_create_big_impact
+      consider unintended_consequences of interventions
+      
+  pattern iceberg_model_analysis:
+    when addressing_recurring_problems:
+      observe events_and_patterns at surface_level
+      identify underlying_structures causing_patterns
+      examine mental_models and assumptions_driving_structures
+      address systemic_issues not_just_symptoms
+
+logic innovation_acceleration:
+  pattern analogical_thinking:
+    when seeking breakthrough_solutions:
+      look for similar_problems in different_industries
+      identify successful_solution_patterns from other_domains
+      adapt and customize_solutions for current_context
+      combine multiple_analogies for novel_approaches
+      
+  pattern scamper_methodology:
+    when existing_solutions_need_enhancement:
+      substitute components_with_alternatives
+      combine with other_solutions or approaches
+      adapt solutions_from_other_contexts
+      modify existing_elements
+      put to other_uses
+      eliminate unnecessary_components
+      reverse or rearrange_solution_elements
+      
+  pattern trend_analysis_integration:
+    when future_proofing_solutions:
+      identify emerging_technology_trends
+      analyze demographic_and_social_shifts
+      map regulatory_and_economic_changes
+      design solutions that_leverage_trends rather_than_resist_them
+
+logic behavioral_design_patterns:
+  pattern nudge_technique_application:
+    when user_behavior_change_is_needed:
+      design choice_architecture that guides_good_decisions
+      use defaults_that_favor_desired_outcomes
+      provide timely_feedback on user_actions
+      make desired_behaviors_easier and undesired_behaviors_harder
+      
+  pattern habit_formation_design:
+    when building_sticky_user_experiences:
+      identify trigger_that_initiates_behavior
+      design simple_action users_can_complete
+      provide variable_reward that_satisfies_user_motivation
+      increase investment_user_makes in_product_over_time
+      
+  pattern cognitive_bias_mitigation:
+    when decisions_affected_by_systematic_biases:
+      identify confirmation_bias and availability_heuristic_impacts
+      design processes_that_surface_contrary_evidence
+      use structured_decision_frameworks
+      implement devil's_advocate and red_team_reviews
+
+integrations:
+  apml_ecosystem_connection:
+    generate_apml_applications from methodology_outcomes
+    compile design_artifacts into working_prototypes
+    connect to theme_aware_compilation for visual_design
+    integrate with ade_workflow for solution_development
+    
+  external_tool_compatibility:
+    export methodology_guides to project_management_tools
+    integrate with survey_platforms for user_research
+    connect to analytics_tools for validation_metrics
+    sync with collaboration_platforms for team_coordination

@@ -1,0 +1,332 @@
+app ResearchMethodologyPatterns:
+  title: "Comprehensive User Research & Insight Generation Patterns"
+  description: "APML-based frameworks for user research, behavioral analysis, and insight transformation into actionable solutions"
+  version: "1.0.0"
+  apml_specification_version: "0.9.0"
+
+data ResearchParticipant:
+  id: unique_id
+  demographic_profile: text required
+  behavioral_characteristics: list of text
+  pain_points: list of text
+  motivations: list of text
+  context_of_use: text required
+  technology_comfort_level: low | medium | high
+
+data ResearchMethod:
+  name: text required
+  type: qualitative | quantitative | mixed_methods
+  participants_needed: number required
+  duration: text required
+  complexity: simple | moderate | complex
+  output_type: insights | metrics | behaviors | attitudes
+  best_used_for: list of text
+
+data Insight:
+  source_method: text required
+  insight_statement: text required
+  evidence_supporting: list of text
+  confidence_level: low | medium | high
+  impact_potential: low | medium | high
+  actionability: immediate | short_term | long_term
+  related_insights: list of text
+
+data UserPersona:
+  name: text required
+  demographic_summary: text required
+  goals_and_motivations: list of text
+  pain_points_and_frustrations: list of text
+  behavioral_patterns: list of text
+  technology_usage: text required
+  preferred_channels: list of text
+  quote_that_represents_them: text required
+
+interface research_planning:
+  show research_method_selector:
+    title: "Choose Your Research Approach"
+    subtitle: "Select methods based on your questions and constraints"
+    
+    display method_categories:
+      discovery_methods:
+        title: "Discovery & Exploration"
+        description: "Understand problems and opportunities"
+        methods: ["Ethnographic Research", "Contextual Inquiry", "Diary Studies", "Generative Interviews"]
+        
+      validation_methods:
+        title: "Validation & Testing"
+        description: "Test concepts and measure behavior"
+        methods: ["Usability Testing", "A/B Testing", "Prototype Testing", "Card Sorting"]
+        
+      measurement_methods:
+        title: "Measurement & Analytics"
+        description: "Quantify behavior and performance"
+        methods: ["Analytics Analysis", "Survey Research", "Heatmap Analysis", "Conversion Funnel Analysis"]
+        
+    when user selects research_question_type:
+      if question_type is "what_are_user_needs":
+        recommend discovery_methods
+        suggest qualitative_approaches
+        
+      if question_type is "does_this_solution_work":
+        recommend validation_methods
+        suggest usability_testing_and_metrics
+        
+      if question_type is "how_much_improvement":
+        recommend measurement_methods
+        suggest quantitative_approaches
+        
+  display research_planning_canvas:
+    research_objectives_section:
+      primary_questions: "What do you need to learn?"
+      success_criteria: "How will you know you've learned it?"
+      decision_points: "What decisions will this research inform?"
+      
+    participant_criteria:
+      target_audience: "Who do you need to talk to?"
+      recruitment_strategy: "How will you find them?"
+      sample_size: "How many participants do you need?"
+      
+    methodology_design:
+      selected_methods: "What research methods will you use?"
+      data_collection_plan: "How will you gather information?"
+      analysis_approach: "How will you make sense of the data?"
+
+interface research_execution:
+  show interview_guide_generator:
+    when qualitative_research_selected:
+      display guide_structure:
+        warm_up_questions:
+          "Tell me about yourself and your role"
+          "Walk me through a typical day"
+          
+        context_exploration:
+          "Describe the last time you [relevant_activity]"
+          "What challenges do you face when [context]?"
+          
+        deep_dive_questions:
+          "Why is that important to you?"
+          "What would make that easier?"
+          "What's the biggest frustration about [topic]?"
+          
+        closing_questions:
+          "What haven't I asked that I should have?"
+          "What would you want designers to know about [topic]?"
+          
+  show survey_design_assistant:
+    when quantitative_research_selected:
+      display survey_structure:
+        screening_questions:
+          demographic_qualifiers
+          behavioral_qualifiers
+          
+        core_measurement_questions:
+          satisfaction_scales: 1-7 likert_scales
+          behavioral_frequency: "How often do you..."
+          preference_rankings: "Rank these in order of importance"
+          
+        open_ended_insights:
+          "What's your biggest challenge with [topic]?"
+          "If you could change one thing, what would it be?"
+          
+  display observation_framework:
+    when behavioral_research_needed:
+      show observation_categories:
+        task_completion_behaviors:
+          successful_completion_patterns
+          error_recovery_strategies
+          workaround_development
+          
+        emotional_responses:
+          frustration_indicators
+          confidence_moments
+          satisfaction_expressions
+          
+        contextual_factors:
+          environmental_influences
+          social_dynamics
+          technology_constraints
+
+logic research_analysis_patterns:
+  pattern thematic_analysis:
+    when processing_qualitative_data:
+      organize raw_data:
+        transcribe interviews_and_observations
+        create data_inventory with participant_mapping
+        establish data_quality_checks
+        
+      identify initial_patterns:
+        code interesting_or_relevant_data_segments
+        group similar_codes into_categories
+        look for recurring_themes across_participants
+        
+      develop theme_structure:
+        define clear_theme_descriptions
+        collect supporting_evidence for each_theme
+        identify relationships_between_themes
+        validate themes_against_original_data
+        
+      extract actionable_insights:
+        translate themes_into_design_implications
+        prioritize insights_by_impact_and_frequency
+        connect insights_to_business_objectives
+        
+  pattern statistical_significance_testing:
+    when analyzing_quantitative_results:
+      establish baseline_metrics:
+        current_performance_levels
+        historical_trend_data
+        industry_benchmark_comparisons
+        
+      calculate statistical_confidence:
+        determine sample_size_adequacy
+        apply appropriate_statistical_tests
+        account for multiple_comparison_corrections
+        
+      interpret practical_significance:
+        assess real_world_impact_of_changes
+        consider cost_benefit_of_improvements
+        evaluate sustainability_of_changes
+        
+  pattern behavioral_segmentation:
+    when identifying_distinct_user_groups:
+      analyze behavioral_data:
+        usage_frequency_and_intensity
+        feature_adoption_patterns
+        task_completion_success_rates
+        support_request_frequencies
+        
+      identify segmentation_variables:
+        high_value_behaviors that_differentiate_users
+        stable_characteristics that_predict_behavior
+        actionable_segments that_can_be_targeted
+        
+      create segment_profiles:
+        behavioral_characteristics for each_segment
+        needs_and_motivations_driving_behavior
+        preferred_solutions_and_approaches
+        communication_preferences_and_channels
+
+logic insight_transformation:
+  pattern jobs_to_be_done_mapping:
+    when understanding_user_motivations:
+      identify functional_jobs:
+        practical_tasks_users_need_to_accomplish
+        performance_metrics that_matter_most
+        time_and_effort_constraints
+        
+      identify emotional_jobs:
+        feelings_users_want_to_experience
+        social_perceptions they_want_to_create
+        personal_identity_aspects_involved
+        
+      identify social_jobs:
+        how_users_want_to_be_perceived
+        community_belonging_and_status
+        relationship_building_and_maintenance
+        
+      map job_context:
+        circumstances_that_trigger_job_need
+        competing_solutions_users_consider
+        obstacles_preventing_job_completion
+        
+  pattern pain_point_prioritization:
+    when determining_what_problems_to_solve:
+      assess pain_point_frequency:
+        how_often_users_experience_this_problem
+        number_of_users_affected_by_issue
+        consistency_across_different_user_segments
+        
+      evaluate pain_point_intensity:
+        severity_of_impact_on_user_experience
+        emotional_response_and_frustration_level
+        whether_pain_point_prevents_task_completion
+        
+      analyze solution_feasibility:
+        technical_complexity_of_addressing_pain_point
+        resource_requirements_for_solution_development
+        timeline_for_solution_implementation
+        
+      calculate pain_point_priority_score:
+        frequency_score multiplied_by intensity_score
+        adjusted_for solution_feasibility
+        weighted_by business_impact_potential
+        
+  pattern opportunity_identification:
+    when looking_for_innovation_possibilities:
+      map current_solution_landscape:
+        existing_approaches_users_employ
+        workarounds_and_hacks_people_create
+        tools_and_services_currently_available
+        
+      identify unmet_needs:
+        gaps_in_current_solution_offerings
+        underserved_user_segments_or_contexts
+        emerging_needs_from_changing_behaviors
+        
+      explore adjacent_possibilities:
+        solutions_successful_in_related_domains
+        emerging_technologies_that_enable_new_approaches
+        changing_social_or_economic_conditions
+        
+      design opportunity_statements:
+        clear_problem_definition_with_evidence
+        target_user_segment_and_context
+        success_criteria_and_measurement_approach
+
+logic persona_development:
+  pattern persona_synthesis:
+    when creating_user_representations:
+      aggregate research_findings:
+        behavioral_patterns_from_observations
+        quoted_statements_from_interviews
+        demographic_data_from_surveys
+        pain_points_from_multiple_sources
+        
+      identify persona_archetypes:
+        distinct_behavioral_clusters
+        different_motivation_patterns
+        varying_context_and_constraint_factors
+        
+      develop persona_narratives:
+        realistic_background_and_context
+        specific_goals_and_motivations
+        detailed_pain_points_and_frustrations
+        preferred_solutions_and_approaches
+        
+      validate persona_accuracy:
+        test personas_against_new_research_data
+        verify personas_help_make_better_design_decisions
+        ensure personas_represent_actual_users_not_assumptions
+        
+  pattern persona_application:
+    when using_personas_for_design_decisions:
+      create design_scenarios:
+        realistic_situations_personas_would_encounter
+        specific_goals_they_would_want_to_accomplish
+        constraints_and_contexts_they_operate_within
+        
+      evaluate solutions_against_personas:
+        how_well_does_solution_meet_persona_needs
+        what_barriers_might_persona_encounter
+        how_does_solution_fit_persona_context
+        
+      identify persona_specific_optimizations:
+        features_that_would_delight_specific_personas
+        communication_approaches_that_resonate
+        onboarding_flows_that_match_persona_expectations
+
+integrations:
+  design_intelligence_framework:
+    connect research_insights_to_problem_framing
+    feed persona_development_into_ideation_processes
+    integrate validation_methods_with_testing_frameworks
+    
+  business_strategy_patterns:
+    align research_objectives_with_business_goals
+    connect user_insights_to_market_opportunities
+    validate business_assumptions_through_user_research
+    
+  apml_ecosystem:
+    generate user_research_applications
+    compile research_findings_into_actionable_specifications
+    integrate with theme_aware_compilation for research_reporting
