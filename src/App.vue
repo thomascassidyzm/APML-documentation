@@ -302,26 +302,57 @@ body.loaded .app-container {
 }
 
 /* Responsive Design */
+/* Enhanced Mobile Navigation */
 @media (max-width: 768px) {
   .nav-content {
     flex-direction: column;
-    gap: 1rem;
+    gap: 0.75rem;
     padding: 0 1rem;
   }
   
+  .logo-container {
+    align-self: center;
+  }
+  
   .nav-links {
-    gap: 0.25rem;
-    flex-wrap: wrap;
-    justify-content: center;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.5rem;
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
   }
   
   .nav-link {
-    padding: 0.5rem 1rem;
+    padding: 0.75rem 1rem;
     font-size: 0.875rem;
+    text-align: center;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.05);
+  }
+  
+  .nav-link:hover {
+    background: rgba(99, 102, 241, 0.15);
   }
   
   .app-main {
-    margin-top: 120px;
+    margin-top: 140px;
+  }
+}
+
+@media (max-width: 480px) {
+  .nav-links {
+    grid-template-columns: 1fr;
+    gap: 0.25rem;
+  }
+  
+  .nav-link {
+    padding: 0.625rem 1rem;
+    font-size: 0.8rem;
+  }
+  
+  .app-main {
+    margin-top: 160px;
   }
   
   .footer-content {
@@ -333,5 +364,6 @@ body.loaded .app-container {
   .footer-meta {
     text-align: center;
   }
+}
 }
 </style>

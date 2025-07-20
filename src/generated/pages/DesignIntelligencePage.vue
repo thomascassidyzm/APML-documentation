@@ -1501,9 +1501,16 @@ const appMetadata = {
   margin-bottom: 1rem;
 }
 
+/* Enhanced Mobile Responsiveness */
 @media (max-width: 768px) {
   .page-title {
     font-size: 2rem;
+    line-height: 1.2;
+  }
+  
+  .page-subtitle {
+    font-size: 1rem;
+    line-height: 1.4;
   }
   
   .container {
@@ -1512,6 +1519,55 @@ const appMetadata = {
   
   .interface-section {
     padding: 1rem;
+    margin-bottom: 2rem;
+  }
+  
+  .methodology-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  
+  .methodology-card {
+    padding: 1rem;
+  }
+  
+  .methodology-card h5 {
+    font-size: 1rem;
+    line-height: 1.3;
+  }
+  
+  .methodology-description {
+    font-size: 0.875rem;
+    line-height: 1.5;
+  }
+  
+  .element h3 {
+    font-size: 1.25rem;
+    line-height: 1.3;
+  }
+  
+  .content-section h4 {
+    font-size: 1.125rem;
+    line-height: 1.3;
+  }
+}
+
+/* Enhanced Text Readability */
+@media (max-width: 480px) {
+  .page-title {
+    font-size: 1.75rem;
+  }
+  
+  .methodology-card {
+    padding: 0.875rem;
+  }
+  
+  .methodology-card h5 {
+    font-size: 0.95rem;
+  }
+  
+  .methodology-description {
+    font-size: 0.8rem;
   }
 }
 </style>
