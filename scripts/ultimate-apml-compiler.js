@@ -313,16 +313,54 @@ styles:
 
   parseDataModel(content) {
     const fields = {}
+    let nestedInterface = null
     const lines = content.split('\n')
+    let currentSection = null
+    let interfaceContent = []
+    let inInterface = false
     
-    for (const line of lines) {
-      const fieldMatch = line.trim().match(/(\w+):\s*(.+)/)
-      if (fieldMatch) {
+    for (let i = 0; i < lines.length; i++) {
+      const line = lines[i]
+      const trimmed = line.trim()
+      
+      // Detect start of interface section
+      if (trimmed === 'interface:') {
+        inInterface = true
+        interfaceContent = []
+        continue
+      }
+      
+      // If we're in an interface section, collect all content
+      if (inInterface) {
+        // Check if we've moved to a new top-level section
+        if (line.match(/^[a-zA-Z_]\w*:/) && !line.match(/^\s/)) {
+          // This is a new top-level field, stop interface collection
+          inInterface = false
+          nestedInterface = this.parseInterface(interfaceContent.join('\n'))
+        } else {
+          interfaceContent.push(line)
+          continue
+        }
+      }
+      
+      // Parse regular fields
+      const fieldMatch = trimmed.match(/(\w+):\s*(.+)/)
+      if (fieldMatch && !inInterface) {
         fields[fieldMatch[1]] = fieldMatch[2].trim()
       }
     }
     
-    return { fields }
+    // Handle interface that goes to end of content
+    if (inInterface && interfaceContent.length > 0) {
+      nestedInterface = this.parseInterface(interfaceContent.join('\n'))
+    }
+    
+    const result = { fields }
+    if (nestedInterface) {
+      result.nestedInterface = nestedInterface
+    }
+    
+    return result
   }
 
   parseInterface(content) {
@@ -648,6 +686,17 @@ ${style}
   generateTemplate(spec, componentName) {
     const { app, interfaces, data } = spec
     
+    // Check for nested interfaces in data models
+    let allInterfaces = { ...interfaces }
+    if (data) {
+      for (const [dataModelName, dataModel] of Object.entries(data)) {
+        if (dataModel.nestedInterface) {
+          // Add the nested interface as a new interface named after the data model
+          allInterfaces[dataModelName + '_interface'] = dataModel.nestedInterface
+        }
+      }
+    }
+    
     let template = `  <div class="${this.toKebabCase(componentName)}">
     <header class="page-header">
       <div class="container">
@@ -658,7 +707,7 @@ ${style}
     
     // Add table of contents if theme supports it
     if (this.activeTheme?.layout?.tableOfContents) {
-      const tocItems = Object.keys(interfaces).map(interfaceName => ({
+      const tocItems = Object.keys(allInterfaces).map(interfaceName => ({
         id: this.sanitizeForVue(interfaceName),
         title: this.toTitleCase(interfaceName)
       }))
@@ -689,7 +738,7 @@ ${style}
     // Generate content based on theme
     const useCleanLayout = this.activeTheme?.layout?.useCards === false
     
-    for (const [interfaceName, interface_] of Object.entries(interfaces)) {
+    for (const [interfaceName, interface_] of Object.entries(allInterfaces)) {
       const sectionClass = useCleanLayout ? 'content-section' : 'interface-section'
       const titleClass = useCleanLayout ? 'section-title' : ''
       const sectionId = this.activeTheme?.layout?.tableOfContents ? `id="${this.sanitizeForVue(interfaceName)}"` : ''
