@@ -2,151 +2,150 @@
   <div class="research-methodology-page">
     <header class="page-header">
       <div class="container">
-        <h1 class="page-title">Comprehensive User Research & Insight Generation Patterns</h1>
-        <p class="page-subtitle">Generated from APML specification</p>
+        <h1 class="page-title">Measurement & Analytics</h1>
+        <p class="page-subtitle">Quantify behavior and performance</p>
       </div>
     </header>
-
     <main class="page-content">
       <div class="container">
-        <section class="interface-section research_planning">
-          <h2>Research Planning</h2>
-          <div class="element research_method_selector">
-            <h3>Research Method Selector</h3>
-              <div class="content-section method_categories">
-                <h4>Method Categories</h4>
-                <div class="methodology-grid">
-                  <div class="methodology-card methodology-type">
-                    <h5>Discovery Methods</h5>
+        <section  class="interface-section">
+          <h2 >Research Planning</h2>
+          <div class="content-block">
+            <h3 class="block-title">Research Method Selector</h3>
+              <div class="subsection">
+                <h4 class="subsection-title">Method Categories</h4>
+                <div class="items-list">
+                  <div class="list-item">
+                    <h5 class="item-title">Discovery Methods</h5>
                   </div>
-                  <div class="methodology-card methodology-type">
-                    <h5>Title</h5>
-                    <p class="methodology-description">Measurement & Analytics</p>
+                  <div class="list-item">
+                    <h5 class="item-title">Title</h5>
+                    <p class="item-description">Measurement & Analytics</p>
                   </div>
-                  <div class="methodology-card methodology-type">
-                    <h5>Description</h5>
-                    <p class="methodology-description">Quantify behavior and performance</p>
+                  <div class="list-item">
+                    <h5 class="item-title">Description</h5>
+                    <p class="item-description">Quantify behavior and performance</p>
                   </div>
-                  <div class="methodology-card methodology-type">
-                    <h5>Methods</h5>
-                    <p class="methodology-description">[Analytics Analysis, Survey Research, Heatmap Analysis, Conversion Funnel Analysis]</p>
+                  <div class="list-item">
+                    <h5 class="item-title">Methods</h5>
+                    <p class="item-description">[Analytics Analysis, Survey Research, Heatmap Analysis, Conversion Funnel Analysis]</p>
                   </div>
-                  <div class="methodology-card methodology-type">
-                    <h5>Validation Methods</h5>
+                  <div class="list-item">
+                    <h5 class="item-title">Validation Methods</h5>
                   </div>
-                  <div class="methodology-card methodology-type">
-                    <h5>Measurement Methods</h5>
+                  <div class="list-item">
+                    <h5 class="item-title">Measurement Methods</h5>
                   </div>
-                  <div class="methodology-card methodology-type">
-                    <h5>If Question Type Is "What Are User Needs"</h5>
+                  <div class="list-item">
+                    <h5 class="item-title">If Question Type Is "What Are User Needs"</h5>
                   </div>
-                  <div class="methodology-card methodology-type">
-                    <h5>If Question Type Is "Does This Solution Work"</h5>
+                  <div class="list-item">
+                    <h5 class="item-title">If Question Type Is "Does This Solution Work"</h5>
                   </div>
-                  <div class="methodology-card methodology-type">
-                    <h5>If Question Type Is "How Much Improvement"</h5>
+                  <div class="list-item">
+                    <h5 class="item-title">If Question Type Is "How Much Improvement"</h5>
                   </div>
                 </div>
               </div>
-              <div class="content-section research_planning_canvas">
-                <h4>Research Planning Canvas</h4>
-                <div class="methodology-grid">
-                  <div class="methodology-card methodology-type">
-                    <h5>Primary Questions</h5>
-                    <p class="methodology-description">What do you need to learn?</p>
+              <div class="subsection">
+                <h4 class="subsection-title">Research Planning Canvas</h4>
+                <div class="items-list">
+                  <div class="list-item">
+                    <h5 class="item-title">Primary Questions</h5>
+                    <p class="item-description">What do you need to learn?</p>
                   </div>
-                  <div class="methodology-card methodology-type">
-                    <h5>Success Criteria</h5>
-                    <p class="methodology-description">How will you know you've learned it?</p>
+                  <div class="list-item">
+                    <h5 class="item-title">Success Criteria</h5>
+                    <p class="item-description">How will you know you've learned it?</p>
                   </div>
-                  <div class="methodology-card methodology-type">
-                    <h5>Decision Points</h5>
-                    <p class="methodology-description">What decisions will this research inform?</p>
+                  <div class="list-item">
+                    <h5 class="item-title">Decision Points</h5>
+                    <p class="item-description">What decisions will this research inform?</p>
                   </div>
-                  <div class="methodology-card methodology-type">
-                    <h5>Target Audience</h5>
-                    <p class="methodology-description">Who do you need to talk to?</p>
+                  <div class="list-item">
+                    <h5 class="item-title">Target Audience</h5>
+                    <p class="item-description">Who do you need to talk to?</p>
                   </div>
-                  <div class="methodology-card methodology-type">
-                    <h5>Recruitment Strategy</h5>
-                    <p class="methodology-description">How will you find them?</p>
+                  <div class="list-item">
+                    <h5 class="item-title">Recruitment Strategy</h5>
+                    <p class="item-description">How will you find them?</p>
                   </div>
-                  <div class="methodology-card methodology-type">
-                    <h5>Sample Size</h5>
-                    <p class="methodology-description">How many participants do you need?</p>
+                  <div class="list-item">
+                    <h5 class="item-title">Sample Size</h5>
+                    <p class="item-description">How many participants do you need?</p>
                   </div>
-                  <div class="methodology-card methodology-type">
-                    <h5>Selected Methods</h5>
-                    <p class="methodology-description">What research methods will you use?</p>
+                  <div class="list-item">
+                    <h5 class="item-title">Selected Methods</h5>
+                    <p class="item-description">What research methods will you use?</p>
                   </div>
-                  <div class="methodology-card methodology-type">
-                    <h5>Data Collection Plan</h5>
-                    <p class="methodology-description">How will you gather information?</p>
+                  <div class="list-item">
+                    <h5 class="item-title">Data Collection Plan</h5>
+                    <p class="item-description">How will you gather information?</p>
                   </div>
-                  <div class="methodology-card methodology-type">
-                    <h5>Analysis Approach</h5>
-                    <p class="methodology-description">How will you make sense of the data?</p>
+                  <div class="list-item">
+                    <h5 class="item-title">Analysis Approach</h5>
+                    <p class="item-description">How will you make sense of the data?</p>
                   </div>
                 </div>
               </div>
           </div>
         </section>
-        <section class="interface-section research_execution">
-          <h2>Research Execution</h2>
-          <div class="element interview_guide_generator">
-            <h3>Interview Guide Generator</h3>
-              <div class="content-section guide_structure">
-                <h4>Guide Structure</h4>
-                <div class="methodology-grid">
-                  <div class="methodology-card content-type">
-                    <h5>Warm Up Questions</h5>
+        <section  class="interface-section">
+          <h2 >Research Execution</h2>
+          <div class="content-block">
+            <h3 class="block-title">Interview Guide Generator</h3>
+              <div class="subsection">
+                <h4 class="subsection-title">Guide Structure</h4>
+                <div class="items-list">
+                  <div class="list-item">
+                    <h5 class="item-title">Warm Up Questions</h5>
                   </div>
-                  <div class="methodology-card content-type">
-                    <h5>Context Exploration</h5>
+                  <div class="list-item">
+                    <h5 class="item-title">Context Exploration</h5>
                   </div>
-                  <div class="methodology-card content-type">
-                    <h5>Deep Dive Questions</h5>
+                  <div class="list-item">
+                    <h5 class="item-title">Deep Dive Questions</h5>
                   </div>
-                  <div class="methodology-card content-type">
-                    <h5>Closing Questions</h5>
+                  <div class="list-item">
+                    <h5 class="item-title">Closing Questions</h5>
                   </div>
                 </div>
               </div>
           </div>
-          <div class="element survey_design_assistant">
-            <h3>Survey Design Assistant</h3>
-              <div class="content-section survey_structure">
-                <h4>Survey Structure</h4>
-                <div class="methodology-grid">
-                  <div class="methodology-card content-type">
-                    <h5>Screening Questions</h5>
+          <div class="content-block">
+            <h3 class="block-title">Survey Design Assistant</h3>
+              <div class="subsection">
+                <h4 class="subsection-title">Survey Structure</h4>
+                <div class="items-list">
+                  <div class="list-item">
+                    <h5 class="item-title">Screening Questions</h5>
                   </div>
-                  <div class="methodology-card content-type">
-                    <h5>Core Measurement Questions</h5>
+                  <div class="list-item">
+                    <h5 class="item-title">Core Measurement Questions</h5>
                   </div>
-                  <div class="methodology-card content-type">
-                    <h5>Satisfaction Scales</h5>
-                    <p class="methodology-description">1-7 likert_scales</p>
+                  <div class="list-item">
+                    <h5 class="item-title">Satisfaction Scales</h5>
+                    <p class="item-description">1-7 likert_scales</p>
                   </div>
-                  <div class="methodology-card content-type">
-                    <h5>Behavioral Frequency</h5>
-                    <p class="methodology-description">How often do you...</p>
+                  <div class="list-item">
+                    <h5 class="item-title">Behavioral Frequency</h5>
+                    <p class="item-description">How often do you...</p>
                   </div>
-                  <div class="methodology-card content-type">
-                    <h5>Preference Rankings</h5>
-                    <p class="methodology-description">Rank these in order of importance</p>
+                  <div class="list-item">
+                    <h5 class="item-title">Preference Rankings</h5>
+                    <p class="item-description">Rank these in order of importance</p>
                   </div>
-                  <div class="methodology-card content-type">
-                    <h5>Open Ended Insights</h5>
+                  <div class="list-item">
+                    <h5 class="item-title">Open Ended Insights</h5>
                   </div>
                 </div>
               </div>
-              <div class="content-section observation_framework">
-                <h4>Observation Framework</h4>
+              <div class="subsection">
+                <h4 class="subsection-title">Observation Framework</h4>
               </div>
           </div>
-          <div class="element observation_categories">
-            <h3>Observation Categories</h3>
+          <div class="content-block">
+            <h3 class="block-title">Observation Categories</h3>
           </div>
         </section>
         <section class="interface-section logic-patterns">
@@ -184,7 +183,52 @@ const apmlSpec = {
   "app": {
     "name": "ResearchMethodologyPatterns",
     "properties": {
-      "title": "Comprehensive User Research & Insight Generation Patterns"
+      "title": "Measurement & Analytics",
+      "description": "Quantify behavior and performance",
+      "version": "1.0.0",
+      "apml_specification_version": "0.9.0",
+      "id": "unique_id",
+      "demographic_profile": "text required",
+      "behavioral_characteristics": "list of text",
+      "pain_points": "list of text",
+      "motivations": "list of text",
+      "context_of_use": "text required",
+      "technology_comfort_level": "low | medium | high",
+      "name": "text required",
+      "type": "qualitative | quantitative | mixed_methods",
+      "participants_needed": "number required",
+      "duration": "text required",
+      "complexity": "simple | moderate | complex",
+      "output_type": "insights | metrics | behaviors | attitudes",
+      "best_used_for": "list of text",
+      "source_method": "text required",
+      "insight_statement": "text required",
+      "evidence_supporting": "list of text",
+      "confidence_level": "low | medium | high",
+      "impact_potential": "low | medium | high",
+      "actionability": "immediate | short_term | long_term",
+      "related_insights": "list of text",
+      "demographic_summary": "text required",
+      "goals_and_motivations": "list of text",
+      "pain_points_and_frustrations": "list of text",
+      "behavioral_patterns": "list of text",
+      "technology_usage": "text required",
+      "preferred_channels": "list of text",
+      "quote_that_represents_them": "text required",
+      "subtitle": "Select methods based on your questions and constraints",
+      "methods": "[\"Analytics Analysis\", \"Survey Research\", \"Heatmap Analysis\", \"Conversion Funnel Analysis\"]",
+      "primary_questions": "What do you need to learn?",
+      "success_criteria": "How will you know you've learned it?",
+      "decision_points": "What decisions will this research inform?",
+      "target_audience": "Who do you need to talk to?",
+      "recruitment_strategy": "How will you find them?",
+      "sample_size": "How many participants do you need?",
+      "selected_methods": "What research methods will you use?",
+      "data_collection_plan": "How will you gather information?",
+      "analysis_approach": "How will you make sense of the data?",
+      "satisfaction_scales": "1-7 likert_scales",
+      "behavioral_frequency": "How often do you...",
+      "preference_rankings": "Rank these in order of importance"
     }
   },
   "data": {
@@ -978,422 +1022,256 @@ const research_executionElements = computed(() => ({
 // Application metadata
 const appMetadata = {
   name: 'ResearchMethodologyPatterns',
-  title: 'Comprehensive User Research & Insight Generation Patterns',
-  description: '',
+  title: 'Measurement & Analytics',
+  description: 'Quantify behavior and performance',
   version: '1.0.0'
 }
 </script>
 
 <style scoped>
 .research-methodology-page {
-  min-height: 100vh;
-  background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #374151 100%);
-  color: #f8fafc;
-}
-
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 2rem;
-}
+        min-height: 100vh;
+        background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #374151 100%);
+        color: #f8fafc;
+        line-height: 1.6;
+      }
+      
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 2rem;
+      }
 
 .page-header {
-  padding: 3rem 0;
-  text-align: center;
-}
+        padding: 3rem 0 2rem;
+        text-align: center;
+      }
+      
+      .page-title {
+        font-size: 3rem;
+        font-weight: 700;
+        background: linear-gradient(135deg, #6366f1, #a855f7);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        margin-bottom: 1rem;
+      }
+      
+      .page-subtitle {
+        font-size: 1.25rem;
+        color: #94a3b8;
+        margin: 0;
+      }
 
-.page-title {
-  font-size: 3rem;
-  font-weight: 700;
-  background: linear-gradient(135deg, #6366f1, #a855f7);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  margin-bottom: 1rem;
-}
-
-.page-subtitle {
-  font-size: 1.25rem;
-  color: #94a3b8;
-  margin-bottom: 2rem;
-}
+.table-of-contents {
+        background: rgba(255, 255, 255, 0.05);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        padding: 2rem 0;
+        margin-bottom: 2rem;
+      }
+      
+      .table-of-contents h2 {
+        font-size: 1.5rem;
+        color: #6366f1;
+        margin-bottom: 1rem;
+      }
+      
+      .toc-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 0.5rem;
+      }
+      
+      .toc-link {
+        display: block;
+        color: #cbd5e1;
+        text-decoration: none;
+        padding: 0.75rem 1rem;
+        border-radius: 8px;
+        transition: all 0.2s ease;
+      }
+      
+      .toc-link:hover {
+        background: rgba(99, 102, 241, 0.1);
+        color: #6366f1;
+      }
 
 .page-content {
-  padding-bottom: 4rem;
-}
+        padding-bottom: 4rem;
+      }
+      
+      .content-section {
+        margin-bottom: 3rem;
+        scroll-margin-top: 2rem;
+      }
+      
+      .section-title {
+        font-size: 2rem;
+        color: #6366f1;
+        margin-bottom: 2rem;
+        padding-bottom: 0.5rem;
+        border-bottom: 2px solid rgba(99, 102, 241, 0.3);
+      }
+      
+      .content-block {
+        margin-bottom: 2rem;
+      }
+      
+      .block-title {
+        font-size: 1.5rem;
+        color: #f8fafc;
+        margin-bottom: 1rem;
+      }
 
-.interface-section {
-  margin-bottom: 4rem;
-  background: rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 16px;
-  padding: 2rem;
-}
+.properties-list {
+        margin: 1rem 0;
+      }
+      
+      .property-row {
+        display: grid;
+        grid-template-columns: 200px 1fr;
+        gap: 1rem;
+        margin-bottom: 0.5rem;
+        padding: 0.5rem 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      }
+      
+      .property-label {
+        font-weight: 600;
+        color: #6366f1;
+        font-size: 0.9rem;
+      }
+      
+      .property-value {
+        color: #cbd5e1;
+      }
 
-.interface-section h2 {
-  font-size: 2rem;
-  color: #6366f1;
-  margin-bottom: 2rem;
-}
+.definition-item {
+        margin: 2rem 0;
+        padding: 1.5rem;
+        background: rgba(255, 255, 255, 0.03);
+        border-left: 4px solid #6366f1;
+        border-radius: 0 8px 8px 0;
+      }
+      
+      .definition-title {
+        font-size: 1.25rem;
+        color: #f8fafc;
+        margin-bottom: 0.5rem;
+      }
+      
+      .definition-description {
+        color: #cbd5e1;
+        margin-bottom: 1rem;
+        line-height: 1.6;
+      }
+      
+      .definition-meta {
+        margin: 0.5rem 0;
+        color: #94a3b8;
+        font-size: 0.9rem;
+      }
 
-.element {
-  margin-bottom: 2rem;
-  padding: 1.5rem;
-  background: rgba(255, 255, 255, 0.03);
-  border-radius: 12px;
-}
+.subsection {
+        margin: 2rem 0;
+      }
+      
+      .subsection-title {
+        font-size: 1.25rem;
+        color: #a855f7;
+        margin-bottom: 1rem;
+      }
 
-.element h3 {
-  font-size: 1.5rem;
-  color: #f8fafc;
-  margin-bottom: 1rem;
-}
+.items-list {
+        margin: 1rem 0;
+      }
+      
+      .list-item {
+        margin: 1.5rem 0;
+        padding: 1rem;
+        background: rgba(255, 255, 255, 0.02);
+        border-radius: 8px;
+      }
+      
+      .item-title {
+        font-size: 1.1rem;
+        color: #f8fafc;
+        margin-bottom: 0.5rem;
+      }
+      
+      .item-description {
+        color: #cbd5e1;
+        margin-bottom: 1rem;
+        line-height: 1.6;
+      }
 
-.content-section {
-  margin-bottom: 1.5rem;
-  padding: 1rem;
-  background: rgba(255, 255, 255, 0.02);
-  border-radius: 8px;
-}
+.item-details,
+      .methodology-details,
+      .item-properties {
+        margin: 1rem 0;
+        display: grid;
+        grid-template-columns: 150px 1fr;
+        gap: 0.5rem 1rem;
+      }
+      
+      .item-details dt,
+      .methodology-details dt,
+      .item-properties dt {
+        font-weight: 600;
+        color: #6366f1;
+        font-size: 0.9rem;
+      }
+      
+      .item-details dd,
+      .methodology-details dd,
+      .item-properties dd {
+        color: #cbd5e1;
+        margin: 0;
+      }
 
-.content-section h4 {
-  font-size: 1.25rem;
-  color: #cbd5e1;
-  margin-bottom: 1rem;
-}
+.overview-text {
+        margin: 1rem 0;
+      }
+      
+      .overview-item {
+        margin: 1rem 0;
+      }
+      
+      .overview-item h5 {
+        font-size: 1rem;
+        color: #a855f7;
+        margin-bottom: 0.5rem;
+      }
+      
+      .overview-item p {
+        color: #cbd5e1;
+        line-height: 1.6;
+      }
 
-.property-item {
-  display: flex;
-  margin-bottom: 0.5rem;
-  padding: 0.5rem;
-  background: rgba(255, 255, 255, 0.02);
-  border-radius: 6px;
-}
-
-.property-label {
-  font-weight: 600;
-  color: #6366f1;
-  margin-right: 1rem;
-  min-width: 120px;
-}
-
-.property-value {
-  color: #f8fafc;
-  flex: 1;
-}
-
-.methodology-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 1.5rem;
-  margin-top: 1rem;
-}
-
-.methodology-card {
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 12px;
-  padding: 1.5rem;
-  transition: all 0.3s ease;
-}
-
-.methodology-card:hover {
-  transform: translateY(-2px);
-  border-color: rgba(99, 102, 241, 0.3);
-  box-shadow: 0 8px 25px rgba(99, 102, 241, 0.15);
-}
-
-.methodology-card h5 {
-  font-size: 1.125rem;
-  font-weight: 600;
-  color: #f8fafc;
-  margin-bottom: 1rem;
-}
-
-.methodology-stat {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 0.5rem;
-  padding: 0.5rem;
-  background: rgba(99, 102, 241, 0.1);
-  border-radius: 6px;
-}
-
-.stat-label {
-  font-weight: 500;
-  color: #cbd5e1;
-}
-
-.stat-value {
-  font-weight: 600;
-  color: #6366f1;
-}
-
-.methodology-description {
-  color: #94a3b8;
-  line-height: 1.5;
-  margin-bottom: 0.75rem;
-}
-
-.methodology-description strong {
-  color: #e2e8f0;
-}
-
-.educational-overview {
-  margin-bottom: 1.5rem;
-  padding: 1rem;
-  background: rgba(99, 102, 241, 0.05);
-  border-radius: 8px;
-  border-left: 4px solid #6366f1;
-}
-
-.educational-item {
-  margin-bottom: 1rem;
-}
-
-.educational-item h6 {
-  font-size: 1rem;
-  font-weight: 600;
-  color: #6366f1;
-  margin-bottom: 0.5rem;
-}
-
-.educational-item p {
-  color: #cbd5e1;
-  line-height: 1.5;
-}
-
-.methodology-details {
-  margin-top: 1rem;
-  padding: 1rem;
-  background: rgba(255, 255, 255, 0.02);
-  border-radius: 8px;
-}
-
-.methodology-feature {
-  margin-bottom: 0.75rem;
-  padding: 0.5rem;
-  background: rgba(99, 102, 241, 0.05);
-  border-radius: 6px;
-}
-
-.methodology-feature strong {
-  color: #6366f1;
-  margin-right: 0.5rem;
-}
-
-.methodology-framework {
-  margin-top: 1rem;
-  padding: 1rem;
-  background: rgba(168, 85, 247, 0.05);
-  border-radius: 8px;
-  border-left: 3px solid #a855f7;
-}
-
-.methodology-framework h6 {
-  font-size: 0.875rem;
-  font-weight: 600;
-  color: #a855f7;
-  margin-bottom: 0.75rem;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-}
-
-.framework-element {
-  display: flex;
-  flex-wrap: wrap;
-  margin-bottom: 0.5rem;
-  padding: 0.5rem;
-  background: rgba(255, 255, 255, 0.02);
-  border-radius: 6px;
-}
-
-.framework-label {
-  font-weight: 600;
-  color: #a855f7;
-  margin-right: 0.5rem;
-  min-width: 120px;
-}
-
-.framework-value {
-  color: #e2e8f0;
-  flex: 1;
-}
-
-.methodology-steps {
-  margin-top: 1rem;
-  padding: 1rem;
-  background: rgba(34, 197, 94, 0.05);
-  border-radius: 8px;
-  border-left: 3px solid #22c55e;
-}
-
-.methodology-steps h6 {
-  font-size: 0.875rem;
-  font-weight: 600;
-  color: #22c55e;
-  margin-bottom: 0.75rem;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-}
-
-.methodology-step {
-  margin-bottom: 0.75rem;
-  padding: 0.5rem;
-  background: rgba(255, 255, 255, 0.02);
-  border-radius: 6px;
-}
-
-.methodology-step strong {
-  color: #22c55e;
-  margin-right: 0.5rem;
-}
-
-.methodology-type {
-  border-left: 4px solid #6366f1;
-}
-
-.content-type {
-  border-left: 4px solid #94a3b8;
-}
-
-.pattern-type {
-  border-left: 4px solid #a855f7;
-}
-
-.process-type {
-  border-left: 4px solid #22c55e;
-}
-
-.patterns-section, .processes-section {
-  margin-bottom: 2rem;
-}
-
-.patterns-section h3, .processes-section h3 {
-  font-size: 1.5rem;
-  color: #6366f1;
-  margin-bottom: 1rem;
-}
-
-.element-properties {
-  margin-bottom: 1.5rem;
-  padding: 1rem;
-  background: rgba(255, 255, 255, 0.02);
-  border-radius: 8px;
-}
-
-.element-properties h4 {
-  font-size: 1.125rem;
-  color: #6366f1;
-  margin-bottom: 1rem;
-}
-
-.simple-content {
-  margin-top: 1rem;
-}
-
-.content-item {
-  margin-bottom: 1.5rem;
-  padding: 1rem;
-  background: rgba(255, 255, 255, 0.02);
-  border-radius: 8px;
-}
-
-.content-item h5 {
-  font-size: 1rem;
-  color: #e2e8f0;
-  margin-bottom: 0.5rem;
-}
-
-.content-item p {
-  color: #94a3b8;
-  line-height: 1.5;
-}
-
-.apml-source {
-  margin-top: 4rem;
-  background: rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 16px;
-  padding: 2rem;
-}
-
-.apml-source h2 {
-  font-size: 1.5rem;
-  color: #6366f1;
-  margin-bottom: 1rem;
-}
-
-/* Enhanced Mobile Responsiveness */
 @media (max-width: 768px) {
-  .page-title {
-    font-size: 2rem;
-    line-height: 1.2;
-  }
-  
-  .page-subtitle {
-    font-size: 1rem;
-    line-height: 1.4;
-  }
-  
-  .container {
-    padding: 0 1rem;
-  }
-  
-  .interface-section {
-    padding: 1rem;
-    margin-bottom: 2rem;
-  }
-  
-  .methodology-grid {
-    grid-template-columns: 1fr;
-    gap: 1rem;
-  }
-  
-  .methodology-card {
-    padding: 1rem;
-  }
-  
-  .methodology-card h5 {
-    font-size: 1rem;
-    line-height: 1.3;
-  }
-  
-  .methodology-description {
-    font-size: 0.875rem;
-    line-height: 1.5;
-  }
-  
-  .element h3 {
-    font-size: 1.25rem;
-    line-height: 1.3;
-  }
-  
-  .content-section h4 {
-    font-size: 1.125rem;
-    line-height: 1.3;
-  }
-}
+        .toc-list {
+          grid-template-columns: 1fr;
+        }
+        
+        .property-row {
+          grid-template-columns: 1fr;
+          gap: 0.25rem;
+        }
+        
+        .item-details,
+        .methodology-details,
+        .item-properties {
+          grid-template-columns: 1fr;
+          gap: 0.25rem;
+        }
+        
+        .page-title {
+          font-size: 2rem;
+        }
+      }
 
-/* Enhanced Text Readability */
-@media (max-width: 480px) {
-  .page-title {
-    font-size: 1.75rem;
-  }
-  
-  .methodology-card {
-    padding: 0.875rem;
-  }
-  
-  .methodology-card h5 {
-    font-size: 0.95rem;
-  }
-  
-  .methodology-description {
-    font-size: 0.8rem;
-  }
-}
+
 </style>

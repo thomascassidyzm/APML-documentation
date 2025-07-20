@@ -2,185 +2,184 @@
   <div class="design-intelligence-page">
     <header class="page-header">
       <div class="container">
-        <h1 class="page-title">Complete Pattern Library for Design Thinking & Solution Generation</h1>
-        <p class="page-subtitle">Generated from APML specification</p>
+        <h1 class="page-title">Step-by-Step Guide: {selected_method.name}</h1>
+        <p class="page-subtitle">method.description</p>
       </div>
     </header>
-
     <main class="page-content">
       <div class="container">
-        <section class="interface-section methodology_discovery">
-          <h2>Methodology Discovery</h2>
-          <div class="element framework_library">
-            <h3>Framework Library</h3>
-              <div class="content-section category_overview">
-                <h4>Category Overview</h4>
-                <div class="methodology-grid">
-                  <div class="methodology-card methodology-type">
-                    <h5>User Research Section</h5>
+        <section  class="interface-section">
+          <h2 >Methodology Discovery</h2>
+          <div class="content-block">
+            <h3 class="block-title">Framework Library</h3>
+              <div class="subsection">
+                <h4 class="subsection-title">Category Overview</h4>
+                <div class="items-list">
+                  <div class="list-item">
+                    <h5 class="item-title">User Research Section</h5>
                   </div>
-                  <div class="methodology-card content-type">
-                    <h5>Title</h5>
-                    <p class="methodology-description">Strategic Business Design</p>
+                  <div class="list-item">
+                    <h5 class="item-title">Title</h5>
+                    <p class="item-description">Strategic Business Design</p>
                   </div>
-                  <div class="methodology-card methodology-type">
-                    <h5>Methods Count</h5>
-                    <p class="methodology-description">count methods where category is business_model</p>
+                  <div class="list-item">
+                    <h5 class="item-title">Methods Count</h5>
+                    <p class="item-description">count methods where category is business_model</p>
                   </div>
-                  <div class="methodology-card content-type">
-                    <h5>Complexity Range</h5>
-                    <p class="methodology-description">Advanced</p>
+                  <div class="list-item">
+                    <h5 class="item-title">Complexity Range</h5>
+                    <p class="item-description">Advanced</p>
                   </div>
-                  <div class="methodology-card methodology-type">
-                    <h5>Problem Framing Section</h5>
+                  <div class="list-item">
+                    <h5 class="item-title">Problem Framing Section</h5>
                   </div>
-                  <div class="methodology-card methodology-type">
-                    <h5>Ideation Section</h5>
+                  <div class="list-item">
+                    <h5 class="item-title">Ideation Section</h5>
                   </div>
-                  <div class="methodology-card methodology-type">
-                    <h5>Validation Section</h5>
+                  <div class="list-item">
+                    <h5 class="item-title">Validation Section</h5>
                   </div>
-                  <div class="methodology-card methodology-type">
-                    <h5>Business Model Section</h5>
-                  </div>
-                </div>
-              </div>
-          </div>
-          <div class="element detailed_methods">
-            <h3>Detailed Methods</h3>
-              <div class="content-section method_card">
-                <h4>Method Card</h4>
-                <div class="methodology-grid">
-                  <div class="methodology-card methodology-type">
-                    <h5>Name</h5>
-                    <p class="methodology-description">method.name</p>
-                  </div>
-                  <div class="methodology-card methodology-type">
-                    <h5>Description</h5>
-                    <p class="methodology-description">method.description</p>
-                  </div>
-                  <div class="methodology-card methodology-type">
-                    <h5>Time Estimate</h5>
-                    <p class="methodology-description">method.time_required</p>
-                  </div>
-                  <div class="methodology-card methodology-type">
-                    <h5>Team Size</h5>
-                    <p class="methodology-description">method.team_size</p>
-                  </div>
-                  <div class="methodology-card methodology-type">
-                    <h5>Complexity Indicator</h5>
-                    <p class="methodology-description">method.complexity_level</p>
-                  </div>
-                  <div class="methodology-card methodology-type">
-                    <h5>Preview Button</h5>
-                    <p class="methodology-description">Learn More</p>
+                  <div class="list-item">
+                    <h5 class="item-title">Business Model Section</h5>
                   </div>
                 </div>
               </div>
           </div>
-          <div class="element context_analyzer">
-            <h3>Context Analyzer</h3>
-              <div class="content-section context_form">
-                <h4>Context Form</h4>
-                <div class="methodology-grid">
-                  <div class="methodology-card content-type">
-                    <h5>Problem Description</h5>
-                    <p class="methodology-description">textarea required</p>
+          <div class="content-block">
+            <h3 class="block-title">Detailed Methods</h3>
+              <div class="subsection">
+                <h4 class="subsection-title">Method Card</h4>
+                <div class="items-list">
+                  <div class="list-item">
+                    <h5 class="item-title">Name</h5>
+                    <p class="item-description">method.name</p>
                   </div>
-                  <div class="methodology-card content-type">
-                    <h5>Problem Type Selector</h5>
-                    <p class="methodology-description">customer_experience | business_strategy | product_innovation | service_improvement | organizational_change</p>
+                  <div class="list-item">
+                    <h5 class="item-title">Description</h5>
+                    <p class="item-description">method.description</p>
                   </div>
-                  <div class="methodology-card content-type">
-                    <h5>Timeline Selector</h5>
-                    <p class="methodology-description">days | weeks | months</p>
+                  <div class="list-item">
+                    <h5 class="item-title">Time Estimate</h5>
+                    <p class="item-description">method.time_required</p>
                   </div>
-                  <div class="methodology-card content-type">
-                    <h5>Team Size Input</h5>
-                    <p class="methodology-description">number required</p>
+                  <div class="list-item">
+                    <h5 class="item-title">Team Size</h5>
+                    <p class="item-description">method.team_size</p>
                   </div>
-                  <div class="methodology-card content-type">
-                    <h5>Experience Level</h5>
-                    <p class="methodology-description">novice | intermediate | expert</p>
+                  <div class="list-item">
+                    <h5 class="item-title">Complexity Indicator</h5>
+                    <p class="item-description">method.complexity_level</p>
                   </div>
-                  <div class="methodology-card content-type">
-                    <h5>Budget Constraints</h5>
-                    <p class="methodology-description">text optional</p>
+                  <div class="list-item">
+                    <h5 class="item-title">Preview Button</h5>
+                    <p class="item-description">Learn More</p>
+                  </div>
+                </div>
+              </div>
+          </div>
+          <div class="content-block">
+            <h3 class="block-title">Context Analyzer</h3>
+              <div class="subsection">
+                <h4 class="subsection-title">Context Form</h4>
+                <div class="items-list">
+                  <div class="list-item">
+                    <h5 class="item-title">Problem Description</h5>
+                    <p class="item-description">textarea required</p>
+                  </div>
+                  <div class="list-item">
+                    <h5 class="item-title">Problem Type Selector</h5>
+                    <p class="item-description">customer_experience | business_strategy | product_innovation | service_improvement | organizational_change</p>
+                  </div>
+                  <div class="list-item">
+                    <h5 class="item-title">Timeline Selector</h5>
+                    <p class="item-description">days | weeks | months</p>
+                  </div>
+                  <div class="list-item">
+                    <h5 class="item-title">Team Size Input</h5>
+                    <p class="item-description">number required</p>
+                  </div>
+                  <div class="list-item">
+                    <h5 class="item-title">Experience Level</h5>
+                    <p class="item-description">novice | intermediate | expert</p>
+                  </div>
+                  <div class="list-item">
+                    <h5 class="item-title">Budget Constraints</h5>
+                    <p class="item-description">text optional</p>
                   </div>
                 </div>
               </div>
           </div>
         </section>
-        <section class="interface-section methodology_execution">
-          <h2>Methodology Execution</h2>
-          <div class="element selected_framework_guide">
-            <h3>Selected Framework Guide</h3>
-              <div class="content-section preparation_phase">
-                <h4>Preparation Phase</h4>
-                <div class="methodology-grid">
-                  <div class="methodology-card content-type">
-                    <h5>Required Materials</h5>
-                    <p class="methodology-description">selected_method.tools_needed</p>
+        <section  class="interface-section">
+          <h2 >Methodology Execution</h2>
+          <div class="content-block">
+            <h3 class="block-title">Selected Framework Guide</h3>
+              <div class="subsection">
+                <h4 class="subsection-title">Preparation Phase</h4>
+                <div class="items-list">
+                  <div class="list-item">
+                    <h5 class="item-title">Required Materials</h5>
+                    <p class="item-description">selected_method.tools_needed</p>
                   </div>
-                  <div class="methodology-card content-type">
-                    <h5>Team Preparation</h5>
-                    <p class="methodology-description">Roles and responsibilities</p>
+                  <div class="list-item">
+                    <h5 class="item-title">Team Preparation</h5>
+                    <p class="item-description">Roles and responsibilities</p>
                   </div>
-                  <div class="methodology-card content-type">
-                    <h5>Time Allocation</h5>
-                    <p class="methodology-description">selected_method.time_required</p>
+                  <div class="list-item">
+                    <h5 class="item-title">Time Allocation</h5>
+                    <p class="item-description">selected_method.time_required</p>
                   </div>
-                  <div class="methodology-card content-type">
-                    <h5>Success Metrics</h5>
-                    <p class="methodology-description">selected_method.success_criteria</p>
-                  </div>
-                </div>
-              </div>
-          </div>
-          <div class="element process_steps">
-            <h3>Process Steps</h3>
-              <div class="content-section step_card">
-                <h4>Step Card</h4>
-                <div class="methodology-grid">
-                  <div class="methodology-card content-type">
-                    <h5>Step Number</h5>
-                    <p class="methodology-description">auto-increment</p>
-                  </div>
-                  <div class="methodology-card content-type">
-                    <h5>Instruction</h5>
-                    <p class="methodology-description">step.description</p>
-                  </div>
-                  <div class="methodology-card content-type">
-                    <h5>Time Estimate</h5>
-                    <p class="methodology-description">step.duration</p>
-                  </div>
-                  <div class="methodology-card content-type">
-                    <h5>Deliverable</h5>
-                    <p class="methodology-description">step.expected_output</p>
-                  </div>
-                  <div class="methodology-card content-type">
-                    <h5>Next Action</h5>
-                    <p class="methodology-description">step.transition_logic</p>
-                  </div>
-                </div>
-              </div>
-              <div class="content-section integration_guidance">
-                <h4>Integration Guidance</h4>
-                <div class="methodology-grid">
-                  <div class="methodology-card methodology-type">
-                    <h5>When Multiple Methods In Stack</h5>
+                  <div class="list-item">
+                    <h5 class="item-title">Success Metrics</h5>
+                    <p class="item-description">selected_method.success_criteria</p>
                   </div>
                 </div>
               </div>
           </div>
-          <div class="element handoff_points">
-            <h3>Handoff Points</h3>
+          <div class="content-block">
+            <h3 class="block-title">Process Steps</h3>
+              <div class="subsection">
+                <h4 class="subsection-title">Step Card</h4>
+                <div class="items-list">
+                  <div class="list-item">
+                    <h5 class="item-title">Step Number</h5>
+                    <p class="item-description">auto-increment</p>
+                  </div>
+                  <div class="list-item">
+                    <h5 class="item-title">Instruction</h5>
+                    <p class="item-description">step.description</p>
+                  </div>
+                  <div class="list-item">
+                    <h5 class="item-title">Time Estimate</h5>
+                    <p class="item-description">step.duration</p>
+                  </div>
+                  <div class="list-item">
+                    <h5 class="item-title">Deliverable</h5>
+                    <p class="item-description">step.expected_output</p>
+                  </div>
+                  <div class="list-item">
+                    <h5 class="item-title">Next Action</h5>
+                    <p class="item-description">step.transition_logic</p>
+                  </div>
+                </div>
+              </div>
+              <div class="subsection">
+                <h4 class="subsection-title">Integration Guidance</h4>
+                <div class="items-list">
+                  <div class="list-item">
+                    <h5 class="item-title">When Multiple Methods In Stack</h5>
+                  </div>
+                </div>
+              </div>
           </div>
-          <div class="element synthesis_opportunities">
-            <h3>Synthesis Opportunities</h3>
+          <div class="content-block">
+            <h3 class="block-title">Handoff Points</h3>
           </div>
-          <div class="element progress_tracking">
-            <h3>Progress Tracking</h3>
+          <div class="content-block">
+            <h3 class="block-title">Synthesis Opportunities</h3>
+          </div>
+          <div class="content-block">
+            <h3 class="block-title">Progress Tracking</h3>
           </div>
         </section>
         <section class="interface-section logic-patterns">
@@ -229,7 +228,62 @@ const apmlSpec = {
   "app": {
     "name": "DesignIntelligenceFramework",
     "properties": {
-      "title": "Complete Pattern Library for Design Thinking & Solution Generation"
+      "title": "Step-by-Step Guide: {selected_method.name}",
+      "description": "method.description",
+      "version": "1.0.0",
+      "apml_specification_version": "0.9.0",
+      "id": "unique_id",
+      "name": "method.name",
+      "category": "user_research | problem_framing | ideation | validation | business_model | service_design | systems_thinking",
+      "complexity_level": "simple | intermediate | advanced",
+      "time_required": "quick | medium | extensive",
+      "team_size": "method.team_size",
+      "required_skills": "list of text",
+      "tools_needed": "list of text",
+      "expected_outcomes": "list of text",
+      "trigger_condition": "text required",
+      "input_requirements": "list of text",
+      "process_steps": "list of text",
+      "decision_points": "list of text",
+      "expected_outputs": "list of text",
+      "success_criteria": "list of text",
+      "failure_modes": "list of text",
+      "iteration_triggers": "list of text",
+      "problem_type": "customer_experience | business_strategy | product_innovation | service_improvement | organizational_change",
+      "urgency_level": "exploratory | standard | urgent | crisis",
+      "resources_available": "minimal | adequate | abundant",
+      "team_experience": "novice | intermediate | expert",
+      "stakeholder_involvement": "low | medium | high",
+      "constraints": "list of text",
+      "primary_framework": "DesignMethod required",
+      "supporting_methods": "list of DesignMethod",
+      "sequence_order": "list of text",
+      "integration_points": "list of text",
+      "customization_notes": "text optional",
+      "subtitle": "Tell us about your situation for personalized guidance",
+      "methods_count": "count methods where category is business_model",
+      "complexity_range": "Advanced",
+      "time_estimate": "step.duration",
+      "complexity_indicator": "method.complexity_level",
+      "preview_button": "Learn More",
+      "problem_description": "textarea required",
+      "problem_type_selector": "customer_experience | business_strategy | product_innovation | service_improvement | organizational_change",
+      "timeline_selector": "days | weeks | months",
+      "team_size_input": "number required",
+      "experience_level": "novice | intermediate | expert",
+      "budget_constraints": "text optional",
+      "required_materials": "selected_method.tools_needed",
+      "team_preparation": "Roles and responsibilities",
+      "time_allocation": "selected_method.time_required",
+      "success_metrics": "selected_method.success_criteria",
+      "step_number": "auto-increment",
+      "instruction": "step.description",
+      "deliverable": "step.expected_output",
+      "next_action": "step.transition_logic",
+      "current_step_indicator": "visual progress bar",
+      "completed_deliverables": "checklist of outputs",
+      "team_feedback_collection": "quick polls and observations",
+      "adaptation_suggestions": "Based on your progress, consider these adjustments"
     }
   },
   "data": {
@@ -1152,422 +1206,256 @@ const methodology_executionElements = computed(() => ({
 // Application metadata
 const appMetadata = {
   name: 'DesignIntelligenceFramework',
-  title: 'Complete Pattern Library for Design Thinking & Solution Generation',
-  description: '',
+  title: 'Step-by-Step Guide: {selected_method.name}',
+  description: 'method.description',
   version: '1.0.0'
 }
 </script>
 
 <style scoped>
 .design-intelligence-page {
-  min-height: 100vh;
-  background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #374151 100%);
-  color: #f8fafc;
-}
-
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 2rem;
-}
+        min-height: 100vh;
+        background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #374151 100%);
+        color: #f8fafc;
+        line-height: 1.6;
+      }
+      
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 2rem;
+      }
 
 .page-header {
-  padding: 3rem 0;
-  text-align: center;
-}
+        padding: 3rem 0 2rem;
+        text-align: center;
+      }
+      
+      .page-title {
+        font-size: 3rem;
+        font-weight: 700;
+        background: linear-gradient(135deg, #6366f1, #a855f7);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        margin-bottom: 1rem;
+      }
+      
+      .page-subtitle {
+        font-size: 1.25rem;
+        color: #94a3b8;
+        margin: 0;
+      }
 
-.page-title {
-  font-size: 3rem;
-  font-weight: 700;
-  background: linear-gradient(135deg, #6366f1, #a855f7);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  margin-bottom: 1rem;
-}
-
-.page-subtitle {
-  font-size: 1.25rem;
-  color: #94a3b8;
-  margin-bottom: 2rem;
-}
+.table-of-contents {
+        background: rgba(255, 255, 255, 0.05);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        padding: 2rem 0;
+        margin-bottom: 2rem;
+      }
+      
+      .table-of-contents h2 {
+        font-size: 1.5rem;
+        color: #6366f1;
+        margin-bottom: 1rem;
+      }
+      
+      .toc-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 0.5rem;
+      }
+      
+      .toc-link {
+        display: block;
+        color: #cbd5e1;
+        text-decoration: none;
+        padding: 0.75rem 1rem;
+        border-radius: 8px;
+        transition: all 0.2s ease;
+      }
+      
+      .toc-link:hover {
+        background: rgba(99, 102, 241, 0.1);
+        color: #6366f1;
+      }
 
 .page-content {
-  padding-bottom: 4rem;
-}
+        padding-bottom: 4rem;
+      }
+      
+      .content-section {
+        margin-bottom: 3rem;
+        scroll-margin-top: 2rem;
+      }
+      
+      .section-title {
+        font-size: 2rem;
+        color: #6366f1;
+        margin-bottom: 2rem;
+        padding-bottom: 0.5rem;
+        border-bottom: 2px solid rgba(99, 102, 241, 0.3);
+      }
+      
+      .content-block {
+        margin-bottom: 2rem;
+      }
+      
+      .block-title {
+        font-size: 1.5rem;
+        color: #f8fafc;
+        margin-bottom: 1rem;
+      }
 
-.interface-section {
-  margin-bottom: 4rem;
-  background: rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 16px;
-  padding: 2rem;
-}
+.properties-list {
+        margin: 1rem 0;
+      }
+      
+      .property-row {
+        display: grid;
+        grid-template-columns: 200px 1fr;
+        gap: 1rem;
+        margin-bottom: 0.5rem;
+        padding: 0.5rem 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      }
+      
+      .property-label {
+        font-weight: 600;
+        color: #6366f1;
+        font-size: 0.9rem;
+      }
+      
+      .property-value {
+        color: #cbd5e1;
+      }
 
-.interface-section h2 {
-  font-size: 2rem;
-  color: #6366f1;
-  margin-bottom: 2rem;
-}
+.definition-item {
+        margin: 2rem 0;
+        padding: 1.5rem;
+        background: rgba(255, 255, 255, 0.03);
+        border-left: 4px solid #6366f1;
+        border-radius: 0 8px 8px 0;
+      }
+      
+      .definition-title {
+        font-size: 1.25rem;
+        color: #f8fafc;
+        margin-bottom: 0.5rem;
+      }
+      
+      .definition-description {
+        color: #cbd5e1;
+        margin-bottom: 1rem;
+        line-height: 1.6;
+      }
+      
+      .definition-meta {
+        margin: 0.5rem 0;
+        color: #94a3b8;
+        font-size: 0.9rem;
+      }
 
-.element {
-  margin-bottom: 2rem;
-  padding: 1.5rem;
-  background: rgba(255, 255, 255, 0.03);
-  border-radius: 12px;
-}
+.subsection {
+        margin: 2rem 0;
+      }
+      
+      .subsection-title {
+        font-size: 1.25rem;
+        color: #a855f7;
+        margin-bottom: 1rem;
+      }
 
-.element h3 {
-  font-size: 1.5rem;
-  color: #f8fafc;
-  margin-bottom: 1rem;
-}
+.items-list {
+        margin: 1rem 0;
+      }
+      
+      .list-item {
+        margin: 1.5rem 0;
+        padding: 1rem;
+        background: rgba(255, 255, 255, 0.02);
+        border-radius: 8px;
+      }
+      
+      .item-title {
+        font-size: 1.1rem;
+        color: #f8fafc;
+        margin-bottom: 0.5rem;
+      }
+      
+      .item-description {
+        color: #cbd5e1;
+        margin-bottom: 1rem;
+        line-height: 1.6;
+      }
 
-.content-section {
-  margin-bottom: 1.5rem;
-  padding: 1rem;
-  background: rgba(255, 255, 255, 0.02);
-  border-radius: 8px;
-}
+.item-details,
+      .methodology-details,
+      .item-properties {
+        margin: 1rem 0;
+        display: grid;
+        grid-template-columns: 150px 1fr;
+        gap: 0.5rem 1rem;
+      }
+      
+      .item-details dt,
+      .methodology-details dt,
+      .item-properties dt {
+        font-weight: 600;
+        color: #6366f1;
+        font-size: 0.9rem;
+      }
+      
+      .item-details dd,
+      .methodology-details dd,
+      .item-properties dd {
+        color: #cbd5e1;
+        margin: 0;
+      }
 
-.content-section h4 {
-  font-size: 1.25rem;
-  color: #cbd5e1;
-  margin-bottom: 1rem;
-}
+.overview-text {
+        margin: 1rem 0;
+      }
+      
+      .overview-item {
+        margin: 1rem 0;
+      }
+      
+      .overview-item h5 {
+        font-size: 1rem;
+        color: #a855f7;
+        margin-bottom: 0.5rem;
+      }
+      
+      .overview-item p {
+        color: #cbd5e1;
+        line-height: 1.6;
+      }
 
-.property-item {
-  display: flex;
-  margin-bottom: 0.5rem;
-  padding: 0.5rem;
-  background: rgba(255, 255, 255, 0.02);
-  border-radius: 6px;
-}
-
-.property-label {
-  font-weight: 600;
-  color: #6366f1;
-  margin-right: 1rem;
-  min-width: 120px;
-}
-
-.property-value {
-  color: #f8fafc;
-  flex: 1;
-}
-
-.methodology-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 1.5rem;
-  margin-top: 1rem;
-}
-
-.methodology-card {
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 12px;
-  padding: 1.5rem;
-  transition: all 0.3s ease;
-}
-
-.methodology-card:hover {
-  transform: translateY(-2px);
-  border-color: rgba(99, 102, 241, 0.3);
-  box-shadow: 0 8px 25px rgba(99, 102, 241, 0.15);
-}
-
-.methodology-card h5 {
-  font-size: 1.125rem;
-  font-weight: 600;
-  color: #f8fafc;
-  margin-bottom: 1rem;
-}
-
-.methodology-stat {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 0.5rem;
-  padding: 0.5rem;
-  background: rgba(99, 102, 241, 0.1);
-  border-radius: 6px;
-}
-
-.stat-label {
-  font-weight: 500;
-  color: #cbd5e1;
-}
-
-.stat-value {
-  font-weight: 600;
-  color: #6366f1;
-}
-
-.methodology-description {
-  color: #94a3b8;
-  line-height: 1.5;
-  margin-bottom: 0.75rem;
-}
-
-.methodology-description strong {
-  color: #e2e8f0;
-}
-
-.educational-overview {
-  margin-bottom: 1.5rem;
-  padding: 1rem;
-  background: rgba(99, 102, 241, 0.05);
-  border-radius: 8px;
-  border-left: 4px solid #6366f1;
-}
-
-.educational-item {
-  margin-bottom: 1rem;
-}
-
-.educational-item h6 {
-  font-size: 1rem;
-  font-weight: 600;
-  color: #6366f1;
-  margin-bottom: 0.5rem;
-}
-
-.educational-item p {
-  color: #cbd5e1;
-  line-height: 1.5;
-}
-
-.methodology-details {
-  margin-top: 1rem;
-  padding: 1rem;
-  background: rgba(255, 255, 255, 0.02);
-  border-radius: 8px;
-}
-
-.methodology-feature {
-  margin-bottom: 0.75rem;
-  padding: 0.5rem;
-  background: rgba(99, 102, 241, 0.05);
-  border-radius: 6px;
-}
-
-.methodology-feature strong {
-  color: #6366f1;
-  margin-right: 0.5rem;
-}
-
-.methodology-framework {
-  margin-top: 1rem;
-  padding: 1rem;
-  background: rgba(168, 85, 247, 0.05);
-  border-radius: 8px;
-  border-left: 3px solid #a855f7;
-}
-
-.methodology-framework h6 {
-  font-size: 0.875rem;
-  font-weight: 600;
-  color: #a855f7;
-  margin-bottom: 0.75rem;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-}
-
-.framework-element {
-  display: flex;
-  flex-wrap: wrap;
-  margin-bottom: 0.5rem;
-  padding: 0.5rem;
-  background: rgba(255, 255, 255, 0.02);
-  border-radius: 6px;
-}
-
-.framework-label {
-  font-weight: 600;
-  color: #a855f7;
-  margin-right: 0.5rem;
-  min-width: 120px;
-}
-
-.framework-value {
-  color: #e2e8f0;
-  flex: 1;
-}
-
-.methodology-steps {
-  margin-top: 1rem;
-  padding: 1rem;
-  background: rgba(34, 197, 94, 0.05);
-  border-radius: 8px;
-  border-left: 3px solid #22c55e;
-}
-
-.methodology-steps h6 {
-  font-size: 0.875rem;
-  font-weight: 600;
-  color: #22c55e;
-  margin-bottom: 0.75rem;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-}
-
-.methodology-step {
-  margin-bottom: 0.75rem;
-  padding: 0.5rem;
-  background: rgba(255, 255, 255, 0.02);
-  border-radius: 6px;
-}
-
-.methodology-step strong {
-  color: #22c55e;
-  margin-right: 0.5rem;
-}
-
-.methodology-type {
-  border-left: 4px solid #6366f1;
-}
-
-.content-type {
-  border-left: 4px solid #94a3b8;
-}
-
-.pattern-type {
-  border-left: 4px solid #a855f7;
-}
-
-.process-type {
-  border-left: 4px solid #22c55e;
-}
-
-.patterns-section, .processes-section {
-  margin-bottom: 2rem;
-}
-
-.patterns-section h3, .processes-section h3 {
-  font-size: 1.5rem;
-  color: #6366f1;
-  margin-bottom: 1rem;
-}
-
-.element-properties {
-  margin-bottom: 1.5rem;
-  padding: 1rem;
-  background: rgba(255, 255, 255, 0.02);
-  border-radius: 8px;
-}
-
-.element-properties h4 {
-  font-size: 1.125rem;
-  color: #6366f1;
-  margin-bottom: 1rem;
-}
-
-.simple-content {
-  margin-top: 1rem;
-}
-
-.content-item {
-  margin-bottom: 1.5rem;
-  padding: 1rem;
-  background: rgba(255, 255, 255, 0.02);
-  border-radius: 8px;
-}
-
-.content-item h5 {
-  font-size: 1rem;
-  color: #e2e8f0;
-  margin-bottom: 0.5rem;
-}
-
-.content-item p {
-  color: #94a3b8;
-  line-height: 1.5;
-}
-
-.apml-source {
-  margin-top: 4rem;
-  background: rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 16px;
-  padding: 2rem;
-}
-
-.apml-source h2 {
-  font-size: 1.5rem;
-  color: #6366f1;
-  margin-bottom: 1rem;
-}
-
-/* Enhanced Mobile Responsiveness */
 @media (max-width: 768px) {
-  .page-title {
-    font-size: 2rem;
-    line-height: 1.2;
-  }
-  
-  .page-subtitle {
-    font-size: 1rem;
-    line-height: 1.4;
-  }
-  
-  .container {
-    padding: 0 1rem;
-  }
-  
-  .interface-section {
-    padding: 1rem;
-    margin-bottom: 2rem;
-  }
-  
-  .methodology-grid {
-    grid-template-columns: 1fr;
-    gap: 1rem;
-  }
-  
-  .methodology-card {
-    padding: 1rem;
-  }
-  
-  .methodology-card h5 {
-    font-size: 1rem;
-    line-height: 1.3;
-  }
-  
-  .methodology-description {
-    font-size: 0.875rem;
-    line-height: 1.5;
-  }
-  
-  .element h3 {
-    font-size: 1.25rem;
-    line-height: 1.3;
-  }
-  
-  .content-section h4 {
-    font-size: 1.125rem;
-    line-height: 1.3;
-  }
-}
+        .toc-list {
+          grid-template-columns: 1fr;
+        }
+        
+        .property-row {
+          grid-template-columns: 1fr;
+          gap: 0.25rem;
+        }
+        
+        .item-details,
+        .methodology-details,
+        .item-properties {
+          grid-template-columns: 1fr;
+          gap: 0.25rem;
+        }
+        
+        .page-title {
+          font-size: 2rem;
+        }
+      }
 
-/* Enhanced Text Readability */
-@media (max-width: 480px) {
-  .page-title {
-    font-size: 1.75rem;
-  }
-  
-  .methodology-card {
-    padding: 0.875rem;
-  }
-  
-  .methodology-card h5 {
-    font-size: 0.95rem;
-  }
-  
-  .methodology-description {
-    font-size: 0.8rem;
-  }
-}
+
 </style>

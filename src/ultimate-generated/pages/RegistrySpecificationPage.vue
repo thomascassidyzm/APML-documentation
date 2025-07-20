@@ -2,17 +2,16 @@
   <div class="registry-specification-page">
     <header class="page-header">
       <div class="container">
-        <h1 class="page-title">APML Component and Theme Registry</h1>
-        <p class="page-subtitle">Generated from APML specification</p>
+        <h1 class="page-title">Playground</h1>
+        <p class="page-subtitle">text required</p>
       </div>
     </header>
-
     <main class="page-content">
       <div class="container">
-        <section class="interface-section registry_navigation">
-          <h2>Registry Navigation</h2>
-          <div class="element main_sections">
-            <h3>Main Sections</h3>
+        <section  class="interface-section">
+          <h2 >Registry Navigation</h2>
+          <div class="content-block">
+            <h3 class="block-title">Main Sections</h3>
           </div>
         </section>
         <section class="apml-source">
@@ -33,7 +32,20 @@ const apmlSpec = {
   "app": {
     "name": "APMLRegistry",
     "properties": {
-      "title": "APML Component and Theme Registry"
+      "title": "Playground",
+      "description": "text required",
+      "version": "text required",
+      "apml_specification_version": "0.9.0",
+      "id": "unique_id",
+      "category": "corporate | creative | minimal | gaming",
+      "tags": "list of text",
+      "file_path": "text required",
+      "downloads": "number default 0",
+      "name": "text required",
+      "preview_url": "url required",
+      "color_palette": "list of text",
+      "subtitle": "Try APML live",
+      "url": "/playground"
     }
   },
   "data": {
@@ -182,422 +194,256 @@ const registry_navigationElements = computed(() => ({
 // Application metadata
 const appMetadata = {
   name: 'APMLRegistry',
-  title: 'APML Component and Theme Registry',
-  description: '',
-  version: '1.0.0'
+  title: 'Playground',
+  description: 'text required',
+  version: 'text required'
 }
 </script>
 
 <style scoped>
 .registry-specification-page {
-  min-height: 100vh;
-  background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #374151 100%);
-  color: #f8fafc;
-}
-
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 2rem;
-}
+        min-height: 100vh;
+        background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #374151 100%);
+        color: #f8fafc;
+        line-height: 1.6;
+      }
+      
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 2rem;
+      }
 
 .page-header {
-  padding: 3rem 0;
-  text-align: center;
-}
+        padding: 3rem 0 2rem;
+        text-align: center;
+      }
+      
+      .page-title {
+        font-size: 3rem;
+        font-weight: 700;
+        background: linear-gradient(135deg, #6366f1, #a855f7);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        margin-bottom: 1rem;
+      }
+      
+      .page-subtitle {
+        font-size: 1.25rem;
+        color: #94a3b8;
+        margin: 0;
+      }
 
-.page-title {
-  font-size: 3rem;
-  font-weight: 700;
-  background: linear-gradient(135deg, #6366f1, #a855f7);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  margin-bottom: 1rem;
-}
-
-.page-subtitle {
-  font-size: 1.25rem;
-  color: #94a3b8;
-  margin-bottom: 2rem;
-}
+.table-of-contents {
+        background: rgba(255, 255, 255, 0.05);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        padding: 2rem 0;
+        margin-bottom: 2rem;
+      }
+      
+      .table-of-contents h2 {
+        font-size: 1.5rem;
+        color: #6366f1;
+        margin-bottom: 1rem;
+      }
+      
+      .toc-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 0.5rem;
+      }
+      
+      .toc-link {
+        display: block;
+        color: #cbd5e1;
+        text-decoration: none;
+        padding: 0.75rem 1rem;
+        border-radius: 8px;
+        transition: all 0.2s ease;
+      }
+      
+      .toc-link:hover {
+        background: rgba(99, 102, 241, 0.1);
+        color: #6366f1;
+      }
 
 .page-content {
-  padding-bottom: 4rem;
-}
+        padding-bottom: 4rem;
+      }
+      
+      .content-section {
+        margin-bottom: 3rem;
+        scroll-margin-top: 2rem;
+      }
+      
+      .section-title {
+        font-size: 2rem;
+        color: #6366f1;
+        margin-bottom: 2rem;
+        padding-bottom: 0.5rem;
+        border-bottom: 2px solid rgba(99, 102, 241, 0.3);
+      }
+      
+      .content-block {
+        margin-bottom: 2rem;
+      }
+      
+      .block-title {
+        font-size: 1.5rem;
+        color: #f8fafc;
+        margin-bottom: 1rem;
+      }
 
-.interface-section {
-  margin-bottom: 4rem;
-  background: rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 16px;
-  padding: 2rem;
-}
+.properties-list {
+        margin: 1rem 0;
+      }
+      
+      .property-row {
+        display: grid;
+        grid-template-columns: 200px 1fr;
+        gap: 1rem;
+        margin-bottom: 0.5rem;
+        padding: 0.5rem 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      }
+      
+      .property-label {
+        font-weight: 600;
+        color: #6366f1;
+        font-size: 0.9rem;
+      }
+      
+      .property-value {
+        color: #cbd5e1;
+      }
 
-.interface-section h2 {
-  font-size: 2rem;
-  color: #6366f1;
-  margin-bottom: 2rem;
-}
+.definition-item {
+        margin: 2rem 0;
+        padding: 1.5rem;
+        background: rgba(255, 255, 255, 0.03);
+        border-left: 4px solid #6366f1;
+        border-radius: 0 8px 8px 0;
+      }
+      
+      .definition-title {
+        font-size: 1.25rem;
+        color: #f8fafc;
+        margin-bottom: 0.5rem;
+      }
+      
+      .definition-description {
+        color: #cbd5e1;
+        margin-bottom: 1rem;
+        line-height: 1.6;
+      }
+      
+      .definition-meta {
+        margin: 0.5rem 0;
+        color: #94a3b8;
+        font-size: 0.9rem;
+      }
 
-.element {
-  margin-bottom: 2rem;
-  padding: 1.5rem;
-  background: rgba(255, 255, 255, 0.03);
-  border-radius: 12px;
-}
+.subsection {
+        margin: 2rem 0;
+      }
+      
+      .subsection-title {
+        font-size: 1.25rem;
+        color: #a855f7;
+        margin-bottom: 1rem;
+      }
 
-.element h3 {
-  font-size: 1.5rem;
-  color: #f8fafc;
-  margin-bottom: 1rem;
-}
+.items-list {
+        margin: 1rem 0;
+      }
+      
+      .list-item {
+        margin: 1.5rem 0;
+        padding: 1rem;
+        background: rgba(255, 255, 255, 0.02);
+        border-radius: 8px;
+      }
+      
+      .item-title {
+        font-size: 1.1rem;
+        color: #f8fafc;
+        margin-bottom: 0.5rem;
+      }
+      
+      .item-description {
+        color: #cbd5e1;
+        margin-bottom: 1rem;
+        line-height: 1.6;
+      }
 
-.content-section {
-  margin-bottom: 1.5rem;
-  padding: 1rem;
-  background: rgba(255, 255, 255, 0.02);
-  border-radius: 8px;
-}
+.item-details,
+      .methodology-details,
+      .item-properties {
+        margin: 1rem 0;
+        display: grid;
+        grid-template-columns: 150px 1fr;
+        gap: 0.5rem 1rem;
+      }
+      
+      .item-details dt,
+      .methodology-details dt,
+      .item-properties dt {
+        font-weight: 600;
+        color: #6366f1;
+        font-size: 0.9rem;
+      }
+      
+      .item-details dd,
+      .methodology-details dd,
+      .item-properties dd {
+        color: #cbd5e1;
+        margin: 0;
+      }
 
-.content-section h4 {
-  font-size: 1.25rem;
-  color: #cbd5e1;
-  margin-bottom: 1rem;
-}
+.overview-text {
+        margin: 1rem 0;
+      }
+      
+      .overview-item {
+        margin: 1rem 0;
+      }
+      
+      .overview-item h5 {
+        font-size: 1rem;
+        color: #a855f7;
+        margin-bottom: 0.5rem;
+      }
+      
+      .overview-item p {
+        color: #cbd5e1;
+        line-height: 1.6;
+      }
 
-.property-item {
-  display: flex;
-  margin-bottom: 0.5rem;
-  padding: 0.5rem;
-  background: rgba(255, 255, 255, 0.02);
-  border-radius: 6px;
-}
-
-.property-label {
-  font-weight: 600;
-  color: #6366f1;
-  margin-right: 1rem;
-  min-width: 120px;
-}
-
-.property-value {
-  color: #f8fafc;
-  flex: 1;
-}
-
-.methodology-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 1.5rem;
-  margin-top: 1rem;
-}
-
-.methodology-card {
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 12px;
-  padding: 1.5rem;
-  transition: all 0.3s ease;
-}
-
-.methodology-card:hover {
-  transform: translateY(-2px);
-  border-color: rgba(99, 102, 241, 0.3);
-  box-shadow: 0 8px 25px rgba(99, 102, 241, 0.15);
-}
-
-.methodology-card h5 {
-  font-size: 1.125rem;
-  font-weight: 600;
-  color: #f8fafc;
-  margin-bottom: 1rem;
-}
-
-.methodology-stat {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 0.5rem;
-  padding: 0.5rem;
-  background: rgba(99, 102, 241, 0.1);
-  border-radius: 6px;
-}
-
-.stat-label {
-  font-weight: 500;
-  color: #cbd5e1;
-}
-
-.stat-value {
-  font-weight: 600;
-  color: #6366f1;
-}
-
-.methodology-description {
-  color: #94a3b8;
-  line-height: 1.5;
-  margin-bottom: 0.75rem;
-}
-
-.methodology-description strong {
-  color: #e2e8f0;
-}
-
-.educational-overview {
-  margin-bottom: 1.5rem;
-  padding: 1rem;
-  background: rgba(99, 102, 241, 0.05);
-  border-radius: 8px;
-  border-left: 4px solid #6366f1;
-}
-
-.educational-item {
-  margin-bottom: 1rem;
-}
-
-.educational-item h6 {
-  font-size: 1rem;
-  font-weight: 600;
-  color: #6366f1;
-  margin-bottom: 0.5rem;
-}
-
-.educational-item p {
-  color: #cbd5e1;
-  line-height: 1.5;
-}
-
-.methodology-details {
-  margin-top: 1rem;
-  padding: 1rem;
-  background: rgba(255, 255, 255, 0.02);
-  border-radius: 8px;
-}
-
-.methodology-feature {
-  margin-bottom: 0.75rem;
-  padding: 0.5rem;
-  background: rgba(99, 102, 241, 0.05);
-  border-radius: 6px;
-}
-
-.methodology-feature strong {
-  color: #6366f1;
-  margin-right: 0.5rem;
-}
-
-.methodology-framework {
-  margin-top: 1rem;
-  padding: 1rem;
-  background: rgba(168, 85, 247, 0.05);
-  border-radius: 8px;
-  border-left: 3px solid #a855f7;
-}
-
-.methodology-framework h6 {
-  font-size: 0.875rem;
-  font-weight: 600;
-  color: #a855f7;
-  margin-bottom: 0.75rem;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-}
-
-.framework-element {
-  display: flex;
-  flex-wrap: wrap;
-  margin-bottom: 0.5rem;
-  padding: 0.5rem;
-  background: rgba(255, 255, 255, 0.02);
-  border-radius: 6px;
-}
-
-.framework-label {
-  font-weight: 600;
-  color: #a855f7;
-  margin-right: 0.5rem;
-  min-width: 120px;
-}
-
-.framework-value {
-  color: #e2e8f0;
-  flex: 1;
-}
-
-.methodology-steps {
-  margin-top: 1rem;
-  padding: 1rem;
-  background: rgba(34, 197, 94, 0.05);
-  border-radius: 8px;
-  border-left: 3px solid #22c55e;
-}
-
-.methodology-steps h6 {
-  font-size: 0.875rem;
-  font-weight: 600;
-  color: #22c55e;
-  margin-bottom: 0.75rem;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-}
-
-.methodology-step {
-  margin-bottom: 0.75rem;
-  padding: 0.5rem;
-  background: rgba(255, 255, 255, 0.02);
-  border-radius: 6px;
-}
-
-.methodology-step strong {
-  color: #22c55e;
-  margin-right: 0.5rem;
-}
-
-.methodology-type {
-  border-left: 4px solid #6366f1;
-}
-
-.content-type {
-  border-left: 4px solid #94a3b8;
-}
-
-.pattern-type {
-  border-left: 4px solid #a855f7;
-}
-
-.process-type {
-  border-left: 4px solid #22c55e;
-}
-
-.patterns-section, .processes-section {
-  margin-bottom: 2rem;
-}
-
-.patterns-section h3, .processes-section h3 {
-  font-size: 1.5rem;
-  color: #6366f1;
-  margin-bottom: 1rem;
-}
-
-.element-properties {
-  margin-bottom: 1.5rem;
-  padding: 1rem;
-  background: rgba(255, 255, 255, 0.02);
-  border-radius: 8px;
-}
-
-.element-properties h4 {
-  font-size: 1.125rem;
-  color: #6366f1;
-  margin-bottom: 1rem;
-}
-
-.simple-content {
-  margin-top: 1rem;
-}
-
-.content-item {
-  margin-bottom: 1.5rem;
-  padding: 1rem;
-  background: rgba(255, 255, 255, 0.02);
-  border-radius: 8px;
-}
-
-.content-item h5 {
-  font-size: 1rem;
-  color: #e2e8f0;
-  margin-bottom: 0.5rem;
-}
-
-.content-item p {
-  color: #94a3b8;
-  line-height: 1.5;
-}
-
-.apml-source {
-  margin-top: 4rem;
-  background: rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 16px;
-  padding: 2rem;
-}
-
-.apml-source h2 {
-  font-size: 1.5rem;
-  color: #6366f1;
-  margin-bottom: 1rem;
-}
-
-/* Enhanced Mobile Responsiveness */
 @media (max-width: 768px) {
-  .page-title {
-    font-size: 2rem;
-    line-height: 1.2;
-  }
-  
-  .page-subtitle {
-    font-size: 1rem;
-    line-height: 1.4;
-  }
-  
-  .container {
-    padding: 0 1rem;
-  }
-  
-  .interface-section {
-    padding: 1rem;
-    margin-bottom: 2rem;
-  }
-  
-  .methodology-grid {
-    grid-template-columns: 1fr;
-    gap: 1rem;
-  }
-  
-  .methodology-card {
-    padding: 1rem;
-  }
-  
-  .methodology-card h5 {
-    font-size: 1rem;
-    line-height: 1.3;
-  }
-  
-  .methodology-description {
-    font-size: 0.875rem;
-    line-height: 1.5;
-  }
-  
-  .element h3 {
-    font-size: 1.25rem;
-    line-height: 1.3;
-  }
-  
-  .content-section h4 {
-    font-size: 1.125rem;
-    line-height: 1.3;
-  }
-}
+        .toc-list {
+          grid-template-columns: 1fr;
+        }
+        
+        .property-row {
+          grid-template-columns: 1fr;
+          gap: 0.25rem;
+        }
+        
+        .item-details,
+        .methodology-details,
+        .item-properties {
+          grid-template-columns: 1fr;
+          gap: 0.25rem;
+        }
+        
+        .page-title {
+          font-size: 2rem;
+        }
+      }
 
-/* Enhanced Text Readability */
-@media (max-width: 480px) {
-  .page-title {
-    font-size: 1.75rem;
-  }
-  
-  .methodology-card {
-    padding: 0.875rem;
-  }
-  
-  .methodology-card h5 {
-    font-size: 0.95rem;
-  }
-  
-  .methodology-description {
-    font-size: 0.8rem;
-  }
-}
+
 </style>

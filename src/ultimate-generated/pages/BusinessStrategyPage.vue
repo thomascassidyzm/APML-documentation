@@ -2,124 +2,123 @@
   <div class="business-strategy-page">
     <header class="page-header">
       <div class="container">
-        <h1 class="page-title">Strategic Business Design & Model Innovation Patterns</h1>
-        <p class="page-subtitle">Generated from APML specification</p>
+        <h1 class="page-title">Strategic Positioning & Competitive Advantage</h1>
+        <p class="page-subtitle">APML-based frameworks for business model design, competitive strategy, and organizational transformation</p>
       </div>
     </header>
-
     <main class="page-content">
       <div class="container">
-        <section class="interface-section strategic_planning">
-          <h2>Strategic Planning</h2>
-          <div class="element business_model_canvas">
-            <h3>Business Model Canvas</h3>
-              <div class="content-section canvas_sections">
-                <h4>Canvas Sections</h4>
-                <div class="methodology-grid">
-                  <div class="methodology-card methodology-type">
-                    <h5>Value Propositions Section</h5>
+        <section  class="interface-section">
+          <h2 >Strategic Planning</h2>
+          <div class="content-block">
+            <h3 class="block-title">Business Model Canvas</h3>
+              <div class="subsection">
+                <h4 class="subsection-title">Canvas Sections</h4>
+                <div class="items-list">
+                  <div class="list-item">
+                    <h5 class="item-title">Value Propositions Section</h5>
                   </div>
-                  <div class="methodology-card methodology-type">
-                    <h5>Title</h5>
-                    <p class="methodology-description">Revenue Streams</p>
+                  <div class="list-item">
+                    <h5 class="item-title">Title</h5>
+                    <p class="item-description">Revenue Streams</p>
                   </div>
-                  <div class="methodology-card methodology-type">
-                    <h5>Prompt</h5>
-                    <p class="methodology-description">How do you generate revenue from each segment?</p>
+                  <div class="list-item">
+                    <h5 class="item-title">Prompt</h5>
+                    <p class="item-description">How do you generate revenue from each segment?</p>
                   </div>
-                  <div class="methodology-card methodology-type">
-                    <h5>Examples</h5>
-                    <p class="methodology-description">Asset sale, subscription, licensing, advertising</p>
+                  <div class="list-item">
+                    <h5 class="item-title">Examples</h5>
+                    <p class="item-description">Asset sale, subscription, licensing, advertising</p>
                   </div>
-                  <div class="methodology-card methodology-type">
-                    <h5>Customer Segments Section</h5>
+                  <div class="list-item">
+                    <h5 class="item-title">Customer Segments Section</h5>
                   </div>
-                  <div class="methodology-card methodology-type">
-                    <h5>Revenue Streams Section</h5>
+                  <div class="list-item">
+                    <h5 class="item-title">Revenue Streams Section</h5>
                   </div>
                 </div>
               </div>
-              <div class="content-section lean_canvas">
-                <h4>Lean Canvas</h4>
+              <div class="subsection">
+                <h4 class="subsection-title">Lean Canvas</h4>
               </div>
           </div>
-          <div class="element problem_solution_fit_focus">
-            <h3>Problem Solution Fit Focus</h3>
+          <div class="content-block">
+            <h3 class="block-title">Problem Solution Fit Focus</h3>
           </div>
-          <div class="element metrics_and_validation">
-            <h3>Metrics And Validation</h3>
+          <div class="content-block">
+            <h3 class="block-title">Metrics And Validation</h3>
           </div>
-          <div class="element competitive_analysis">
-            <h3>Competitive Analysis</h3>
-              <div class="content-section porter_five_forces">
-                <h4>Porter Five Forces</h4>
-                <div class="methodology-grid">
-                  <div class="methodology-card content-type">
-                    <h5>Threat Of New Entrants</h5>
+          <div class="content-block">
+            <h3 class="block-title">Competitive Analysis</h3>
+              <div class="subsection">
+                <h4 class="subsection-title">Porter Five Forces</h4>
+                <div class="items-list">
+                  <div class="list-item">
+                    <h5 class="item-title">Threat Of New Entrants</h5>
                   </div>
-                  <div class="methodology-card content-type">
-                    <h5>Barriers To Entry</h5>
-                    <p class="methodology-description">list of industry_specific_barriers</p>
+                  <div class="list-item">
+                    <h5 class="item-title">Barriers To Entry</h5>
+                    <p class="item-description">list of industry_specific_barriers</p>
                   </div>
-                  <div class="methodology-card content-type">
-                    <h5>Capital Requirements</h5>
-                    <p class="methodology-description">assessment of_financial_barriers</p>
+                  <div class="list-item">
+                    <h5 class="item-title">Capital Requirements</h5>
+                    <p class="item-description">assessment of_financial_barriers</p>
                   </div>
-                  <div class="methodology-card content-type">
-                    <h5>Brand Loyalty</h5>
-                    <p class="methodology-description">evaluation of_customer_switching_costs</p>
+                  <div class="list-item">
+                    <h5 class="item-title">Brand Loyalty</h5>
+                    <p class="item-description">evaluation of_customer_switching_costs</p>
                   </div>
-                  <div class="methodology-card content-type">
-                    <h5>Bargaining Power Of Suppliers</h5>
+                  <div class="list-item">
+                    <h5 class="item-title">Bargaining Power Of Suppliers</h5>
                   </div>
-                  <div class="methodology-card content-type">
-                    <h5>Supplier Concentration</h5>
-                    <p class="methodology-description">analysis of_supplier_market_structure</p>
+                  <div class="list-item">
+                    <h5 class="item-title">Supplier Concentration</h5>
+                    <p class="item-description">analysis of_supplier_market_structure</p>
                   </div>
-                  <div class="methodology-card content-type">
-                    <h5>Switching Costs</h5>
-                    <p class="methodology-description">effort_required_to_adopt_substitutes</p>
+                  <div class="list-item">
+                    <h5 class="item-title">Switching Costs</h5>
+                    <p class="item-description">effort_required_to_adopt_substitutes</p>
                   </div>
-                  <div class="methodology-card content-type">
-                    <h5>Availability Of Substitutes</h5>
-                    <p class="methodology-description">alternative_supplier_options</p>
+                  <div class="list-item">
+                    <h5 class="item-title">Availability Of Substitutes</h5>
+                    <p class="item-description">alternative_supplier_options</p>
                   </div>
-                  <div class="methodology-card content-type">
-                    <h5>Bargaining Power Of Buyers</h5>
+                  <div class="list-item">
+                    <h5 class="item-title">Bargaining Power Of Buyers</h5>
                   </div>
-                  <div class="methodology-card content-type">
-                    <h5>Buyer Concentration</h5>
-                    <p class="methodology-description">analysis of_customer_market_structure</p>
+                  <div class="list-item">
+                    <h5 class="item-title">Buyer Concentration</h5>
+                    <p class="item-description">analysis of_customer_market_structure</p>
                   </div>
-                  <div class="methodology-card content-type">
-                    <h5>Price Sensitivity</h5>
-                    <p class="methodology-description">how_price_affects_purchase_decisions</p>
+                  <div class="list-item">
+                    <h5 class="item-title">Price Sensitivity</h5>
+                    <p class="item-description">how_price_affects_purchase_decisions</p>
                   </div>
-                  <div class="methodology-card content-type">
-                    <h5>Threat Of Substitute Products</h5>
+                  <div class="list-item">
+                    <h5 class="item-title">Threat Of Substitute Products</h5>
                   </div>
-                  <div class="methodology-card content-type">
-                    <h5>Substitute Availability</h5>
-                    <p class="methodology-description">alternative_solutions_in_market</p>
+                  <div class="list-item">
+                    <h5 class="item-title">Substitute Availability</h5>
+                    <p class="item-description">alternative_solutions_in_market</p>
                   </div>
-                  <div class="methodology-card content-type">
-                    <h5>Relative Price Performance</h5>
-                    <p class="methodology-description">value_comparison_with_substitutes</p>
+                  <div class="list-item">
+                    <h5 class="item-title">Relative Price Performance</h5>
+                    <p class="item-description">value_comparison_with_substitutes</p>
                   </div>
-                  <div class="methodology-card content-type">
-                    <h5>Competitive Rivalry</h5>
+                  <div class="list-item">
+                    <h5 class="item-title">Competitive Rivalry</h5>
                   </div>
-                  <div class="methodology-card content-type">
-                    <h5>Number Of Competitors</h5>
-                    <p class="methodology-description">market_concentration_analysis</p>
+                  <div class="list-item">
+                    <h5 class="item-title">Number Of Competitors</h5>
+                    <p class="item-description">market_concentration_analysis</p>
                   </div>
-                  <div class="methodology-card content-type">
-                    <h5>Growth Rate</h5>
-                    <p class="methodology-description">industry_growth_trends</p>
+                  <div class="list-item">
+                    <h5 class="item-title">Growth Rate</h5>
+                    <p class="item-description">industry_growth_trends</p>
                   </div>
-                  <div class="methodology-card content-type">
-                    <h5>Differentiation</h5>
-                    <p class="methodology-description">uniqueness_of_products_and_services</p>
+                  <div class="list-item">
+                    <h5 class="item-title">Differentiation</h5>
+                    <p class="item-description">uniqueness_of_products_and_services</p>
                   </div>
                 </div>
               </div>
@@ -160,7 +159,50 @@ const apmlSpec = {
   "app": {
     "name": "BusinessStrategyPatterns",
     "properties": {
-      "title": "Strategic Business Design & Model Innovation Patterns"
+      "title": "Strategic Positioning & Competitive Advantage",
+      "description": "APML-based frameworks for business model design, competitive strategy, and organizational transformation",
+      "version": "1.0.0",
+      "apml_specification_version": "0.9.0",
+      "value_propositions": "list of text required",
+      "customer_segments": "list of text required",
+      "revenue_streams": "Revenue model, lifetime value",
+      "key_partnerships": "list of text",
+      "key_resources": "list of text required",
+      "key_activities": "list of text required",
+      "cost_structure": "Customer acquisition costs, distribution costs",
+      "channels": "Path to customers",
+      "customer_relationships": "list of text required",
+      "market_position": "cost_leader | differentiator | focused_niche",
+      "competitive_advantages": "list of text required",
+      "barrier_strategies": "list of text",
+      "market_entry_approach": "text required",
+      "value_chain_optimization": "list of text",
+      "goal": "text required",
+      "success_metrics": "list of text required",
+      "timeline": "text required",
+      "resource_requirements": "list of text",
+      "risk_factors": "list of text",
+      "dependencies": "list of text",
+      "prompt": "How do you generate revenue from each segment?",
+      "examples": "Asset sale, subscription, licensing, advertising",
+      "problems_section": "Top 3 problems you solve",
+      "solutions_section": "Top 3 features addressing problems",
+      "unique_value_proposition": "Single compelling message",
+      "unfair_advantage": "Something that cannot be easily copied",
+      "key_metrics": "Numbers that tell you how your business is doing",
+      "barriers_to_entry": "list of industry_specific_barriers",
+      "capital_requirements": "assessment of_financial_barriers",
+      "brand_loyalty": "evaluation of_customer_switching_costs",
+      "supplier_concentration": "analysis of_supplier_market_structure",
+      "switching_costs": "effort_required_to_adopt_substitutes",
+      "availability_of_substitutes": "alternative_supplier_options",
+      "buyer_concentration": "analysis of_customer_market_structure",
+      "price_sensitivity": "how_price_affects_purchase_decisions",
+      "substitute_availability": "alternative_solutions_in_market",
+      "relative_price_performance": "value_comparison_with_substitutes",
+      "number_of_competitors": "market_concentration_analysis",
+      "growth_rate": "industry_growth_trends",
+      "differentiation": "uniqueness_of_products_and_services"
     }
   },
   "data": {
@@ -825,422 +867,256 @@ const strategic_planningElements = computed(() => ({
 // Application metadata
 const appMetadata = {
   name: 'BusinessStrategyPatterns',
-  title: 'Strategic Business Design & Model Innovation Patterns',
-  description: '',
+  title: 'Strategic Positioning & Competitive Advantage',
+  description: 'APML-based frameworks for business model design, competitive strategy, and organizational transformation',
   version: '1.0.0'
 }
 </script>
 
 <style scoped>
 .business-strategy-page {
-  min-height: 100vh;
-  background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #374151 100%);
-  color: #f8fafc;
-}
-
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 2rem;
-}
+        min-height: 100vh;
+        background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #374151 100%);
+        color: #f8fafc;
+        line-height: 1.6;
+      }
+      
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 2rem;
+      }
 
 .page-header {
-  padding: 3rem 0;
-  text-align: center;
-}
+        padding: 3rem 0 2rem;
+        text-align: center;
+      }
+      
+      .page-title {
+        font-size: 3rem;
+        font-weight: 700;
+        background: linear-gradient(135deg, #6366f1, #a855f7);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        margin-bottom: 1rem;
+      }
+      
+      .page-subtitle {
+        font-size: 1.25rem;
+        color: #94a3b8;
+        margin: 0;
+      }
 
-.page-title {
-  font-size: 3rem;
-  font-weight: 700;
-  background: linear-gradient(135deg, #6366f1, #a855f7);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  margin-bottom: 1rem;
-}
-
-.page-subtitle {
-  font-size: 1.25rem;
-  color: #94a3b8;
-  margin-bottom: 2rem;
-}
+.table-of-contents {
+        background: rgba(255, 255, 255, 0.05);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        padding: 2rem 0;
+        margin-bottom: 2rem;
+      }
+      
+      .table-of-contents h2 {
+        font-size: 1.5rem;
+        color: #6366f1;
+        margin-bottom: 1rem;
+      }
+      
+      .toc-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 0.5rem;
+      }
+      
+      .toc-link {
+        display: block;
+        color: #cbd5e1;
+        text-decoration: none;
+        padding: 0.75rem 1rem;
+        border-radius: 8px;
+        transition: all 0.2s ease;
+      }
+      
+      .toc-link:hover {
+        background: rgba(99, 102, 241, 0.1);
+        color: #6366f1;
+      }
 
 .page-content {
-  padding-bottom: 4rem;
-}
+        padding-bottom: 4rem;
+      }
+      
+      .content-section {
+        margin-bottom: 3rem;
+        scroll-margin-top: 2rem;
+      }
+      
+      .section-title {
+        font-size: 2rem;
+        color: #6366f1;
+        margin-bottom: 2rem;
+        padding-bottom: 0.5rem;
+        border-bottom: 2px solid rgba(99, 102, 241, 0.3);
+      }
+      
+      .content-block {
+        margin-bottom: 2rem;
+      }
+      
+      .block-title {
+        font-size: 1.5rem;
+        color: #f8fafc;
+        margin-bottom: 1rem;
+      }
 
-.interface-section {
-  margin-bottom: 4rem;
-  background: rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 16px;
-  padding: 2rem;
-}
+.properties-list {
+        margin: 1rem 0;
+      }
+      
+      .property-row {
+        display: grid;
+        grid-template-columns: 200px 1fr;
+        gap: 1rem;
+        margin-bottom: 0.5rem;
+        padding: 0.5rem 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      }
+      
+      .property-label {
+        font-weight: 600;
+        color: #6366f1;
+        font-size: 0.9rem;
+      }
+      
+      .property-value {
+        color: #cbd5e1;
+      }
 
-.interface-section h2 {
-  font-size: 2rem;
-  color: #6366f1;
-  margin-bottom: 2rem;
-}
+.definition-item {
+        margin: 2rem 0;
+        padding: 1.5rem;
+        background: rgba(255, 255, 255, 0.03);
+        border-left: 4px solid #6366f1;
+        border-radius: 0 8px 8px 0;
+      }
+      
+      .definition-title {
+        font-size: 1.25rem;
+        color: #f8fafc;
+        margin-bottom: 0.5rem;
+      }
+      
+      .definition-description {
+        color: #cbd5e1;
+        margin-bottom: 1rem;
+        line-height: 1.6;
+      }
+      
+      .definition-meta {
+        margin: 0.5rem 0;
+        color: #94a3b8;
+        font-size: 0.9rem;
+      }
 
-.element {
-  margin-bottom: 2rem;
-  padding: 1.5rem;
-  background: rgba(255, 255, 255, 0.03);
-  border-radius: 12px;
-}
+.subsection {
+        margin: 2rem 0;
+      }
+      
+      .subsection-title {
+        font-size: 1.25rem;
+        color: #a855f7;
+        margin-bottom: 1rem;
+      }
 
-.element h3 {
-  font-size: 1.5rem;
-  color: #f8fafc;
-  margin-bottom: 1rem;
-}
+.items-list {
+        margin: 1rem 0;
+      }
+      
+      .list-item {
+        margin: 1.5rem 0;
+        padding: 1rem;
+        background: rgba(255, 255, 255, 0.02);
+        border-radius: 8px;
+      }
+      
+      .item-title {
+        font-size: 1.1rem;
+        color: #f8fafc;
+        margin-bottom: 0.5rem;
+      }
+      
+      .item-description {
+        color: #cbd5e1;
+        margin-bottom: 1rem;
+        line-height: 1.6;
+      }
 
-.content-section {
-  margin-bottom: 1.5rem;
-  padding: 1rem;
-  background: rgba(255, 255, 255, 0.02);
-  border-radius: 8px;
-}
+.item-details,
+      .methodology-details,
+      .item-properties {
+        margin: 1rem 0;
+        display: grid;
+        grid-template-columns: 150px 1fr;
+        gap: 0.5rem 1rem;
+      }
+      
+      .item-details dt,
+      .methodology-details dt,
+      .item-properties dt {
+        font-weight: 600;
+        color: #6366f1;
+        font-size: 0.9rem;
+      }
+      
+      .item-details dd,
+      .methodology-details dd,
+      .item-properties dd {
+        color: #cbd5e1;
+        margin: 0;
+      }
 
-.content-section h4 {
-  font-size: 1.25rem;
-  color: #cbd5e1;
-  margin-bottom: 1rem;
-}
+.overview-text {
+        margin: 1rem 0;
+      }
+      
+      .overview-item {
+        margin: 1rem 0;
+      }
+      
+      .overview-item h5 {
+        font-size: 1rem;
+        color: #a855f7;
+        margin-bottom: 0.5rem;
+      }
+      
+      .overview-item p {
+        color: #cbd5e1;
+        line-height: 1.6;
+      }
 
-.property-item {
-  display: flex;
-  margin-bottom: 0.5rem;
-  padding: 0.5rem;
-  background: rgba(255, 255, 255, 0.02);
-  border-radius: 6px;
-}
-
-.property-label {
-  font-weight: 600;
-  color: #6366f1;
-  margin-right: 1rem;
-  min-width: 120px;
-}
-
-.property-value {
-  color: #f8fafc;
-  flex: 1;
-}
-
-.methodology-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 1.5rem;
-  margin-top: 1rem;
-}
-
-.methodology-card {
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 12px;
-  padding: 1.5rem;
-  transition: all 0.3s ease;
-}
-
-.methodology-card:hover {
-  transform: translateY(-2px);
-  border-color: rgba(99, 102, 241, 0.3);
-  box-shadow: 0 8px 25px rgba(99, 102, 241, 0.15);
-}
-
-.methodology-card h5 {
-  font-size: 1.125rem;
-  font-weight: 600;
-  color: #f8fafc;
-  margin-bottom: 1rem;
-}
-
-.methodology-stat {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 0.5rem;
-  padding: 0.5rem;
-  background: rgba(99, 102, 241, 0.1);
-  border-radius: 6px;
-}
-
-.stat-label {
-  font-weight: 500;
-  color: #cbd5e1;
-}
-
-.stat-value {
-  font-weight: 600;
-  color: #6366f1;
-}
-
-.methodology-description {
-  color: #94a3b8;
-  line-height: 1.5;
-  margin-bottom: 0.75rem;
-}
-
-.methodology-description strong {
-  color: #e2e8f0;
-}
-
-.educational-overview {
-  margin-bottom: 1.5rem;
-  padding: 1rem;
-  background: rgba(99, 102, 241, 0.05);
-  border-radius: 8px;
-  border-left: 4px solid #6366f1;
-}
-
-.educational-item {
-  margin-bottom: 1rem;
-}
-
-.educational-item h6 {
-  font-size: 1rem;
-  font-weight: 600;
-  color: #6366f1;
-  margin-bottom: 0.5rem;
-}
-
-.educational-item p {
-  color: #cbd5e1;
-  line-height: 1.5;
-}
-
-.methodology-details {
-  margin-top: 1rem;
-  padding: 1rem;
-  background: rgba(255, 255, 255, 0.02);
-  border-radius: 8px;
-}
-
-.methodology-feature {
-  margin-bottom: 0.75rem;
-  padding: 0.5rem;
-  background: rgba(99, 102, 241, 0.05);
-  border-radius: 6px;
-}
-
-.methodology-feature strong {
-  color: #6366f1;
-  margin-right: 0.5rem;
-}
-
-.methodology-framework {
-  margin-top: 1rem;
-  padding: 1rem;
-  background: rgba(168, 85, 247, 0.05);
-  border-radius: 8px;
-  border-left: 3px solid #a855f7;
-}
-
-.methodology-framework h6 {
-  font-size: 0.875rem;
-  font-weight: 600;
-  color: #a855f7;
-  margin-bottom: 0.75rem;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-}
-
-.framework-element {
-  display: flex;
-  flex-wrap: wrap;
-  margin-bottom: 0.5rem;
-  padding: 0.5rem;
-  background: rgba(255, 255, 255, 0.02);
-  border-radius: 6px;
-}
-
-.framework-label {
-  font-weight: 600;
-  color: #a855f7;
-  margin-right: 0.5rem;
-  min-width: 120px;
-}
-
-.framework-value {
-  color: #e2e8f0;
-  flex: 1;
-}
-
-.methodology-steps {
-  margin-top: 1rem;
-  padding: 1rem;
-  background: rgba(34, 197, 94, 0.05);
-  border-radius: 8px;
-  border-left: 3px solid #22c55e;
-}
-
-.methodology-steps h6 {
-  font-size: 0.875rem;
-  font-weight: 600;
-  color: #22c55e;
-  margin-bottom: 0.75rem;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-}
-
-.methodology-step {
-  margin-bottom: 0.75rem;
-  padding: 0.5rem;
-  background: rgba(255, 255, 255, 0.02);
-  border-radius: 6px;
-}
-
-.methodology-step strong {
-  color: #22c55e;
-  margin-right: 0.5rem;
-}
-
-.methodology-type {
-  border-left: 4px solid #6366f1;
-}
-
-.content-type {
-  border-left: 4px solid #94a3b8;
-}
-
-.pattern-type {
-  border-left: 4px solid #a855f7;
-}
-
-.process-type {
-  border-left: 4px solid #22c55e;
-}
-
-.patterns-section, .processes-section {
-  margin-bottom: 2rem;
-}
-
-.patterns-section h3, .processes-section h3 {
-  font-size: 1.5rem;
-  color: #6366f1;
-  margin-bottom: 1rem;
-}
-
-.element-properties {
-  margin-bottom: 1.5rem;
-  padding: 1rem;
-  background: rgba(255, 255, 255, 0.02);
-  border-radius: 8px;
-}
-
-.element-properties h4 {
-  font-size: 1.125rem;
-  color: #6366f1;
-  margin-bottom: 1rem;
-}
-
-.simple-content {
-  margin-top: 1rem;
-}
-
-.content-item {
-  margin-bottom: 1.5rem;
-  padding: 1rem;
-  background: rgba(255, 255, 255, 0.02);
-  border-radius: 8px;
-}
-
-.content-item h5 {
-  font-size: 1rem;
-  color: #e2e8f0;
-  margin-bottom: 0.5rem;
-}
-
-.content-item p {
-  color: #94a3b8;
-  line-height: 1.5;
-}
-
-.apml-source {
-  margin-top: 4rem;
-  background: rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 16px;
-  padding: 2rem;
-}
-
-.apml-source h2 {
-  font-size: 1.5rem;
-  color: #6366f1;
-  margin-bottom: 1rem;
-}
-
-/* Enhanced Mobile Responsiveness */
 @media (max-width: 768px) {
-  .page-title {
-    font-size: 2rem;
-    line-height: 1.2;
-  }
-  
-  .page-subtitle {
-    font-size: 1rem;
-    line-height: 1.4;
-  }
-  
-  .container {
-    padding: 0 1rem;
-  }
-  
-  .interface-section {
-    padding: 1rem;
-    margin-bottom: 2rem;
-  }
-  
-  .methodology-grid {
-    grid-template-columns: 1fr;
-    gap: 1rem;
-  }
-  
-  .methodology-card {
-    padding: 1rem;
-  }
-  
-  .methodology-card h5 {
-    font-size: 1rem;
-    line-height: 1.3;
-  }
-  
-  .methodology-description {
-    font-size: 0.875rem;
-    line-height: 1.5;
-  }
-  
-  .element h3 {
-    font-size: 1.25rem;
-    line-height: 1.3;
-  }
-  
-  .content-section h4 {
-    font-size: 1.125rem;
-    line-height: 1.3;
-  }
-}
+        .toc-list {
+          grid-template-columns: 1fr;
+        }
+        
+        .property-row {
+          grid-template-columns: 1fr;
+          gap: 0.25rem;
+        }
+        
+        .item-details,
+        .methodology-details,
+        .item-properties {
+          grid-template-columns: 1fr;
+          gap: 0.25rem;
+        }
+        
+        .page-title {
+          font-size: 2rem;
+        }
+      }
 
-/* Enhanced Text Readability */
-@media (max-width: 480px) {
-  .page-title {
-    font-size: 1.75rem;
-  }
-  
-  .methodology-card {
-    padding: 0.875rem;
-  }
-  
-  .methodology-card h5 {
-    font-size: 0.95rem;
-  }
-  
-  .methodology-description {
-    font-size: 0.8rem;
-  }
-}
+
 </style>

@@ -2,94 +2,93 @@
   <div class="language-spec-page">
     <header class="page-header">
       <div class="container">
-        <h1 class="page-title">APML v0.9.0 - Complete Language Specification</h1>
-        <p class="page-subtitle">Generated from APML specification</p>
+        <h1 class="page-title">Add New Task</h1>
+        <p class="page-subtitle">text optional</p>
       </div>
     </header>
-
     <main class="page-content">
       <div class="container">
-        <section class="interface-section complete_specification">
-          <h2>Complete Specification</h2>
-          <div class="element language_overview">
-            <h3>Language Overview</h3>
-              <div class="content-section core_concepts">
-                <h4>Core Concepts</h4>
+        <section  class="interface-section">
+          <h2 >Complete Specification</h2>
+          <div class="content-block">
+            <h3 class="block-title">Language Overview</h3>
+              <div class="subsection">
+                <h4 class="subsection-title">Core Concepts</h4>
               </div>
           </div>
-          <div class="element syntax_patterns">
-            <h3>Syntax Patterns</h3>
-              <div class="content-section message_type_patterns">
-                <h4>Message Type Patterns</h4>
-                <div class="methodology-grid">
-                  <div class="methodology-card methodology-type">
-                    <h5>Display Pattern</h5>
-                    <p class="methodology-description">show element_name:</p>
+          <div class="content-block">
+            <h3 class="block-title">Syntax Patterns</h3>
+              <div class="subsection">
+                <h4 class="subsection-title">Message Type Patterns</h4>
+                <div class="items-list">
+                  <div class="list-item">
+                    <h5 class="item-title">Display Pattern</h5>
+                    <p class="item-description">show element_name:</p>
                   </div>
-                  <div class="methodology-card methodology-type">
-                    <h5>Notification Pattern</h5>
-                    <p class="methodology-description">notify user:</p>
+                  <div class="list-item">
+                    <h5 class="item-title">Notification Pattern</h5>
+                    <p class="item-description">notify user:</p>
                   </div>
-                  <div class="methodology-card methodology-type">
-                    <h5>Output Pattern</h5>
-                    <p class="methodology-description">display results:</p>
+                  <div class="list-item">
+                    <h5 class="item-title">Output Pattern</h5>
+                    <p class="item-description">display results:</p>
                   </div>
-                  <div class="methodology-card methodology-type">
-                    <h5>Interaction Pattern</h5>
-                    <p class="methodology-description">when user clicks button:</p>
+                  <div class="list-item">
+                    <h5 class="item-title">Interaction Pattern</h5>
+                    <p class="item-description">when user clicks button:</p>
                   </div>
-                  <div class="methodology-card methodology-type">
-                    <h5>Input Pattern</h5>
-                    <p class="methodology-description">when user types text:</p>
+                  <div class="list-item">
+                    <h5 class="item-title">Input Pattern</h5>
+                    <p class="item-description">when user types text:</p>
                   </div>
-                  <div class="methodology-card methodology-type">
-                    <h5>Command Pattern</h5>
-                    <p class="methodology-description">when user says command:</p>
+                  <div class="list-item">
+                    <h5 class="item-title">Command Pattern</h5>
+                    <p class="item-description">when user says command:</p>
                   </div>
-                  <div class="methodology-card methodology-type">
-                    <h5>Processing Pattern</h5>
-                    <p class="methodology-description">process data_workflow:</p>
+                  <div class="list-item">
+                    <h5 class="item-title">Processing Pattern</h5>
+                    <p class="item-description">process data_workflow:</p>
                   </div>
-                  <div class="methodology-card methodology-type">
-                    <h5>Calculation Pattern</h5>
-                    <p class="methodology-description">calculate business_metrics:</p>
+                  <div class="list-item">
+                    <h5 class="item-title">Calculation Pattern</h5>
+                    <p class="item-description">calculate business_metrics:</p>
                   </div>
-                  <div class="methodology-card methodology-type">
-                    <h5>Integration Pattern</h5>
-                    <p class="methodology-description">sync with external_service:</p>
+                  <div class="list-item">
+                    <h5 class="item-title">Integration Pattern</h5>
+                    <p class="item-description">sync with external_service:</p>
                   </div>
                 </div>
               </div>
           </div>
-          <div class="element compilation_targets">
-            <h3>Compilation Targets</h3>
+          <div class="content-block">
+            <h3 class="block-title">Compilation Targets</h3>
           </div>
         </section>
-        <section class="interface-section example_showcase">
-          <h2>Example Showcase</h2>
-          <div class="element complete_todo_example">
-            <h3>Complete Todo Example</h3>
+        <section  class="interface-section">
+          <h2 >Example Showcase</h2>
+          <div class="content-block">
+            <h3 class="block-title">Complete Todo Example</h3>
           </div>
-          <div class="element task_input_form">
-            <h3>Task Input Form</h3>
-              <div class="content-section task_list">
-                <h4>Task List</h4>
-                <div class="methodology-grid">
-                  <div class="methodology-card content-type">
-                    <h5>Task Content</h5>
-                    <p class="methodology-description">Dynamic task list with filtering</p>
+          <div class="content-block">
+            <h3 class="block-title">Task Input Form</h3>
+              <div class="subsection">
+                <h4 class="subsection-title">Task List</h4>
+                <div class="items-list">
+                  <div class="list-item">
+                    <h5 class="item-title">Task Content</h5>
+                    <p class="item-description">Dynamic task list with filtering</p>
                   </div>
                 </div>
               </div>
           </div>
-          <div class="element task_filters">
-            <h3>Task Filters</h3>
+          <div class="content-block">
+            <h3 class="block-title">Task Filters</h3>
           </div>
         </section>
-        <section class="interface-section specification_navigation">
-          <h2>Specification Navigation</h2>
-          <div class="element section_links">
-            <h3>Section Links</h3>
+        <section  class="interface-section">
+          <h2 >Specification Navigation</h2>
+          <div class="content-block">
+            <h3 class="block-title">Section Links</h3>
           </div>
         </section>
         <section class="apml-source">
@@ -110,7 +109,121 @@ const apmlSpec = {
   "app": {
     "name": "APML_Language_Specification",
     "properties": {
-      "title": "APML v0.9.0 - Complete Language Specification"
+      "title": "Add New Task",
+      "description": "text optional",
+      "version": "1.0",
+      "status": "pending | in_progress | completed default pending",
+      "self_documenting": "true",
+      "name": "text required",
+      "full_name": "Application Programming Markup Language",
+      "philosophy": "Conversational code that feels like magic",
+      "mission": "Bridge human intent with machine execution",
+      "grandmother_test": "Readable aloud to non-technical person",
+      "llm_test": "Any AI can generate valid APML from conversation",
+      "developer_test": "Immediate implementation understanding",
+      "compiler_test": "Unambiguous compilation to working code",
+      "evolution_test": "Graceful handling of future concepts",
+      "app_to_user": "Display, output, communication to users",
+      "user_to_app": "Interaction, input, commands from users",
+      "app_to_app": "Processing, logic, internal workflows",
+      "universality": "Every application behavior maps to these three patterns",
+      "application_declaration": "app identifier:",
+      "data_model_declaration": "data ModelName:",
+      "interface_declaration": "interface optional_name:",
+      "logic_declaration": "logic optional_name:",
+      "field_definition": "identifier: data_type optional_modifiers",
+      "primitives": "text, number, boolean, date, timestamp, email, url, unique_id, money",
+      "collections": "list of DataType",
+      "unions": "type1 | type2 | type3",
+      "references": "ModelName",
+      "required": "Field must have value",
+      "optional": "Field may be empty",
+      "default_value": "default literal_value",
+      "auto_generated": "auto (for timestamps, ids)",
+      "unique_constraint": "unique (for identifiers, emails)",
+      "conditional": "if condition: action_list optional_else",
+      "iteration": "for each identifier in collection: action_list",
+      "temporal": "when user_action: ...",
+      "processing": "process workflow_name: ...",
+      "subtitle": "Foundation Release - Grammar Stabilized",
+      "trinity_principle": "Three fundamental message types",
+      "conversational_syntax": "Natural language patterns",
+      "compilation_certainty": "Unambiguous code generation",
+      "universal_compatibility": "All platforms, all LLMs, all complexity levels",
+      "app_declaration": "app TodoManager:",
+      "metadata": "title, description, version",
+      "data_models": "data Task: ...",
+      "interface_definition": "interface task_management: ...",
+      "business_logic": "logic task_operations: ...",
+      "basic_model": "data User:",
+      "fields": "name: text required, email: email unique",
+      "relationships": "tasks: list of Task",
+      "display_elements": "show welcome_message:",
+      "user_interactions": "when user clicks submit:",
+      "dynamic_content": "for each task in tasks:",
+      "event_handling": "when user_action:",
+      "data_processing": "process workflow:",
+      "calculations": "calculate total_score:",
+      "display_pattern": "show element_name:",
+      "notification_pattern": "notify user:",
+      "output_pattern": "display results:",
+      "interaction_pattern": "when user clicks button:",
+      "input_pattern": "when user types text:",
+      "command_pattern": "when user says command:",
+      "processing_pattern": "process data_workflow:",
+      "calculation_pattern": "calculate business_metrics:",
+      "integration_pattern": "sync with external_service:",
+      "frontend": "React, Vue, Svelte with TypeScript",
+      "backend": "Node.js, Python, Go REST APIs",
+      "database": "PostgreSQL, MongoDB with auto-schemas",
+      "react_native": "iOS/Android shared logic",
+      "flutter": "Cross-platform native performance",
+      "pwa": "Progressive Web App experiences",
+      "electron": "Windows/Mac/Linux compatibility",
+      "tauri": "Secure, lightweight desktop apps",
+      "native": "Platform-specific optimization",
+      "demonstrates": "Language capability by example",
+      "example_code": "",
+      "id": "unique_id",
+      "priority": "high | medium | low default medium",
+      "due_date": "date optional",
+      "created_at": "timestamp auto",
+      "email": "email unique",
+      "tasks": "list of Task",
+      "placeholder": "What needs to be done?",
+      "task_content": "Dynamic task list with filtering",
+      "filter_by_status": "pending | in_progress | completed",
+      "filter_by_priority": "high | medium | low",
+      "v0_9_0": "Grammar Foundation Release - Core syntax stabilized",
+      "future_v0_10_0": "Advanced Features - ML integration, real-time collaboration",
+      "future_v0_11_0": "Platform Extensions - Mobile, desktop, voice interfaces",
+      "future_v1_0_0": "Production Ready - Complete specification stabilized",
+      "data_model": "data identifier: field_list",
+      "interface_section": "interface optional_identifier: element_list",
+      "logic_section": "logic optional_identifier: workflow_list",
+      "event_handler": "when condition: action_list",
+      "structure": "app, data, interface, logic, integrations, deploy",
+      "control": "if, else, when, while, for, each, in, return, break, continue",
+      "data_types": "text, number, boolean, date, timestamp, email, url, unique_id, money",
+      "modifiers": "required, optional, default, auto, unique, list, of",
+      "actions": "show, display, notify, send, create, read, update, delete",
+      "timing": "now, today, tomorrow, daily, weekly, monthly, at, before, after",
+      "lexical_analysis": "Tokenize APML source into meaningful units",
+      "syntax_parsing": "Build abstract syntax tree from tokens",
+      "semantic_analysis": "Validate types, references, workflow completeness",
+      "code_generation": "Transform to target platform implementation",
+      "optimization": "Apply performance and security enhancements",
+      "syntax_validation": "Grammar compliance checking",
+      "semantic_validation": "Type safety and logic consistency",
+      "trinity_validation": "Message pattern completeness",
+      "compilation_validation": "Guaranteed successful code generation",
+      "core_concepts": "Language fundamentals and philosophy",
+      "syntax_reference": "Complete grammar and patterns",
+      "example_applications": "Real-world APML implementations",
+      "compilation_targets": "Platform support and generation",
+      "document_format": "Self-documenting APML",
+      "recursive_nature": "APML specification written in APML",
+      "validation_status": "Compiler-validated and executable"
     }
   },
   "data": {
@@ -830,422 +943,256 @@ const specification_navigationElements = computed(() => ({
 // Application metadata
 const appMetadata = {
   name: 'APML_Language_Specification',
-  title: 'APML v0.9.0 - Complete Language Specification',
-  description: '',
-  version: '1.0.0'
+  title: 'Add New Task',
+  description: 'text optional',
+  version: '1.0'
 }
 </script>
 
 <style scoped>
 .language-spec-page {
-  min-height: 100vh;
-  background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #374151 100%);
-  color: #f8fafc;
-}
-
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 2rem;
-}
+        min-height: 100vh;
+        background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #374151 100%);
+        color: #f8fafc;
+        line-height: 1.6;
+      }
+      
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 2rem;
+      }
 
 .page-header {
-  padding: 3rem 0;
-  text-align: center;
-}
+        padding: 3rem 0 2rem;
+        text-align: center;
+      }
+      
+      .page-title {
+        font-size: 3rem;
+        font-weight: 700;
+        background: linear-gradient(135deg, #6366f1, #a855f7);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        margin-bottom: 1rem;
+      }
+      
+      .page-subtitle {
+        font-size: 1.25rem;
+        color: #94a3b8;
+        margin: 0;
+      }
 
-.page-title {
-  font-size: 3rem;
-  font-weight: 700;
-  background: linear-gradient(135deg, #6366f1, #a855f7);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  margin-bottom: 1rem;
-}
-
-.page-subtitle {
-  font-size: 1.25rem;
-  color: #94a3b8;
-  margin-bottom: 2rem;
-}
+.table-of-contents {
+        background: rgba(255, 255, 255, 0.05);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        padding: 2rem 0;
+        margin-bottom: 2rem;
+      }
+      
+      .table-of-contents h2 {
+        font-size: 1.5rem;
+        color: #6366f1;
+        margin-bottom: 1rem;
+      }
+      
+      .toc-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 0.5rem;
+      }
+      
+      .toc-link {
+        display: block;
+        color: #cbd5e1;
+        text-decoration: none;
+        padding: 0.75rem 1rem;
+        border-radius: 8px;
+        transition: all 0.2s ease;
+      }
+      
+      .toc-link:hover {
+        background: rgba(99, 102, 241, 0.1);
+        color: #6366f1;
+      }
 
 .page-content {
-  padding-bottom: 4rem;
-}
+        padding-bottom: 4rem;
+      }
+      
+      .content-section {
+        margin-bottom: 3rem;
+        scroll-margin-top: 2rem;
+      }
+      
+      .section-title {
+        font-size: 2rem;
+        color: #6366f1;
+        margin-bottom: 2rem;
+        padding-bottom: 0.5rem;
+        border-bottom: 2px solid rgba(99, 102, 241, 0.3);
+      }
+      
+      .content-block {
+        margin-bottom: 2rem;
+      }
+      
+      .block-title {
+        font-size: 1.5rem;
+        color: #f8fafc;
+        margin-bottom: 1rem;
+      }
 
-.interface-section {
-  margin-bottom: 4rem;
-  background: rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 16px;
-  padding: 2rem;
-}
+.properties-list {
+        margin: 1rem 0;
+      }
+      
+      .property-row {
+        display: grid;
+        grid-template-columns: 200px 1fr;
+        gap: 1rem;
+        margin-bottom: 0.5rem;
+        padding: 0.5rem 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      }
+      
+      .property-label {
+        font-weight: 600;
+        color: #6366f1;
+        font-size: 0.9rem;
+      }
+      
+      .property-value {
+        color: #cbd5e1;
+      }
 
-.interface-section h2 {
-  font-size: 2rem;
-  color: #6366f1;
-  margin-bottom: 2rem;
-}
+.definition-item {
+        margin: 2rem 0;
+        padding: 1.5rem;
+        background: rgba(255, 255, 255, 0.03);
+        border-left: 4px solid #6366f1;
+        border-radius: 0 8px 8px 0;
+      }
+      
+      .definition-title {
+        font-size: 1.25rem;
+        color: #f8fafc;
+        margin-bottom: 0.5rem;
+      }
+      
+      .definition-description {
+        color: #cbd5e1;
+        margin-bottom: 1rem;
+        line-height: 1.6;
+      }
+      
+      .definition-meta {
+        margin: 0.5rem 0;
+        color: #94a3b8;
+        font-size: 0.9rem;
+      }
 
-.element {
-  margin-bottom: 2rem;
-  padding: 1.5rem;
-  background: rgba(255, 255, 255, 0.03);
-  border-radius: 12px;
-}
+.subsection {
+        margin: 2rem 0;
+      }
+      
+      .subsection-title {
+        font-size: 1.25rem;
+        color: #a855f7;
+        margin-bottom: 1rem;
+      }
 
-.element h3 {
-  font-size: 1.5rem;
-  color: #f8fafc;
-  margin-bottom: 1rem;
-}
+.items-list {
+        margin: 1rem 0;
+      }
+      
+      .list-item {
+        margin: 1.5rem 0;
+        padding: 1rem;
+        background: rgba(255, 255, 255, 0.02);
+        border-radius: 8px;
+      }
+      
+      .item-title {
+        font-size: 1.1rem;
+        color: #f8fafc;
+        margin-bottom: 0.5rem;
+      }
+      
+      .item-description {
+        color: #cbd5e1;
+        margin-bottom: 1rem;
+        line-height: 1.6;
+      }
 
-.content-section {
-  margin-bottom: 1.5rem;
-  padding: 1rem;
-  background: rgba(255, 255, 255, 0.02);
-  border-radius: 8px;
-}
+.item-details,
+      .methodology-details,
+      .item-properties {
+        margin: 1rem 0;
+        display: grid;
+        grid-template-columns: 150px 1fr;
+        gap: 0.5rem 1rem;
+      }
+      
+      .item-details dt,
+      .methodology-details dt,
+      .item-properties dt {
+        font-weight: 600;
+        color: #6366f1;
+        font-size: 0.9rem;
+      }
+      
+      .item-details dd,
+      .methodology-details dd,
+      .item-properties dd {
+        color: #cbd5e1;
+        margin: 0;
+      }
 
-.content-section h4 {
-  font-size: 1.25rem;
-  color: #cbd5e1;
-  margin-bottom: 1rem;
-}
+.overview-text {
+        margin: 1rem 0;
+      }
+      
+      .overview-item {
+        margin: 1rem 0;
+      }
+      
+      .overview-item h5 {
+        font-size: 1rem;
+        color: #a855f7;
+        margin-bottom: 0.5rem;
+      }
+      
+      .overview-item p {
+        color: #cbd5e1;
+        line-height: 1.6;
+      }
 
-.property-item {
-  display: flex;
-  margin-bottom: 0.5rem;
-  padding: 0.5rem;
-  background: rgba(255, 255, 255, 0.02);
-  border-radius: 6px;
-}
-
-.property-label {
-  font-weight: 600;
-  color: #6366f1;
-  margin-right: 1rem;
-  min-width: 120px;
-}
-
-.property-value {
-  color: #f8fafc;
-  flex: 1;
-}
-
-.methodology-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 1.5rem;
-  margin-top: 1rem;
-}
-
-.methodology-card {
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 12px;
-  padding: 1.5rem;
-  transition: all 0.3s ease;
-}
-
-.methodology-card:hover {
-  transform: translateY(-2px);
-  border-color: rgba(99, 102, 241, 0.3);
-  box-shadow: 0 8px 25px rgba(99, 102, 241, 0.15);
-}
-
-.methodology-card h5 {
-  font-size: 1.125rem;
-  font-weight: 600;
-  color: #f8fafc;
-  margin-bottom: 1rem;
-}
-
-.methodology-stat {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 0.5rem;
-  padding: 0.5rem;
-  background: rgba(99, 102, 241, 0.1);
-  border-radius: 6px;
-}
-
-.stat-label {
-  font-weight: 500;
-  color: #cbd5e1;
-}
-
-.stat-value {
-  font-weight: 600;
-  color: #6366f1;
-}
-
-.methodology-description {
-  color: #94a3b8;
-  line-height: 1.5;
-  margin-bottom: 0.75rem;
-}
-
-.methodology-description strong {
-  color: #e2e8f0;
-}
-
-.educational-overview {
-  margin-bottom: 1.5rem;
-  padding: 1rem;
-  background: rgba(99, 102, 241, 0.05);
-  border-radius: 8px;
-  border-left: 4px solid #6366f1;
-}
-
-.educational-item {
-  margin-bottom: 1rem;
-}
-
-.educational-item h6 {
-  font-size: 1rem;
-  font-weight: 600;
-  color: #6366f1;
-  margin-bottom: 0.5rem;
-}
-
-.educational-item p {
-  color: #cbd5e1;
-  line-height: 1.5;
-}
-
-.methodology-details {
-  margin-top: 1rem;
-  padding: 1rem;
-  background: rgba(255, 255, 255, 0.02);
-  border-radius: 8px;
-}
-
-.methodology-feature {
-  margin-bottom: 0.75rem;
-  padding: 0.5rem;
-  background: rgba(99, 102, 241, 0.05);
-  border-radius: 6px;
-}
-
-.methodology-feature strong {
-  color: #6366f1;
-  margin-right: 0.5rem;
-}
-
-.methodology-framework {
-  margin-top: 1rem;
-  padding: 1rem;
-  background: rgba(168, 85, 247, 0.05);
-  border-radius: 8px;
-  border-left: 3px solid #a855f7;
-}
-
-.methodology-framework h6 {
-  font-size: 0.875rem;
-  font-weight: 600;
-  color: #a855f7;
-  margin-bottom: 0.75rem;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-}
-
-.framework-element {
-  display: flex;
-  flex-wrap: wrap;
-  margin-bottom: 0.5rem;
-  padding: 0.5rem;
-  background: rgba(255, 255, 255, 0.02);
-  border-radius: 6px;
-}
-
-.framework-label {
-  font-weight: 600;
-  color: #a855f7;
-  margin-right: 0.5rem;
-  min-width: 120px;
-}
-
-.framework-value {
-  color: #e2e8f0;
-  flex: 1;
-}
-
-.methodology-steps {
-  margin-top: 1rem;
-  padding: 1rem;
-  background: rgba(34, 197, 94, 0.05);
-  border-radius: 8px;
-  border-left: 3px solid #22c55e;
-}
-
-.methodology-steps h6 {
-  font-size: 0.875rem;
-  font-weight: 600;
-  color: #22c55e;
-  margin-bottom: 0.75rem;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-}
-
-.methodology-step {
-  margin-bottom: 0.75rem;
-  padding: 0.5rem;
-  background: rgba(255, 255, 255, 0.02);
-  border-radius: 6px;
-}
-
-.methodology-step strong {
-  color: #22c55e;
-  margin-right: 0.5rem;
-}
-
-.methodology-type {
-  border-left: 4px solid #6366f1;
-}
-
-.content-type {
-  border-left: 4px solid #94a3b8;
-}
-
-.pattern-type {
-  border-left: 4px solid #a855f7;
-}
-
-.process-type {
-  border-left: 4px solid #22c55e;
-}
-
-.patterns-section, .processes-section {
-  margin-bottom: 2rem;
-}
-
-.patterns-section h3, .processes-section h3 {
-  font-size: 1.5rem;
-  color: #6366f1;
-  margin-bottom: 1rem;
-}
-
-.element-properties {
-  margin-bottom: 1.5rem;
-  padding: 1rem;
-  background: rgba(255, 255, 255, 0.02);
-  border-radius: 8px;
-}
-
-.element-properties h4 {
-  font-size: 1.125rem;
-  color: #6366f1;
-  margin-bottom: 1rem;
-}
-
-.simple-content {
-  margin-top: 1rem;
-}
-
-.content-item {
-  margin-bottom: 1.5rem;
-  padding: 1rem;
-  background: rgba(255, 255, 255, 0.02);
-  border-radius: 8px;
-}
-
-.content-item h5 {
-  font-size: 1rem;
-  color: #e2e8f0;
-  margin-bottom: 0.5rem;
-}
-
-.content-item p {
-  color: #94a3b8;
-  line-height: 1.5;
-}
-
-.apml-source {
-  margin-top: 4rem;
-  background: rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 16px;
-  padding: 2rem;
-}
-
-.apml-source h2 {
-  font-size: 1.5rem;
-  color: #6366f1;
-  margin-bottom: 1rem;
-}
-
-/* Enhanced Mobile Responsiveness */
 @media (max-width: 768px) {
-  .page-title {
-    font-size: 2rem;
-    line-height: 1.2;
-  }
-  
-  .page-subtitle {
-    font-size: 1rem;
-    line-height: 1.4;
-  }
-  
-  .container {
-    padding: 0 1rem;
-  }
-  
-  .interface-section {
-    padding: 1rem;
-    margin-bottom: 2rem;
-  }
-  
-  .methodology-grid {
-    grid-template-columns: 1fr;
-    gap: 1rem;
-  }
-  
-  .methodology-card {
-    padding: 1rem;
-  }
-  
-  .methodology-card h5 {
-    font-size: 1rem;
-    line-height: 1.3;
-  }
-  
-  .methodology-description {
-    font-size: 0.875rem;
-    line-height: 1.5;
-  }
-  
-  .element h3 {
-    font-size: 1.25rem;
-    line-height: 1.3;
-  }
-  
-  .content-section h4 {
-    font-size: 1.125rem;
-    line-height: 1.3;
-  }
-}
+        .toc-list {
+          grid-template-columns: 1fr;
+        }
+        
+        .property-row {
+          grid-template-columns: 1fr;
+          gap: 0.25rem;
+        }
+        
+        .item-details,
+        .methodology-details,
+        .item-properties {
+          grid-template-columns: 1fr;
+          gap: 0.25rem;
+        }
+        
+        .page-title {
+          font-size: 2rem;
+        }
+      }
 
-/* Enhanced Text Readability */
-@media (max-width: 480px) {
-  .page-title {
-    font-size: 1.75rem;
-  }
-  
-  .methodology-card {
-    padding: 0.875rem;
-  }
-  
-  .methodology-card h5 {
-    font-size: 0.95rem;
-  }
-  
-  .methodology-description {
-    font-size: 0.8rem;
-  }
-}
+
 </style>

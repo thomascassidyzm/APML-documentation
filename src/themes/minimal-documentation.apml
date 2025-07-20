@@ -1,0 +1,371 @@
+theme MinimalDocumentation:
+  name: "Minimal Documentation"
+  description: "Clean, readable theme for documentation and long-form content with automatic table of contents"
+  version: "1.0.0"
+  category: documentation
+  
+  # Layout Configuration
+  layout:
+    content_style: minimal
+    navigation_style: table_of_contents
+    card_layouts: disabled
+    in_page_navigation: enabled
+    
+  # Table of Contents Settings
+  table_of_contents:
+    auto_generate: true
+    min_sections: 3
+    style: grid
+    placement: below_header
+    
+  # Typography System
+  typography:
+    heading_hierarchy: clean
+    body_text: readable
+    definition_lists: enabled
+    property_displays: grid_layout
+    
+  # Color Palette
+  colors:
+    primary: "#6366f1"
+    secondary: "#a855f7"
+    background: "linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #374151 100%)"
+    text_primary: "#f8fafc"
+    text_secondary: "#cbd5e1"
+    text_muted: "#94a3b8"
+    border: "rgba(255, 255, 255, 0.1)"
+    accent: "rgba(255, 255, 255, 0.05)"
+    
+  # Layout Templates
+  templates:
+    # Page structure without card grids
+    content_section:
+      structure: clean_block
+      spacing: generous
+      background: none
+      border: minimal
+      
+    # Definition items for structured content
+    definition_item:
+      structure: left_border_accent
+      typography: title_description_meta
+      spacing: comfortable
+      
+    # Property lists as clean grids
+    property_list:
+      structure: grid_layout
+      columns: "200px 1fr"
+      dividers: subtle_lines
+      
+    # List items for methodologies/patterns
+    list_item:
+      structure: minimal_card
+      background: subtle
+      spacing: comfortable
+      
+    # Table of contents
+    table_of_contents:
+      structure: grid_navigation
+      columns: "repeat(auto-fit, minmax(250px, 1fr))"
+      style: clean_links
+      
+  # CSS Framework
+  styles:
+    base: |
+      .${component_class} {
+        min-height: 100vh;
+        background: ${colors.background};
+        color: ${colors.text_primary};
+        line-height: 1.6;
+      }
+      
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 2rem;
+      }
+      
+    header: |
+      .page-header {
+        padding: 3rem 0 2rem;
+        text-align: center;
+      }
+      
+      .page-title {
+        font-size: 3rem;
+        font-weight: 700;
+        background: linear-gradient(135deg, ${colors.primary}, ${colors.secondary});
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        margin-bottom: 1rem;
+      }
+      
+      .page-subtitle {
+        font-size: 1.25rem;
+        color: ${colors.text_muted};
+        margin: 0;
+      }
+      
+    table_of_contents: |
+      .table-of-contents {
+        background: ${colors.accent};
+        border-bottom: 1px solid ${colors.border};
+        padding: 2rem 0;
+        margin-bottom: 2rem;
+      }
+      
+      .table-of-contents h2 {
+        font-size: 1.5rem;
+        color: ${colors.primary};
+        margin-bottom: 1rem;
+      }
+      
+      .toc-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: grid;
+        grid-template-columns: ${templates.table_of_contents.columns};
+        gap: 0.5rem;
+      }
+      
+      .toc-link {
+        display: block;
+        color: ${colors.text_secondary};
+        text-decoration: none;
+        padding: 0.75rem 1rem;
+        border-radius: 8px;
+        transition: all 0.2s ease;
+      }
+      
+      .toc-link:hover {
+        background: rgba(99, 102, 241, 0.1);
+        color: ${colors.primary};
+      }
+      
+    content: |
+      .page-content {
+        padding-bottom: 4rem;
+      }
+      
+      .content-section {
+        margin-bottom: 3rem;
+        scroll-margin-top: 2rem;
+      }
+      
+      .section-title {
+        font-size: 2rem;
+        color: ${colors.primary};
+        margin-bottom: 2rem;
+        padding-bottom: 0.5rem;
+        border-bottom: 2px solid rgba(99, 102, 241, 0.3);
+      }
+      
+      .content-block {
+        margin-bottom: 2rem;
+      }
+      
+      .block-title {
+        font-size: 1.5rem;
+        color: ${colors.text_primary};
+        margin-bottom: 1rem;
+      }
+      
+    properties: |
+      .properties-list {
+        margin: 1rem 0;
+      }
+      
+      .property-row {
+        display: grid;
+        grid-template-columns: ${templates.property_list.columns};
+        gap: 1rem;
+        margin-bottom: 0.5rem;
+        padding: 0.5rem 0;
+        border-bottom: 1px solid ${colors.border};
+      }
+      
+      .property-label {
+        font-weight: 600;
+        color: ${colors.primary};
+        font-size: 0.9rem;
+      }
+      
+      .property-value {
+        color: ${colors.text_secondary};
+      }
+      
+    definitions: |
+      .definition-item {
+        margin: 2rem 0;
+        padding: 1.5rem;
+        background: rgba(255, 255, 255, 0.03);
+        border-left: 4px solid ${colors.primary};
+        border-radius: 0 8px 8px 0;
+      }
+      
+      .definition-title {
+        font-size: 1.25rem;
+        color: ${colors.text_primary};
+        margin-bottom: 0.5rem;
+      }
+      
+      .definition-description {
+        color: ${colors.text_secondary};
+        margin-bottom: 1rem;
+        line-height: 1.6;
+      }
+      
+      .definition-meta {
+        margin: 0.5rem 0;
+        color: ${colors.text_muted};
+        font-size: 0.9rem;
+      }
+      
+    subsections: |
+      .subsection {
+        margin: 2rem 0;
+      }
+      
+      .subsection-title {
+        font-size: 1.25rem;
+        color: ${colors.secondary};
+        margin-bottom: 1rem;
+      }
+      
+    lists: |
+      .items-list {
+        margin: 1rem 0;
+      }
+      
+      .list-item {
+        margin: 1.5rem 0;
+        padding: 1rem;
+        background: rgba(255, 255, 255, 0.02);
+        border-radius: 8px;
+      }
+      
+      .item-title {
+        font-size: 1.1rem;
+        color: ${colors.text_primary};
+        margin-bottom: 0.5rem;
+      }
+      
+      .item-description {
+        color: ${colors.text_secondary};
+        margin-bottom: 1rem;
+        line-height: 1.6;
+      }
+      
+    definition_lists: |
+      .item-details,
+      .methodology-details,
+      .item-properties {
+        margin: 1rem 0;
+        display: grid;
+        grid-template-columns: 150px 1fr;
+        gap: 0.5rem 1rem;
+      }
+      
+      .item-details dt,
+      .methodology-details dt,
+      .item-properties dt {
+        font-weight: 600;
+        color: ${colors.primary};
+        font-size: 0.9rem;
+      }
+      
+      .item-details dd,
+      .methodology-details dd,
+      .item-properties dd {
+        color: ${colors.text_secondary};
+        margin: 0;
+      }
+      
+    overview: |
+      .overview-text {
+        margin: 1rem 0;
+      }
+      
+      .overview-item {
+        margin: 1rem 0;
+      }
+      
+      .overview-item h5 {
+        font-size: 1rem;
+        color: ${colors.secondary};
+        margin-bottom: 0.5rem;
+      }
+      
+      .overview-item p {
+        color: ${colors.text_secondary};
+        line-height: 1.6;
+      }
+      
+    mobile: |
+      @media (max-width: 768px) {
+        .toc-list {
+          grid-template-columns: 1fr;
+        }
+        
+        .property-row {
+          grid-template-columns: 1fr;
+          gap: 0.25rem;
+        }
+        
+        .item-details,
+        .methodology-details,
+        .item-properties {
+          grid-template-columns: 1fr;
+          gap: 0.25rem;
+        }
+        
+        .page-title {
+          font-size: 2rem;
+        }
+      }
+
+# Template Generation Logic
+interface theme_integration:
+  show template_modifications:
+    title: "Template Generation Rules"
+    
+    display table_of_contents_generation:
+      rule: "Auto-generate TOC when sections >= 3"
+      implementation: |
+        if (tocItems.length >= 3) {
+          // Generate table of contents nav
+        }
+        
+    display clean_content_structure:
+      rule: "Replace card grids with clean blocks"
+      implementation: |
+        // Use content-section, content-block structure
+        // Apply definition-item for structured content
+        // Use property-row for clean property displays
+        
+    display navigation_anchors:
+      rule: "Add scroll anchors for all sections"
+      implementation: |
+        <section id="${sanitized_interface_name}" class="content-section">
+
+logic theme_application:
+  process apply_to_compiler:
+    when theme_selected is "minimal-documentation":
+      modify_template_generation: use_clean_layouts
+      modify_css_generation: use_minimal_styles
+      enable_table_of_contents: true
+      disable_card_grids: true
+      
+  process maintain_compatibility:
+    preserve_existing_themes: true
+    allow_theme_switching: true
+    maintain_theme_inheritance: true
+
+export MinimalDocumentationTheme:
+  name: "Minimal Documentation Theme"
+  category: "Documentation & Long-form Content"
+  features: ["Clean layouts", "Auto table of contents", "Systematic navigation", "Mobile responsive"]
+  ideal_for: ["Documentation sites", "Educational content", "Methodology libraries", "Pattern libraries"]
+  contrast_with: "Card-heavy themes for visual emphasis"

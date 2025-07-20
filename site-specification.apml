@@ -3,6 +3,7 @@ app APMLDevSite:
   description: Official home of APML v0.9.0 - Logically Complete conversational code
   version: 1.0.0
   apml_specification_version: "0.9.0"
+  theme: minimal-documentation
   logical_completeness_certified: true
 
 data SiteResource:

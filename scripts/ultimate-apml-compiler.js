@@ -20,6 +20,76 @@ class UltimateAPMLCompiler {
     this.contentMap = new Map()
     this.routeMap = new Map()
     this.themeSystem = new Map()
+    this.activeTheme = null
+    this.loadThemes()
+  }
+  
+  // Load all available themes
+  loadThemes() {
+    const themesDir = path.join(process.cwd(), 'src/themes')
+    if (fs.existsSync(themesDir)) {
+      const themeFiles = fs.readdirSync(themesDir).filter(file => file.endsWith('.apml'))
+      
+      for (const themeFile of themeFiles) {
+        const themePath = path.join(themesDir, themeFile)
+        const themeContent = fs.readFileSync(themePath, 'utf8')
+        const themeSpec = this.parseThemeSpec(themeContent)
+        const themeName = path.basename(themeFile, '.apml')
+        
+        this.themeSystem.set(themeName, themeSpec)
+        console.log(`🎨 Loaded theme: ${themeName}`)
+      }
+    }
+  }
+  
+  // Parse theme specification
+  parseThemeSpec(content) {
+    const theme = {
+      name: '',
+      description: '',
+      layout: {},
+      templates: {},
+      styles: {},
+      colors: {}
+    }
+    
+    // Extract theme properties
+    const nameMatch = content.match(/name:\s*"([^"]+)"/m)
+    if (nameMatch) theme.name = nameMatch[1]
+    
+    const descMatch = content.match(/description:\s*"([^"]+)"/m)
+    if (descMatch) theme.description = descMatch[1]
+    
+    // Extract layout settings
+    const layoutMatch = content.match(/layout:\s*([\s\S]*?)(?=\n\s*#|\n\w+:|$)/m)
+    if (layoutMatch) {
+      const layoutContent = layoutMatch[1]
+      if (layoutContent.includes('table_of_contents')) {
+        theme.layout.tableOfContents = layoutContent.includes('enabled')
+      }
+      if (layoutContent.includes('card_layouts: disabled')) {
+        theme.layout.useCards = false
+      }
+    }
+    
+    // Extract styles (simplified for now)
+    theme.styles.raw = content
+    
+    return theme
+  }
+  
+  // Apply theme based on app specification
+  applyTheme(spec) {
+    const themeName = spec.app?.properties?.theme || spec.app?.theme
+    console.log(`🔍 Theme detection - Looking for: ${themeName}, Available themes: ${Array.from(this.themeSystem.keys()).join(', ')}`)
+    
+    if (themeName && this.themeSystem.has(themeName)) {
+      this.activeTheme = this.themeSystem.get(themeName)
+      console.log(`🎨 Applied theme: ${this.activeTheme.name}`)
+    } else {
+      this.activeTheme = null
+      console.log(`❌ Theme not found or not specified`)
+    }
   }
 
   // Phase 1: Parse ALL APML files and extract complete specifications
@@ -32,6 +102,31 @@ class UltimateAPMLCompiler {
       this.apmlSpecs.set(filePath, spec)
       
       console.log(`📋 Parsed ${path.basename(filePath)}: ${spec.app?.title || spec.app?.name || 'Specification'}`)
+      
+      // Debug theme detection
+      if (path.basename(filePath) === 'site-specification.apml') {
+        console.log(`🔍 Site spec debug - app:`, spec.app)
+        console.log(`🔍 Site spec debug - properties:`, spec.app?.properties)
+        // Debugging moved to parseAPMLSpec method
+      }
+      
+      // Check for global theme specification (usually in site-specification.apml)
+      if (spec.app?.properties?.theme && !this.activeTheme) {
+        this.applyGlobalTheme(spec.app.properties.theme)
+      }
+    }
+  }
+  
+  // Apply theme globally to all components
+  applyGlobalTheme(themeName) {
+    console.log(`🔍 Global theme detection - Looking for: ${themeName}, Available themes: ${Array.from(this.themeSystem.keys()).join(', ')}`)
+    
+    if (themeName && this.themeSystem.has(themeName)) {
+      this.activeTheme = this.themeSystem.get(themeName)
+      console.log(`🎨 Applied global theme: ${this.activeTheme.name}`)
+    } else {
+      this.activeTheme = null
+      console.log(`❌ Global theme not found: ${themeName}`)
     }
   }
 
@@ -45,11 +140,22 @@ class UltimateAPMLCompiler {
       filePath: filePath
     }
 
-    // Parse app declaration
-    const appMatch = content.match(/^app\s+(\w+):\s*([\s\S]*?)(?=\ndata|\ninterface|\nlogic|$)/m)
+    // Parse app declaration - capture everything until next non-indented line
+    const appMatch = content.match(/^app\s+(\w+):\s*\n((?:\s+.+\n)*)/m)
     if (appMatch) {
       spec.app.name = appMatch[1]
+      
+      // Debug for site-specification
+      if (filePath.includes('site-specification.apml')) {
+        console.log(`🔍 App content being parsed:`, JSON.stringify(appMatch[2]))
+      }
+      
       spec.app.properties = this.parseProperties(appMatch[2])
+      
+      // Debug for site-specification  
+      if (filePath.includes('site-specification.apml')) {
+        console.log(`🔍 Parsed properties:`, spec.app.properties)
+      }
     }
 
     // Parse data models
@@ -123,9 +229,16 @@ class UltimateAPMLCompiler {
     const lines = content.split('\n')
     
     for (const line of lines) {
-      const propMatch = line.trim().match(/(\w+):\s*"([^"]*)"/)
-      if (propMatch) {
-        properties[propMatch[1]] = propMatch[2]
+      // Match both quoted and unquoted values
+      const quotedMatch = line.trim().match(/(\w+):\s*"([^"]*)"/)
+      const unquotedMatch = line.trim().match(/(\w+):\s*(.+)/)
+      
+      if (quotedMatch) {
+        properties[quotedMatch[1]] = quotedMatch[2]
+      } else if (unquotedMatch && !line.trim().includes(':')) {
+        // Skip lines that might be nested content
+      } else if (unquotedMatch) {
+        properties[unquotedMatch[1]] = unquotedMatch[2].trim()
       }
     }
     
@@ -475,57 +588,110 @@ ${style}
         <h1 class="page-title">${app.properties?.title || app.name || 'APML Application'}</h1>
         <p class="page-subtitle">${app.properties?.description || 'Generated from APML specification'}</p>
       </div>
-    </header>
+    </header>`
+    
+    // Add table of contents if theme supports it
+    if (this.activeTheme?.layout?.tableOfContents) {
+      const tocItems = Object.keys(interfaces).map(interfaceName => ({
+        id: this.sanitizeForVue(interfaceName),
+        title: this.toTitleCase(interfaceName)
+      }))
+      
+      if (tocItems.length >= 3) {
+        template += `
+    <nav class="table-of-contents">
+      <div class="container">
+        <h2>Contents</h2>
+        <ul class="toc-list">`
+        
+        tocItems.forEach(item => {
+          template += `
+            <li><a href="#${item.id}" class="toc-link">${item.title}</a></li>`
+        })
+        
+        template += `
+        </ul>
+      </div>
+    </nav>`
+      }
+    }
 
+    template += `
     <main class="page-content">
       <div class="container">`
 
-    // Generate rich content based on parsed APML interfaces
+    // Generate content based on theme
+    const useCleanLayout = this.activeTheme?.layout?.useCards === false
+    
     for (const [interfaceName, interface_] of Object.entries(interfaces)) {
-      template += `
-        <section class="interface-section ${this.sanitizeForVue(interfaceName)}">
-          <h2>${this.toTitleCase(interfaceName)}</h2>`
+      const sectionClass = useCleanLayout ? 'content-section' : 'interface-section'
+      const titleClass = useCleanLayout ? 'section-title' : ''
+      const sectionId = this.activeTheme?.layout?.tableOfContents ? `id="${this.sanitizeForVue(interfaceName)}"` : ''
       
-      // Generate elements with rich content
+      template += `
+        <section ${sectionId} class="${sectionClass}">
+          <h2 ${titleClass ? `class="${titleClass}"` : ''}>${this.toTitleCase(interfaceName)}</h2>`
+      
+      // Generate elements with clean, readable content
       for (const [elementName, element] of Object.entries(interface_.elements)) {
         template += `
-          <div class="element ${this.sanitizeForVue(elementName)}">
-            <h3>${this.toTitleCase(elementName)}</h3>`
+          <div class="content-block">
+            <h3 class="block-title">${this.toTitleCase(elementName)}</h3>`
         
-        // Display element properties
+        // Display element properties as clean list
         if (Object.keys(element.properties).length > 0) {
-          template += `
-            <div class="element-properties">
-              <h4>Overview</h4>`
-          
-          for (const [key, value] of Object.entries(element.properties)) {
+          // Check if this looks like a structured definition (name, description, etc.)
+          if (element.properties.name && element.properties.description) {
             template += `
-              <div class="property-item">
-                <span class="property-label">${this.toTitleCase(key)}:</span>
-                <span class="property-value">${value}</span>
+              <div class="definition-item">
+                <h4 class="definition-title">${element.properties.name}</h4>
+                <p class="definition-description">${element.properties.description}</p>`
+            
+            // Add other properties as metadata
+            for (const [key, value] of Object.entries(element.properties)) {
+              if (key !== 'name' && key !== 'description') {
+                template += `
+                  <div class="definition-meta">
+                    <strong>${this.toTitleCase(key)}:</strong> ${value}
+                  </div>`
+              }
+            }
+            template += `
+              </div>`
+          } else {
+            // Display as simple property list
+            template += `
+              <div class="properties-list">`
+            
+            for (const [key, value] of Object.entries(element.properties)) {
+              template += `
+                <div class="property-row">
+                  <dt class="property-label">${this.toTitleCase(key)}</dt>
+                  <dd class="property-value">${value}</dd>
+                </div>`
+            }
+            
+            template += `
               </div>`
           }
-          
-          template += `
-            </div>`
         }
         
-        // Display element sections with rich educational content
+        // Display element sections as clean nested content
         if (element.sections && Object.keys(element.sections).length > 0) {
           for (const [sectionName, section] of Object.entries(element.sections)) {
             template += `
-              <div class="content-section ${this.sanitizeForVue(sectionName)}">
-                <h4>${section.title}</h4>`
+              <div class="subsection">
+                <h4 class="subsection-title">${section.title || this.toTitleCase(sectionName)}</h4>`
             
             // Display section-level educational content
             if (section.educationalContent && Object.keys(section.educationalContent).length > 0) {
               template += `
-                <div class="educational-overview">`
+                <div class="overview-text">`
               
               for (const [key, value] of Object.entries(section.educationalContent)) {
                 template += `
-                  <div class="educational-item">
-                    <h6>${this.toTitleCase(key)}</h6>
+                  <div class="overview-item">
+                    <h5>${this.toTitleCase(key)}</h5>
                     <p>${value}</p>
                   </div>`
               }
@@ -534,81 +700,65 @@ ${style}
                 </div>`
             }
             
-            // Display section items (methodologies, patterns, frameworks)
+            // Display section items as clean list
             if (Object.keys(section.items).length > 0) {
               template += `
-                <div class="methodology-grid">`
+                <div class="items-list">`
               
               for (const [itemName, item] of Object.entries(section.items)) {
-                const isMethodology = item.type === 'methodology'
                 template += `
-                  <div class="methodology-card ${isMethodology ? 'methodology-type' : 'content-type'}">
-                    <h5>${item.title}</h5>`
+                  <div class="list-item">
+                    <h5 class="item-title">${item.title || this.toTitleCase(itemName)}</h5>`
                 
                 // Display item description
                 if (item.description) {
                   template += `
-                    <p class="methodology-description">${item.description}</p>`
+                    <p class="item-description">${item.description}</p>`
                 }
                 
-                // Display educational content and methodology details
+                // Display educational content concisely
                 if (item.educationalContent && Object.keys(item.educationalContent).length > 0) {
                   template += `
-                    <div class="methodology-details">`
+                    <dl class="item-details">`
                   
                   for (const [key, value] of Object.entries(item.educationalContent)) {
-                    if (key === 'methods_count' || key === 'complexity_range') {
-                      template += `
-                        <div class="methodology-stat">
-                          <span class="stat-label">${this.toTitleCase(key)}:</span>
-                          <span class="stat-value">${value}</span>
-                        </div>`
-                    } else {
-                      template += `
-                        <div class="methodology-feature">
-                          <strong>${this.toTitleCase(key)}:</strong> 
-                          <span>${value}</span>
-                        </div>`
-                    }
+                    template += `
+                      <dt>${this.toTitleCase(key)}</dt>
+                      <dd>${value}</dd>`
                   }
                   
                   template += `
-                    </div>`
+                    </dl>`
                 }
                 
-                // Display methodology-specific content
+                // Display methodology details
                 if (item.methodology && Object.keys(item.methodology).length > 0) {
                   template += `
-                    <div class="methodology-framework">`
+                    <dl class="methodology-details">`
                   
                   for (const [key, value] of Object.entries(item.methodology)) {
                     template += `
-                      <div class="framework-element">
-                        <span class="framework-label">${this.toTitleCase(key)}:</span>
-                        <span class="framework-value">${value}</span>
-                      </div>`
+                      <dt>${this.toTitleCase(key)}</dt>
+                      <dd>${value}</dd>`
                   }
                   
                   template += `
-                    </div>`
+                    </dl>`
                 }
                 
-                // Display general properties as fallback
+                // Display general properties
                 if (Object.keys(item.properties).length > 0) {
+                  template += `
+                    <dl class="item-properties">`
+                  
                   for (const [propKey, propValue] of Object.entries(item.properties)) {
-                    if (propKey === 'methods_count' || propKey === 'complexity_range') {
-                      template += `
-                        <div class="methodology-stat">
-                          <span class="stat-label">${this.toTitleCase(propKey)}:</span>
-                          <span class="stat-value">${propValue}</span>
-                        </div>`
-                    } else {
-                      template += `
-                        <p class="methodology-description">
-                          <strong>${this.toTitleCase(propKey)}:</strong> ${propValue}
-                        </p>`
-                    }
+                    template += `
+                      <dt>${this.toTitleCase(propKey)}</dt>
+                      <dd>${propValue}</dd>`
                   }
+                  
+                  template += `
+                    </dl>`
                 }
                 
                 template += `
@@ -963,13 +1113,75 @@ const appMetadata = {
     return code
   }
 
+  // Extract CSS from theme specification
+  extractThemeCSS(themeContent, componentName) {
+    const className = this.toKebabCase(componentName)
+    let css = ''
+    
+    // Extract only the styles section from theme, being very specific about boundaries
+    const stylesMatch = themeContent.match(/styles:\s*([\s\S]*?)(?=\n[a-zA-Z#]|$)/);
+    
+    if (stylesMatch) {
+      const stylesSection = stylesMatch[1]
+      // Extract individual CSS blocks from the styles section
+      const cssMatches = stylesSection.match(/(\w+):\s*\|[\s\S]*?(?=\n\s*\w+:\s*\||$)/g)
+      
+      if (cssMatches) {
+        for (const match of cssMatches) {
+          const cssContent = match.replace(/^\w+:\s*\|/, '').trim()
+          
+          // Skip any content that looks like JavaScript/implementation code or APML markup
+          if (cssContent.includes('if (') || 
+              cssContent.includes('//') || 
+              cssContent.includes('implementation:') ||
+              cssContent.includes('interface ') ||
+              cssContent.includes('show ') ||
+              cssContent.includes('display ') ||
+              cssContent.includes('# ') ||
+              cssContent.includes('rule:') ||
+              cssContent.includes('logic ') ||
+              cssContent.includes('process ') ||
+              cssContent.includes('when ') ||
+              cssContent.includes('export ')) {
+            continue
+          }
+          
+          // Replace theme variables
+          let processedCSS = cssContent
+            .replace(/\$\{component_class\}/g, className)
+            .replace(/\$\{colors\.primary\}/g, '#6366f1')
+            .replace(/\$\{colors\.secondary\}/g, '#a855f7')
+            .replace(/\$\{colors\.background\}/g, 'linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #374151 100%)')
+            .replace(/\$\{colors\.text_primary\}/g, '#f8fafc')
+            .replace(/\$\{colors\.text_secondary\}/g, '#cbd5e1')
+            .replace(/\$\{colors\.text_muted\}/g, '#94a3b8')
+            .replace(/\$\{colors\.border\}/g, 'rgba(255, 255, 255, 0.1)')
+            .replace(/\$\{colors\.accent\}/g, 'rgba(255, 255, 255, 0.05)')
+            .replace(/\$\{templates\.table_of_contents\.columns\}/g, 'repeat(auto-fit, minmax(250px, 1fr))')
+            .replace(/\$\{templates\.property_list\.columns\}/g, '200px 1fr')
+          
+          css += processedCSS + '\n\n'
+        }
+      }
+    }
+    
+    return css
+  }
+
   generateStyle(spec, componentName) {
     const className = this.toKebabCase(componentName)
     
+    // Use theme styles if available
+    if (this.activeTheme?.styles?.raw) {
+      return this.extractThemeCSS(this.activeTheme.styles.raw, className)
+    }
+    
+    // Fallback to default styles
     return `.${className} {
   min-height: 100vh;
   background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #374151 100%);
   color: #f8fafc;
+  line-height: 1.6;
 }
 
 .container {
@@ -979,7 +1191,7 @@ const appMetadata = {
 }
 
 .page-header {
-  padding: 3rem 0;
+  padding: 3rem 0 2rem;
   text-align: center;
 }
 
@@ -996,79 +1208,206 @@ const appMetadata = {
 .page-subtitle {
   font-size: 1.25rem;
   color: #94a3b8;
+  margin: 0;
+}
+
+/* Table of Contents */
+.table-of-contents {
+  background: rgba(255, 255, 255, 0.05);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 2rem 0;
   margin-bottom: 2rem;
 }
 
+.table-of-contents h2 {
+  font-size: 1.5rem;
+  color: #6366f1;
+  margin-bottom: 1rem;
+}
+
+.toc-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 0.5rem;
+}
+
+.toc-list li {
+  margin: 0;
+}
+
+.toc-link {
+  display: block;
+  color: #cbd5e1;
+  text-decoration: none;
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  transition: all 0.2s ease;
+}
+
+.toc-link:hover {
+  background: rgba(99, 102, 241, 0.1);
+  color: #6366f1;
+}
+
+/* Page Content */
 .page-content {
   padding-bottom: 4rem;
 }
 
-.interface-section {
-  margin-bottom: 4rem;
-  background: rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 16px;
-  padding: 2rem;
+.content-section {
+  margin-bottom: 3rem;
+  scroll-margin-top: 2rem;
 }
 
-.interface-section h2 {
+.section-title {
   font-size: 2rem;
   color: #6366f1;
   margin-bottom: 2rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid rgba(99, 102, 241, 0.3);
 }
 
-.element {
+.content-block {
   margin-bottom: 2rem;
-  padding: 1.5rem;
-  background: rgba(255, 255, 255, 0.03);
-  border-radius: 12px;
 }
 
-.element h3 {
+.block-title {
   font-size: 1.5rem;
   color: #f8fafc;
   margin-bottom: 1rem;
 }
 
-.content-section {
-  margin-bottom: 1.5rem;
-  padding: 1rem;
-  background: rgba(255, 255, 255, 0.02);
-  border-radius: 8px;
+/* Clean property layouts */
+.properties-list {
+  margin: 1rem 0;
 }
 
-.content-section h4 {
-  font-size: 1.25rem;
-  color: #cbd5e1;
-  margin-bottom: 1rem;
-}
-
-.property-item {
-  display: flex;
+.property-row {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: 1rem;
   margin-bottom: 0.5rem;
-  padding: 0.5rem;
-  background: rgba(255, 255, 255, 0.02);
-  border-radius: 6px;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .property-label {
   font-weight: 600;
   color: #6366f1;
-  margin-right: 1rem;
-  min-width: 120px;
+  font-size: 0.9rem;
 }
 
 .property-value {
-  color: #f8fafc;
-  flex: 1;
+  color: #e2e8f0;
 }
 
-.methodology-grid {
+/* Definition items */
+.definition-item {
+  margin: 2rem 0;
+  padding: 1.5rem;
+  background: rgba(255, 255, 255, 0.03);
+  border-left: 4px solid #6366f1;
+  border-radius: 0 8px 8px 0;
+}
+
+.definition-title {
+  font-size: 1.25rem;
+  color: #f8fafc;
+  margin-bottom: 0.5rem;
+}
+
+.definition-description {
+  color: #cbd5e1;
+  margin-bottom: 1rem;
+  line-height: 1.6;
+}
+
+.definition-meta {
+  margin: 0.5rem 0;
+  color: #94a3b8;
+  font-size: 0.9rem;
+}
+
+/* Subsections */
+.subsection {
+  margin: 2rem 0;
+}
+
+.subsection-title {
+  font-size: 1.25rem;
+  color: #a855f7;
+  margin-bottom: 1rem;
+}
+
+/* Lists and items */
+.items-list {
+  margin: 1rem 0;
+}
+
+.list-item {
+  margin: 1.5rem 0;
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.02);
+  border-radius: 8px;
+}
+
+.item-title {
+  font-size: 1.1rem;
+  color: #f8fafc;
+  margin-bottom: 0.5rem;
+}
+
+.item-description {
+  color: #cbd5e1;
+  margin-bottom: 1rem;
+  line-height: 1.6;
+}
+
+/* Definition lists */
+.item-details,
+.methodology-details,
+.item-properties {
+  margin: 1rem 0;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 1.5rem;
-  margin-top: 1rem;
+  grid-template-columns: 150px 1fr;
+  gap: 0.5rem 1rem;
+}
+
+.item-details dt,
+.methodology-details dt,
+.item-properties dt {
+  font-weight: 600;
+  color: #6366f1;
+  font-size: 0.9rem;
+}
+
+.item-details dd,
+.methodology-details dd,
+.item-properties dd {
+  color: #e2e8f0;
+  margin: 0;
+}
+
+.overview-text {
+  margin: 1rem 0;
+}
+
+.overview-item {
+  margin: 1rem 0;
+}
+
+.overview-item h5 {
+  font-size: 1rem;
+  color: #a855f7;
+  margin-bottom: 0.5rem;
+}
+
+.overview-item p {
+  color: #cbd5e1;
+  line-height: 1.6;
 }
 
 .methodology-card {
@@ -1432,7 +1771,7 @@ const appMetadata = {
     const showInNavPages = [
       'LanguageSpecPage', 
       'PatternLibraryIndexPage',
-      'APMLDevelopmentMethodologyPage'
+      'APMLDEVELOPMENTMETHODOLOGYPage'
     ]
     
     return {
@@ -2232,6 +2571,6 @@ const validatedFiles = [
   'src/registry/themes-gallery.apml'
 ].map(file => path.join(process.cwd(), file))
 
-const outputDirectory = process.argv[2] || 'src/generated'
+const outputDirectory = process.argv[2] || 'src/ultimate-generated'
 
 compiler.compile(validatedFiles, outputDirectory)

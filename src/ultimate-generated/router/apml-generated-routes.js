@@ -30,7 +30,7 @@ const APMLGeneratedRoutes = [
     component: () => import('../pages/HomePage.vue'),
     meta: {
       "title": "Home",
-      "showInNav": true,
+      "showInNav": false,
       "apmlGenerated": true,
       "componentName": "HomePage"
 }
@@ -63,7 +63,7 @@ const APMLGeneratedRoutes = [
     component: () => import('../pages/ResearchMethodologyPage.vue'),
     meta: {
       "title": "Research Methodology",
-      "showInNav": true,
+      "showInNav": false,
       "apmlGenerated": true,
       "componentName": "ResearchMethodologyPage"
 }
@@ -85,7 +85,7 @@ const APMLGeneratedRoutes = [
     component: () => import('../pages/DesignIntelligencePage.vue'),
     meta: {
       "title": "Design Intelligence",
-      "showInNav": true,
+      "showInNav": false,
       "apmlGenerated": true,
       "componentName": "DesignIntelligencePage"
 }
@@ -96,7 +96,7 @@ const APMLGeneratedRoutes = [
     component: () => import('../pages/BusinessStrategyPage.vue'),
     meta: {
       "title": "Business Strategy",
-      "showInNav": true,
+      "showInNav": false,
       "apmlGenerated": true,
       "componentName": "BusinessStrategyPage"
 }
@@ -110,6 +110,17 @@ const APMLGeneratedRoutes = [
       "showInNav": false,
       "apmlGenerated": true,
       "componentName": "APMLSPECIFICATIONPage"
+}
+  },
+  {
+    path: '/apmldevelopmentmethodology',
+    name: 'APMLDEVELOPMENTMETHODOLOGY',
+    component: () => import('../pages/APMLDEVELOPMENTMETHODOLOGYPage.vue'),
+    meta: {
+      "title": "A P M L D E V E L O P M E N T M E T H O D O L O G Y",
+      "showInNav": true,
+      "apmlGenerated": true,
+      "componentName": "APMLDEVELOPMENTMETHODOLOGYPage"
 }
   },
   {
