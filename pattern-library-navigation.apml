@@ -33,6 +33,30 @@ interface navigation:
       content_source: "src/patterns/research-methodology-patterns.apml"
       display_mode: "apml_with_syntax_highlighting"
 
+  when user navigates_to "/patterns/design-intelligence/user-research":
+    show pattern_content:
+      title: "User Research Methods"
+      content_source: "src/patterns/user-research-methods.apml"
+      display_mode: "apml_with_syntax_highlighting"
+
+  when user navigates_to "/patterns/design-intelligence/problem-framing":
+    show pattern_content:
+      title: "Problem Framing Techniques"
+      content_source: "src/patterns/problem-framing.apml"
+      display_mode: "apml_with_syntax_highlighting"
+
+  when user navigates_to "/patterns/design-intelligence/ideation":
+    show pattern_content:
+      title: "Ideation Methods"
+      content_source: "src/patterns/ideation-methods.apml"
+      display_mode: "apml_with_syntax_highlighting"
+
+  when user navigates_to "/patterns/design-intelligence/validation":
+    show pattern_content:
+      title: "Validation Frameworks"
+      content_source: "src/patterns/validation-frameworks.apml"
+      display_mode: "apml_with_syntax_highlighting"
+
 logic route_handling:
   when user requests_pattern_page:
     load pattern_file from content_source

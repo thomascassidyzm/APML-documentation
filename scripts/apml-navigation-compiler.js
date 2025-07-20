@@ -108,19 +108,25 @@ class APMLNavigationCompiler {
     console.log('🔄 Generating Vue routes from validated APML...')
     
     const routeConfigs = this.routes.map(route => {
-      // Determine component based on APML logic
+      // Map APML routes to existing Vue components
       let componentName, componentPath
       
       if (route.showType === 'pattern_library_index') {
         componentName = 'PatternLibraryIndexPage'
         componentPath = '../pages/patterns/'
       } else if (route.showType === 'pattern_content') {
-        // Generate component name from path
-        const pathSegments = route.path.split('/').filter(Boolean)
-        const lastSegment = pathSegments[pathSegments.length - 1]
-        componentName = lastSegment.split('-').map(word => 
-          word.charAt(0).toUpperCase() + word.slice(1)
-        ).join('') + 'Page'
+        // Map specific routes to existing components
+        const routeComponentMap = {
+          '/patterns/design-intelligence': 'DesignIntelligencePage',
+          '/patterns/business-strategy': 'BusinessStrategyPage', 
+          '/patterns/research-methodology': 'ResearchMethodologyPage',
+          '/patterns/design-intelligence/user-research': 'UserResearchMethodsPage',
+          '/patterns/design-intelligence/problem-framing': 'ProblemFramingPage',
+          '/patterns/design-intelligence/ideation': 'IdeationMethodsPage',
+          '/patterns/design-intelligence/validation': 'ValidationFrameworksPage'
+        }
+        
+        componentName = routeComponentMap[route.path] || 'PatternPageTemplate'
         componentPath = '../pages/patterns/'
       }
       
