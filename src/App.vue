@@ -365,5 +365,4 @@ body.loaded .app-container {
     text-align: center;
   }
 }
-}
 </style>
