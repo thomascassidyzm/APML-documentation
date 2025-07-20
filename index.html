@@ -1,13 +1,26 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="dark">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ready to Build Production Apps?</title>
-  <meta name="description" content="Official home of APML language - Code that reads like conversation">
+  <title>APML - The Universal Language for Human-AI Collaboration</title>
+  <meta name="description" content="Official home of APML v0.9.0 - Logically Complete conversational code">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <style>
+    /* Prevent FOUC */
+    body { opacity: 0; transition: opacity 0.3s ease; }
+    body.loaded { opacity: 1; }
+  </style>
 </head>
 <body>
   <div id="app"></div>
+  <script>
+    // Mark as loaded when ready
+    window.addEventListener('DOMContentLoaded', () => {
+      document.body.classList.add('loaded');
+    });
+  </script>
   <script type="module" src="/src/main.js"></script>
 </body>
 </html>

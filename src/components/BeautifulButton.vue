@@ -1,0 +1,1 @@
+<template><button class="btn-primary">Beautiful Button</button></template>

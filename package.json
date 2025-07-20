@@ -1,7 +1,7 @@
 {
   "name": "apmldevsite",
   "version": "1.0.0",
-  "description": "Official home of APML language - Code that reads like conversation",
+  "description": "Official home of APML v0.9.0 - Logically Complete conversational code",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -14,6 +14,9 @@
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^5.0.0",
-    "vite": "^5.0.0"
+    "vite": "^5.0.0",
+    "unocss": "^0.58.0",
+    "@unocss/preset-typography": "^0.58.0",
+    "@unocss/preset-web-fonts": "^0.58.0"
   }
 }
