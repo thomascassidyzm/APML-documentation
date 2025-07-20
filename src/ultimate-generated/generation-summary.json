@@ -1,0 +1,28 @@
+{
+  "generatedAt": "2025-07-20T14:24:34.451Z",
+  "totalComponents": 12,
+  "totalSpecifications": 12,
+  "targetPlatform": "vue",
+  "components": [
+    "RegistrySpecificationPage",
+    "PatternLibraryRoutingPage",
+    "HomePage",
+    "LanguageSpecPage",
+    "PatternLibraryNavigationPage",
+    "ResearchMethodologyPage",
+    "PatternLibraryIndexPage",
+    "DesignIntelligencePage",
+    "BusinessStrategyPage",
+    "APMLSPECIFICATIONPage",
+    "ComponentRegistryPage",
+    "ThemeGalleryPage"
+  ],
+  "features": [
+    "Complete APML specification rendering",
+    "Dynamic content generation",
+    "Beautiful, responsive design",
+    "Full interactivity",
+    "Source code display",
+    "World-class user experience"
+  ]
+}
