@@ -30,10 +30,12 @@ interface main_navigation:
       navigation_label: "Home"
       icon: "home"
       
-    pattern_library_section:
+    pattern_library_index_route:
       path: "/patterns"
-      name: "Pattern Library"
-      component: "PatternLibraryIndex"
+      name: "PatternLibrary"
+      component: "PatternLibraryIndexPage"
+      meta_title: "Design Intelligence Pattern Library | APML"
+      meta_description: "Complete methodologies for human-centered problem solving using APML"
       navigation_label: "Pattern Library"
       icon: "library"
       
