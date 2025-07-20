@@ -12,91 +12,81 @@ const props = defineProps({
   }
 })
 
-// APML v0.9.0 Syntax Highlighter
+// Clean APML v0.9.0 Syntax Highlighter
 const highlightAPML = (code) => {
-  let highlighted = code
-
-  // Structure keywords (purple)
-  highlighted = highlighted.replace(
-    /\b(app|data|interface|logic|integrations|deploy)\b/g,
-    '<span class="apml-structure">$1</span>'
-  )
-
-  // Control flow keywords (pink)
-  highlighted = highlighted.replace(
-    /\b(if|else|when|while|for|each|in|return|break|continue|process|calculate)\b/g,
-    '<span class="apml-control">$1</span>'
-  )
-
-  // Data types (cyan)
-  highlighted = highlighted.replace(
-    /\b(text|number|boolean|date|timestamp|email|url|unique_id|money|list|of)\b/g,
-    '<span class="apml-type">$1</span>'
-  )
-
-  // Field modifiers (red)
-  highlighted = highlighted.replace(
-    /\b(required|optional|default|auto|unique)\b/g,
-    '<span class="apml-modifier">$1</span>'
-  )
-
-  // Action keywords (yellow)
-  highlighted = highlighted.replace(
-    /\b(show|display|notify|send|create|read|update|delete)\b/g,
-    '<span class="apml-action">$1</span>'
-  )
-
-  // Timing keywords (green)
-  highlighted = highlighted.replace(
-    /\b(now|today|tomorrow|daily|weekly|monthly|at|before|after)\b/g,
-    '<span class="apml-timing">$1</span>'
-  )
-
-  // Property names (blue) - identifier followed by colon
-  highlighted = highlighted.replace(
-    /\b([a-zA-Z_][a-zA-Z0-9_]*)\s*:/g,
-    '<span class="apml-property">$1</span>:'
-  )
-
-  // String literals (green)
-  highlighted = highlighted.replace(
-    /"([^"\\]|\\.)*"/g,
-    '<span class="apml-string">$&</span>'
-  )
-
-  // Numbers and special literals
-  highlighted = highlighted.replace(
-    /\$[0-9]+(\.[0-9]{2})?/g,
-    '<span class="apml-number">$&</span>'
-  )
-  highlighted = highlighted.replace(
-    /[0-9]+(\.[0-9]+)?%/g,
-    '<span class="apml-number">$&</span>'
-  )
-  highlighted = highlighted.replace(
-    /\b[0-9]+(\.[0-9]+)?\b/g,
-    '<span class="apml-number">$&</span>'
-  )
-
-  // Boolean literals
-  highlighted = highlighted.replace(
-    /\b(true|false|yes|no|on|off)\b/g,
-    '<span class="apml-boolean">$1</span>'
-  )
-
-  // Union operators
-  highlighted = highlighted.replace(
-    /\s*\|\s*/g,
-    ' <span class="apml-union">|</span> '
-  )
-
-  // Comments
-  highlighted = highlighted.replace(
-    /#.*$/gm,
-    '<span class="apml-comment">$&</span>'
-  )
-
-  return highlighted
+  // Use a line-by-line approach to avoid conflicts
+  const lines = code.split('\n')
+  
+  const highlightedLines = lines.map(line => {
+    let highlighted = line
+    
+    // Skip empty lines
+    if (!line.trim()) return line
+    
+    // Comments first (entire line)
+    if (line.trim().startsWith('#')) {
+      return `<span class="apml-comment">${line}</span>`
+    }
+    
+    // String literals (protect from other replacements)
+    const strings = []
+    highlighted = highlighted.replace(/"([^"\\]|\\.)*"/g, (match) => {
+      const index = strings.length
+      strings.push(`<span class="apml-string">${match}</span>`)
+      return `__STRING_${index}__`
+    })
+    
+    // Structure keywords at start of line
+    highlighted = highlighted.replace(
+      /^(\s*)(app|data|interface|logic|component|theme)\b/,
+      '$1<span class="apml-structure">$2</span>'
+    )
+    
+    // Property names (word followed by colon)
+    highlighted = highlighted.replace(
+      /\b([a-zA-Z_][a-zA-Z0-9_]*)\s*:/g,
+      '<span class="apml-property">$1</span>:'
+    )
+    
+    // Action keywords
+    highlighted = highlighted.replace(
+      /\b(show|display|notify|when|if|for|each)\b/g,
+      '<span class="apml-action">$1</span>'
+    )
+    
+    // Data types
+    highlighted = highlighted.replace(
+      /\b(text|number|boolean|date|timestamp|email|url|unique_id|money|list|of)\b/g,
+      '<span class="apml-type">$1</span>'
+    )
+    
+    // Field modifiers
+    highlighted = highlighted.replace(
+      /\b(required|optional|default|auto|unique)\b/g,
+      '<span class="apml-modifier">$1</span>'
+    )
+    
+    // Numbers (simple patterns only)
+    highlighted = highlighted.replace(
+      /\b\d+(\.\d+)?\b/g,
+      '<span class="apml-number">$&</span>'
+    )
+    
+    // Union operators
+    highlighted = highlighted.replace(
+      /\s\|\s/g,
+      ' <span class="apml-union">|</span> '
+    )
+    
+    // Restore strings
+    strings.forEach((str, index) => {
+      highlighted = highlighted.replace(`__STRING_${index}__`, str)
+    })
+    
+    return highlighted
+  })
+  
+  return highlightedLines.join('\n')
 }
 
 const highlightedCode = computed(() => {
