@@ -70,42 +70,90 @@ import APMLCodeBlock from '../../components/APMLCodeBlock.vue'
 
 const frameworkCode = ref(`app DesignIntelligenceFramework:
   title: "Complete Pattern Library for Design Thinking & Solution Generation"
-  description: "Comprehensive APML-based methodologies for human-centered problem solving"
+  description: "Comprehensive APML-based methodologies for human-centered problem solving and innovation"
   version: "1.0.0"
   apml_specification_version: "0.9.0"
 
 data DesignMethod:
+  id: unique_id
   name: text required
-  category: user_research | problem_framing | ideation | validation
+  category: user_research | problem_framing | ideation | validation | business_model | service_design | systems_thinking
   complexity_level: simple | intermediate | advanced
   time_required: quick | medium | extensive
   team_size: individual | small_team | large_team
+  required_skills: list of text
+  tools_needed: list of text
   expected_outcomes: list of text
 
-interface methodology_selector:
+interface methodology_discovery:
   show framework_library:
-    for each category in design_categories:
-      display available_methods
-      show complexity_indicators
-      show recommended_use_cases
-      
-  when user describes problem_context:
-    analyze problem_characteristics
-    recommend appropriate_frameworks
-    generate customized_methodology_stack
-
-logic intelligent_framework_application:
-  process context_analysis:
-    identify problem_type
-    assess available_resources
-    determine urgency_level
-    evaluate team_capabilities
+    title: "Design Intelligence Pattern Library"
+    subtitle: "Choose methodologies based on your context and goals"
     
-  generate methodology_recommendation:
-    match problem_type to framework_categories
-    consider resource_constraints
-    optimize for time_and_impact
-    provide step_by_step_guidance`)
+    display category_overview:
+      user_research_section:
+        title: "Understanding Users & Context"
+        methods_count: count methods where category is user_research
+        complexity_range: "Simple to Advanced"
+        
+      problem_framing_section:
+        title: "Defining & Framing Problems"
+        methods_count: count methods where category is problem_framing
+        complexity_range: "Intermediate to Advanced"
+        
+      ideation_section:
+        title: "Generating Solutions"
+        methods_count: count methods where category is ideation
+        complexity_range: "Simple to Intermediate"
+        
+      validation_section:
+        title: "Testing & Validation"
+        methods_count: count methods where category is validation
+        complexity_range: "Intermediate to Advanced"
+
+logic intelligent_recommendation_engine:
+  process context_analysis:
+    when user describes problem_context:
+      extract key_characteristics:
+        complexity_indicators from problem_description
+        stakeholder_involvement from context
+        time_constraints from timeline
+        resource_availability from team_and_budget
+        
+      classify problem_type:
+        if mentions "customer satisfaction" or "user experience":
+          set primary_focus to customer_experience
+        if mentions "revenue" or "growth" or "market":
+          set primary_focus to business_strategy
+        if mentions "new features" or "innovation":
+          set primary_focus to product_innovation
+          
+      assess team_readiness:
+        match experience_level to method_complexity
+        validate team_size against method_requirements
+        identify skill_gaps and training_needs
+
+logic framework_transformation_patterns:
+  pattern user_journey_to_solution:
+    when user_research reveals journey_pain_points:
+      identify friction_moments in current_experience
+      map emotional_states at each_touchpoint
+      prioritize improvement_opportunities by impact_and_effort
+      generate solution_concepts targeting highest_priority_friction
+      
+  pattern jobs_to_be_done_analysis:
+    when users struggle_to_articulate_needs:
+      focus on job_context rather than demographics
+      identify functional_emotional_social jobs
+      map job_executor_journey from awareness_to_completion
+      design solutions that help_users_accomplish_jobs_better
+      
+  pattern five_whys_root_cause:
+    when surface_problem_symptoms_appear:
+      ask "why does this problem occur" five_times_minimum
+      document each_layer of causation
+      identify systemic_vs_symptomatic_issues
+      target solutions at root_cause_level`)
 </script>
 
 <style scoped>
