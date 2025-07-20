@@ -1,0 +1,463 @@
+app IdeationSolutionPatterns:
+  title: "Ideation & Solution Generation Methodologies"
+  description: "Comprehensive patterns for creative thinking, idea generation, and solution development"
+  category: ideation
+  complexity_range: simple to advanced
+  
+  data IdeationMethod:
+    name: text required
+    method_type: divergent | convergent | hybrid
+    creativity_focus: quantity | quality | breakthrough | refinement
+    group_dynamics: individual | small_group | large_group | mixed
+    time_investment: quick | medium | extensive
+    facilitator_skill_required: low | medium | high
+    energy_level_needed: low | medium | high
+    
+  data IdeationSession:
+    session_name: text required
+    method_used: text required
+    participants: list of text
+    duration: text required
+    ideas_generated: number
+    ideas_selected: number
+    breakthrough_ideas: number
+    next_steps: list of text
+    
+  data GeneratedIdea:
+    idea_title: text required
+    idea_description: text required
+    idea_category: text required
+    feasibility_score: number between 1 and 10
+    impact_score: number between 1 and 10
+    novelty_score: number between 1 and 10
+    resource_requirements: text
+    potential_risks: list of text
+    
+  data ScamperAnalysis:
+    original_concept: text required
+    substitute_ideas: list of text
+    combine_ideas: list of text
+    adapt_ideas: list of text
+    modify_ideas: list of text
+    put_to_other_uses: list of text
+    eliminate_ideas: list of text
+    reverse_ideas: list of text
+    
+  data AffinityMap:
+    mapping_session: text required
+    idea_clusters: list of IdeaCluster
+    patterns_identified: list of text
+    opportunity_areas: list of text
+    priority_themes: list of text
+    
+  data IdeaCluster:
+    cluster_name: text required
+    cluster_theme: text required
+    ideas_in_cluster: list of text
+    cluster_insights: list of text
+    development_potential: low | medium | high
+    
+  data PrioritizationMatrix:
+    matrix_name: text required
+    evaluation_criteria: list of text
+    ideas_evaluated: list of text
+    matrix_results: list of MatrixResult
+    recommended_actions: list of text
+    
+  data MatrixResult:
+    idea_name: text required
+    criteria_scores: list of number
+    total_score: number
+    quadrant_placement: text
+    recommendation: pursue | develop | monitor | eliminate
+    
+  interface ideation_toolkit:
+    
+    show method_selector:
+      title: "Choose Ideation Approach"
+      
+      display method_categories:
+        divergent_methods:
+          - classic_brainstorming
+          - brain_writing
+          - mind_mapping
+          - random_word_association
+          - metaphorical_thinking
+          
+        structured_methods:
+          - scamper_technique
+          - six_thinking_hats
+          - morphological_analysis
+          - assumption_reversal
+          - provocative_questions
+          
+        collaborative_methods:
+          - design_studio
+          - crazy_8s
+          - round_robin
+          - build_on_ideas
+          - silent_brainstorming
+          
+        analytical_methods:
+          - analogical_thinking
+          - biomimicry
+          - trend_extrapolation
+          - scenario_planning
+          - systems_intervention
+          
+      when user selects method:
+        show method_guidelines
+        provide facilitation_templates
+        suggest session_structure
+        offer evaluation_criteria
+        
+    display brainstorming_facilitator:
+      title: "Classic Brainstorming Session"
+      
+      setup session_parameters:
+        input session_topic
+        select participant_count
+        set time_duration
+        choose evaluation_criteria
+        
+      facilitate session_flow:
+        show warm_up_exercises
+        present brainstorming_rules
+        capture ideas_in_realtime
+        encourage building_on_ideas
+        maintain energy_and_momentum
+        
+      process session_outputs:
+        compile all_generated_ideas
+        remove duplicate_concepts
+        prepare for_convergent_phase
+        
+    show scamper_workshop:
+      title: "SCAMPER Creative Thinking"
+      
+      input base_concept to transform
+      
+      for each scamper_prompt:
+        substitute_exploration:
+          "What materials, components, or processes could be substituted?"
+          "What alternatives could work instead?"
+          
+        combine_exploration:
+          "What could be combined or integrated?"
+          "What partnerships or mergers make sense?"
+          
+        adapt_exploration:
+          "What could be adapted from other contexts?"
+          "What examples from nature or other industries apply?"
+          
+        modify_exploration:
+          "What could be magnified, minimized, or emphasized?"
+          "What attributes could be changed?"
+          
+        put_to_other_uses:
+          "What other purposes could this serve?"
+          "Who else might benefit from this?"
+          
+        eliminate_exploration:
+          "What could be removed or simplified?"
+          "What rules could be broken?"
+          
+        reverse_exploration:
+          "What could be rearranged or inverted?"
+          "What opposite approach might work?"
+          
+      synthesize scamper_insights
+      identify most_promising_directions
+      
+    display affinity_mapping_tool:
+      title: "Organize Ideas into Themes"
+      
+      input idea_collection from ideation_session
+      
+      clustering_process:
+        present ideas_for_grouping
+        allow drag_and_drop_clustering
+        suggest potential_groupings
+        enable cluster_renaming
+        
+      pattern_identification:
+        analyze cluster_characteristics
+        identify recurring_themes
+        discover unexpected_connections
+        highlight opportunity_gaps
+        
+      insight_generation:
+        synthesize cluster_insights
+        identify development_priorities
+        suggest next_step_actions
+        
+  logic creative_thinking_enhancement:
+    
+    overcome_creative_blocks:
+      when ideation_stalls:
+        introduce random_stimuli
+        change physical_environment
+        switch ideation_method
+        encourage absurd_ideas
+        take strategic_breaks
+        
+    encourage_breakthrough_thinking:
+      challenge fundamental_assumptions
+      explore constraint_removal_scenarios
+      seek inspiration_from_unrelated_domains
+      encourage impossible_solutions
+      build_on_wild_ideas
+      
+    maintain_creative_momentum:
+      set ambitious_quantity_goals
+      celebrate unusual_ideas
+      defer all_judgment
+      encourage idea_building
+      maintain high_energy_atmosphere
+      
+  workflow structured_ideation_process:
+    
+    phase1_preparation:
+      define ideation_challenge_clearly
+      select appropriate_methods
+      prepare materials_and_space
+      brief participants_on_process
+      establish session_ground_rules
+      
+    phase2_divergent_thinking:
+      generate maximum_idea_quantity
+      explore multiple_solution_directions
+      encourage wild_and_unusual_ideas
+      build_on_others_ideas
+      defer evaluation_and_criticism
+      
+    phase3_convergent_thinking:
+      cluster_similar_ideas
+      identify promising_concepts
+      evaluate against_established_criteria
+      select ideas_for_development
+      plan next_steps
+      
+    phase4_idea_development:
+      elaborate selected_concepts
+      assess feasibility_and_impact
+      identify resource_requirements
+      plan prototyping_and_testing
+      
+  workflow rapid_ideation_techniques:
+    
+    crazy_8s_method:
+      time_limit: 8_minutes
+      target: 8_ideas_per_participant
+      format: quick_sketches_or_phrases
+      focus: quantity_over_quality
+      outcome: diverse_solution_space_exploration
+      
+    brain_writing_635:
+      participants: 6_people
+      ideas_per_round: 3_ideas
+      time_per_round: 5_minutes
+      total_rounds: 6_rounds
+      outcome: 108_ideas_in_30_minutes
+      
+    round_robin_ideation:
+      structure: sequential_idea_building
+      process: each_person_adds_to_previous_idea
+      benefit: forced_collaboration_and_building
+      outcome: evolved_and_refined_concepts
+      
+  advanced_ideation_techniques:
+    
+    analogical_thinking:
+      identify source_domain_with_similar_patterns
+      map structural_similarities
+      transfer solution_principles
+      adapt for_target_context
+      test analogical_solution_validity
+      
+    biomimicry_approach:
+      study natural_systems_and_processes
+      identify biological_solution_mechanisms
+      abstract underlying_principles
+      apply to_human_design_challenges
+      iterate based_on_natural_optimization
+      
+    provocative_questions:
+      "What if gravity worked differently?"
+      "What if time was unlimited?"
+      "What if cost was irrelevant?"
+      "What if we served the opposite user?"
+      "What if we solved the opposite problem?"
+      
+    assumption_reversal:
+      list all_problem_assumptions
+      reverse each_assumption
+      explore implications_of_reversals
+      generate solutions_based_on_reversals
+      test reversed_assumption_validity
+      
+  convergent_thinking_patterns:
+    
+    idea_evaluation_criteria:
+      feasibility_assessment:
+        technical_feasibility
+        resource_availability
+        timeline_realism
+        skill_requirements
+        
+      impact_potential:
+        user_value_creation
+        business_value_generation
+        market_size_and_reach
+        competitive_advantage
+        
+      strategic_alignment:
+        goal_and_vision_fit
+        capability_leveraging
+        brand_consistency
+        stakeholder_support
+        
+    prioritization_methods:
+      
+      impact_effort_matrix:
+        high_impact_low_effort: "Quick wins"
+        high_impact_high_effort: "Major projects"
+        low_impact_low_effort: "Fill-in tasks"
+        low_impact_high_effort: "Time wasters"
+        
+      rice_scoring:
+        reach: "How many users affected?"
+        impact: "How much improvement per user?"
+        confidence: "How certain are we?"
+        effort: "How much work required?"
+        
+      kano_model_assessment:
+        basic_expectations: "Must-have features"
+        performance_attributes: "More is better"
+        excitement_factors: "Delight and surprise"
+        
+  collaborative_ideation_patterns:
+    
+    design_studio_method:
+      individual_sketch_phase
+      presentation_and_critique_rounds
+      iterate_and_improve_concepts
+      converge_on_strongest_ideas
+      plan detailed_development
+      
+    build_on_ideas_technique:
+      present base_idea
+      each_participant_adds_improvement
+      build_complexity_and_sophistication
+      create evolved_solution_concepts
+      
+    silent_brainstorming:
+      individual_idea_generation_first
+      share_ideas_without_verbal_discussion
+      build_on_others_ideas_silently
+      discuss_only_after_idea_capture
+      reduce social_inhibition_effects
+      
+  idea_development_frameworks:
+    
+    concept_elaboration_process:
+      expand core_idea_description
+      identify key_features_and_benefits
+      map user_interaction_scenarios
+      assess technical_requirements
+      plan validation_approaches
+      
+    feasibility_analysis:
+      technical_feasibility_assessment
+      business_model_viability
+      market_opportunity_validation
+      resource_requirement_analysis
+      risk_identification_and_mitigation
+      
+    rapid_prototyping_planning:
+      identify key_assumptions_to_test
+      select appropriate_prototyping_methods
+      plan user_testing_approaches
+      define success_criteria
+      create iteration_timeline
+      
+  templates_and_tools:
+    
+    ideation_session_agenda:
+      warm_up_activity: 10_minutes
+      problem_restatement: 5_minutes
+      divergent_ideation: 30_minutes
+      idea_capture_and_clustering: 15_minutes
+      convergent_evaluation: 20_minutes
+      next_steps_planning: 10_minutes
+      
+    idea_capture_template:
+      idea_title_and_description
+      key_benefits_and_value
+      target_user_or_market
+      implementation_approach
+      resource_requirements
+      potential_challenges
+      
+    evaluation_scorecard:
+      feasibility_score: 1_to_10
+      impact_score: 1_to_10
+      novelty_score: 1_to_10
+      strategic_fit_score: 1_to_10
+      overall_recommendation
+      
+  outcome_examples:
+    
+    breakthrough_idea_generation:
+      challenge: "Reduce food waste in restaurants"
+      method_used: "Analogical thinking + SCAMPER"
+      breakthrough_concept: "AI-powered demand prediction using weather, events, and historical data"
+      development_outcome: "35% reduction in food waste across pilot restaurants"
+      
+    collaborative_innovation:
+      context: "Improve remote team collaboration"
+      approach: "Design studio with cross-functional team"
+      winning_concept: "Ambient awareness dashboard with presence indicators"
+      implementation_result: "60% improvement in team coordination metrics"
+      
+    systematic_idea_development:
+      starting_point: "100 ideas for sustainable packaging"
+      convergence_process: "Affinity mapping + Impact/Effort matrix"
+      selected_concepts: "3 high-impact, feasible solutions"
+      validation_outcome: "2 concepts moved to prototype phase"
+      
+  integration_with_validation:
+    
+    idea_to_experiment_translation:
+      identify core_assumptions_in_ideas
+      design minimum_viable_experiments
+      plan rapid_validation_approaches
+      establish learning_objectives
+      
+    iterative_idea_refinement:
+      collect validation_feedback
+      refine ideas_based_on_learnings
+      generate additional_variations
+      continue ideation_based_on_insights
+      
+  facilitation_best_practices:
+    
+    creating_psychological_safety:
+      establish no_judgment_zones
+      celebrate wild_ideas
+      encourage building_on_others
+      model vulnerability_and_openness
+      
+    managing_energy_and_dynamics:
+      vary activity_types_and_pacing
+      include movement_and_physical_activity
+      manage dominant_and_quiet_participants
+      maintain focus_on_quantity_and_exploration
+      
+    documentation_and_follow_up:
+      capture all_ideas_without_filtering
+      organize ideas_for_future_reference
+      plan clear_next_steps
+      assign ownership_for_development
+      
+  "Transforming challenges into innovative solutions through systematic creativity" ✨

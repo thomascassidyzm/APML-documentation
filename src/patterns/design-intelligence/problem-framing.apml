@@ -1,0 +1,384 @@
+app ProblemFramingPatterns:
+  title: "Problem Definition & Framing Methodologies"
+  description: "Systematic approaches for defining, analyzing, and reframing problems to unlock innovative solutions"
+  category: problem_framing
+  complexity_range: simple to advanced
+  
+  data ProblemFramingMethod:
+    name: text required
+    framing_type: divergent | convergent | reframing | root_cause | systems
+    complexity_level: simple | intermediate | advanced
+    time_required: text required
+    facilitator_skill_level: novice | intermediate | expert
+    group_size_optimal: text required
+    key_outputs: list of text
+    
+  data ProblemStatement:
+    original_problem: text required
+    reframed_problem: text required
+    framing_rationale: text required
+    stakeholders_affected: list of text
+    constraints_identified: list of text
+    assumptions_uncovered: list of text
+    success_criteria: list of text
+    
+  data HowMightWeStatement:
+    hmw_statement: text required
+    problem_focus: text required
+    user_focus: text required
+    opportunity_scope: narrow | medium | broad
+    innovation_potential: incremental | breakthrough | disruptive
+    feasibility_assessment: low | medium | high
+    
+  data FiveWhysAnalysis:
+    initial_problem: text required
+    why_levels: list of WhyLevel
+    root_cause_identified: text required
+    contributing_factors: list of text
+    systemic_issues: list of text
+    intervention_points: list of text
+    
+  data WhyLevel:
+    level_number: number required
+    why_question: text required
+    answer: text required
+    evidence_supporting: list of text
+    assumptions_made: list of text
+    
+  data SystemsMap:
+    system_name: text required
+    system_boundary: text required
+    key_components: list of SystemComponent
+    relationships: list of SystemRelationship
+    feedback_loops: list of FeedbackLoop
+    leverage_points: list of text
+    
+  data SystemComponent:
+    component_name: text required
+    component_type: actor | process | resource | constraint
+    influence_level: low | medium | high
+    change_difficulty: easy | moderate | hard
+    
+  data SystemRelationship:
+    from_component: text required
+    to_component: text required
+    relationship_type: influences | depends_on | constrains | enables
+    relationship_strength: weak | moderate | strong
+    
+  data FeedbackLoop:
+    loop_name: text required
+    loop_type: reinforcing | balancing
+    components_involved: list of text
+    loop_description: text required
+    intervention_opportunities: list of text
+    
+  interface problem_framing_toolkit:
+    
+    show problem_definition_wizard:
+      title: "Define Your Problem"
+      
+      step initial_problem_capture:
+        input raw_problem_description placeholder: "Describe the problem as you currently understand it"
+        input stakeholders_affected placeholder: "Who is impacted by this problem?"
+        input current_attempts placeholder: "What solutions have been tried?"
+        
+      step problem_analysis:
+        display problem_characteristics_assessment
+        identify problem_type and complexity
+        suggest appropriate_framing_methods
+        
+      step stakeholder_mapping:
+        identify primary_and_secondary_stakeholders
+        map stakeholder_perspectives
+        note conflicting_viewpoints
+        highlight underrepresented_voices
+        
+    display how_might_we_generator:
+      title: "Generate How Might We Statements"
+      
+      input problem_context from problem_definition
+      input user_focus placeholder: "Who specifically are we designing for?"
+      
+      generate hmw_variations:
+        broad_scope: "How might we fundamentally reimagine..."
+        medium_scope: "How might we improve..."  
+        narrow_scope: "How might we optimize..."
+        
+      for each hmw_statement:
+        assess innovation_potential
+        evaluate feasibility
+        suggest exploration_approaches
+        
+    show five_whys_facilitator:
+      title: "Root Cause Analysis - Five Whys"
+      
+      input starting_problem from problem_statement
+      
+      for each why_level up_to 5:
+        display why_question
+        input answer with evidence_prompts
+        validate answer_quality
+        suggest follow_up_questions
+        
+      analyze root_cause_patterns:
+        identify systemic_vs_symptomatic_issues
+        highlight intervention_opportunities
+        suggest additional_investigation_areas
+        
+    display systems_mapping_tool:
+      title: "Systems Thinking Analysis"
+      
+      define system_boundary:
+        input system_scope
+        identify what_is_inside_vs_outside
+        note boundary_assumptions
+        
+      map system_components:
+        identify key_actors
+        map important_processes
+        note critical_resources
+        highlight system_constraints
+        
+      connect relationships:
+        draw influence_connections
+        identify dependency_chains
+        map information_flows
+        note resource_flows
+        
+      identify feedback_loops:
+        find reinforcing_loops
+        discover balancing_loops
+        analyze loop_impacts
+        suggest intervention_points
+        
+  logic problem_reframing_engine:
+    
+    analyze_problem_characteristics:
+      when problem_description_provided:
+        identify problem_domain
+        assess problem_complexity
+        determine stakeholder_scope
+        evaluate problem_urgency
+        
+    suggest_reframing_opportunities:
+      challenge problem_assumptions
+      explore alternative_perspectives
+      identify hidden_constraints
+      discover upstream_problems
+      suggest downstream_implications
+      
+    generate_alternative_framings:
+      user_centered_reframing: "Focus on user needs and experiences"
+      system_level_reframing: "Zoom out to see systemic issues"
+      resource_constraint_reframing: "Consider resource limitations"
+      opportunity_focused_reframing: "Frame as opportunity rather than problem"
+      
+  workflow how_might_we_facilitation:
+    
+    step1_problem_understanding:
+      review research_and_context
+      identify key_insights
+      select focus_area
+      define target_user
+      
+    step2_statement_generation:
+      brainstorm multiple_hmw_statements
+      vary scope_and_specificity
+      explore different_user_perspectives
+      challenge problem_assumptions
+      
+    step3_statement_refinement:
+      evaluate statement_quality
+      check for actionability
+      assess innovation_potential
+      ensure user_centeredness
+      
+    step4_prioritization:
+      group similar_statements
+      assess feasibility_vs_impact
+      select top_statements_for_exploration
+      plan ideation_sessions
+      
+  workflow five_whys_analysis:
+    
+    preparation:
+      assemble diverse_team
+      gather relevant_data
+      define problem_clearly
+      set analysis_boundaries
+      
+    execution:
+      ask first_why about stated_problem
+      gather evidence_for_answers
+      challenge shallow_responses
+      continue until_root_cause_reached
+      document assumptions_and_evidence
+      
+    validation:
+      test root_cause_hypothesis
+      seek additional_perspectives
+      validate with_data_when_possible
+      identify action_implications
+      
+  workflow systems_mapping:
+    
+    system_scoping:
+      define system_purpose
+      establish system_boundaries
+      identify key_stakeholders
+      determine time_horizon
+      
+    component_identification:
+      map all_relevant_actors
+      identify key_processes
+      note important_resources
+      highlight system_constraints
+      
+    relationship_mapping:
+      connect system_components
+      identify influence_patterns
+      map information_flows
+      trace resource_movements
+      
+    pattern_analysis:
+      identify feedback_loops
+      find leverage_points
+      analyze system_dynamics
+      predict intervention_impacts
+      
+  advanced_framing_techniques:
+    
+    assumption_archaeology:
+      identify hidden_assumptions_in_problem_statements
+      challenge assumption_validity
+      explore assumption_alternatives
+      test assumptions_with_evidence
+      
+    perspective_multiplexing:
+      view problem_from_multiple_stakeholder_perspectives
+      identify conflicting_viewpoints
+      find common_ground
+      synthesize integrated_understanding
+      
+    constraint_relaxation:
+      identify all_perceived_constraints
+      challenge constraint_necessity
+      explore constraint_relaxation_scenarios
+      identify creative_constraint_workarounds
+      
+    problem_laddering:
+      abstract problem_to_higher_levels
+      concrete problem_to_specific_instances
+      find optimal_abstraction_level
+      balance scope_and_actionability
+      
+  integration_with_solution_generation:
+    
+    framing_to_ideation_bridge:
+      translate problem_frames_into_design_challenges
+      identify opportunity_areas_for_innovation
+      suggest ideation_techniques_matching_problem_type
+      prepare ideation_session_context
+      
+    constraint_informed_creativity:
+      use identified_constraints_as_creative_triggers
+      explore constraint_relaxation_for_breakthrough_thinking
+      balance constraint_acknowledgment_with_creative_freedom
+      
+  templates_and_frameworks:
+    
+    problem_statement_template:
+      "The problem of [problem_definition]"
+      "affects [stakeholder_group]"
+      "the impact of which is [impact_description]"
+      "a successful solution would [success_criteria]"
+      
+    hmw_statement_structure:
+      "How might we [action_verb]"
+      "[target_user_group]"
+      "[specific_context_or_constraint]"
+      "so that [desired_outcome]?"
+      
+    systems_map_template:
+      actors_and_stakeholders
+      processes_and_workflows
+      resources_and_constraints
+      information_and_communication_flows
+      feedback_loops_and_dynamics
+      
+  quality_indicators:
+    
+    well_framed_problems:
+      specific_enough_to_be_actionable
+      broad_enough_to_allow_innovation
+      user_centered_and_empathetic
+      evidence_based_and_validated
+      stakeholder_inclusive
+      
+    effective_hmw_statements:
+      inspire_creative_thinking
+      suggest multiple_solution_pathways
+      balance_specificity_with_openness
+      focus_on_user_value
+      avoid_solution_assumptions
+      
+    robust_root_cause_analysis:
+      reaches beyond_surface_symptoms
+      supported_by_evidence
+      considers_systemic_factors
+      identifies_actionable_intervention_points
+      acknowledges_complexity_and_interdependencies
+      
+  outcome_examples:
+    
+    problem_reframing_success:
+      original_problem: "Users don't engage with our mobile app"
+      reframed_problem: "How might we help busy professionals stay connected to their goals throughout their day?"
+      insight_gained: "The problem isn't the app, it's fitting into users' workflows"
+      solution_direction: "Context-aware notifications and micro-interactions"
+      
+    root_cause_discovery:
+      surface_problem: "Customer service response times are too slow"
+      root_cause_found: "Knowledge base is outdated and agents lack decision authority"
+      systemic_issue: "Siloed departments with poor information sharing"
+      intervention_strategy: "Cross-functional knowledge management system"
+      
+    systems_insight:
+      initial_focus: "Reduce shopping cart abandonment"
+      systems_view: "Payment, shipping, returns, and trust all interconnected"
+      leverage_point: "Transparent total cost calculation early in journey"
+      holistic_solution: "End-to-end transparency and risk reduction"
+      
+  common_pitfalls_and_mitigations:
+    
+    jumping_to_solutions:
+      pitfall: "Immediately proposing solutions without thorough problem understanding"
+      mitigation: "Enforce problem exploration phase before solution generation"
+      
+    confirmation_bias:
+      pitfall: "Seeking evidence that confirms preexisting problem beliefs"
+      mitigation: "Actively seek disconfirming evidence and alternative perspectives"
+      
+    scope_creep:
+      pitfall: "Problem scope expands beyond manageable boundaries"
+      mitigation: "Regularly revisit and refine problem boundaries"
+      
+    analysis_paralysis:
+      pitfall: "Over-analyzing problems without moving to action"
+      mitigation: "Set time boundaries and decision criteria for problem exploration"
+      
+  facilitation_guidelines:
+    
+    effective_problem_framing_sessions:
+      diverse_perspectives_included
+      safe_environment_for_challenging_assumptions
+      structured_process_with_clear_outcomes
+      documentation_and_follow_up_planning
+      
+    managing_group_dynamics:
+      ensure_equal_participation
+      handle_dominant_voices
+      encourage_constructive_disagreement
+      maintain_focus_on_problem_understanding
+      
+  "Transforming problem understanding into solution opportunity" ✨

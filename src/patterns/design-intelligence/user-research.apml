@@ -1,0 +1,372 @@
+app UserResearchEmpathyPatterns:
+  title: "User Research & Empathy Building Methodologies"
+  description: "Comprehensive patterns for understanding users, building empathy, and translating insights into design decisions"
+  category: user_research
+  complexity_range: simple to advanced
+  
+  data UserResearchMethod:
+    name: text required
+    research_type: qualitative | quantitative | mixed
+    data_collection_method: interview | survey | observation | analytics | testing
+    participant_requirements: list of text
+    time_to_execute: text required
+    sample_size_guidance: text required
+    data_analysis_approach: text required
+    key_deliverables: list of text
+    
+  data UserPersona:
+    persona_name: text required
+    demographic_profile: text required
+    goals_and_motivations: list of text
+    pain_points: list of text
+    behaviors: list of text
+    preferred_channels: list of text
+    quote: text required
+    photo_reference: url optional
+    
+  data UserJourney:
+    journey_name: text required
+    persona: text required
+    stages: list of JourneyStage
+    overall_emotion_curve: text
+    key_insights: list of text
+    improvement_opportunities: list of text
+    
+  data JourneyStage:
+    stage_name: text required
+    user_actions: list of text
+    user_thoughts: list of text
+    user_emotions: list of text
+    touchpoints: list of text
+    pain_points: list of text
+    opportunities: list of text
+    
+  data JobToBeDone:
+    job_statement: text required
+    job_type: functional | emotional | social
+    context: text required
+    desired_outcome: text required
+    current_solutions: list of text
+    solution_gaps: list of text
+    job_priority: low | medium | high | critical
+    
+  data EmpathyMap:
+    persona_focus: text required
+    says: list of text
+    thinks: list of text
+    does: list of text
+    feels: list of text
+    pains: list of text
+    gains: list of text
+    
+  interface user_research_toolkit:
+    
+    show research_method_selector:
+      title: "Choose Research Approach"
+      
+      display method_categories:
+        qualitative_methods:
+          - user_interviews
+          - contextual_inquiry
+          - ethnographic_research
+          - focus_groups
+          - diary_studies
+          
+        quantitative_methods:
+          - surveys_and_questionnaires
+          - analytics_analysis
+          - a_b_testing
+          - heatmap_analysis
+          - conversion_funnel_analysis
+          
+        hybrid_approaches:
+          - moderated_usability_testing
+          - card_sorting
+          - tree_testing
+          - first_click_testing
+          - prototype_testing
+          
+      when user selects research_method:
+        show method_details
+        provide execution_templates
+        suggest participant_recruitment_strategies
+        offer analysis_frameworks
+        
+    display persona_generator:
+      title: "Generate User Personas from Research"
+      
+      input research_data placeholder: "Paste interview transcripts, survey responses, or research findings"
+      
+      when research_data_provided:
+        analyze user_patterns_and_segments
+        identify distinct_user_types
+        generate persona_profiles
+        create persona_narratives
+        
+      show persona_validation:
+        display generated_personas
+        suggest validation_approaches
+        recommend persona_refinement
+        provide usage_guidelines
+        
+    show journey_mapping_tool:
+      title: "Map User Journeys"
+      
+      select persona_focus from available_personas
+      define journey_scope and boundaries
+      
+      for each journey_stage:
+        input user_actions
+        input user_thoughts_and_emotions
+        identify touchpoints_and_interactions
+        note pain_points_and_frustrations
+        highlight improvement_opportunities
+        
+      generate journey_visualization
+      identify critical_moments_of_truth
+      prioritize optimization_opportunities
+      
+  logic research_insight_extraction:
+    
+    analyze_qualitative_data:
+      when user_interviews_conducted:
+        extract key_themes_and_patterns
+        identify emotional_responses
+        note behavioral_insights
+        highlight unmet_needs
+        
+      when observational_research_complete:
+        catalog user_behaviors
+        identify workflow_inefficiencies
+        note environmental_influences
+        discover implicit_needs
+        
+    process_quantitative_findings:
+      when survey_data_available:
+        perform statistical_analysis
+        identify significant_correlations
+        segment users_by_behavior
+        quantify problem_severity
+        
+      when analytics_data_analyzed:
+        identify usage_patterns
+        discover drop_off_points
+        measure engagement_levels
+        track conversion_metrics
+        
+    synthesize_mixed_method_insights:
+      combine qualitative_and_quantitative_findings
+      validate qualitative_insights_with_data
+      provide context_for_quantitative_patterns
+      create comprehensive_user_understanding
+      
+  workflow user_journey_mapping:
+    
+    step1_preparation:
+      define journey_scope_and_objectives
+      select target_persona
+      gather relevant_research_data
+      assemble cross_functional_team
+      
+    step2_stage_identification:
+      map high_level_journey_stages
+      define stage_boundaries
+      identify key_decision_points
+      note stage_transitions
+      
+    step3_detailed_mapping:
+      for each journey_stage:
+        document user_actions
+        capture user_thoughts_and_emotions
+        identify all_touchpoints
+        note pain_points_and_frustrations
+        highlight moments_of_delight
+        
+    step4_analysis_and_insights:
+      identify journey_patterns
+      prioritize pain_points_by_impact
+      discover optimization_opportunities
+      create actionable_recommendations
+      
+  workflow jobs_to_be_done_analysis:
+    
+    identify_functional_jobs:
+      when user_completes_task:
+        analyze core_functional_need
+        identify desired_outcome
+        map current_solution_approach
+        note functional_job_gaps
+        
+    discover_emotional_jobs:
+      analyze how_user_wants_to_feel
+      identify emotional_outcomes_desired
+      map emotional_journey_throughout_process
+      note emotional_job_satisfaction_gaps
+      
+    uncover_social_jobs:
+      analyze how_user_wants_to_be_perceived
+      identify social_context_and_influences
+      map social_validation_needs
+      note social_job_fulfillment_gaps
+      
+    prioritize_jobs_by_importance:
+      assess job_frequency_and_criticality
+      evaluate current_satisfaction_levels
+      identify highest_opportunity_jobs
+      create job_prioritization_matrix
+      
+  workflow empathy_map_creation:
+    
+    data_collection_for_empathy:
+      gather user_research_findings
+      collect direct_user_quotes
+      document observed_behaviors
+      note emotional_responses
+      
+    empathy_map_construction:
+      says_quadrant:
+        direct_quotes_from_users
+        verbal_expressions_of_needs
+        stated_goals_and_motivations
+        
+      thinks_quadrant:
+        internal_thoughts_and_beliefs
+        unstated_concerns_and_worries
+        mental_models_and_assumptions
+        
+      does_quadrant:
+        observable_behaviors
+        actions_and_workflows
+        tool_and_channel_usage
+        
+      feels_quadrant:
+        emotions_throughout_journey
+        frustrations_and_delights
+        emotional_highs_and_lows
+        
+    insight_generation:
+      identify patterns_across_quadrants
+      discover contradictions_between_says_and_does
+      note emotional_drivers_for_behavior
+      generate empathy_driven_design_insights
+      
+  advanced_research_techniques:
+    
+    contextual_inquiry_patterns:
+      observe users_in_natural_environment
+      ask clarifying_questions_during_observation
+      document environmental_influences
+      identify workflow_inefficiencies
+      discover implicit_needs_and_workarounds
+      
+    diary_study_methodologies:
+      provide structured_diary_templates
+      set appropriate_study_duration
+      design trigger_prompts_for_entries
+      analyze longitudinal_behavior_patterns
+      identify context_dependent_usage_variations
+      
+    co_creation_workshops:
+      facilitate collaborative_design_sessions
+      use ideation_techniques_with_users
+      validate concepts_through_participatory_design
+      build empathy_through_shared_creation
+      generate user_driven_solution_concepts
+      
+  research_to_design_translation:
+    
+    insight_prioritization:
+      assess insight_impact_on_user_experience
+      evaluate insight_actionability
+      consider business_constraint_alignment
+      create insight_priority_matrix
+      
+    design_implication_mapping:
+      translate user_needs_into_design_requirements
+      identify feature_opportunities_from_pain_points
+      map user_goals_to_interaction_patterns
+      connect emotional_needs_to_design_aesthetics
+      
+    validation_planning:
+      identify testable_assumptions_from_research
+      design validation_experiments
+      create success_metrics_for_design_decisions
+      plan iterative_validation_approaches
+      
+  templates_and_tools:
+    
+    interview_guide_templates:
+      demographic_and_background_questions
+      behavior_and_usage_exploration
+      pain_point_and_frustration_identification
+      goal_and_motivation_discovery
+      solution_validation_and_feedback
+      
+    survey_design_frameworks:
+      question_type_selection_guidance
+      survey_flow_and_logic_design
+      bias_reduction_techniques
+      response_rate_optimization
+      data_quality_assurance
+      
+    analysis_templates:
+      thematic_analysis_worksheets
+      affinity_mapping_guides
+      insight_synthesis_frameworks
+      recommendation_prioritization_matrices
+      
+  outcome_examples:
+    
+    user_interview_insights:
+      research_context: "E-commerce checkout process study"
+      key_findings: "Users abandon due to unexpected shipping costs"
+      design_implications: "Display shipping costs upfront, offer cost calculators"
+      validation_approach: "A/B test transparent pricing vs. traditional flow"
+      
+    persona_driven_design:
+      persona_focus: "Sarah, the busy working mom"
+      key_characteristics: "Values efficiency, mobile-first usage, price-conscious"
+      design_decisions: "One-tap reordering, mobile-optimized checkout, savings alerts"
+      impact_measurement: "Increased mobile conversion by 34%"
+      
+    journey_optimization:
+      journey_focus: "First-time user onboarding"
+      pain_points_identified: "Overwhelming feature complexity, unclear value proposition"
+      optimization_strategy: "Progressive disclosure, guided tutorials, quick wins"
+      result_achieved: "Reduced time-to-value from 14 days to 3 days"
+      
+  integration_with_design_process:
+    
+    research_planning_integration:
+      align research_objectives_with_design_goals
+      coordinate research_timeline_with_development_cycles
+      ensure stakeholder_buy_in_for_research_investment
+      plan research_budget_and_resource_allocation
+      
+    cross_functional_collaboration:
+      involve developers_in_research_synthesis
+      include business_stakeholders_in_user_interviews
+      facilitate research_sharing_sessions
+      create shared_understanding_artifacts
+      
+    continuous_research_practices:
+      establish ongoing_user_feedback_loops
+      implement lightweight_validation_techniques
+      create research_repository_and_knowledge_base
+      maintain persona_and_journey_map_currency
+      
+  quality_assurance_patterns:
+    
+    research_validity_checks:
+      ensure representative_sample_sizes
+      minimize researcher_bias_in_data_collection
+      validate findings_through_triangulation
+      check for confirmation_bias_in_analysis
+      
+    ethical_research_practices:
+      obtain proper_informed_consent
+      protect participant_privacy_and_data
+      provide transparent_research_purpose
+      offer participant_compensation_fairly
+      
+  "Building deep user understanding for human-centered design" ✨

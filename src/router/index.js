@@ -1,10 +1,11 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import HomePage from '../pages/HomePage.vue'
 import SpecificationPage from '../pages/SpecificationPage.vue'
+import AdeDocsPage from '../pages/AdeDocsPage.vue'
+import LlmInstructionsPage from '../pages/LlmInstructionsPage.vue'
 import PlaygroundPage from '../pages/PlaygroundPage.vue'
 import ExamplesPage from '../pages/ExamplesPage.vue'
-import ToolsPage from '../pages/ToolsPage.vue'
-import CommunityPage from '../pages/CommunityPage.vue'
+import MigrationPage from '../pages/MigrationPage.vue'
 
 const routes = [
   {
@@ -15,9 +16,21 @@ const routes = [
   },
   {
     path: '/specification',
-    name: 'Specification',
+    name: 'Language Spec',
     component: SpecificationPage,
-    meta: { showInNav: true, title: 'Specification' }
+    meta: { showInNav: true, title: 'Language Spec' }
+  },
+  {
+    path: '/ade-docs',
+    name: 'ADE Compiler',
+    component: AdeDocsPage,
+    meta: { showInNav: true, title: 'ADE Compiler' }
+  },
+  {
+    path: '/llm-instructions',
+    name: 'LLM Instructions',
+    component: LlmInstructionsPage,
+    meta: { showInNav: true, title: 'LLM Instructions' }
   },
   {
     path: '/playground',
@@ -32,16 +45,10 @@ const routes = [
     meta: { showInNav: true, title: 'Examples' }
   },
   {
-    path: '/tools',
-    name: 'Tools',
-    component: ToolsPage,
-    meta: { showInNav: true, title: 'Tools' }
-  },
-  {
-    path: '/community',
-    name: 'Community',
-    component: CommunityPage,
-    meta: { showInNav: true, title: 'Community' }
+    path: '/migration',
+    name: 'Migration',
+    component: MigrationPage,
+    meta: { showInNav: true, title: 'Migration' }
   }
 ]
 

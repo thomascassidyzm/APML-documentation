@@ -1,0 +1,261 @@
+app DesignIntelligenceFramework:
+  title: "Core Design Intelligence Pattern Library"
+  description: "Comprehensive framework for applying design thinking methodologies in human-AI collaborative contexts"
+  version: 1.0
+  philosophy: "Transform insights into solutions through systematic methodology application"
+  
+  data DesignMethod:
+    id: unique_id
+    name: text required
+    category: user_research | problem_framing | ideation | validation | business_model | service_design | systems_thinking
+    complexity_level: simple | intermediate | advanced
+    time_required: quick | medium | extensive
+    team_size: individual | small_team | large_team
+    prerequisites: list of text optional
+    tools_required: list of text optional
+    expected_outcomes: list of text required
+    success_criteria: list of text required
+    common_pitfalls: list of text optional
+    
+  data TransformationPattern:
+    trigger_condition: text required
+    input_requirements: list of text required
+    process_steps: list of ProcessStep
+    expected_outputs: list of text required
+    quality_indicators: list of text required
+    adaptation_guidelines: text optional
+    
+  data ProcessStep:
+    sequence_number: number required
+    step_name: text required
+    step_description: text required
+    time_estimate: text required
+    required_inputs: list of text
+    deliverables: list of text
+    validation_checkpoint: text optional
+    
+  data DesignContext:
+    problem_domain: text required
+    stakeholder_types: list of text
+    constraints: list of text
+    available_resources: list of text
+    timeline: urgent | short_term | medium_term | long_term
+    complexity_level: simple | moderate | complex | highly_complex
+    risk_tolerance: low | medium | high
+    innovation_ambition: incremental | breakthrough | disruptive
+    
+  data MethodologyStack:
+    primary_methods: list of DesignMethod
+    supporting_techniques: list of text
+    sequencing_logic: text
+    integration_points: list of text
+    adaptation_strategies: list of text
+    
+  interface methodology_selector:
+    
+    show context_analyzer:
+      title: "Describe Your Design Challenge"
+      
+      input problem_description placeholder: "What problem are you trying to solve?"
+      select stakeholder_types from predefined_options
+      input constraint_list placeholder: "What limitations or requirements must you consider?"
+      select timeline from timeline_options
+      select complexity_level from complexity_options
+      
+      when context_complete:
+        analyze design_context
+        generate methodology_recommendations
+        display recommended_methodology_stack
+        
+    display methodology_library:
+      title: "Available Design Methods"
+      
+      for each category in method_categories:
+        show category_section:
+          header: category.name
+          description: category.overview
+          
+          for each method in category.methods:
+            show method_card:
+              display method.name and method.complexity_level
+              show method.time_required and method.team_size
+              display method.expected_outcomes
+              
+              when user clicks method:
+                show detailed_method_view
+                display method.process_steps
+                show adaptation_guidelines
+                provide implementation_templates
+                
+    show methodology_customizer:
+      title: "Customize for Your Context"
+      
+      when user selects base_methodology:
+        analyze context_fit
+        suggest adaptations
+        show customization_options
+        generate tailored_process
+        
+  logic intelligent_method_selection:
+    
+    analyze_design_context:
+      identify problem_characteristics from description
+      map stakeholder_complexity_requirements
+      assess resource_and_timeline_constraints
+      determine appropriate_complexity_level
+      evaluate innovation_opportunity_scope
+      
+    match_methods_to_context:
+      for each available_method:
+        calculate context_compatibility_score
+        assess resource_requirement_alignment
+        evaluate timeline_feasibility
+        consider team_capability_requirements
+        
+      rank methods by overall_fit_score
+      identify complementary_method_combinations
+      suggest optimal_methodology_sequencing
+      
+    generate_customized_approach:
+      adapt selected_methods for specific_context
+      integrate methods into coherent_process
+      identify critical_decision_points
+      suggest validation_checkpoints
+      provide risk_mitigation_strategies
+      
+  logic pattern_transformation_engine:
+    
+    process_problem_to_solution_mapping:
+      when user describes problem_situation:
+        extract key_problem_characteristics
+        identify underlying_needs and pain_points
+        map to relevant_solution_patterns
+        suggest solution_component_combinations
+        
+    generate_insight_to_feature_translation:
+      when research_insights_identified:
+        analyze insight_implications
+        brainstorm feature_possibilities
+        prioritize by impact_and_feasibility
+        create feature_specification_templates
+        
+    apply_constraint_removal_thinking:
+      when limitations_identified:
+        challenge assumption_validity
+        explore constraint_relaxation_scenarios
+        identify creative_workaround_possibilities
+        generate unconventional_solution_approaches
+        
+    facilitate_breakthrough_to_implementation:
+      when breakthrough_insight_achieved:
+        map insight to actionable_components
+        identify implementation_pathways
+        assess feasibility_and_resource_requirements
+        create implementation_roadmap
+        
+  workflow methodology_application:
+    
+    step1_context_establishment:
+      capture design_challenge_description
+      identify stakeholders_and_constraints
+      assess available_resources_and_timeline
+      determine success_criteria
+      
+    step2_methodology_selection:
+      analyze context_requirements
+      recommend appropriate_methods
+      allow methodology_customization
+      finalize methodology_stack
+      
+    step3_guided_execution:
+      provide step_by_step_guidance
+      offer templates_and_tools
+      facilitate collaboration_and_documentation
+      monitor progress_and_adapt_as_needed
+      
+    step4_outcome_synthesis:
+      compile methodology_outputs
+      identify key_insights_and_decisions
+      create actionable_recommendations
+      plan next_steps_and_implementation
+      
+  integration collaborative_intelligence:
+    
+    human_ai_partnership_patterns:
+      ai_assists_with: "Data analysis, pattern recognition, idea generation, synthesis"
+      human_leads: "Context interpretation, value judgments, stakeholder empathy, creative leaps"
+      collaborative_zones: "Problem framing, solution evaluation, implementation planning"
+      
+    adaptive_methodology_application:
+      learn from methodology_application_outcomes
+      identify successful_adaptation_patterns
+      refine recommendation_algorithms
+      evolve methodology_effectiveness
+      
+    continuous_improvement_loop:
+      collect usage_data_and_feedback
+      analyze methodology_success_patterns
+      identify improvement_opportunities
+      update patterns_and_recommendations
+      
+  advanced_capabilities:
+    
+    cross_domain_pattern_transfer:
+      identify successful_patterns from other_domains
+      adapt patterns for current_context
+      facilitate analogical_thinking
+      suggest unconventional_approaches
+      
+    real_time_methodology_adaptation:
+      monitor methodology_execution_progress
+      detect when_adaptations_needed
+      suggest real_time_adjustments
+      maintain methodology_coherence
+      
+    predictive_outcome_modeling:
+      predict likely_methodology_outcomes
+      identify potential_challenges_early
+      suggest preventive_interventions
+      optimize methodology_selection
+      
+  template_library:
+    
+    problem_framing_templates:
+      how_might_we_generator
+      five_whys_analysis_guide
+      assumption_identification_worksheet
+      stakeholder_impact_assessment
+      
+    ideation_facilitation_tools:
+      brainstorming_session_structure
+      scamper_technique_guide
+      affinity_mapping_templates
+      prioritization_matrices
+      
+    validation_frameworks:
+      hypothesis_formulation_guide
+      experiment_design_templates
+      metrics_selection_frameworks
+      learning_validation_processes
+      
+  outcome_examples:
+    
+    successful_transformations:
+      problem: "Manual lead tracking inefficiency"
+      methodology_applied: "Jobs-to-be-done + Service Design"
+      solution_generated: "Automated CRM with intelligent routing"
+      impact_achieved: "60% reduction in lead response time"
+      
+    pattern_applications:
+      context: "E-commerce checkout abandonment"
+      methods_used: "User journey mapping + A/B testing"
+      insights_discovered: "Mobile form complexity causing drops"
+      solution_implemented: "Progressive checkout with smart defaults"
+      
+  deployment_integration:
+    web_accessible: "Available at apml.dev/patterns/design-intelligence/pattern-library.apml"
+    llm_referenceable: "Direct import for AI-assisted design sessions"
+    ade_compatible: "Seamless integration with Agent Development Environment"
+    version_controlled: "Semantic versioning with backward compatibility"
+    
+  "The foundation for systematic, AI-enhanced design thinking" ✨

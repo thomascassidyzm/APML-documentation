@@ -1,7 +1,25 @@
 app APMLDevSite:
   title: APML - The Universal Language for Human-AI Collaboration
-  description: Official home of APML language - Code that reads like conversation
+  description: Official home of APML v0.9.0 - Logically Complete conversational code
   version: 1.0.0
+  apml_specification_version: "0.9.0"
+  logical_completeness_certified: true
+
+data SiteResource:
+  file_name: text required
+  file_type: specification | validator | documentation | example
+  status: current | deprecated | draft
+  description: text required
+  logical_completeness_status: logically_complete | pending | not_applicable
+
+data APMLDevSiteContent:
+  primary_specification: "APML-v0.9.0.apml"
+  enhanced_validator: "src/enhanced-validator.apml"
+  site_specification: "site-specification.apml"
+  vue_app_source: "src/"
+  pattern_library: "src/patterns/"
+  single_source_of_truth: true
+  last_updated: timestamp auto
   
   interface:
     show hero_section:
@@ -17,9 +35,17 @@ app APMLDevSite:
       app_to_app: Processing, logic, internal workflows
       
     show specification_section:
-      title: Interactive Language Specification
-      subtitle: Explore every aspect of APML syntax and semantics
-      content: Complete grammar definition and examples
+      title: APML v0.9.0 Language Specification
+      subtitle: Grammar Foundation Release - Complete syntax and semantics
+      content: Official specification with Trinity Principle and logical completeness requirements
+      specification_file: APML-v0.9.0.apml
+      
+    display logical_completeness_section:
+      title: Logically Complete APML
+      subtitle: The gold standard for production-ready conversational code
+      definition: Applications where all logical workflows terminate, decision paths are handled, and Trinity Principle compliance is mathematically verified
+      guarantee: Logically Complete APML guarantees crash-free deployment
+      certification_tool: Enhanced APML Validator v0.9.0
       
     display playground_section:
       title: Try APML Playground
@@ -33,10 +59,12 @@ app APMLDevSite:
       
     display tools_ecosystem:
       title: Tools and Compilers
-      subtitle: Complete development ecosystem for APML
-      vue_compiler: Stable and ready for production
+      subtitle: Complete development ecosystem for APML v0.9.0
+      enhanced_validator: Enhanced APML Validator v0.9.0 - Certifies Logically Complete status
+      vue_compiler: Stable and ready for production - Logically Complete applications supported
       swift_compiler: Coming Q2 2025
       kotlin_compiler: Coming Q2 2025
+      validation_guarantee: All tools ensure Logically Complete certification
       
     show community_section:
       title: Join the APML Community
