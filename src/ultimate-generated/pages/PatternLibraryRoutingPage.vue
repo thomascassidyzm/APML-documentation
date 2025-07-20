@@ -6,28 +6,39 @@
         <p class="page-subtitle">Complete routing structure for accessing design intelligence, business strategy, and research methodology patterns</p>
       </div>
     </header>
+    <nav class="table-of-contents">
+      <div class="container">
+        <h2>Contents</h2>
+        <ul class="toc-list">
+            <li><a href="#main_navigation" class="toc-link">Main Navigation</a></li>
+            <li><a href="#pattern_library_navigation" class="toc-link">Pattern Library Navigation</a></li>
+            <li><a href="#learning_path_navigation" class="toc-link">Learning Path Navigation</a></li>
+            <li><a href="#utility_navigation" class="toc-link">Utility Navigation</a></li>
+        </ul>
+      </div>
+    </nav>
     <main class="page-content">
       <div class="container">
-        <section  class="interface-section">
-          <h2 >Main Navigation</h2>
+        <section id="main_navigation" class="content-section">
+          <h2 class="section-title">Main Navigation</h2>
           <div class="content-block">
             <h3 class="block-title">Primary Navigation</h3>
           </div>
         </section>
-        <section  class="interface-section">
-          <h2 >Pattern Library Navigation</h2>
+        <section id="pattern_library_navigation" class="content-section">
+          <h2 class="section-title">Pattern Library Navigation</h2>
           <div class="content-block">
             <h3 class="block-title">Pattern Categories</h3>
           </div>
         </section>
-        <section  class="interface-section">
-          <h2 >Learning Path Navigation</h2>
+        <section id="learning_path_navigation" class="content-section">
+          <h2 class="section-title">Learning Path Navigation</h2>
           <div class="content-block">
             <h3 class="block-title">Curated Journeys</h3>
           </div>
         </section>
-        <section  class="interface-section">
-          <h2 >Utility Navigation</h2>
+        <section id="utility_navigation" class="content-section">
+          <h2 class="section-title">Utility Navigation</h2>
           <div class="content-block">
             <h3 class="block-title">Supporting Pages</h3>
           </div>

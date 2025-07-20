@@ -60,15 +60,21 @@ class UltimateAPMLCompiler {
     const descMatch = content.match(/description:\s*"([^"]+)"/m)
     if (descMatch) theme.description = descMatch[1]
     
-    // Extract layout settings
-    const layoutMatch = content.match(/layout:\s*([\s\S]*?)(?=\n\s*#|\n\w+:|$)/m)
+    // Extract layout settings - improved regex to capture full YAML section
+    const layoutMatch = content.match(/layout:\s*\n((?:\s+\w+:.*\n?)*)/m)
     if (layoutMatch) {
       const layoutContent = layoutMatch[1]
-      if (layoutContent.includes('table_of_contents')) {
-        theme.layout.tableOfContents = layoutContent.includes('enabled')
+      
+      // Check for navigation_style: table_of_contents
+      if (layoutContent.includes('navigation_style: table_of_contents')) {
+        theme.layout.tableOfContents = true
       }
       if (layoutContent.includes('card_layouts: disabled')) {
         theme.layout.useCards = false
+      }
+      // Also check for in_page_navigation: enabled
+      if (layoutContent.includes('in_page_navigation: enabled')) {
+        theme.layout.inPageNavigation = true
       }
     }
     
@@ -78,17 +84,75 @@ class UltimateAPMLCompiler {
     return theme
   }
   
-  // Apply theme based on app specification
+  // Apply theme based on app specification - Production-grade with fallback
   applyTheme(spec) {
     const themeName = spec.app?.properties?.theme || spec.app?.theme
-    console.log(`🔍 Theme detection - Looking for: ${themeName}, Available themes: ${Array.from(this.themeSystem.keys()).join(', ')}`)
     
     if (themeName && this.themeSystem.has(themeName)) {
       this.activeTheme = this.themeSystem.get(themeName)
       console.log(`🎨 Applied theme: ${this.activeTheme.name}`)
     } else {
-      this.activeTheme = null
-      console.log(`❌ Theme not found or not specified`)
+      // Production-grade fallback strategy
+      console.warn(`⚠️  Theme '${themeName}' not found, applying fallback strategy`)
+      
+      // Try minimal-documentation as primary fallback
+      if (this.themeSystem.has('minimal-documentation')) {
+        this.activeTheme = this.themeSystem.get('minimal-documentation')
+        console.log(`🎨 Applied fallback theme: minimal-documentation`)
+      } else {
+        // Generate emergency minimal theme
+        this.activeTheme = this.generateEmergencyTheme()
+        console.log(`🎨 Applied emergency minimal theme`)
+      }
+    }
+  }
+
+  // Generate emergency theme for production resilience
+  generateEmergencyTheme() {
+    return {
+      name: 'Emergency Minimal',
+      description: 'Auto-generated fallback theme',
+      layout: {
+        useCards: false,
+        tableOfContents: false,
+        inPageNavigation: false
+      },
+      styles: {
+        raw: `
+styles:
+  base: |
+    .component {
+      min-height: 100vh;
+      background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #374151 100%);
+      color: #f8fafc;
+      line-height: 1.6;
+      padding: 2rem;
+    }
+    
+  header: |
+    .page-header {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+    
+    .page-title {
+      font-size: 2rem;
+      color: #6366f1;
+      margin-bottom: 1rem;
+    }
+    
+  content: |
+    .content-section {
+      margin-bottom: 2rem;
+    }
+    
+    .section-title {
+      font-size: 1.5rem;
+      color: #a855f7;
+      margin-bottom: 1rem;
+    }
+`
+      }
     }
   }
 
@@ -137,7 +201,9 @@ class UltimateAPMLCompiler {
       interfaces: {},
       logic: {},
       rawContent: content,
-      filePath: filePath
+      filePath: filePath,
+      parseErrors: [],
+      parseWarnings: []
     }
 
     // Parse app declaration - capture everything until next non-indented line
@@ -1113,59 +1179,115 @@ const appMetadata = {
     return code
   }
 
-  // Extract CSS from theme specification
+  // Extract CSS from theme specification - Production-grade with strict validation
   extractThemeCSS(themeContent, componentName) {
     const className = this.toKebabCase(componentName)
     let css = ''
     
-    // Extract only the styles section from theme, being very specific about boundaries
-    const stylesMatch = themeContent.match(/styles:\s*([\s\S]*?)(?=\n[a-zA-Z#]|$)/);
-    
-    if (stylesMatch) {
-      const stylesSection = stylesMatch[1]
-      // Extract individual CSS blocks from the styles section
-      const cssMatches = stylesSection.match(/(\w+):\s*\|[\s\S]*?(?=\n\s*\w+:\s*\||$)/g)
+    try {
+      // Extract only the styles section from theme
+      const stylesMatch = themeContent.match(/styles:\s*([\s\S]*?)(?=\n[a-zA-Z#]|$)/);
       
-      if (cssMatches) {
-        for (const match of cssMatches) {
-          const cssContent = match.replace(/^\w+:\s*\|/, '').trim()
-          
-          // Skip any content that looks like JavaScript/implementation code or APML markup
-          if (cssContent.includes('if (') || 
-              cssContent.includes('//') || 
-              cssContent.includes('implementation:') ||
-              cssContent.includes('interface ') ||
-              cssContent.includes('show ') ||
-              cssContent.includes('display ') ||
-              cssContent.includes('# ') ||
-              cssContent.includes('rule:') ||
-              cssContent.includes('logic ') ||
-              cssContent.includes('process ') ||
-              cssContent.includes('when ') ||
-              cssContent.includes('export ')) {
-            continue
+      if (stylesMatch) {
+        const stylesSection = stylesMatch[1]
+        const cssBlocks = stylesSection.match(/(\w+):\s*\|[\s\S]*?(?=\n\s*\w+:\s*\||$)/g)
+        
+        if (cssBlocks) {
+          for (const block of cssBlocks) {
+            const cssContent = block.replace(/^\w+:\s*\|/, '').trim()
+            
+            // Strict CSS validation - only allow valid CSS syntax
+            const lines = cssContent.split('\n')
+            const validCSSLines = lines.filter(line => {
+              const trimmed = line.trim()
+              
+              // Skip empty lines
+              if (!trimmed) return true
+              
+              // Reject any line that contains programming constructs
+              if (trimmed.includes('if (') ||
+                  trimmed.includes('//') ||
+                  trimmed.includes('function') ||
+                  trimmed.includes('const ') ||
+                  trimmed.includes('let ') ||
+                  trimmed.includes('var ') ||
+                  trimmed.includes('implementation:') ||
+                  trimmed.includes('interface ') ||
+                  trimmed.includes('show ') ||
+                  trimmed.includes('display ') ||
+                  trimmed.includes('logic ') ||
+                  trimmed.includes('process ') ||
+                  trimmed.includes('when ') ||
+                  trimmed.includes('export ') ||
+                  trimmed.includes('rule:') ||
+                  trimmed.startsWith('# ')) {
+                return false
+              }
+              
+              // Allow CSS selectors, properties, and basic syntax
+              return trimmed.match(/^[.#@\w\s\-:(),\[\]"'%\d\.\+\*\/]+[{};]?$/) ||
+                     trimmed.startsWith('.') || 
+                     trimmed.startsWith('#') ||
+                     trimmed.startsWith('@') ||
+                     (trimmed.includes(':') && (trimmed.includes(';') || trimmed.includes('{'))) ||
+                     trimmed === '}' || 
+                     trimmed === '{'
+            })
+            
+            if (validCSSLines.length > 0) {
+              let cleanCSS = validCSSLines.join('\n')
+              
+              // Apply theme variable substitution
+              cleanCSS = cleanCSS
+                .replace(/\$\{component_class\}/g, className)
+                .replace(/\$\{colors\.primary\}/g, '#6366f1')
+                .replace(/\$\{colors\.secondary\}/g, '#a855f7')
+                .replace(/\$\{colors\.background\}/g, 'linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #374151 100%)')
+                .replace(/\$\{colors\.text_primary\}/g, '#f8fafc')
+                .replace(/\$\{colors\.text_secondary\}/g, '#cbd5e1')
+                .replace(/\$\{colors\.text_muted\}/g, '#94a3b8')
+                .replace(/\$\{colors\.border\}/g, 'rgba(255, 255, 255, 0.1)')
+                .replace(/\$\{colors\.accent\}/g, 'rgba(255, 255, 255, 0.05)')
+                .replace(/\$\{templates\.table_of_contents\.columns\}/g, 'repeat(auto-fit, minmax(250px, 1fr))')
+                .replace(/\$\{templates\.property_list\.columns\}/g, '200px 1fr')
+              
+              // Final validation - check for remaining invalid syntax
+              if (!cleanCSS.includes('if (') && !cleanCSS.includes('//')) {
+                css += cleanCSS + '\n\n'
+              }
+            }
           }
-          
-          // Replace theme variables
-          let processedCSS = cssContent
-            .replace(/\$\{component_class\}/g, className)
-            .replace(/\$\{colors\.primary\}/g, '#6366f1')
-            .replace(/\$\{colors\.secondary\}/g, '#a855f7')
-            .replace(/\$\{colors\.background\}/g, 'linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #374151 100%)')
-            .replace(/\$\{colors\.text_primary\}/g, '#f8fafc')
-            .replace(/\$\{colors\.text_secondary\}/g, '#cbd5e1')
-            .replace(/\$\{colors\.text_muted\}/g, '#94a3b8')
-            .replace(/\$\{colors\.border\}/g, 'rgba(255, 255, 255, 0.1)')
-            .replace(/\$\{colors\.accent\}/g, 'rgba(255, 255, 255, 0.05)')
-            .replace(/\$\{templates\.table_of_contents\.columns\}/g, 'repeat(auto-fit, minmax(250px, 1fr))')
-            .replace(/\$\{templates\.property_list\.columns\}/g, '200px 1fr')
-          
-          css += processedCSS + '\n\n'
         }
       }
+    } catch (error) {
+      console.warn(`⚠️  CSS extraction failed for ${className}: ${error.message}`)
+      // Return minimal fallback CSS
+      return this.getMinimalFallbackCSS(className)
     }
     
     return css
+  }
+
+  // Fallback CSS generation for error recovery
+  getMinimalFallbackCSS(className) {
+    return `.${className} {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #374151 100%);
+  color: #f8fafc;
+  line-height: 1.6;
+  padding: 2rem;
+}
+
+.${className} .page-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.${className} .page-title {
+  font-size: 2rem;
+  color: #6366f1;
+}
+`
   }
 
   generateStyle(spec, componentName) {

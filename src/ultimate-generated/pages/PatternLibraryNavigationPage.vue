@@ -8,8 +8,8 @@
     </header>
     <main class="page-content">
       <div class="container">
-        <section  class="interface-section">
-          <h2 >Navigation</h2>
+        <section id="navigation" class="content-section">
+          <h2 class="section-title">Navigation</h2>
           <div class="content-block">
             <h3 class="block-title">Pattern Library Index</h3>
           </div>

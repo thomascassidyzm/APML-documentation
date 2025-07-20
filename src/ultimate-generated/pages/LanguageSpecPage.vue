@@ -6,10 +6,20 @@
         <p class="page-subtitle">text optional</p>
       </div>
     </header>
+    <nav class="table-of-contents">
+      <div class="container">
+        <h2>Contents</h2>
+        <ul class="toc-list">
+            <li><a href="#complete_specification" class="toc-link">Complete Specification</a></li>
+            <li><a href="#example_showcase" class="toc-link">Example Showcase</a></li>
+            <li><a href="#specification_navigation" class="toc-link">Specification Navigation</a></li>
+        </ul>
+      </div>
+    </nav>
     <main class="page-content">
       <div class="container">
-        <section  class="interface-section">
-          <h2 >Complete Specification</h2>
+        <section id="complete_specification" class="content-section">
+          <h2 class="section-title">Complete Specification</h2>
           <div class="content-block">
             <h3 class="block-title">Language Overview</h3>
               <div class="subsection">
@@ -64,8 +74,8 @@
             <h3 class="block-title">Compilation Targets</h3>
           </div>
         </section>
-        <section  class="interface-section">
-          <h2 >Example Showcase</h2>
+        <section id="example_showcase" class="content-section">
+          <h2 class="section-title">Example Showcase</h2>
           <div class="content-block">
             <h3 class="block-title">Complete Todo Example</h3>
           </div>
@@ -85,8 +95,8 @@
             <h3 class="block-title">Task Filters</h3>
           </div>
         </section>
-        <section  class="interface-section">
-          <h2 >Specification Navigation</h2>
+        <section id="specification_navigation" class="content-section">
+          <h2 class="section-title">Specification Navigation</h2>
           <div class="content-block">
             <h3 class="block-title">Section Links</h3>
           </div>

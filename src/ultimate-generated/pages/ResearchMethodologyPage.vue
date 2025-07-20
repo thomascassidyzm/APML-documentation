@@ -8,8 +8,8 @@
     </header>
     <main class="page-content">
       <div class="container">
-        <section  class="interface-section">
-          <h2 >Research Planning</h2>
+        <section id="research_planning" class="content-section">
+          <h2 class="section-title">Research Planning</h2>
           <div class="content-block">
             <h3 class="block-title">Research Method Selector</h3>
               <div class="subsection">
@@ -90,8 +90,8 @@
               </div>
           </div>
         </section>
-        <section  class="interface-section">
-          <h2 >Research Execution</h2>
+        <section id="research_execution" class="content-section">
+          <h2 class="section-title">Research Execution</h2>
           <div class="content-block">
             <h3 class="block-title">Interview Guide Generator</h3>
               <div class="subsection">

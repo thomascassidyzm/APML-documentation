@@ -8,8 +8,8 @@
     </header>
     <main class="page-content">
       <div class="container">
-        <section  class="interface-section">
-          <h2 >Methodology Discovery</h2>
+        <section id="methodology_discovery" class="content-section">
+          <h2 class="section-title">Methodology Discovery</h2>
           <div class="content-block">
             <h3 class="block-title">Framework Library</h3>
               <div class="subsection">
@@ -110,8 +110,8 @@
               </div>
           </div>
         </section>
-        <section  class="interface-section">
-          <h2 >Methodology Execution</h2>
+        <section id="methodology_execution" class="content-section">
+          <h2 class="section-title">Methodology Execution</h2>
           <div class="content-block">
             <h3 class="block-title">Selected Framework Guide</h3>
               <div class="subsection">

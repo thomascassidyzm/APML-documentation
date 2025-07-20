@@ -8,8 +8,8 @@
     </header>
     <main class="page-content">
       <div class="container">
-        <section  class="interface-section">
-          <h2 >Components Registry</h2>
+        <section id="components_registry" class="content-section">
+          <h2 class="section-title">Components Registry</h2>
           <div class="content-block">
             <h3 class="block-title">Registry Header</h3>
               <div class="subsection">

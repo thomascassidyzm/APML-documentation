@@ -8,8 +8,8 @@
     </header>
     <main class="page-content">
       <div class="container">
-        <section  class="interface-section">
-          <h2 >Pattern Discovery</h2>
+        <section id="pattern_discovery" class="content-section">
+          <h2 class="section-title">Pattern Discovery</h2>
           <div class="content-block">
             <h3 class="block-title">Library Overview</h3>
               <div class="subsection">
@@ -86,8 +86,8 @@
             <h3 class="block-title">Context Assessment</h3>
           </div>
         </section>
-        <section  class="interface-section">
-          <h2 >Guided Learning Paths</h2>
+        <section id="guided_learning_paths" class="content-section">
+          <h2 class="section-title">Guided Learning Paths</h2>
           <div class="content-block">
             <h3 class="block-title">Curated Learning Journeys</h3>
           </div>

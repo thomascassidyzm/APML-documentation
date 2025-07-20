@@ -8,8 +8,8 @@
     </header>
     <main class="page-content">
       <div class="container">
-        <section  class="interface-section">
-          <h2 >Themes Gallery</h2>
+        <section id="themes_gallery" class="content-section">
+          <h2 class="section-title">Themes Gallery</h2>
           <div class="content-block">
             <h3 class="block-title">Gallery Header</h3>
               <div class="subsection">

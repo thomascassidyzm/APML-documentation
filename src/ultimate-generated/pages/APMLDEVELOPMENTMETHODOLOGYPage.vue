@@ -6,10 +6,25 @@
         <p class="page-subtitle">Multiple developers collaborating on shared APML specifications</p>
       </div>
     </header>
+    <nav class="table-of-contents">
+      <div class="container">
+        <h2>Contents</h2>
+        <ul class="toc-list">
+            <li><a href="#apml_first_principles" class="toc-link">Apml First Principles</a></li>
+            <li><a href="#development_workflow" class="toc-link">Development Workflow</a></li>
+            <li><a href="#methodology_benefits" class="toc-link">Methodology Benefits</a></li>
+            <li><a href="#anti_patterns" class="toc-link">Anti Patterns</a></li>
+            <li><a href="#tooling_ecosystem" class="toc-link">Tooling Ecosystem</a></li>
+            <li><a href="#success_metrics" class="toc-link">Success Metrics</a></li>
+            <li><a href="#methodology_philosophy" class="toc-link">Methodology Philosophy</a></li>
+            <li><a href="#future_evolution" class="toc-link">Future Evolution</a></li>
+        </ul>
+      </div>
+    </nav>
     <main class="page-content">
       <div class="container">
-        <section  class="interface-section">
-          <h2 >Apml First Principles</h2>
+        <section id="apml_first_principles" class="content-section">
+          <h2 class="section-title">Apml First Principles</h2>
           <div class="content-block">
             <h3 class="block-title">Core Principles</h3>
               <div class="subsection">
@@ -114,8 +129,8 @@
               </div>
           </div>
         </section>
-        <section  class="interface-section">
-          <h2 >Development Workflow</h2>
+        <section id="development_workflow" class="content-section">
+          <h2 class="section-title">Development Workflow</h2>
           <div class="content-block">
             <h3 class="block-title">Workflow Steps</h3>
               <div class="subsection">
@@ -294,8 +309,8 @@
               </div>
           </div>
         </section>
-        <section  class="interface-section">
-          <h2 >Methodology Benefits</h2>
+        <section id="methodology_benefits" class="content-section">
+          <h2 class="section-title">Methodology Benefits</h2>
           <div class="content-block">
             <h3 class="block-title">Systematic Advantages</h3>
               <div class="subsection">
@@ -368,8 +383,8 @@
               </div>
           </div>
         </section>
-        <section  class="interface-section">
-          <h2 >Anti Patterns</h2>
+        <section id="anti_patterns" class="content-section">
+          <h2 class="section-title">Anti Patterns</h2>
           <div class="content-block">
             <h3 class="block-title">Common Mistakes</h3>
               <div class="subsection">
@@ -458,8 +473,8 @@
               </div>
           </div>
         </section>
-        <section  class="interface-section">
-          <h2 >Tooling Ecosystem</h2>
+        <section id="tooling_ecosystem" class="content-section">
+          <h2 class="section-title">Tooling Ecosystem</h2>
           <div class="content-block">
             <h3 class="block-title">Development Tools</h3>
               <div class="subsection">
@@ -548,8 +563,8 @@
               </div>
           </div>
         </section>
-        <section  class="interface-section">
-          <h2 >Success Metrics</h2>
+        <section id="success_metrics" class="content-section">
+          <h2 class="section-title">Success Metrics</h2>
           <div class="content-block">
             <h3 class="block-title">Methodology Effectiveness</h3>
               <div class="subsection">
@@ -622,8 +637,8 @@
               </div>
           </div>
         </section>
-        <section  class="interface-section">
-          <h2 >Methodology Philosophy</h2>
+        <section id="methodology_philosophy" class="content-section">
+          <h2 class="section-title">Methodology Philosophy</h2>
           <div class="content-block">
             <h3 class="block-title">Core Philosophy</h3>
               <div class="subsection">
@@ -696,8 +711,8 @@
               </div>
           </div>
         </section>
-        <section  class="interface-section">
-          <h2 >Future Evolution</h2>
+        <section id="future_evolution" class="content-section">
+          <h2 class="section-title">Future Evolution</h2>
           <div class="content-block">
             <h3 class="block-title">Methodology Roadmap</h3>
               <div class="properties-list">

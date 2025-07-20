@@ -8,8 +8,8 @@
     </header>
     <main class="page-content">
       <div class="container">
-        <section  class="interface-section">
-          <h2 >Strategic Planning</h2>
+        <section id="strategic_planning" class="content-section">
+          <h2 class="section-title">Strategic Planning</h2>
           <div class="content-block">
             <h3 class="block-title">Business Model Canvas</h3>
               <div class="subsection">
