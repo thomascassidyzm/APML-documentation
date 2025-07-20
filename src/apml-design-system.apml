@@ -1,0 +1,358 @@
+app APML_Design_System:
+  title: "APML Visual Design Pattern Library"
+  description: "Comprehensive design system for generating absolutely BANGING APML applications"
+  version: "1.0.0"
+  mission: "Transform functional APML code into visually stunning, professional applications"
+  design_philosophy: "Beautiful by default, customizable when needed"
+
+data DesignToken:
+  token_name: text required
+  token_category: color | spacing | typography | shadow | animation | layout
+  css_value: text required
+  semantic_meaning: text required
+  usage_context: text optional
+  responsive_variants: list of text optional
+
+data ColorPalette:
+  primary: "#6366f1"
+  primary_hover: "#4f46e5"
+  primary_light: "#a5b4fc"
+  secondary: "#8b5cf6"
+  secondary_hover: "#7c3aed"
+  accent: "#06b6d4"
+  accent_hover: "#0891b2"
+  success: "#10b981"
+  warning: "#f59e0b"
+  error: "#ef4444"
+  neutral_50: "#f8fafc"
+  neutral_100: "#f1f5f9"
+  neutral_200: "#e2e8f0"
+  neutral_300: "#cbd5e1"
+  neutral_400: "#94a3b8"
+  neutral_500: "#64748b"
+  neutral_600: "#475569"
+  neutral_700: "#334155"
+  neutral_800: "#1e293b"
+  neutral_900: "#0f172a"
+  glass_bg: "rgba(255, 255, 255, 0.1)"
+  glass_border: "rgba(255, 255, 255, 0.2)"
+
+data Typography:
+  font_primary: "Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif"
+  font_mono: "JetBrains Mono, Fira Code, Monaco, Consolas, monospace"
+  text_xs: "0.75rem"
+  text_sm: "0.875rem"
+  text_base: "1rem"
+  text_lg: "1.125rem"
+  text_xl: "1.25rem"
+  text_2xl: "1.5rem"
+  text_3xl: "1.875rem"
+  text_4xl: "2.25rem"
+  text_5xl: "3rem"
+  font_weight_normal: "400"
+  font_weight_medium: "500"
+  font_weight_semibold: "600"
+  font_weight_bold: "700"
+  line_height_tight: "1.25"
+  line_height_normal: "1.5"
+  line_height_relaxed: "1.625"
+
+data Spacing:
+  space_0: "0"
+  space_1: "0.25rem"
+  space_2: "0.5rem"
+  space_3: "0.75rem"
+  space_4: "1rem"
+  space_5: "1.25rem"
+  space_6: "1.5rem"
+  space_8: "2rem"
+  space_10: "2.5rem"
+  space_12: "3rem"
+  space_16: "4rem"
+  space_20: "5rem"
+  space_24: "6rem"
+  space_32: "8rem"
+
+data Shadows:
+  shadow_sm: "0 1px 2px 0 rgba(0, 0, 0, 0.05)"
+  shadow_md: "0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)"
+  shadow_lg: "0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)"
+  shadow_xl: "0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)"
+  shadow_glow: "0 0 20px rgba(99, 102, 241, 0.3)"
+  shadow_glass: "0 8px 32px rgba(0, 0, 0, 0.3)"
+
+data BorderRadius:
+  rounded_none: "0"
+  rounded_sm: "0.125rem"
+  rounded_md: "0.375rem"
+  rounded_lg: "0.5rem"
+  rounded_xl: "0.75rem"
+  rounded_2xl: "1rem"
+  rounded_3xl: "1.5rem"
+  rounded_full: "9999px"
+
+data ComponentPattern:
+  pattern_name: text required
+  pattern_type: hero | card | button | form | navigation | layout | data_display
+  css_classes: text required
+  html_structure: text required
+  usage_example: text required
+  responsive_behavior: text optional
+  accessibility_features: text optional
+
+interface design_system_showcase:
+  
+  show hero_patterns:
+    title: "Hero Section Patterns"
+    
+    display gradient_hero:
+      name: "Gradient Hero"
+      css_classes: "hero-gradient"
+      visual_style: "Background gradient, centered content, call-to-action prominence"
+      best_for: "Landing pages, product showcases, main application entry"
+      
+    display glass_hero:
+      name: "Glassmorphism Hero"
+      css_classes: "hero-glass"
+      visual_style: "Translucent glass effect, backdrop blur, floating elements"
+      best_for: "Modern applications, dashboard headers, premium products"
+      
+    display animated_hero:
+      name: "Animated Hero"
+      css_classes: "hero-animated"
+      visual_style: "Subtle animations, parallax effects, dynamic backgrounds"
+      best_for: "Interactive applications, creative portfolios, engaging experiences"
+      
+  show card_patterns:
+    title: "Card Component Patterns"
+    
+    display elevated_card:
+      name: "Elevated Card"
+      css_classes: "card-elevated"
+      visual_style: "Prominent shadow, hover animations, clear hierarchy"
+      best_for: "Product cards, feature highlights, important content blocks"
+      
+    display glass_card:
+      name: "Glass Card"
+      css_classes: "card-glass"
+      visual_style: "Translucent background, subtle borders, modern aesthetic"
+      best_for: "Dashboard widgets, data displays, overlay content"
+      
+    display gradient_card:
+      name: "Gradient Border Card"
+      css_classes: "card-gradient-border"
+      visual_style: "Animated gradient borders, premium feel, attention-grabbing"
+      best_for: "Premium features, call-to-action cards, highlighted content"
+      
+  show button_patterns:
+    title: "Button Component Patterns"
+    
+    display primary_button:
+      name: "Primary Action Button"
+      css_classes: "btn-primary"
+      visual_style: "Bold background, clear hierarchy, hover animations"
+      best_for: "Main actions, form submissions, important user flows"
+      
+    display glass_button:
+      name: "Glass Button"
+      css_classes: "btn-glass"
+      visual_style: "Translucent background, subtle hover effects, modern feel"
+      best_for: "Secondary actions, navigation, subtle interactions"
+      
+    display gradient_button:
+      name: "Gradient Button"
+      css_classes: "btn-gradient"
+      visual_style: "Colorful gradients, eye-catching, premium appearance"
+      best_for: "Premium actions, promotional content, standout features"
+      
+  show form_patterns:
+    title: "Form Component Patterns"
+    
+    display floating_label_form:
+      name: "Floating Label Form"
+      css_classes: "form-floating"
+      visual_style: "Animated labels, clean inputs, modern interaction"
+      best_for: "User registration, contact forms, data entry"
+      
+    display glass_form:
+      name: "Glass Form"
+      css_classes: "form-glass"
+      visual_style: "Translucent inputs, subtle backgrounds, elegant appearance"
+      best_for: "Login forms, overlay forms, premium applications"
+      
+    display outlined_form:
+      name: "Outlined Form"
+      css_classes: "form-outlined"
+      visual_style: "Clear borders, focused states, accessible design"
+      best_for: "Accessibility-first forms, data collection, business applications"
+      
+  show navigation_patterns:
+    title: "Navigation Component Patterns"
+    
+    display glass_nav:
+      name: "Glass Navigation"
+      css_classes: "nav-glass"
+      visual_style: "Backdrop blur, sticky positioning, translucent background"
+      best_for: "Modern websites, overlay navigation, floating headers"
+      
+    display sidebar_nav:
+      name: "Sidebar Navigation"
+      css_classes: "nav-sidebar"
+      visual_style: "Collapsible sidebar, icon support, responsive behavior"
+      best_for: "Dashboard applications, admin panels, complex navigation"
+      
+    display tab_nav:
+      name: "Tab Navigation"
+      css_classes: "nav-tabs"
+      visual_style: "Horizontal tabs, active indicators, smooth transitions"
+      best_for: "Multi-section content, settings pages, categorized information"
+
+logic design_system_generation:
+  
+  apml_interface_to_pattern_mapping:
+    when interface_element_type is hero_section:
+      apply_pattern: gradient_hero or glass_hero or animated_hero
+      base_on_context: application_type and target_audience
+      
+    when interface_element_type is display_element:
+      apply_pattern: elevated_card or glass_card or gradient_card
+      consider_content_hierarchy: true
+      
+    when interface_element_type is user_interaction:
+      apply_pattern: primary_button or glass_button or gradient_button
+      prioritize_accessibility: true
+      
+    when interface_element_type is form_element:
+      apply_pattern: floating_label_form or glass_form or outlined_form
+      ensure_usability: true
+      
+  css_generation_strategy:
+    for_each_apml_interface_element:
+      analyze_semantic_meaning
+      select_appropriate_visual_pattern
+      apply_design_tokens_consistently
+      ensure_responsive_behavior
+      maintain_accessibility_standards
+      
+  design_system_compilation:
+    step1_parse_apml_interface_elements:
+      extract_interface_semantics
+      identify_component_types
+      determine_hierarchy_relationships
+      
+    step2_apply_design_patterns:
+      map_apml_elements_to_visual_patterns
+      inject_appropriate_css_classes
+      configure_design_tokens
+      
+    step3_generate_responsive_css:
+      create_mobile_first_styles
+      implement_fluid_typography
+      ensure_touch_friendly_interactions
+      
+    step4_optimize_performance:
+      generate_critical_css
+      implement_lazy_loading_styles
+      minimize_css_bundle_size
+
+data CSSFrameworkIntegration:
+  preferred_framework: "UnoCSS"
+  framework_benefits: "Better performance than Tailwind, custom presets, zero runtime"
+  backup_option: "Open Props for design tokens"
+  custom_approach: "Panda CSS for type-safe styling"
+  
+  unocss_preset_configuration:
+    theme_colors: ColorPalette
+    theme_spacing: Spacing
+    theme_typography: Typography
+    theme_shadows: Shadows
+    theme_border_radius: BorderRadius
+    
+  open_props_integration:
+    use_css_custom_properties: true
+    adaptive_color_schemes: true
+    semantic_naming_convention: true
+    
+data ResponsiveBreakpoints:
+  mobile: "320px"
+  tablet: "768px"
+  desktop: "1024px"
+  large_desktop: "1440px"
+  ultra_wide: "1920px"
+
+data AnimationLibrary:
+  fade_in: "opacity transition, 300ms ease"
+  slide_up: "transform translateY, 400ms ease-out"
+  scale_hover: "transform scale(1.05), 200ms ease"
+  glass_hover: "backdrop-filter blur increase, 250ms ease"
+  gradient_shift: "background-position animation, 3s ease infinite"
+  floating_animation: "transform translateY subtle, 2s ease-in-out infinite"
+
+data AccessibilityRequirements:
+  color_contrast_ratio: "4.5:1 minimum for text"
+  focus_indicators: "visible, high contrast, 2px outline"
+  keyboard_navigation: "all interactive elements accessible"
+  screen_reader_support: "semantic HTML, ARIA labels"
+  motion_preferences: "respect prefers-reduced-motion"
+  touch_targets: "minimum 44px for mobile interactions"
+
+interface design_system_api:
+  
+  show pattern_generator:
+    title: "APML Design Pattern Generator"
+    
+    when apml_compiler_requests_styling:
+      analyze_interface_element_semantics
+      select_optimal_visual_pattern
+      generate_css_classes_and_styles
+      ensure_design_consistency
+      
+    provide_customization_options:
+      color_scheme_variants: light | dark | auto
+      visual_density: compact | comfortable | spacious
+      animation_preference: subtle | normal | engaging | none
+      accessibility_mode: standard | high_contrast | motion_reduced
+      
+  display generated_css_output:
+    title: "Generated CSS for APML Applications"
+    format: "Modern CSS with custom properties and utility classes"
+    optimization: "Critical CSS extraction, unused style removal"
+    compatibility: "Modern browsers, graceful degradation"
+
+workflow enhanced_aesthetic_generation:
+  
+  step1_analyze_apml_interface:
+    parse_interface_elements_for_semantic_meaning
+    identify_user_interaction_patterns
+    determine_content_hierarchy_requirements
+    
+  step2_select_design_patterns:
+    map_interface_semantics_to_visual_patterns
+    ensure_consistent_design_language
+    consider_application_context_and_audience
+    
+  step3_generate_enhanced_css:
+    apply_selected_design_tokens
+    create_responsive_layouts
+    implement_accessibility_features
+    add_subtle_animations_and_interactions
+    
+  step4_optimize_output:
+    generate_critical_css_for_performance
+    ensure_cross_browser_compatibility
+    validate_accessibility_compliance
+    test_responsive_behavior
+
+data DesignSystemOutput:
+  visual_quality_level: "absolutely_banging"
+  professional_appearance: true
+  modern_aesthetic: true
+  accessibility_compliant: true
+  performance_optimized: true
+  customizable: true
+  consistent_across_applications: true
+  
+final_statement:
+  "Transform functional APML applications into visually stunning experiences"
+  "Every generated application looks professionally designed by default"
+  "Beautiful, accessible, and performant - the new standard for APML compilation" ✨
