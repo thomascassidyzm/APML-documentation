@@ -1430,12 +1430,8 @@ const appMetadata = {
     
     // Define which pages should show in navigation
     const showInNavPages = [
-      'HomePage',
       'LanguageSpecPage', 
-      'PatternLibraryIndexPage',
-      'DesignIntelligencePage',
-      'BusinessStrategyPage',
-      'ResearchMethodologyPage'
+      'PatternLibraryIndexPage'
     ]
     
     return {

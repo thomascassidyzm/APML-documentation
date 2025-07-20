@@ -82,6 +82,8 @@ data APMLDevSiteContent:
       file_url: /llm-reference.txt
       features: Complete syntax reference, business patterns, best practices, integration examples
       purpose: Enables conversation-driven development with any AI assistant
+      download_link: View LLM Reference File
+      human_note: This is what AI assistants use to help you build APML applications
       
     display tools_ecosystem:
       title: Tools and Compilers
