@@ -191,16 +191,16 @@
           </div>
         </div>
 
-        <!-- LLM Documentation Links -->
+        <!-- LLM-Friendly Documentation Links -->
         <div class="hero-actions">
           <a href="/language-spec.txt" class="btn-primary">
-            📋 Full Specification
+            📋 LLM Reference: Full Specification
           </a>
           <a href="/business-patterns.txt" class="btn-secondary">
-            💼 Examples
+            💼 LLM Guide: Business→APML Patterns
           </a>
           <a href="/technical-patterns.txt" class="btn-secondary">
-            ⚙️ Compilation
+            ⚙️ LLM Manual: Compilation Patterns
           </a>
         </div>
 
@@ -439,38 +439,67 @@ const getHighlightedCode = (platform) => {
   
   if (platform === 'vue') {
     return code
-      .replace(/(&lt;\/?\w+)/g, '<span class="vue-tag">$1</span>')
-      .replace(/(\w+)=/g, '<span class="vue-attr">$1</span>=')
+      // Template tags
+      .replace(/&lt;(\/?)(\w+)([^&]*?)&gt;/g, '<span class="vue-tag">&lt;$1$2</span><span class="vue-attr">$3</span><span class="vue-tag">&gt;</span>')
+      // Strings
       .replace(/"([^"]*)"/g, '<span class="vue-string">"$1"</span>')
-      .replace(/\b(import|const|from|async|await)\b/g, '<span class="vue-keyword">$1</span>')
+      .replace(/'([^']*)'/g, '<span class="vue-string">\'$1\'</span>')
+      // Keywords
+      .replace(/\b(import|const|from|async|await|export|default)\b/g, '<span class="vue-keyword">$1</span>')
+      // Vue specific functions
       .replace(/\b(ref|reactive)\b/g, '<span class="vue-function">$1</span>')
+      // Properties and object keys
       .replace(/(\w+):/g, '<span class="vue-property">$1</span>:')
+      // Comments
       .replace(/(\/\/.*)/g, '<span class="vue-comment">$1</span>')
       
   } else if (platform === 'react') {
     return code
-      .replace(/\b(import|const|from|async|await|try|catch|if|return|export|default)\b/g, '<span class="react-keyword">$1</span>')
-      .replace(/\b(useState|useAppDispatch|useAppSelector|React|FC)\b/g, '<span class="react-function">$1</span>')
+      // JSX tags  
+      .replace(/&lt;(\/?)(\w+)([^&]*?)&gt;/g, '<span class="react-jsx">&lt;$1$2$3&gt;</span>')
+      // Strings
       .replace(/"([^"]*)"/g, '<span class="react-string">"$1"</span>')
+      .replace(/'([^']*)'/g, '<span class="react-string">\'$1\'</span>')
+      // Keywords
+      .replace(/\b(import|const|from|async|await|try|catch|if|return|export|default)\b/g, '<span class="react-keyword">$1</span>')
+      // React hooks and functions
+      .replace(/\b(useState|useAppDispatch|useAppSelector|React|FC)\b/g, '<span class="react-function">$1</span>')
+      // Properties
       .replace(/(\w+):/g, '<span class="react-property">$1</span>:')
+      // Comments
       .replace(/(\/\/.*)/g, '<span class="react-comment">$1</span>')
-      .replace(/(&lt;\/?[\w\s="':{}.-]*&gt;)/g, '<span class="react-jsx">$1</span>')
+      // JSX expressions
+      .replace(/({[^}]*})/g, '<span class="react-jsx">$1</span>')
       
   } else if (platform === 'swift') {
     return code
-      .replace(/\b(import|struct|class|func|var|let|if|else|case|switch|async|await|private|@StateObject|@State|@Published)\b/g, '<span class="swift-keyword">$1</span>')
-      .replace(/\b(View|ObservableObject|NavigationView|Group|AppView)\b/g, '<span class="swift-type">$1</span>')
+      // Strings
       .replace(/"([^"]*)"/g, '<span class="swift-string">"$1"</span>')
+      // Keywords
+      .replace(/\b(import|struct|class|func|var|let|if|else|case|switch|async|await|private)\b/g, '<span class="swift-keyword">$1</span>')
+      // Property wrappers
+      .replace(/(@StateObject|@State|@Published)/g, '<span class="swift-keyword">$1</span>')
+      // Types
+      .replace(/\b(View|ObservableObject|NavigationView|Group|AppView|String|Int|Bool)\b/g, '<span class="swift-type">$1</span>')
+      // Comments
       .replace(/(\/\/.*)/g, '<span class="swift-comment">$1</span>')
-      .replace(/(MARK:.*)/g, '<span class="swift-mark">$1</span>')
+      // MARK comments
+      .replace(/(\/\/ MARK:.*)/g, '<span class="swift-mark">$1</span>')
       
   } else if (platform === 'kotlin') {
     return code
-      .replace(/\b(@Composable|fun|val|var|if|else|when|import|class|private|async|suspend)\b/g, '<span class="kotlin-keyword">$1</span>')
-      .replace(/\b(NavHost|NavHostController|hiltViewModel|collectAsState|composable|navigate)\b/g, '<span class="kotlin-function">$1</span>')
+      // Strings
       .replace(/"([^"]*)"/g, '<span class="kotlin-string">"$1"</span>')
-      .replace(/(\/\/.*)/g, '<span class="kotlin-comment">$1</span>')
+      // Keywords
+      .replace(/\b(fun|val|var|if|else|when|import|class|private|async|suspend)\b/g, '<span class="kotlin-keyword">$1</span>')
+      // Annotations
+      .replace(/(@Composable)/g, '<span class="kotlin-keyword">$1</span>')
+      // Functions
+      .replace(/\b(NavHost|NavHostController|hiltViewModel|collectAsState|composable|navigate|rememberNavController)\b/g, '<span class="kotlin-function">$1</span>')
+      // Properties
       .replace(/(\w+):/g, '<span class="kotlin-property">$1</span>:')
+      // Comments
+      .replace(/(\/\/.*)/g, '<span class="kotlin-comment">$1</span>')
   }
   
   return code
