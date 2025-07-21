@@ -887,36 +887,183 @@ const getHighlightedCode = (platform) => {
   
   .code-content {
     grid-template-columns: 1fr;
-    text-align: center;
+    gap: 1.5rem;
+    padding: 1rem;
+  }
+  
+  .code-input {
+    order: 1;
+    max-height: 350px;
+    font-size: 0.75rem;
+  }
+  
+  .arrow {
+    order: 2;
+    font-size: 2rem;
+    transform: rotate(90deg);
+    color: #6366f1;
+    margin: 0.5rem 0;
   }
   
   .code-output {
+    order: 3;
     min-width: unset;
-    margin-top: 2rem;
+    margin-top: 0;
   }
   
-  .code-preview-container pre {
-    font-size: 0.7rem;
-    max-height: 300px;
+  .output-header {
+    font-size: 1rem;
   }
   
   .platform-selector {
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
   }
   
   .platform-btn {
-    font-size: 0.8rem;
-    padding: 0.4rem 0.8rem;
+    font-size: 0.875rem;
+    padding: 0.75rem 1rem;
+    border-radius: 8px;
+    min-height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+  
+  .code-preview-container pre {
+    font-size: 0.75rem;
+    max-height: 300px;
+    padding: 0.75rem;
+    line-height: 1.5;
+  }
+  
+  .compilation-info {
+    gap: 0.75rem;
+  }
+  
+  .info-item {
+    font-size: 0.875rem;
+    padding: 0.5rem 0;
   }
   
   .hero-actions {
     flex-direction: column;
     align-items: center;
+    gap: 0.75rem;
+  }
+  
+  .btn-primary, .btn-secondary {
+    min-width: 280px;
+    text-align: center;
+    padding: 0.875rem 1.5rem;
+    font-size: 0.9rem;
   }
   
   .feature-pills {
     flex-direction: column;
     align-items: center;
+    gap: 0.5rem;
+  }
+  
+  .pill {
+    min-width: 200px;
+    text-align: center;
+    padding: 0.75rem 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-container {
+    padding: 0 1rem;
+  }
+  
+  .hero-title {
+    font-size: clamp(2rem, 8vw, 3rem);
+  }
+  
+  .hero-subtitle {
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+  }
+  
+  .code-preview {
+    margin: 0 -1rem 2rem;
+    border-radius: 0;
+  }
+  
+  .code-content {
+    padding: 0.75rem;
+  }
+  
+  .code-input {
+    max-height: 280px;
+    font-size: 0.7rem;
+  }
+  
+  .platform-selector {
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+  }
+  
+  .platform-btn {
+    padding: 1rem;
+    min-height: 52px;
+    font-size: 0.9rem;
+    font-weight: 600;
+  }
+  
+  .code-preview-container pre {
+    font-size: 0.7rem;
+    max-height: 250px;
+    padding: 0.5rem;
+    line-height: 1.4;
+  }
+  
+  .btn-primary, .btn-secondary {
+    min-width: 100%;
+    margin: 0;
+    font-size: 1rem;
+    padding: 1rem 1.5rem;
+  }
+  
+  .trinity-section {
+    padding-top: 2rem;
+  }
+  
+  .trinity-section h2 {
+    font-size: 1.5rem;
+  }
+  
+  .node {
+    padding: 1rem;
+  }
+  
+  .node .icon {
+    font-size: 1.5rem;
+  }
+}
+
+/* Touch improvements for all mobile */
+@media (hover: none) and (pointer: coarse) {
+  .platform-btn:hover {
+    transform: none;
+  }
+  
+  .platform-btn:active {
+    transform: scale(0.98);
+    transition: transform 0.1s ease;
+  }
+  
+  .btn-primary:hover, .btn-secondary:hover {
+    transform: none;
+  }
+  
+  .btn-primary:active, .btn-secondary:active {
+    transform: scale(0.98);
+    transition: transform 0.1s ease;
   }
 }
 </style>
