@@ -161,50 +161,30 @@
             </div>
             <div class="arrow">→</div>
             <div class="code-output">
-              <div class="output-header">Generated Vue.js Components</div>
-              <div class="vue-code-preview">
-                <div class="file-tab">CityRep.vue</div>
-                <pre><code><span class="vue-tag">&lt;template&gt;</span>
-  <span class="vue-tag">&lt;div</span> <span class="vue-attr">class=</span><span class="vue-string">"city-rep-app"</span><span class="vue-tag">&gt;</span>
-    <span class="vue-tag">&lt;AuthenticationView</span> <span class="vue-attr">v-if=</span><span class="vue-string">"!user.authenticated"</span> <span class="vue-tag">/&gt;</span>
-    <span class="vue-tag">&lt;CityDiscoveryView</span> <span class="vue-attr">v-else-if=</span><span class="vue-string">"currentView === 'discovery'"</span> <span class="vue-tag">/&gt;</span>
-    <span class="vue-tag">&lt;CityDetailsView</span> <span class="vue-attr">v-else-if=</span><span class="vue-string">"currentView === 'details'"</span> <span class="vue-tag">/&gt;</span>
-    <span class="vue-tag">&lt;ReviewSubmissionView</span> <span class="vue-attr">v-else-if=</span><span class="vue-string">"currentView === 'review'"</span> <span class="vue-tag">/&gt;</span>
-  <span class="vue-tag">&lt;/div&gt;</span>
-<span class="vue-tag">&lt;/template&gt;</span>
-
-<span class="vue-tag">&lt;script</span> <span class="vue-attr">setup</span><span class="vue-tag">&gt;</span>
-<span class="vue-keyword">import</span> { <span class="vue-var">ref</span>, <span class="vue-var">reactive</span> } <span class="vue-keyword">from</span> <span class="vue-string">'vue'</span>
-
-<span class="vue-comment">// Generated data models</span>
-<span class="vue-keyword">const</span> <span class="vue-var">user</span> = <span class="vue-function">reactive</span>({
-  <span class="vue-property">id</span>: <span class="vue-keyword">null</span>,
-  <span class="vue-property">name</span>: <span class="vue-string">''</span>,
-  <span class="vue-property">email</span>: <span class="vue-string">''</span>,
-  <span class="vue-property">authenticated</span>: <span class="vue-keyword">false</span>
-})
-
-<span class="vue-keyword">const</span> <span class="vue-var">cities</span> = <span class="vue-function">ref</span>([])
-<span class="vue-keyword">const</span> <span class="vue-var">reviews</span> = <span class="vue-function">ref</span>([])
-<span class="vue-keyword">const</span> <span class="vue-var">currentView</span> = <span class="vue-function">ref</span>(<span class="vue-string">'discovery'</span>)
-
-<span class="vue-comment">// Generated authentication logic</span>
-<span class="vue-keyword">const</span> <span class="vue-var">authenticateWithGoogle</span> = <span class="vue-keyword">async</span> () => {
-  <span class="vue-comment">// OAuth integration</span>
-  <span class="vue-var">user</span>.<span class="vue-property">authenticated</span> = <span class="vue-keyword">true</span>
-  <span class="vue-var">currentView</span>.<span class="vue-property">value</span> = <span class="vue-string">'discovery'</span>
-}
-<span class="vue-tag">&lt;/script&gt;</span></code></pre>
+              <div class="output-header">
+                <div class="platform-selector">
+                  <button 
+                    v-for="platform in platforms" 
+                    :key="platform.id"
+                    @click="selectedPlatform = platform.id"
+                    :class="['platform-btn', { active: selectedPlatform === platform.id }]"
+                  >
+                    {{ platform.icon }} {{ platform.name }}
+                  </button>
+                </div>
+              </div>
+              <div class="code-preview-container">
+                <div class="file-tab">{{ compilationExamples[selectedPlatform].filename }}</div>
+                <pre><code v-html="getHighlightedCode(selectedPlatform)"></code></pre>
               </div>
               <div class="compilation-info">
-                <div class="info-item">
-                  <span class="info-label">Components:</span> 4 Vue files
-                </div>
-                <div class="info-item">
-                  <span class="info-label">Data Models:</span> User, City, Review
-                </div>
-                <div class="info-item">
-                  <span class="info-label">Logic Flows:</span> Authentication, Reviews
+                <div 
+                  v-for="infoItem in compilationExamples[selectedPlatform].info" 
+                  :key="infoItem.label"
+                  class="info-item"
+                >
+                  <span class="info-label">{{ infoItem.label }}</span>
+                  <span>{{ infoItem.value }}</span>
                 </div>
               </div>
             </div>
@@ -258,7 +238,243 @@
 </template>
 
 <script setup>
-// Simplified homepage - minimal JavaScript needed
+import { ref } from 'vue'
+
+const selectedPlatform = ref('vue')
+
+const platforms = [
+  { id: 'vue', name: 'Vue.js', icon: '🟢' },
+  { id: 'react', name: 'React', icon: '🔵' },
+  { id: 'swift', name: 'Swift', icon: '🟠' },
+  { id: 'kotlin', name: 'Kotlin', icon: '🟣' }
+]
+
+const compilationExamples = {
+  vue: {
+    filename: 'CityRep.vue',
+    code: `&lt;template&gt;
+  &lt;div class="city-rep-app"&gt;
+    &lt;AuthenticationView v-if="!user.authenticated" /&gt;
+    &lt;CityDiscoveryView v-else-if="currentView === 'discovery'" /&gt;
+    &lt;CityDetailsView v-else-if="currentView === 'details'" /&gt;
+    &lt;ReviewSubmissionView v-else-if="currentView === 'review'" /&gt;
+  &lt;/div&gt;
+&lt;/template&gt;
+
+&lt;script setup&gt;
+import { ref, reactive } from 'vue'
+
+// Generated data models
+const user = reactive({
+  id: null,
+  name: '',
+  email: '',
+  authenticated: false
+})
+
+const cities = ref([])
+const reviews = ref([])
+const currentView = ref('discovery')
+
+// Generated authentication logic
+const authenticateWithGoogle = async () => {
+  // OAuth integration
+  user.authenticated = true
+  currentView.value = 'discovery'
+}
+&lt;/script&gt;`,
+    info: [
+      { label: 'Components:', value: '4 Vue files' },
+      { label: 'Data Models:', value: 'User, City, Review' },
+      { label: 'Logic Flows:', value: 'Authentication, Reviews' }
+    ]
+  },
+  react: {
+    filename: 'CityRep.tsx',
+    code: `import React, { useState } from 'react'
+import { useAppDispatch, useAppSelector } from './hooks/redux'
+
+const CityRep: React.FC = () => {
+  const dispatch = useAppDispatch()
+  const user = useAppSelector(state =&gt; state.auth.user)
+  const [currentView, setCurrentView] = useState('discovery')
+
+  const handleGoogleAuth = async () => {
+    try {
+      await dispatch(authenticateWithGoogle())
+      setCurrentView('discovery')
+    } catch (error) {
+      console.error('Auth failed:', error)
+    }
+  }
+
+  if (!user.authenticated) {
+    return &lt;AuthenticationView onLogin={handleGoogleAuth} /&gt;
+  }
+
+  return (
+    &lt;div className="city-rep-app"&gt;
+      {currentView === 'discovery' &amp;&amp; &lt;CityDiscoveryView /&gt;}
+      {currentView === 'details' &amp;&amp; &lt;CityDetailsView /&gt;}
+      {currentView === 'review' &amp;&amp; &lt;ReviewSubmissionView /&gt;}
+    &lt;/div&gt;
+  )
+}
+
+export default CityRep`,
+    info: [
+      { label: 'Components:', value: '4 React components' },
+      { label: 'State Management:', value: 'Redux Toolkit' },
+      { label: 'Type Safety:', value: 'Full TypeScript' }
+    ]
+  },
+  swift: {
+    filename: 'CityRepView.swift',
+    code: `import SwiftUI
+
+struct CityRepView: View {
+    @StateObject private var authStore = AuthStore()
+    @State private var currentView: AppView = .discovery
+    
+    enum AppView {
+        case discovery, details, review
+    }
+    
+    var body: some View {
+        NavigationView {
+            Group {
+                if !authStore.isAuthenticated {
+                    AuthenticationView(authStore: authStore)
+                } else {
+                    switch currentView {
+                    case .discovery:
+                        CityDiscoveryView()
+                    case .details:
+                        CityDetailsView()
+                    case .review:
+                        ReviewSubmissionView()
+                    }
+                }
+            }
+            .navigationBarHidden(true)
+        }
+    }
+}
+
+// MARK: - Auth Store
+@MainActor
+class AuthStore: ObservableObject {
+    @Published var isAuthenticated = false
+    @Published var currentUser: User?
+    
+    func authenticateWithGoogle() async {
+        // Google OAuth implementation
+        isAuthenticated = true
+    }
+}`,
+    info: [
+      { label: 'Views:', value: '4 SwiftUI views' },
+      { label: 'Architecture:', value: 'MVVM + ObservableObject' },
+      { label: 'Platform:', value: 'iOS 15+' }
+    ]
+  },
+  kotlin: {
+    filename: 'CityRepActivity.kt',
+    code: `@Composable
+fun CityRepApp(
+    navController: NavHostController = rememberNavController()
+) {
+    val authViewModel: AuthViewModel = hiltViewModel()
+    val authState by authViewModel.authState.collectAsState()
+    
+    NavHost(
+        navController = navController,
+        startDestination = if (authState.isAuthenticated) {
+            "city_discovery"
+        } else {
+            "authentication"
+        }
+    ) {
+        composable("authentication") {
+            AuthenticationScreen(
+                onAuthSuccess = { user ->
+                    if (user.onboardingCompleted) {
+                        navController.navigate("city_discovery")
+                    } else {
+                        navController.navigate("user_onboarding")
+                    }
+                }
+            )
+        }
+        
+        composable("city_discovery") {
+            CityDiscoveryScreen(
+                onCitySelected = { cityId ->
+                    navController.navigate("city_details/$cityId")
+                }
+            )
+        }
+        
+        composable("city_details/{cityId}") { backStackEntry ->
+            val cityId = backStackEntry.arguments?.getString("cityId")
+            CityDetailsScreen(
+                cityId = cityId!!,
+                onWriteReview = {
+                    navController.navigate("review_submission/$cityId")
+                }
+            )
+        }
+    }
+}`,
+    info: [
+      { label: 'Screens:', value: '4 Compose screens' },
+      { label: 'Navigation:', value: 'Navigation Component' },
+      { label: 'DI:', value: 'Hilt dependency injection' }
+    ]
+  }
+}
+
+const getHighlightedCode = (platform) => {
+  const code = compilationExamples[platform].code
+  
+  if (platform === 'vue') {
+    return code
+      .replace(/(&lt;\/?\w+)/g, '<span class="vue-tag">$1</span>')
+      .replace(/(\w+)=/g, '<span class="vue-attr">$1</span>=')
+      .replace(/"([^"]*)"/g, '<span class="vue-string">"$1"</span>')
+      .replace(/\b(import|const|from|async|await)\b/g, '<span class="vue-keyword">$1</span>')
+      .replace(/\b(ref|reactive)\b/g, '<span class="vue-function">$1</span>')
+      .replace(/(\w+):/g, '<span class="vue-property">$1</span>:')
+      .replace(/(\/\/.*)/g, '<span class="vue-comment">$1</span>')
+      
+  } else if (platform === 'react') {
+    return code
+      .replace(/\b(import|const|from|async|await|try|catch|if|return|export|default)\b/g, '<span class="react-keyword">$1</span>')
+      .replace(/\b(useState|useAppDispatch|useAppSelector|React|FC)\b/g, '<span class="react-function">$1</span>')
+      .replace(/"([^"]*)"/g, '<span class="react-string">"$1"</span>')
+      .replace(/(\w+):/g, '<span class="react-property">$1</span>:')
+      .replace(/(\/\/.*)/g, '<span class="react-comment">$1</span>')
+      .replace(/(&lt;\/?[\w\s="':{}.-]*&gt;)/g, '<span class="react-jsx">$1</span>')
+      
+  } else if (platform === 'swift') {
+    return code
+      .replace(/\b(import|struct|class|func|var|let|if|else|case|switch|async|await|private|@StateObject|@State|@Published)\b/g, '<span class="swift-keyword">$1</span>')
+      .replace(/\b(View|ObservableObject|NavigationView|Group|AppView)\b/g, '<span class="swift-type">$1</span>')
+      .replace(/"([^"]*)"/g, '<span class="swift-string">"$1"</span>')
+      .replace(/(\/\/.*)/g, '<span class="swift-comment">$1</span>')
+      .replace(/(MARK:.*)/g, '<span class="swift-mark">$1</span>')
+      
+  } else if (platform === 'kotlin') {
+    return code
+      .replace(/\b(@Composable|fun|val|var|if|else|when|import|class|private|async|suspend)\b/g, '<span class="kotlin-keyword">$1</span>')
+      .replace(/\b(NavHost|NavHostController|hiltViewModel|collectAsState|composable|navigate)\b/g, '<span class="kotlin-function">$1</span>')
+      .replace(/"([^"]*)"/g, '<span class="kotlin-string">"$1"</span>')
+      .replace(/(\/\/.*)/g, '<span class="kotlin-comment">$1</span>')
+      .replace(/(\w+):/g, '<span class="kotlin-property">$1</span>:')
+  }
+  
+  return code
+}
 </script>
 
 <style scoped>
@@ -435,7 +651,38 @@
   text-align: center;
 }
 
-.vue-code-preview {
+.platform-selector {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+
+.platform-btn {
+  padding: 0.5rem 1rem;
+  border: 1px solid rgba(99, 102, 241, 0.3);
+  background: rgba(99, 102, 241, 0.1);
+  color: #a5b4fc;
+  border-radius: 6px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.platform-btn:hover {
+  background: rgba(99, 102, 241, 0.2);
+  border-color: rgba(99, 102, 241, 0.5);
+  color: #c7d2fe;
+}
+
+.platform-btn.active {
+  background: rgba(99, 102, 241, 0.3);
+  border-color: rgba(99, 102, 241, 0.6);
+  color: #e0e7ff;
+}
+
+.code-preview-container {
   background: rgba(15, 23, 42, 0.8);
   border: 1px solid rgba(99, 102, 241, 0.1);
   border-radius: 8px;
@@ -452,7 +699,7 @@
   border-bottom: 1px solid rgba(99, 102, 241, 0.1);
 }
 
-.vue-code-preview pre {
+.code-preview-container pre {
   margin: 0;
   padding: 1rem;
   font-family: 'JetBrains Mono', monospace;
@@ -464,18 +711,40 @@
   scrollbar-color: rgba(99, 102, 241, 0.3) rgba(30, 41, 59, 0.3);
 }
 
-.vue-code-preview::-webkit-scrollbar {
+.code-preview-container::-webkit-scrollbar {
   width: 4px;
 }
 
-.vue-code-preview::-webkit-scrollbar-track {
+.code-preview-container::-webkit-scrollbar-track {
   background: rgba(30, 41, 59, 0.3);
 }
 
-.vue-code-preview::-webkit-scrollbar-thumb {
+.code-preview-container::-webkit-scrollbar-thumb {
   background: rgba(99, 102, 241, 0.3);
   border-radius: 2px;
 }
+
+/* React Syntax Highlighting */
+.react-keyword { color: #8b5cf6; font-weight: 600; }
+.react-function { color: #3b82f6; font-weight: 500; }
+.react-string { color: #10b981; }
+.react-property { color: #eab308; }
+.react-comment { color: #64748b; font-style: italic; }
+.react-jsx { color: #ef4444; font-weight: 500; }
+
+/* Swift Syntax Highlighting */
+.swift-keyword { color: #8b5cf6; font-weight: 600; }
+.swift-type { color: #06b6d4; font-weight: 600; }
+.swift-string { color: #10b981; }
+.swift-comment { color: #64748b; font-style: italic; }
+.swift-mark { color: #f59e0b; font-weight: 500; font-style: italic; }
+
+/* Kotlin Syntax Highlighting */
+.kotlin-keyword { color: #8b5cf6; font-weight: 600; }
+.kotlin-function { color: #3b82f6; font-weight: 500; }
+.kotlin-string { color: #10b981; }
+.kotlin-property { color: #eab308; }
+.kotlin-comment { color: #64748b; font-style: italic; }
 
 .compilation-info {
   display: flex;
@@ -598,9 +867,18 @@
     margin-top: 2rem;
   }
   
-  .vue-code-preview pre {
+  .code-preview-container pre {
     font-size: 0.7rem;
     max-height: 300px;
+  }
+  
+  .platform-selector {
+    flex-wrap: wrap;
+  }
+  
+  .platform-btn {
+    font-size: 0.8rem;
+    padding: 0.4rem 0.8rem;
   }
   
   .hero-actions {
