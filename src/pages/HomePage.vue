@@ -10,7 +10,12 @@
     <APMLPlayground />
     
     <!-- Interactive Examples -->
-    <InteractiveExample />
+    <InteractiveExample :example="{
+      id: 'apml-basics',
+      title: 'APML Fundamentals',
+      description: 'Learn the core concepts of APML through interactive examples',
+      code: `app MyFirstApp:\n  title: Welcome to APML\n  \ndata User:\n  name: text required\n  email: email required\n  \ninterface:\n  show welcome_message:\n    title: \"Hello {{ user.name }}!\"\n    subtitle: \"Ready to build with APML?\"`
+    }" />
 
     <!-- Original APML Source (for reference) -->
     <section class="apml-source-reference">

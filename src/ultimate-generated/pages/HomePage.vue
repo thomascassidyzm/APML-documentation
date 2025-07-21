@@ -1,25 +1,34 @@
 <template>
   <div class="home-page">
-    <header class="page-header">
+    <!-- Enhanced Hero Section -->
+    <HeroSection />
+    
+    <!-- Feature Showcase -->
+    <FeatureShowcase />
+    
+    <!-- Interactive Playground -->
+    <APMLPlayground />
+    
+    <!-- Interactive Examples -->
+    <InteractiveExample />
+
+    <!-- Original APML Source (for reference) -->
+    <section class="apml-source-reference">
       <div class="container">
-        <h1 class="page-title">Ready to Build Production Apps?</h1>
-        <p class="page-subtitle">Comprehensive plain text reference enabling AI assistants to help developers build APML applications</p>
+        <h2>APML Source Reference</h2>
+        <APMLCodeBlock :code="apmlSource" />
       </div>
-    </header>
-    <main class="page-content">
-      <div class="container">
-        <section class="apml-source">
-          <h2>APML Source</h2>
-          <APMLCodeBlock :code="apmlSource" />
-        </section>
-      </div>
-    </main>
+    </section>
   </div>
 </template>
 
 <script setup>
 import { ref, computed } from 'vue'
 import APMLCodeBlock from '../../components/APMLCodeBlock.vue'
+import HeroSection from '../../components/HeroSection.vue'
+import FeatureShowcase from '../../components/FeatureShowcase.vue'
+import APMLPlayground from '../../components/APMLPlayground.vue'
+import InteractiveExample from '../../components/InteractiveExample.vue'
 
 // APML Specification Data
 const apmlSpec = {
@@ -227,17 +236,41 @@ const appMetadata = {
 
 <style scoped>
 .home-page {
-        min-height: 100vh;
-        background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #374151 100%);
-        color: #f8fafc;
-        line-height: 1.6;
-      }
+  min-height: 100vh;
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #374151 100%);
+  color: #f8fafc;
+}
       
-      .container {
-        max-width: 1200px;
-        margin: 0 auto;
-        padding: 0 2rem;
-      }
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.apml-source-reference {
+  margin-top: 4rem;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  padding: 2rem;
+}
+
+.apml-source-reference h2 {
+  font-size: 1.5rem;
+  color: #6366f1;
+  margin-bottom: 1rem;
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 0 1rem;
+  }
+  
+  .apml-source-reference {
+    padding: 1rem;
+  }
+}
 
 .page-header {
         padding: 2rem 0 1.5rem;

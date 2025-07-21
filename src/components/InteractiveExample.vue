@@ -864,12 +864,12 @@ const getGeneratedCode = (language) => {
   </div>
 </template>
 
-<script setup>
+<scr` + `ipt setup>
 import { ref } from 'vue'
 
 const title = ref('${title}')
 ${generateVueScript()}
-</script>
+</scr` + `ipt>
 
 <style scoped>
 .${title.toLowerCase()} {
@@ -1010,7 +1010,7 @@ const generateSwiftBody = () => {
 const generateKotlinCode = () => {
   let code = ''
   if (currentCode.value.includes('button')) {
-    code += '\n        findViewById<Button>(R.id.actionButton).setOnClickListener {\n            println("Action triggered")\n        }'
+    code += '\\n        findViewById&lt;Button&gt;(R.id.actionButton).setOnClickListener {\\n            println("Action triggered")\\n        }'
   }
   return code
 }

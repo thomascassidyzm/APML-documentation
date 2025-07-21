@@ -925,7 +925,7 @@ import { ref } from 'vue'
 
 const title = ref('Generated Vue Component')
 // Data models and logic from APML
-</script>`
+</scr` + `ipt>`
     case 'react':
       return `import React, { useState } from 'react'
 
