@@ -1,0 +1,82 @@
+APML - The Universal Language for Human-AI Collaboration
+
+OVERVIEW
+
+APML (Application Programming Markup Language) is a conversational programming language designed to bridge the gap between human intent and executable applications. It enables natural human-AI collaboration in software development through structured, readable syntax that compiles to production-ready applications.
+
+CORE PHILOSOPHY
+
+APML is built on the Trinity Principle - every application consists of three fundamental message types:
+- App → User: Display, output, communication to users
+- User → App: Interaction, input, commands from users  
+- App → App: Processing, logic, internal workflows
+
+LOGICAL COMPLETENESS
+
+APML applications can achieve "Logical Completeness" - a mathematically verified state where:
+- All logical workflows terminate properly
+- Every decision path is handled
+- Trinity Principle compliance is verified
+- Crash-free deployment is guaranteed
+
+SYNTAX PHILOSOPHY
+
+APML reads like natural conversation while maintaining the precision of code:
+- More natural than markdown
+- More powerful than code
+- Enables AI assistants to understand and generate applications
+- Bridges human intent and machine execution
+
+KEY FEATURES
+
+1. Conversational Syntax
+   - Human-readable declarations
+   - Natural language flow
+   - Intent-first design
+
+2. Multi-Platform Compilation
+   - Vue.js (stable)
+   - React (in development)
+   - Swift/iOS (planned)
+   - Kotlin/Android (planned)
+
+3. Built-in AI Collaboration
+   - LLMs can read and write APML natively
+   - Natural translation from business requirements
+   - Automated code generation and deployment
+
+4. Logical Completeness Certification
+   - Mathematical verification of application logic
+   - Guaranteed crash-free deployment
+   - Enhanced APML Validator v0.9.0
+
+USE CASES
+
+- Rapid prototyping through conversation
+- Business logic translation to code
+- AI-assisted application development
+- Multi-platform app generation
+- Logic verification and validation
+
+DEVELOPMENT WORKFLOW
+
+1. Business Intent → APML (via business-patterns.txt)
+2. APML Validation (logical completeness check)
+3. APML → Platform Code (via technical-patterns.txt)
+4. Deployment to production
+
+VERSION STATUS
+
+Current: APML v0.9.0 - Grammar Foundation Release
+- Complete syntax specification
+- Trinity Principle implementation
+- Vue.js compiler stable
+- Enhanced validation system
+
+GETTING STARTED
+
+For business users: Load apml.dev/business-patterns.txt
+For developers: Load apml.dev/technical-patterns.txt
+For language reference: Load apml.dev/language-spec.txt
+
+APML transforms the software development process from code-first to intent-first, enabling anyone to create applications through natural collaboration with AI assistants.

@@ -1,0 +1,219 @@
+APML Business Patterns Reference
+For LLMs: Convert any business conversation into perfect APML specifications
+
+PURPOSE
+This reference enables any LLM to turn business requirements, user stories, and feature requests into valid, complete APML specifications that can be compiled into working applications.
+
+BUSINESS → APML TRANSLATION PATTERNS
+
+1. INTENT DISCOVERY FRAMEWORK
+
+When user describes a business need:
+a) Identify the core business entity (User, Product, Order, etc.)
+b) Extract key data fields and relationships
+c) Determine interface requirements (what users see/do)
+d) Map business logic and workflows
+e) Apply Trinity Principle validation
+
+2. COMMON BUSINESS PATTERNS
+
+PATTERN: E-commerce Store
+Business Need: "I need an online store to sell products"
+APML Translation:
+```
+app OnlineStore:
+  title: My Store
+  
+data Product:
+  name: text required
+  price: money required
+  inventory: number default 0
+  
+data Order:
+  customer_email: email required
+  products: list of Product
+  total: money calculated
+  status: pending | processing | shipped | delivered
+  
+interface:
+  show product_catalog:
+    title: "Our Products"
+    for each product:
+      display product.name, product.price
+      when product.inventory > 0:
+        button "Add to Cart"
+        
+  show shopping_cart:
+    for each item in cart:
+      display item.name, item.price
+    button "Checkout"
+```
+
+PATTERN: Restaurant Management
+Business Need: "I need to manage my restaurant orders and menu"
+APML Translation:
+```
+app RestaurantManager:
+  title: Restaurant Orders
+  
+data MenuItem:
+  name: text required
+  price: money required
+  category: appetizer | main | dessert | drink
+  available: boolean default true
+  
+data Order:
+  table_number: number required
+  items: list of MenuItem
+  status: pending | preparing | ready | served
+  total: money calculated
+  timestamp: datetime auto
+  
+interface:
+  show menu_management:
+    for each category:
+      show items where category = this.category
+      button "Add New Item"
+      
+  show order_tracking:
+    for each order where status != served:
+      display order.table_number, order.items, order.status
+      buttons "Mark Ready", "Mark Served"
+```
+
+PATTERN: Professional Services
+Business Need: "I need to track clients and appointments"
+APML Translation:
+```
+app ClientTracker:
+  title: Client Management
+  
+data Client:
+  name: text required
+  email: email required
+  phone: phone
+  status: active | inactive
+  
+data Appointment:
+  client: Client required
+  date: datetime required
+  service_type: consultation | meeting | review
+  notes: text
+  status: scheduled | completed | cancelled
+  
+interface:
+  show client_dashboard:
+    for each client where status = active:
+      display client.name, client.email
+      link "Schedule Appointment"
+      
+  show calendar_view:
+    for each appointment this week:
+      display appointment.date, appointment.client.name
+      when appointment.status = scheduled:
+        buttons "Complete", "Cancel"
+```
+
+3. INTENT CLARIFICATION TECHNIQUES
+
+When business requirements are unclear, ask:
+
+DATA CLARIFICATION:
+- "What information do you need to track?"
+- "What fields are required vs optional?"
+- "How are these items related?"
+
+INTERFACE CLARIFICATION:
+- "What should users see first?"
+- "What actions can users take?"
+- "What happens when they click/submit?"
+
+LOGIC CLARIFICATION:
+- "When does X happen?"
+- "What are the different states/statuses?"
+- "What business rules apply?"
+
+4. VALIDATION CHECKLIST
+
+Before finalizing APML spec, verify:
+☐ All core business entities are defined as data models
+☐ Required fields are marked as required
+☐ User interface covers all user actions
+☐ Business logic rules are implemented
+☐ Trinity Principle is satisfied:
+  - App → User: All displays and outputs defined
+  - User → App: All inputs and interactions covered
+  - App → App: All business logic workflows included
+
+5. INDUSTRY-SPECIFIC TEMPLATES
+
+HEALTHCARE:
+- Patient, Appointment, Treatment data models
+- HIPAA compliance considerations
+- Medical workflow interfaces
+
+EDUCATION:
+- Student, Course, Assignment data models
+- Grading and progress tracking
+- Communication interfaces
+
+RETAIL:
+- Inventory, Customer, Sale data models
+- Payment processing workflows
+- Order fulfillment interfaces
+
+PROFESSIONAL SERVICES:
+- Client, Project, Invoice data models
+- Time tracking workflows
+- Billing and reporting interfaces
+
+REAL ESTATE:
+- Property, Client, Showing data models
+- Lead management workflows
+- Communication tracking interfaces
+
+6. COMMON BUSINESS LOGIC PATTERNS
+
+STATUS WORKFLOWS:
+```
+when order.status is pending:
+  send confirmation_email
+  update inventory
+when order.status is shipped:
+  send tracking_email
+```
+
+CONDITIONAL ACCESS:
+```
+when user.subscription is premium:
+  grant access_to_advanced_features
+when user.trial_expired:
+  redirect to subscription_page
+```
+
+AUTOMATED CALCULATIONS:
+```
+data Invoice:
+  subtotal: money calculated from line_items
+  tax: money calculated as subtotal * tax_rate
+  total: money calculated as subtotal + tax
+```
+
+NOTIFICATIONS:
+```
+when appointment.date is tomorrow:
+  send reminder_email to client
+when inventory.level < 10:
+  notify admin "Low stock alert"
+```
+
+7. QUALITY ASSURANCE
+
+Ensure APML specs include:
+- Clear data validation rules
+- Proper error handling
+- User-friendly interface labels
+- Logical workflow completion
+- Security considerations (authentication, permissions)
+
+This reference enables any LLM to transform business conversations into production-ready APML specifications that accurately capture business requirements and user needs.
