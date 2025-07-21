@@ -1,43 +1,433 @@
-/* APML Design System CSS - Beautiful by Default */
+/* APML Design System CSS - Enhanced with Semantic Tokens */
 
-/* CSS Custom Properties for Design Tokens */
+/* Base Color Palette */
 :root {
-  /* Colors */
-  --color-primary: #6366f1;
-  --color-primary-hover: #4f46e5;
-  --color-secondary: #8b5cf6;
-  --color-accent: #06b6d4;
-  --color-success: #10b981;
-  --color-warning: #f59e0b;
-  --color-error: #ef4444;
+  /* Brand Colors */
+  --apml-primary-50: #f0f4ff;
+  --apml-primary-100: #e0e9ff;
+  --apml-primary-200: #c7d7fe;
+  --apml-primary-300: #a5b8fc;
+  --apml-primary-400: #8b93f8;
+  --apml-primary-500: #6366f1;
+  --apml-primary-600: #5046e4;
+  --apml-primary-700: #4338ca;
+  --apml-primary-800: #3730a3;
+  --apml-primary-900: #312e81;
+  --apml-primary-950: #1e1b4b;
+
+  /* Secondary Colors */
+  --apml-secondary-50: #faf5ff;
+  --apml-secondary-100: #f3e8ff;
+  --apml-secondary-200: #e9d5ff;
+  --apml-secondary-300: #d8b4fe;
+  --apml-secondary-400: #c084fc;
+  --apml-secondary-500: #8b5cf6;
+  --apml-secondary-600: #7c3aed;
+  --apml-secondary-700: #6d28d9;
+  --apml-secondary-800: #5b21b6;
+  --apml-secondary-900: #4c1d95;
+  --apml-secondary-950: #2e1065;
+
+  /* Accent Colors */
+  --apml-accent-50: #ecfeff;
+  --apml-accent-100: #cffafe;
+  --apml-accent-200: #a5f3fc;
+  --apml-accent-300: #67e8f9;
+  --apml-accent-400: #22d3ee;
+  --apml-accent-500: #06b6d4;
+  --apml-accent-600: #0891b2;
+  --apml-accent-700: #0e7490;
+  --apml-accent-800: #155e75;
+  --apml-accent-900: #164e63;
+  --apml-accent-950: #083344;
+
+  /* Semantic Colors */
+  --apml-success-50: #ecfdf5;
+  --apml-success-100: #d1fae5;
+  --apml-success-200: #a7f3d0;
+  --apml-success-300: #6ee7b7;
+  --apml-success-400: #34d399;
+  --apml-success-500: #10b981;
+  --apml-success-600: #059669;
+  --apml-success-700: #047857;
+  --apml-success-800: #065f46;
+  --apml-success-900: #064e3b;
+  --apml-success-950: #022c22;
+
+  --apml-warning-50: #fffbeb;
+  --apml-warning-100: #fef3c7;
+  --apml-warning-200: #fde68a;
+  --apml-warning-300: #fcd34d;
+  --apml-warning-400: #fbbf24;
+  --apml-warning-500: #f59e0b;
+  --apml-warning-600: #d97706;
+  --apml-warning-700: #b45309;
+  --apml-warning-800: #92400e;
+  --apml-warning-900: #78350f;
+  --apml-warning-950: #451a03;
+
+  --apml-error-50: #fef2f2;
+  --apml-error-100: #fee2e2;
+  --apml-error-200: #fecaca;
+  --apml-error-300: #fca5a5;
+  --apml-error-400: #f87171;
+  --apml-error-500: #ef4444;
+  --apml-error-600: #dc2626;
+  --apml-error-700: #b91c1c;
+  --apml-error-800: #991b1b;
+  --apml-error-900: #7f1d1d;
+  --apml-error-950: #450a0a;
+
+  /* Neutral Scale */
+  --apml-neutral-50: #f8fafc;
+  --apml-neutral-100: #f1f5f9;
+  --apml-neutral-200: #e2e8f0;
+  --apml-neutral-300: #cbd5e1;
+  --apml-neutral-400: #94a3b8;
+  --apml-neutral-500: #64748b;
+  --apml-neutral-600: #475569;
+  --apml-neutral-700: #334155;
+  --apml-neutral-800: #1e293b;
+  --apml-neutral-900: #0f172a;
+  --apml-neutral-950: #020617;
+
+  /* Typography Scale */
+  --apml-font-family-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', sans-serif;
+  --apml-font-family-mono: 'JetBrains Mono', 'Fira Code', 'SF Mono', 'Monaco', 'Inconsolata', 'Roboto Mono', monospace;
+  --apml-font-family-serif: 'Georgia', 'Times New Roman', serif;
+
+  /* Font Weights */
+  --apml-font-weight-thin: 100;
+  --apml-font-weight-light: 300;
+  --apml-font-weight-normal: 400;
+  --apml-font-weight-medium: 500;
+  --apml-font-weight-semibold: 600;
+  --apml-font-weight-bold: 700;
+  --apml-font-weight-extrabold: 800;
+  --apml-font-weight-black: 900;
+
+  /* Font Sizes */
+  --apml-text-xs: 0.75rem;    /* 12px */
+  --apml-text-sm: 0.875rem;   /* 14px */
+  --apml-text-base: 1rem;     /* 16px */
+  --apml-text-lg: 1.125rem;   /* 18px */
+  --apml-text-xl: 1.25rem;    /* 20px */
+  --apml-text-2xl: 1.5rem;    /* 24px */
+  --apml-text-3xl: 1.875rem;  /* 30px */
+  --apml-text-4xl: 2.25rem;   /* 36px */
+  --apml-text-5xl: 3rem;      /* 48px */
+  --apml-text-6xl: 3.75rem;   /* 60px */
+  --apml-text-7xl: 4.5rem;    /* 72px */
+  --apml-text-8xl: 6rem;      /* 96px */
+  --apml-text-9xl: 8rem;      /* 128px */
+
+  /* Line Heights */
+  --apml-leading-none: 1;
+  --apml-leading-tight: 1.25;
+  --apml-leading-snug: 1.375;
+  --apml-leading-normal: 1.5;
+  --apml-leading-relaxed: 1.625;
+  --apml-leading-loose: 2;
+
+  /* Spacing Scale */
+  --apml-space-px: 1px;
+  --apml-space-0: 0;
+  --apml-space-0-5: 0.125rem;  /* 2px */
+  --apml-space-1: 0.25rem;     /* 4px */
+  --apml-space-1-5: 0.375rem;  /* 6px */
+  --apml-space-2: 0.5rem;      /* 8px */
+  --apml-space-2-5: 0.625rem;  /* 10px */
+  --apml-space-3: 0.75rem;     /* 12px */
+  --apml-space-3-5: 0.875rem;  /* 14px */
+  --apml-space-4: 1rem;        /* 16px */
+  --apml-space-5: 1.25rem;     /* 20px */
+  --apml-space-6: 1.5rem;      /* 24px */
+  --apml-space-7: 1.75rem;     /* 28px */
+  --apml-space-8: 2rem;        /* 32px */
+  --apml-space-9: 2.25rem;     /* 36px */
+  --apml-space-10: 2.5rem;     /* 40px */
+  --apml-space-11: 2.75rem;    /* 44px */
+  --apml-space-12: 3rem;       /* 48px */
+  --apml-space-14: 3.5rem;     /* 56px */
+  --apml-space-16: 4rem;       /* 64px */
+  --apml-space-20: 5rem;       /* 80px */
+  --apml-space-24: 6rem;       /* 96px */
+  --apml-space-28: 7rem;       /* 112px */
+  --apml-space-32: 8rem;       /* 128px */
+  --apml-space-36: 9rem;       /* 144px */
+  --apml-space-40: 10rem;      /* 160px */
+  --apml-space-44: 11rem;      /* 176px */
+  --apml-space-48: 12rem;      /* 192px */
+  --apml-space-52: 13rem;      /* 208px */
+  --apml-space-56: 14rem;      /* 224px */
+  --apml-space-60: 15rem;      /* 240px */
+  --apml-space-64: 16rem;      /* 256px */
+  --apml-space-72: 18rem;      /* 288px */
+  --apml-space-80: 20rem;      /* 320px */
+  --apml-space-96: 24rem;      /* 384px */
+
+  /* Border Radius */
+  --apml-radius-none: 0;
+  --apml-radius-sm: 0.125rem;   /* 2px */
+  --apml-radius-base: 0.25rem;  /* 4px */
+  --apml-radius-md: 0.375rem;   /* 6px */
+  --apml-radius-lg: 0.5rem;     /* 8px */
+  --apml-radius-xl: 0.75rem;    /* 12px */
+  --apml-radius-2xl: 1rem;      /* 16px */
+  --apml-radius-3xl: 1.5rem;    /* 24px */
+  --apml-radius-full: 9999px;
+
+  /* Shadows */
+  --apml-shadow-xs: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --apml-shadow-sm: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px -1px rgba(0, 0, 0, 0.1);
+  --apml-shadow-base: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+  --apml-shadow-md: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
+  --apml-shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+  --apml-shadow-xl: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  --apml-shadow-2xl: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  --apml-shadow-inner: inset 0 2px 4px 0 rgba(0, 0, 0, 0.05);
   
-  /* Neutral Palette */
-  --color-neutral-50: #f8fafc;
-  --color-neutral-100: #f1f5f9;
-  --color-neutral-200: #e2e8f0;
-  --color-neutral-300: #cbd5e1;
-  --color-neutral-400: #94a3b8;
-  --color-neutral-500: #64748b;
-  --color-neutral-600: #475569;
-  --color-neutral-700: #334155;
-  --color-neutral-800: #1e293b;
-  --color-neutral-900: #0f172a;
+  /* Special Effects */
+  --apml-shadow-glow-primary: 0 0 20px rgba(99, 102, 241, 0.4);
+  --apml-shadow-glow-secondary: 0 0 20px rgba(139, 92, 246, 0.4);
+  --apml-shadow-glow-accent: 0 0 20px rgba(6, 182, 212, 0.4);
+  --apml-shadow-glass: 0 8px 32px rgba(0, 0, 0, 0.3);
+
+  /* Animation Durations */
+  --apml-duration-75: 75ms;
+  --apml-duration-100: 100ms;
+  --apml-duration-150: 150ms;
+  --apml-duration-200: 200ms;
+  --apml-duration-300: 300ms;
+  --apml-duration-500: 500ms;
+  --apml-duration-700: 700ms;
+  --apml-duration-1000: 1000ms;
+
+  /* Animation Easings */
+  --apml-ease-linear: linear;
+  --apml-ease-in: cubic-bezier(0.4, 0, 1, 1);
+  --apml-ease-out: cubic-bezier(0, 0, 0.2, 1);
+  --apml-ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+  --apml-ease-bounce: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  --apml-ease-elastic: cubic-bezier(0.68, -0.6, 0.32, 1.6);
+
+  /* Z-Index Scale */
+  --apml-z-auto: auto;
+  --apml-z-0: 0;
+  --apml-z-10: 10;
+  --apml-z-20: 20;
+  --apml-z-30: 30;
+  --apml-z-40: 40;
+  --apml-z-50: 50;
+  --apml-z-modal: 1000;
+  --apml-z-popover: 1010;
+  --apml-z-tooltip: 1020;
+  --apml-z-toast: 1030;
+}
+
+/* Dark Theme (Default) */
+:root,
+[data-theme="dark"] {
+  /* Semantic Color Tokens - Dark Mode */
+  --color-bg-primary: var(--apml-neutral-900);
+  --color-bg-secondary: var(--apml-neutral-800);
+  --color-bg-tertiary: var(--apml-neutral-700);
+  --color-bg-elevated: var(--apml-neutral-800);
+  --color-bg-overlay: rgba(15, 23, 42, 0.8);
+  --color-bg-glass: rgba(255, 255, 255, 0.05);
+  --color-bg-glass-strong: rgba(255, 255, 255, 0.1);
   
-  /* Glass Effects */
-  --glass-bg: rgba(255, 255, 255, 0.1);
-  --glass-border: rgba(255, 255, 255, 0.2);
+  --color-text-primary: var(--apml-neutral-50);
+  --color-text-secondary: var(--apml-neutral-200);
+  --color-text-tertiary: var(--apml-neutral-400);
+  --color-text-muted: var(--apml-neutral-500);
+  --color-text-disabled: var(--apml-neutral-600);
+  --color-text-inverse: var(--apml-neutral-900);
+  
+  --color-border-primary: var(--apml-neutral-700);
+  --color-border-secondary: var(--apml-neutral-600);
+  --color-border-focus: var(--apml-primary-500);
+  --color-border-glass: rgba(255, 255, 255, 0.1);
+  --color-border-glass-strong: rgba(255, 255, 255, 0.2);
+  
+  --color-surface-primary: var(--apml-neutral-800);
+  --color-surface-secondary: var(--apml-neutral-700);
+  --color-surface-tertiary: var(--apml-neutral-600);
+  --color-surface-hover: var(--apml-neutral-750);
+  --color-surface-pressed: var(--apml-neutral-850);
+  
+  /* Brand Colors */
+  --color-primary: var(--apml-primary-500);
+  --color-primary-hover: var(--apml-primary-400);
+  --color-primary-pressed: var(--apml-primary-600);
+  --color-primary-muted: var(--apml-primary-900);
+  --color-primary-subtle: var(--apml-primary-950);
+  
+  --color-secondary: var(--apml-secondary-500);
+  --color-secondary-hover: var(--apml-secondary-400);
+  --color-secondary-pressed: var(--apml-secondary-600);
+  --color-secondary-muted: var(--apml-secondary-900);
+  --color-secondary-subtle: var(--apml-secondary-950);
+  
+  --color-accent: var(--apml-accent-500);
+  --color-accent-hover: var(--apml-accent-400);
+  --color-accent-pressed: var(--apml-accent-600);
+  --color-accent-muted: var(--apml-accent-900);
+  --color-accent-subtle: var(--apml-accent-950);
+  
+  /* Semantic Colors */
+  --color-success: var(--apml-success-500);
+  --color-success-hover: var(--apml-success-400);
+  --color-success-muted: var(--apml-success-900);
+  --color-success-subtle: var(--apml-success-950);
+  
+  --color-warning: var(--apml-warning-500);
+  --color-warning-hover: var(--apml-warning-400);
+  --color-warning-muted: var(--apml-warning-900);
+  --color-warning-subtle: var(--apml-warning-950);
+  
+  --color-error: var(--apml-error-500);
+  --color-error-hover: var(--apml-error-400);
+  --color-error-muted: var(--apml-error-900);
+  --color-error-subtle: var(--apml-error-950);
+  
+  /* Special Effects */
+  --glass-bg: var(--color-bg-glass);
+  --glass-bg-strong: var(--color-bg-glass-strong);
+  --glass-border: var(--color-border-glass);
+  --glass-border-strong: var(--color-border-glass-strong);
   
   /* Shadows */
-  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-  --shadow-glow: 0 0 20px rgba(99, 102, 241, 0.3);
-  --shadow-glass: 0 8px 32px rgba(0, 0, 0, 0.3);
+  --shadow-sm: var(--apml-shadow-sm);
+  --shadow-md: var(--apml-shadow-base);
+  --shadow-lg: var(--apml-shadow-lg);
+  --shadow-xl: var(--apml-shadow-xl);
+  --shadow-glow: var(--apml-shadow-glow-primary);
+  --shadow-glass: var(--apml-shadow-glass);
   
   /* Typography */
-  --font-primary: Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-  --font-mono: JetBrains Mono, Fira Code, Monaco, Consolas, monospace;
+  --font-primary: var(--apml-font-family-sans);
+  --font-mono: var(--apml-font-family-mono);
+  
+  /* Color scheme indicator */
+  color-scheme: dark;
+}
+
+/* Light Theme */
+[data-theme="light"] {
+  /* Semantic Color Tokens - Light Mode */
+  --color-bg-primary: var(--apml-neutral-50);
+  --color-bg-secondary: var(--apml-neutral-100);
+  --color-bg-tertiary: var(--apml-neutral-200);
+  --color-bg-elevated: white;
+  --color-bg-overlay: rgba(255, 255, 255, 0.9);
+  --color-bg-glass: rgba(255, 255, 255, 0.8);
+  --color-bg-glass-strong: rgba(255, 255, 255, 0.95);
+  
+  --color-text-primary: var(--apml-neutral-900);
+  --color-text-secondary: var(--apml-neutral-700);
+  --color-text-tertiary: var(--apml-neutral-600);
+  --color-text-muted: var(--apml-neutral-500);
+  --color-text-disabled: var(--apml-neutral-400);
+  --color-text-inverse: var(--apml-neutral-50);
+  
+  --color-border-primary: var(--apml-neutral-300);
+  --color-border-secondary: var(--apml-neutral-200);
+  --color-border-focus: var(--apml-primary-500);
+  --color-border-glass: rgba(255, 255, 255, 0.3);
+  --color-border-glass-strong: rgba(255, 255, 255, 0.5);
+  
+  --color-surface-primary: white;
+  --color-surface-secondary: var(--apml-neutral-50);
+  --color-surface-tertiary: var(--apml-neutral-100);
+  --color-surface-hover: var(--apml-neutral-100);
+  --color-surface-pressed: var(--apml-neutral-200);
+  
+  /* Brand Colors adjusted for light mode */
+  --color-primary: var(--apml-primary-600);
+  --color-primary-hover: var(--apml-primary-700);
+  --color-primary-pressed: var(--apml-primary-800);
+  --color-primary-muted: var(--apml-primary-100);
+  --color-primary-subtle: var(--apml-primary-50);
+  
+  --color-secondary: var(--apml-secondary-600);
+  --color-secondary-hover: var(--apml-secondary-700);
+  --color-secondary-pressed: var(--apml-secondary-800);
+  --color-secondary-muted: var(--apml-secondary-100);
+  --color-secondary-subtle: var(--apml-secondary-50);
+  
+  --color-accent: var(--apml-accent-600);
+  --color-accent-hover: var(--apml-accent-700);
+  --color-accent-pressed: var(--apml-accent-800);
+  --color-accent-muted: var(--apml-accent-100);
+  --color-accent-subtle: var(--apml-accent-50);
+  
+  /* Semantic Colors for light mode */
+  --color-success: var(--apml-success-600);
+  --color-success-hover: var(--apml-success-700);
+  --color-success-muted: var(--apml-success-100);
+  --color-success-subtle: var(--apml-success-50);
+  
+  --color-warning: var(--apml-warning-600);
+  --color-warning-hover: var(--apml-warning-700);
+  --color-warning-muted: var(--apml-warning-100);
+  --color-warning-subtle: var(--apml-warning-50);
+  
+  --color-error: var(--apml-error-600);
+  --color-error-hover: var(--apml-error-700);
+  --color-error-muted: var(--apml-error-100);
+  --color-error-subtle: var(--apml-error-50);
+  
+  /* Shadows adjusted for light mode */
+  --shadow-glass: 0 8px 32px rgba(0, 0, 0, 0.1);
+  
+  color-scheme: light;
+}
+
+/* Auto theme (follows system preference) */
+@media (prefers-color-scheme: light) {
+  :root:not([data-theme]) {
+    /* Apply light theme variables */
+    --color-bg-primary: var(--apml-neutral-50);
+    --color-bg-secondary: var(--apml-neutral-100);
+    --color-bg-tertiary: var(--apml-neutral-200);
+    --color-bg-elevated: white;
+    --color-bg-overlay: rgba(255, 255, 255, 0.9);
+    --color-bg-glass: rgba(255, 255, 255, 0.8);
+    --color-bg-glass-strong: rgba(255, 255, 255, 0.95);
+    
+    --color-text-primary: var(--apml-neutral-900);
+    --color-text-secondary: var(--apml-neutral-700);
+    --color-text-tertiary: var(--apml-neutral-600);
+    --color-text-muted: var(--apml-neutral-500);
+    --color-text-disabled: var(--apml-neutral-400);
+    --color-text-inverse: var(--apml-neutral-50);
+    
+    --color-border-primary: var(--apml-neutral-300);
+    --color-border-secondary: var(--apml-neutral-200);
+    --color-border-focus: var(--apml-primary-500);
+    --color-border-glass: rgba(255, 255, 255, 0.3);
+    --color-border-glass-strong: rgba(255, 255, 255, 0.5);
+    
+    --shadow-glass: 0 8px 32px rgba(0, 0, 0, 0.1);
+    
+    color-scheme: light;
+  }
+}
+
+/* Legacy support - map old variable names to new semantic tokens */
+:root {
+  /* Backward compatibility */
+  --color-neutral-50: var(--color-text-inverse);
+  --color-neutral-100: var(--color-text-primary);
+  --color-neutral-200: var(--color-text-secondary);
+  --color-neutral-300: var(--color-text-tertiary);
+  --color-neutral-400: var(--color-text-muted);
+  --color-neutral-500: var(--color-text-muted);
+  --color-neutral-600: var(--color-border-secondary);
+  --color-neutral-700: var(--color-border-primary);
+  --color-neutral-800: var(--color-bg-secondary);
+  --color-neutral-900: var(--color-bg-primary);
 }
 
 /* Component Patterns */

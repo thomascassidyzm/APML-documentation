@@ -1,0 +1,84 @@
+app PaymentFlowTest:
+  title: "Testing Stripe Payment Flow in Current APML"
+  description: "Can we specify sophisticated payment patterns?"
+  version: "1.0.0"
+
+data Customer:
+  id: unique_id required
+  email: email required
+  stripe_customer_id: text optional
+  subscription_status: active | inactive | past_due | canceled default inactive
+  payment_method_id: text optional
+  
+  # PROBLEM: No way to specify external service integration
+  # PROBLEM: No way to specify webhook handling
+  # PROBLEM: No way to specify sensitive data handling
+
+data Subscription:
+  id: unique_id required
+  customer_id: Customer required
+  stripe_subscription_id: text required
+  plan: starter | pro | enterprise required
+  status: active | past_due | canceled | unpaid
+  current_period_end: timestamp required
+  
+  # PROBLEM: No way to specify sync with external service
+  # PROBLEM: No way to specify automatic status updates
+
+interface payment_flow:
+  show pricing_page:
+    title: "Choose Your Plan"
+    
+    display plan_cards:
+      starter_plan:
+        price: "$9/month"
+        features: ["Basic analytics", "Up to 1000 users"]
+        
+      pro_plan:
+        price: "$29/month" 
+        features: ["Advanced analytics", "Up to 10000 users"]
+        
+  show checkout_flow:
+    title: "Complete Purchase"
+    
+    # PROBLEM: No way to specify external component integration
+    # stripe_payment_element: embedded  # No syntax for this
+    
+  when user submits payment:
+    # PROBLEM: No way to specify external service calls
+    # PROBLEM: No way to specify async operations with callbacks
+    # create_stripe_customer()
+    # create_stripe_subscription()
+    # handle_payment_result()
+    
+logic payment_processing:
+  # PROBLEM: No way to specify third-party integrations
+  # PROBLEM: No way to specify environment variables
+  # PROBLEM: No way to specify error handling for external services
+  
+  process create_checkout_session:
+    # How do we specify: "call Stripe API with secret key"?
+    # How do we specify: "handle rate limiting"?
+    # How do we specify: "return secure checkout URL"?
+    
+  process handle_webhook:
+    # How do we specify: "verify webhook signature"?
+    # How do we specify: "idempotency handling"?
+    # How do we specify: "update local database from webhook"?
+    
+  process sync_subscription_status:
+    # How do we specify: "periodic job to sync with Stripe"?
+    # How do we specify: "retry logic for failed API calls"?
+
+interface payment_success:
+  show success_page:
+    title: "Payment Successful!"
+    
+  when payment_confirmed:
+    # PROBLEM: No way to specify feature unlocking
+    # PROBLEM: No way to specify email notifications
+    # unlock_premium_features()
+    # send_welcome_email()
+    # redirect_to_dashboard()
+
+export PaymentFlowTest

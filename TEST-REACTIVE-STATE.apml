@@ -1,0 +1,76 @@
+app ReactiveStateTest:
+  title: "Testing Reactive State Management in Current APML"
+  description: "Can we specify Zenjin's computed metrics and reactive updates?"
+  version: "1.0.0"
+
+data User:
+  id: unique_id required
+  lifetime_points: number default 0
+  lifetime_questions_answered: number default 0
+  lifetime_ftc_count: number default 0
+  last_session_blink_speed: number default 5000
+  last_session_ftc_percentage: number default 0
+  
+  # PROBLEM: No way to specify computed properties
+  # lifetime_ftc_percentage: computed from (lifetime_ftc_count / lifetime_questions_answered * 100)
+  # dashboard_evolution: computed from (lifetime_points / (last_session_blink_speed / 1000))
+
+data LearningSession:
+  id: unique_id required
+  user_id: User required
+  questions_answered: number default 0
+  ftc_count: number default 0
+  total_points: number default 0
+  blink_speed_ms: number optional
+  started_at: timestamp auto
+  ended_at: timestamp optional
+  
+  # PROBLEM: No way to specify reactive updates to parent data
+  # When session ends, should update User.lifetime_points automatically
+
+interface dashboard:
+  show progress_metrics:
+    title: "Your Progress"
+    
+    # PROBLEM: No way to specify reactive display of computed values
+    display lifetime_ftc_percentage:
+      # value: user.lifetime_ftc_percentage  # This should update automatically
+      label: "Overall Accuracy"
+      
+    display dashboard_evolution:
+      # value: user.dashboard_evolution  # This should recompute when dependencies change
+      label: "Evolution Score"
+      
+  show session_summary:
+    # PROBLEM: No way to specify real-time updates during session
+    display current_session_points:
+      # value: current_session.total_points  # Should update live
+      animation: counting_up
+      
+logic reactive_updates:
+  # PROBLEM: No way to specify automatic data propagation
+  # PROBLEM: No way to specify computed property dependencies
+  # PROBLEM: No way to specify when updates should trigger
+  
+  process update_lifetime_metrics:
+    when session_ends:
+      # How do we specify: "automatically update user.lifetime_points += session.total_points"?
+      # How do we specify: "trigger recomputation of all dependent computed properties"?
+      # How do we specify: "update UI reactively"?
+      
+  process calculate_daily_ranking:
+    # PROBLEM: No way to specify complex aggregation queries
+    # How do we specify: "rank user among all users by today's points"?
+    # How do we specify: "cache result but update periodically"?
+    
+interface real_time_updates:
+  show live_leaderboard:
+    # PROBLEM: No way to specify websocket connections
+    # PROBLEM: No way to specify real-time data streams
+    title: "Live Rankings"
+    
+  when other_user_completes_session:
+    # How do we specify: "update leaderboard automatically"?
+    # How do we specify: "animate position changes"?
+
+export ReactiveStateTest

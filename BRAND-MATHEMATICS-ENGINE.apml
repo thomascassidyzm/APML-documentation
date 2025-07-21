@@ -1,0 +1,234 @@
+app BrandMathematicsEngine:
+  title: "APML Brand Mathematics - Harmonic Design Propagation"
+  description: "Mathematical design system that maintains harmony when users customize brand elements"
+  version: "1.0.0"
+
+# Brand Input Interface - What Users Can Customize
+
+data BrandInputs:
+  primary_color: color_hex optional  # User's brand color
+  secondary_color: color_hex optional
+  logo_file: file_upload optional
+  brand_font_display: font_family optional  # Headers, titles
+  brand_font_body: font_family optional     # Body text
+  brand_personality: formal | friendly | bold | minimal | playful
+  industry_context: tech | healthcare | education | retail | finance | creative
+
+# Mathematical Propagation Rules - The "Outfit Coordination"
+
+mathematics harmonic_color_propagation:
+  when user_sets_primary_color:
+    # Extract HSL values for mathematical relationships
+    primary_hue: extract_hue_from_hex(user_primary_color)
+    primary_saturation: extract_saturation_from_hex(user_primary_color)
+    primary_lightness: extract_lightness_from_hex(user_primary_color)
+    
+    # Calculate mathematically harmonious palette
+    complementary_hue: (primary_hue + 180) % 360
+    analogous_warm: (primary_hue + 30) % 360
+    analogous_cool: (primary_hue - 30) % 360
+    triadic_1: (primary_hue + 120) % 360
+    triadic_2: (primary_hue + 240) % 360
+    
+    # Generate functional color palette with accessibility compliance
+    success_color: generate_success_from_primary(primary_hue, primary_saturation)
+    warning_color: generate_warning_from_primary(primary_hue, primary_saturation)
+    error_color: generate_error_from_primary(primary_hue, primary_saturation)
+    
+    # Calculate text colors for contrast compliance
+    text_on_primary: calculate_accessible_text_color(user_primary_color)
+    text_primary: calculate_primary_text_from_brand(primary_hue, primary_saturation)
+    text_secondary: calculate_secondary_text_from_brand(primary_hue, primary_saturation)
+    
+    # Generate background variations
+    background_primary: lighten_and_desaturate(user_primary_color, 0.95, 0.1)
+    background_secondary: lighten_and_desaturate(user_primary_color, 0.98, 0.05)
+    surface_color: lighten_and_desaturate(user_primary_color, 0.99, 0.02)
+
+mathematics typography_harmony:
+  when user_sets_brand_fonts:
+    # Ensure font pairing harmony
+    if brand_font_display and brand_font_body:
+      verify_font_pairing_compatibility(brand_font_display, brand_font_body)
+      
+    if only_brand_font_display_provided:
+      # Calculate complementary body font mathematically
+      if brand_font_display is serif:
+        auto_body_font: select_geometric_sans_serif
+      if brand_font_display is sans_serif:
+        auto_body_font: select_humanist_sans_serif_or_subtle_serif
+      if brand_font_display is script_or_decorative:
+        auto_body_font: select_clean_readable_sans_serif
+        
+    # Calculate font size relationships based on brand personality
+    if brand_personality is bold:
+      scale_ratio: 1.33  # Perfect fourth - dramatic
+      font_weight_base: 600
+    if brand_personality is formal:
+      scale_ratio: 1.25  # Major third - professional
+      font_weight_base: 400
+    if brand_personality is friendly:
+      scale_ratio: 1.2   # Minor third - approachable
+      font_weight_base: 400
+    if brand_personality is minimal:
+      scale_ratio: 1.15  # Subtle scaling
+      font_weight_base: 300
+
+mathematics spacing_brand_adaptation:
+  when brand_personality_set:
+    # Adjust Fibonacci spacing based on brand personality
+    if brand_personality is bold:
+      base_unit: 10px  # Larger, more dramatic
+      apply_fibonacci_with_base: [10, 16, 26, 42, 68, 110]
+      
+    if brand_personality is minimal:
+      base_unit: 6px   # Tighter, more refined
+      apply_fibonacci_with_base: [6, 10, 16, 26, 42, 68]
+      
+    if brand_personality is friendly:
+      base_unit: 8px   # Standard, comfortable
+      apply_fibonacci_with_base: [8, 13, 21, 34, 55, 89]
+
+# Brand Validation and Quality Control
+
+logic brand_mathematics_validation:
+  process validate_color_accessibility:
+    when user_submits_primary_color:
+      check_contrast_ratio_with_white: calculate_contrast(user_color, #ffffff)
+      check_contrast_ratio_with_black: calculate_contrast(user_color, #000000)
+      
+      if both_ratios_below_4_5:
+        suggest_lightness_adjustments_for_accessibility
+        show_mathematical_alternatives_that_maintain_brand_hue
+        
+  process validate_font_readability:
+    when user_uploads_brand_fonts:
+      test_font_at_various_sizes: [12px, 14px, 16px, 18px, 24px]
+      check_character_spacing_and_x_height
+      verify_availability_as_web_font
+      
+      if readability_concerns_detected:
+        suggest_font_weight_adjustments
+        recommend_complementary_body_font_alternatives
+        
+  process maintain_design_harmony:
+    when any_brand_element_changes:
+      recalculate_entire_color_mathematics
+      regenerate_typography_scale_relationships
+      update_spacing_rhythm_accordingly
+      verify_overall_visual_harmony_score
+      
+      if harmony_score_below_threshold:
+        suggest_minimal_adjustments_to_restore_balance
+        explain_mathematical_reasoning_to_user
+
+# User Interface for Brand Customization
+
+interface brand_customization:
+  show brand_input_wizard:
+    title: "Make this app reflect your brand"
+    subtitle: "We'll maintain design harmony mathematically"
+    
+    display color_input:
+      primary_brand_color:
+        input_type: color_picker
+        placeholder: "Your main brand color"
+        live_preview: show_immediate_palette_generation
+        
+      when_color_selected:
+        instantly_show_calculated_harmonious_palette
+        display_accessibility_compliance_indicators
+        show_before_after_component_previews
+        
+    display typography_input:
+      brand_font_upload:
+        input_type: font_file_upload
+        accepted_formats: [woff2, woff, ttf]
+        live_preview: show_immediate_typography_application
+        
+      font_pairing_suggestions:
+        when_display_font_uploaded:
+          show_mathematically_calculated_body_font_options
+          explain_pairing_rationale
+          
+    display personality_selection:
+      brand_personality_slider:
+        formal ←→ friendly
+        minimal ←→ bold
+        traditional ←→ modern
+        
+      when_personality_adjusted:
+        show_mathematical_spacing_and_sizing_changes
+        demonstrate_personality_expression_in_components
+
+# Live Preview with Mathematical Propagation
+
+interface harmonic_preview:
+  show mathematical_propagation_demo:
+    title: "See how your brand flows through the entire app"
+    
+    component_harmony_grid:
+      show_login_form: with_user_brand_mathematics_applied
+      show_dashboard: with_user_brand_mathematics_applied
+      show_navigation: with_user_brand_mathematics_applied
+      show_forms: with_user_brand_mathematics_applied
+      
+    demonstrate_cascade_effects:
+      when_user_adjusts_primary_color:
+        animate_color_propagation_through_all_components
+        highlight_mathematical_relationships_being_calculated
+        show_accessibility_compliance_maintained
+        
+    show_harmony_score:
+      overall_design_harmony: calculate_mathematical_harmony_score
+      accessibility_compliance: show_wcag_compliance_indicators
+      brand_consistency: measure_brand_element_coherence
+
+# Mathematical Relationship Explanations
+
+interface design_education:
+  show mathematical_reasoning:
+    title: "Why these changes maintain harmony"
+    
+    color_relationships:
+      "Your blue primary creates a warm orange complementary"
+      "Success green uses analogous relationship (+30°)"
+      "Text colors calculated for optimal contrast ratios"
+      
+    typography_relationships:
+      "Display font scale uses 1.25 ratio for your brand personality"
+      "Body font selected for optimal pairing harmony"
+      "Font weights balanced for visual hierarchy"
+      
+    spacing_relationships:
+      "Spacing adjusted to Fibonacci sequence with your brand scale"
+      "Component proportions maintain golden ratio relationships"
+      "Breathing room calculated for your brand personality"
+
+logic brand_mathematics_engine:
+  process execute_harmonic_propagation:
+    when user_confirms_brand_inputs:
+      calculate_complete_design_system_from_brand_inputs
+      generate_css_custom_properties_with_mathematical_relationships
+      apply_brand_mathematics_to_all_vibe_variations
+      maintain_accessibility_compliance_throughout
+      
+  process generate_brand_design_system:
+    create_color_palette: with_mathematical_harmony_from_brand_primary
+    create_typography_scale: with_brand_fonts_and_calculated_pairings
+    create_spacing_system: with_brand_personality_fibonacci_adjustments
+    create_motion_language: adapted_to_brand_personality_and_industry
+    
+    export_as_design_tokens: for_ultimate_apml_compiler_integration
+    
+  process quality_assurance:
+    verify_wcag_aa_compliance: across_all_generated_color_combinations
+    test_typography_readability: across_all_calculated_size_combinations
+    validate_mathematical_consistency: across_all_design_system_elements
+    ensure_brand_recognition: while_maintaining_design_excellence
+
+export BrandMathematicsEngine:
+  customization_philosophy: "Maximum brand expression with mathematical harmony guarantee"
+  cascade_principle: "Every change propagates mathematically through entire design system"
+  quality_guarantee: "Brand customization maintains professional design standards"
+  harmony_mathematics: "Like a perfectly coordinated outfit - change one element, all others adjust harmoniously"

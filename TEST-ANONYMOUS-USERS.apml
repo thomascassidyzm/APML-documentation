@@ -1,0 +1,54 @@
+app AnonymousUserTest:
+  title: "Testing Anonymous User Flow in Current APML"
+  description: "Can we specify Zenjin's anonymous user pattern?"
+  version: "1.0.0"
+
+data User:
+  id: unique_id required
+  email: email optional  # null for anonymous users
+  display_name: text optional
+  account_type: free | premium default free
+  role: learner | admin | teacher default learner
+  lifetime_points: number default 0
+  is_anonymous: boolean default false
+  created_at: timestamp auto
+  
+  # PROBLEM: No way to specify localStorage vs database storage
+  # PROBLEM: No way to specify TTL (90 days)
+  # PROBLEM: No way to specify frontend vs backend type differences
+
+interface anonymous_flow:
+  show try_it_button:
+    title: "Just Try It"
+    description: "Start without creating account"
+    
+  when user clicks try_it_button:
+    # PROBLEM: No way to specify "create local user only"
+    # PROBLEM: No way to specify localStorage operations
+    create anonymous_user
+    store_in_local_storage
+    set_90_day_expiry
+    
+  show upgrade_prompt:
+    title: "Save Your Progress"
+    description: "Create account to keep your achievements"
+    
+  when user wants to save_progress:
+    # PROBLEM: No way to specify data migration
+    transfer_local_data_to_database
+    convert_anonymous_to_authenticated
+
+logic anonymous_management:
+  # PROBLEM: No way to specify storage location differences
+  # PROBLEM: No way to specify expiry checking
+  # PROBLEM: No way to specify localStorage key names
+  
+  process check_anonymous_session:
+    # How do we specify: "check localStorage for 'zenjin_anonymous_user'"?
+    # How do we specify: "check if TTL expired"?
+    
+  process create_anonymous_user:
+    # How do we specify: "generate UUID locally"?
+    # How do we specify: "don't send to database"?
+    
+export AnonymousUserTest

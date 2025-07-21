@@ -1,26 +1,34 @@
 <template>
   <div class="home-page">
-    <header class="page-header">
-      <div class="container">
-        <h1 class="page-title">APMLDevSite</h1>
-        <p class="page-subtitle">Generated from APML specification</p>
-      </div>
-    </header>
+    <!-- Enhanced Hero Section -->
+    <HeroSection />
+    
+    <!-- Feature Showcase -->
+    <FeatureShowcase />
+    
+    <!-- Interactive Playground -->
+    <APMLPlayground />
+    
+    <!-- Interactive Examples -->
+    <InteractiveExample />
 
-    <main class="page-content">
+    <!-- Original APML Source (for reference) -->
+    <section class="apml-source-reference">
       <div class="container">
-        <section class="apml-source">
-          <h2>APML Source</h2>
-          <APMLCodeBlock :code="apmlSource" />
-        </section>
+        <h2>APML Source Reference</h2>
+        <APMLCodeBlock :code="apmlSource" />
       </div>
-    </main>
+    </section>
   </div>
 </template>
 
 <script setup>
 import { ref, computed } from 'vue'
 import APMLCodeBlock from '../components/APMLCodeBlock.vue'
+import HeroSection from '../components/HeroSection.vue'
+import FeatureShowcase from '../components/FeatureShowcase.vue'
+import APMLPlayground from '../components/APMLPlayground.vue'
+import InteractiveExample from '../components/InteractiveExample.vue'
 
 // APML Specification Data
 const apmlSpec = {

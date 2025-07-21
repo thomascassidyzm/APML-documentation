@@ -1,0 +1,35 @@
+app PermissionTest:
+  title: "Testing Permission Matrix in Current APML"
+  description: "Can we specify Zenjin's three-tier permission system?"
+  version: "1.0.0"
+
+data User:
+  id: unique_id required
+  email: email required
+  subscription: free | premium default free
+  system_role: learner | admin | content_creator default learner
+  domain_role: student | teacher | school_admin optional
+  
+  # PROBLEM: How to specify computed permissions from multiple fields?
+  # PROBLEM: How to specify role hierarchies and overrides?
+
+interface admin_panel:
+  # PROBLEM: How to specify complex permission logic?
+  # "Show if user has admin role OR is school_admin in any school"
+  show admin_dashboard:
+    # requires: admin_role OR school_admin_role  # No syntax for this
+    title: "Admin Dashboard"
+
+logic permission_system:
+  # PROBLEM: No way to specify permission inheritance
+  # PROBLEM: No way to specify conditional access patterns
+  
+  process check_teacher_access:
+    # How do we specify: "user.system_role === 'admin' OR user.domain_role === 'teacher'"?
+    # How do we specify: "admins can bypass domain_role requirements"?
+    
+  process check_premium_features:
+    # How do we specify: "subscription === 'premium' OR user is in premium_school"?
+    # How do we specify: "cascade premium through school relationships"?
+
+export PermissionTest

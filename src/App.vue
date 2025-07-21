@@ -1,5 +1,5 @@
 <template>
-  <div id="app" class="app-container">
+  <div id="app" class="app-container enhanced-app">
     <!-- Glassmorphism Navigation -->
     <header class="nav-glass" v-if="showHeader">
       <div class="nav-content">

@@ -1,0 +1,220 @@
+app VibePreviewSystem:
+  title: "APML Vibe Preview - Design Before Compilation"
+  description: "Standard component previews with user's vibe choices applied"
+  version: "1.0.0"
+
+# Standard Component Library for Previews
+# Based on app functionality, show relevant preview components
+
+data StandardComponent:
+  component_type: login | dashboard | settings | progress | navigation | forms | lists | cards
+  preview_template: text required
+  applicable_to: list of text  # app types that need this component
+  
+data VibeChoice:
+  vibe_name: text required
+  emotional_tone: text required
+  preview_description: text required
+  mathematical_mapping: DesignMathematics required
+  
+data PreviewSession:
+  user_id: unique_id
+  app_functionality: text required  # from validated APML
+  applicable_components: list of StandardComponent
+  current_vibe_selection: VibeChoice optional
+  iterations_count: number default 0
+  user_satisfaction_score: number optional
+
+# Smart Component Selection Based on App Function
+
+logic component_inference:
+  process analyze_app_functionality:
+    when apml_contains authentication_interfaces:
+      add_to_preview: login_component
+      add_to_preview: signup_component
+      
+    when apml_contains user_progress_tracking:
+      add_to_preview: dashboard_component
+      add_to_preview: progress_visualization_component
+      
+    when apml_contains settings_or_preferences:
+      add_to_preview: settings_panel_component
+      
+    when apml_contains data_entry_forms:
+      add_to_preview: form_component
+      add_to_preview: validation_feedback_component
+      
+    when apml_contains lists_or_collections:
+      add_to_preview: list_component
+      add_to_preview: card_grid_component
+      
+    when apml_contains navigation_between_sections:
+      add_to_preview: navigation_component
+      add_to_preview: breadcrumb_component
+
+# Curated Vibe Options - Constrained for Quality
+
+interface vibe_selection:
+  show vibe_gallery:
+    title: "Choose the feeling for your app"
+    subtitle: "Each vibe applies mathematical design principles consistently"
+    
+    display confidence-building:
+      name: "Confidence Building"
+      description: "Encouraging, supportive, stress-free"
+      emotional_keywords: "gentle, patient, celebrating progress"
+      best_for: "Learning apps, health tracking, skill building"
+      preview_image: confidence_building_preview
+      
+    display excitement-energy:
+      name: "Excitement & Energy" 
+      description: "Dynamic, engaging, motivating"
+      emotional_keywords: "vibrant, energetic, achievement-focused"
+      best_for: "Games, fitness, social apps, competitions"
+      preview_image: excitement_energy_preview
+      
+    display trust-authority:
+      name: "Trust & Authority"
+      description: "Professional, reliable, authoritative"
+      emotional_keywords: "precise, credible, expert guidance"
+      best_for: "Business tools, finance, professional services"
+      preview_image: trust_authority_preview
+      
+    display calm-focus:
+      name: "Calm & Focus"
+      description: "Minimal, meditative, distraction-free"
+      emotional_keywords: "serene, clear, contemplative"
+      best_for: "Productivity, meditation, reading, writing"
+      preview_image: calm_focus_preview
+      
+    display playful-creative:
+      name: "Playful & Creative"
+      description: "Imaginative, experimental, expressive"
+      emotional_keywords: "colorful, flexible, inspiring"
+      best_for: "Creative tools, children's apps, art platforms"
+      preview_image: playful_creative_preview
+
+# Live Preview Generation
+
+interface component_preview:
+  show preview_workspace:
+    title: "Your app will feel like this"
+    
+    when user_selects_vibe:
+      generate_live_previews_with_selected_vibe
+      show_transitions_and_animations
+      demonstrate_interaction_patterns
+      
+  show login_preview:
+    when app_requires_authentication:
+      display login_form_with_current_vibe:
+        title: "Sign In"
+        email_field: styled_with_vibe_mathematics
+        password_field: styled_with_vibe_mathematics
+        login_button: styled_with_vibe_mathematics
+        animations: show_hover_and_focus_states
+        
+  show dashboard_preview:
+    when app_has_user_progress:
+      display dashboard_with_current_vibe:
+        header_section: styled_with_vibe_mathematics
+        progress_cards: styled_with_vibe_mathematics
+        navigation_menu: styled_with_vibe_mathematics
+        animations: show_page_transitions
+        
+  show settings_preview:
+    when app_has_configuration:
+      display settings_panel_with_current_vibe:
+        section_headers: styled_with_vibe_mathematics
+        toggle_switches: styled_with_vibe_mathematics
+        input_fields: styled_with_vibe_mathematics
+        animations: show_state_changes
+        
+  show form_preview:
+    when app_has_data_entry:
+      display form_components_with_current_vibe:
+        field_labels: styled_with_vibe_mathematics
+        input_states: normal, focus, error, success
+        validation_feedback: styled_with_vibe_mathematics
+        submit_interactions: styled_with_vibe_mathematics
+
+# Preview Generation Engine
+
+logic preview_generation:
+  process generate_vibe_preview:
+    when user_selects_vibe:
+      load_design_mathematics_for_vibe
+      apply_mathematics_to_standard_components
+      generate_css_for_preview_components
+      render_interactive_preview_with_animations
+      
+  process apply_design_mathematics:
+    for each applicable_component:
+      calculate_spacing_using_fibonacci_sequence
+      generate_color_palette_from_vibe_psychology
+      apply_typography_scale_from_vibe_voice
+      generate_motion_language_from_vibe_characteristics
+      
+  process render_interactive_preview:
+    show_static_appearance_of_components
+    demonstrate_hover_states_and_transitions
+    show_focus_states_for_accessibility
+    display_loading_states_and_animations
+    demonstrate_error_and_success_feedback
+    
+  process capture_user_feedback:
+    when user_interacts_with_preview:
+      track_time_spent_exploring_each_vibe
+      measure_interaction_patterns_for_preference_detection
+      
+    when user_confirms_vibe_choice:
+      save_vibe_selection_for_compilation
+      proceed_to_apml_compilation_with_design_injection
+
+# Feedback and Iteration
+
+interface vibe_refinement:
+  show comparison_tool:
+    when user_wants_to_compare_vibes:
+      display_side_by_side_preview_of_two_vibes
+      highlight_differences_in_spacing_color_typography
+      show_animation_timing_differences
+      
+  show micro_adjustments:
+    title: "Fine-tune this vibe"
+    description: "Small adjustments within your chosen vibe family"
+    
+    spacing_intensity: tighter | standard | more_generous
+    color_energy: softer | standard | more_vibrant  
+    animation_speed: calmer | standard | more_dynamic
+    
+    when adjustment_made:
+      instantly_update_preview_with_mathematical_variations
+      maintain_vibe_consistency_through_design_mathematics
+
+logic iteration_management:
+  process limit_iteration_scope:
+    # Prevent design-by-committee chaos
+    max_vibe_comparisons: 3
+    max_micro_adjustments: 2_per_category
+    
+    when iteration_limit_reached:
+      encourage_decision_with_current_best_option
+      show_confidence_in_mathematical_design_quality
+      
+  process design_confidence_building:
+    show_mathematical_design_guarantees:
+      accessibility_compliance: "Built into mathematics"
+      visual_consistency: "Mathematically guaranteed" 
+      professional_quality: "Design system proven"
+      
+    when user_hesitates:
+      show_successful_examples_with_same_vibe
+      demonstrate_professional_design_quality
+      emphasize_post_launch_adjustment_possibility
+
+export VibePreviewSystem:
+  workflow: "APML Validated → Infer Components → Vibe Selection → Live Preview → User Confirms → Compile with Design Injection"
+  constraint_strategy: "Limited high-quality vibe options prevent design chaos"
+  preview_accuracy: "Mathematical design system ensures preview matches final app exactly"
+  iteration_control: "Constrained adjustments maintain design quality"

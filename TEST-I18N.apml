@@ -1,0 +1,52 @@
+app InternationalizationTest:
+  title: "Testing i18n in Current APML" 
+  description: "Can we specify Zenjin's 11-language support?"
+  version: "1.0.0"
+
+data User:
+  id: unique_id required
+  preferred_language: en | fi | es | fr | cy | ga | it | ja | zh | ta | si default en
+  
+  # PROBLEM: No way to specify translation keys
+  # PROBLEM: No way to specify locale-specific formatting
+
+interface dashboard:
+  # PROBLEM: No way to specify translatable strings
+  show welcome_message:
+    title: "Welcome"  # Should be t('dashboard.welcome')
+    subtitle: "Ready to learn?"  # Should be t('dashboard.subtitle')
+    
+  show progress_section:
+    # PROBLEM: No way to specify pluralization rules
+    questions_completed: "You've answered 5 questions"  # Should handle singular/plural
+    
+  show date_display:
+    # PROBLEM: No way to specify locale formatting
+    last_session: "January 15, 2025"  # Should format per user's locale
+    
+logic localization:
+  # PROBLEM: No way to specify translation loading
+  # PROBLEM: No way to specify fallback languages
+  # PROBLEM: No way to specify dynamic language switching
+  
+  process load_translations:
+    # How do we specify: "load translation files for user's language"?
+    # How do we specify: "fallback to English if translation missing"?
+    
+  process format_numbers:
+    # How do we specify: "format 1234.56 as '1,234.56' for EN or '1 234,56' for FR"?
+    
+  process handle_rtl_languages:
+    # How do we specify: "right-to-left layout for Arabic languages"?
+
+interface language_selector:
+  show language_picker:
+    # PROBLEM: No way to specify dynamic option generation
+    # options: generate_from_supported_languages  # No syntax for this
+    
+  when user_changes_language:
+    # PROBLEM: No way to specify UI re-rendering
+    # reload_interface_with_new_language()
+    # persist_language_preference()
+
+export InternationalizationTest
