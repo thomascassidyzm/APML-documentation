@@ -1,29 +1,5 @@
 <template>
   <div id="app" class="app-container enhanced-app">
-    <!-- Glassmorphism Navigation -->
-    <header class="nav-glass" v-if="showHeader">
-      <div class="nav-content">
-        <router-link to="/" class="logo-link">
-          <div class="logo-container">
-            <div class="logo-icon"></div>
-            <h1 class="app-title">{{ title }}</h1>
-          </div>
-        </router-link>
-        
-        <nav class="nav-links" v-if="hasNavigation">
-          <router-link 
-            v-for="route in navRoutes" 
-            :key="route.path" 
-            :to="route.path" 
-            class="nav-link"
-            :class="{ 'nav-link-active': $route.path === route.path }"
-          >
-            <span class="nav-link-text">{{ route.meta?.title || route.name }}</span>
-            <div class="nav-link-indicator"></div>
-          </router-link>
-        </nav>
-      </div>
-    </header>
     
     <!-- Main Content Area -->
     <main class="app-main">
@@ -221,8 +197,7 @@ onMounted(() => {
 
 /* Main Content */
 .app-main {
-  margin-top: 80px;
-  min-height: calc(100vh - 160px);
+  min-height: 100vh;
 }
 
 /* Page Transitions */
