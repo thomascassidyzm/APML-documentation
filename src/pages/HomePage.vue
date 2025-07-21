@@ -13,8 +13,7 @@
         </h1>
         
         <p class="hero-subtitle">
-          Build applications through natural human-AI collaboration. 
-          More natural than markdown, more powerful than code.
+          Speak your ideas to life
         </p>
 
         <!-- APML Code Preview -->
