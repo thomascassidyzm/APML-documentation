@@ -161,8 +161,52 @@
             </div>
             <div class="arrow">→</div>
             <div class="code-output">
-              <div class="output">Production Vue.js App</div>
-              <div class="output-details">Complete city review platform with authentication, search, and user-generated content</div>
+              <div class="output-header">Generated Vue.js Components</div>
+              <div class="vue-code-preview">
+                <div class="file-tab">CityRep.vue</div>
+                <pre><code><span class="vue-tag">&lt;template&gt;</span>
+  <span class="vue-tag">&lt;div</span> <span class="vue-attr">class=</span><span class="vue-string">"city-rep-app"</span><span class="vue-tag">&gt;</span>
+    <span class="vue-tag">&lt;AuthenticationView</span> <span class="vue-attr">v-if=</span><span class="vue-string">"!user.authenticated"</span> <span class="vue-tag">/&gt;</span>
+    <span class="vue-tag">&lt;CityDiscoveryView</span> <span class="vue-attr">v-else-if=</span><span class="vue-string">"currentView === 'discovery'"</span> <span class="vue-tag">/&gt;</span>
+    <span class="vue-tag">&lt;CityDetailsView</span> <span class="vue-attr">v-else-if=</span><span class="vue-string">"currentView === 'details'"</span> <span class="vue-tag">/&gt;</span>
+    <span class="vue-tag">&lt;ReviewSubmissionView</span> <span class="vue-attr">v-else-if=</span><span class="vue-string">"currentView === 'review'"</span> <span class="vue-tag">/&gt;</span>
+  <span class="vue-tag">&lt;/div&gt;</span>
+<span class="vue-tag">&lt;/template&gt;</span>
+
+<span class="vue-tag">&lt;script</span> <span class="vue-attr">setup</span><span class="vue-tag">&gt;</span>
+<span class="vue-keyword">import</span> { <span class="vue-var">ref</span>, <span class="vue-var">reactive</span> } <span class="vue-keyword">from</span> <span class="vue-string">'vue'</span>
+
+<span class="vue-comment">// Generated data models</span>
+<span class="vue-keyword">const</span> <span class="vue-var">user</span> = <span class="vue-function">reactive</span>({
+  <span class="vue-property">id</span>: <span class="vue-keyword">null</span>,
+  <span class="vue-property">name</span>: <span class="vue-string">''</span>,
+  <span class="vue-property">email</span>: <span class="vue-string">''</span>,
+  <span class="vue-property">authenticated</span>: <span class="vue-keyword">false</span>
+})
+
+<span class="vue-keyword">const</span> <span class="vue-var">cities</span> = <span class="vue-function">ref</span>([])
+<span class="vue-keyword">const</span> <span class="vue-var">reviews</span> = <span class="vue-function">ref</span>([])
+<span class="vue-keyword">const</span> <span class="vue-var">currentView</span> = <span class="vue-function">ref</span>(<span class="vue-string">'discovery'</span>)
+
+<span class="vue-comment">// Generated authentication logic</span>
+<span class="vue-keyword">const</span> <span class="vue-var">authenticateWithGoogle</span> = <span class="vue-keyword">async</span> () => {
+  <span class="vue-comment">// OAuth integration</span>
+  <span class="vue-var">user</span>.<span class="vue-property">authenticated</span> = <span class="vue-keyword">true</span>
+  <span class="vue-var">currentView</span>.<span class="vue-property">value</span> = <span class="vue-string">'discovery'</span>
+}
+<span class="vue-tag">&lt;/script&gt;</span></code></pre>
+              </div>
+              <div class="compilation-info">
+                <div class="info-item">
+                  <span class="info-label">Components:</span> 4 Vue files
+                </div>
+                <div class="info-item">
+                  <span class="info-label">Data Models:</span> User, City, Review
+                </div>
+                <div class="info-item">
+                  <span class="info-label">Logic Flows:</span> Authentication, Reviews
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -226,7 +270,7 @@
 }
 
 .hero-container {
-  max-width: 1200px;
+  max-width: 1400px;
   margin: 0 auto;
   padding: 0 2rem;
   text-align: center;
@@ -304,12 +348,22 @@
 .process-name { color: #06b6d4; font-weight: 600; }
 .condition { color: #10b981; }
 
+/* Vue.js Syntax Highlighting */
+.vue-tag { color: #ef4444; font-weight: 500; }
+.vue-attr { color: #f59e0b; }
+.vue-string { color: #10b981; }
+.vue-keyword { color: #8b5cf6; font-weight: 600; }
+.vue-var { color: #06b6d4; }
+.vue-function { color: #3b82f6; font-weight: 500; }
+.vue-property { color: #eab308; }
+.vue-comment { color: #64748b; font-style: italic; }
+
 .code-content {
   display: grid;
   grid-template-columns: 1fr auto 1fr;
-  gap: 1rem;
-  padding: 1.5rem;
-  align-items: center;
+  gap: 2rem;
+  padding: 2rem;
+  align-items: flex-start;
 }
 
 .code-input {
@@ -356,7 +410,8 @@
   border: 1px solid rgba(99, 102, 241, 0.2);
   border-radius: 12px;
   padding: 1.5rem;
-  text-align: center;
+  text-align: left;
+  min-width: 500px;
 }
 
 .output {
@@ -370,6 +425,79 @@
   color: #94a3b8;
   font-size: 0.875rem;
   line-height: 1.4;
+}
+
+.output-header {
+  color: #10b981;
+  font-weight: 600;
+  font-size: 1.125rem;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.vue-code-preview {
+  background: rgba(15, 23, 42, 0.8);
+  border: 1px solid rgba(99, 102, 241, 0.1);
+  border-radius: 8px;
+  overflow: hidden;
+  margin-bottom: 1rem;
+}
+
+.file-tab {
+  background: rgba(99, 102, 241, 0.1);
+  padding: 0.5rem 1rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #a5b4fc;
+  border-bottom: 1px solid rgba(99, 102, 241, 0.1);
+}
+
+.vue-code-preview pre {
+  margin: 0;
+  padding: 1rem;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.8rem;
+  line-height: 1.4;
+  max-height: 400px;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(99, 102, 241, 0.3) rgba(30, 41, 59, 0.3);
+}
+
+.vue-code-preview::-webkit-scrollbar {
+  width: 4px;
+}
+
+.vue-code-preview::-webkit-scrollbar-track {
+  background: rgba(30, 41, 59, 0.3);
+}
+
+.vue-code-preview::-webkit-scrollbar-thumb {
+  background: rgba(99, 102, 241, 0.3);
+  border-radius: 2px;
+}
+
+.compilation-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.info-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.25rem 0;
+  font-size: 0.875rem;
+}
+
+.info-label {
+  color: #94a3b8;
+  font-weight: 500;
+}
+
+.info-item span:last-child {
+  color: #a5b4fc;
 }
 
 .hero-actions {
@@ -463,6 +591,16 @@
   .code-content {
     grid-template-columns: 1fr;
     text-align: center;
+  }
+  
+  .code-output {
+    min-width: unset;
+    margin-top: 2rem;
+  }
+  
+  .vue-code-preview pre {
+    font-size: 0.7rem;
+    max-height: 300px;
   }
   
   .hero-actions {
