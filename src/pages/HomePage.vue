@@ -10,12 +10,7 @@
     <APMLPlayground />
     
     <!-- Interactive Examples -->
-    <InteractiveExample :example="{
-      id: 'apml-basics',
-      title: 'APML Fundamentals',
-      description: 'Learn the core concepts of APML through interactive examples',
-      code: `app MyFirstApp:\n  title: Welcome to APML\n  \ndata User:\n  name: text required\n  email: email required\n  \ninterface:\n  show welcome_message:\n    title: \"Hello {{ user.name }}!\"\n    subtitle: \"Ready to build with APML?\"`
-    }" />
+    <InteractiveExample :example="exampleData" />
 
     <!-- Original APML Source (for reference) -->
     <section class="apml-source-reference">
@@ -166,15 +161,13 @@ const APMLDevSiteContent = ref({
   primary_specification: null,
 })
 
-
-
-// Computed properties for interface elements
-// Computed properties for interface elements
-
-
-// Methods for logic workflows
-// Methods from APML logic workflows
-
+// Example data for InteractiveExample component
+const exampleData = {
+  id: 'apml-basics',
+  title: 'APML Fundamentals', 
+  description: 'Learn the core concepts of APML through interactive examples',
+  code: 'app MyFirstApp:\n  title: Welcome to APML\n  \ndata User:\n  name: text required\n  email: email required\n  \ninterface:\n  show welcome_message:\n    title: "Hello World!"\n    subtitle: "Ready to build with APML?"'
+}
 
 // Application metadata
 const appMetadata = {
