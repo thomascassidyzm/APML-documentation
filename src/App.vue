@@ -32,7 +32,7 @@ import { useRouter } from 'vue-router'
 
 // App metadata
 const title = ref('APML - The Universal Language for Human-AI Collaboration')
-const description = ref('Official home of APML v0.9.0 - Logically Complete conversational code')
+const description = ref('Official home of APML v0.9.1 - Triadic architecture for human-AI collaborative problem solving')
 const version = ref('1.0.0')
 
 // Navigation

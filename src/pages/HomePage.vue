@@ -4,7 +4,7 @@
     <section class="hero-section">
       <div class="hero-container">
         <div class="hero-badge">
-          <span>✨ APML v0.9.0 - Grammar Foundation Release</span>
+          <span>✨ APML v0.9.1 - Triadic Architecture Release</span>
         </div>
         
         <h1 class="hero-title">
@@ -28,7 +28,7 @@
   <span class="property">title</span><span class="punctuation">:</span> <span class="string">"CityRep"</span>
   <span class="property">description</span><span class="punctuation">:</span> <span class="string">"Share your experiences living in and visiting cities worldwide"</span>
   <span class="property">version</span><span class="punctuation">:</span> <span class="string">"1.0.0"</span>
-  <span class="property">apml_specification_version</span><span class="punctuation">:</span> <span class="string">"0.9.0"</span>
+  <span class="property">apml_specification_version</span><span class="punctuation">:</span> <span class="string">"0.9.1"</span>
 
 <span class="keyword">data</span> <span class="type">User</span><span class="punctuation">:</span>
   <span class="property">id</span><span class="punctuation">:</span> <span class="type">unique_id</span>
@@ -200,6 +200,12 @@
           </a>
           <a href="/technical-patterns.txt" class="btn-secondary">
             ⚙️ LLM Manual: Compilation Patterns
+          </a>
+          <a href="/overview.txt" class="btn-tertiary">
+            📖 Overview: APML Introduction
+          </a>
+          <a href="/ade-ecosystem.txt" class="btn-tertiary">
+            🏗️ ADE Ecosystem: Complete Workflow
           </a>
         </div>
 
@@ -804,7 +810,7 @@ const getHighlightedCode = (platform) => {
   margin-bottom: 3rem;
 }
 
-.btn-primary, .btn-secondary {
+.btn-primary, .btn-secondary, .btn-tertiary {
   padding: 1rem 2rem;
   border-radius: 12px;
   font-weight: 600;
@@ -821,6 +827,12 @@ const getHighlightedCode = (platform) => {
   background: rgba(99, 102, 241, 0.1);
   color: #a5b4fc;
   border: 1px solid rgba(99, 102, 241, 0.3);
+}
+
+.btn-tertiary {
+  background: rgba(148, 163, 184, 0.1);
+  color: #94a3b8;
+  border: 1px solid rgba(148, 163, 184, 0.3);
 }
 
 .feature-pills {
@@ -955,7 +967,7 @@ const getHighlightedCode = (platform) => {
     gap: 0.75rem;
   }
   
-  .btn-primary, .btn-secondary {
+  .btn-primary, .btn-secondary, .btn-tertiary {
     min-width: 280px;
     text-align: center;
     padding: 0.875rem 1.5rem;
@@ -1022,7 +1034,7 @@ const getHighlightedCode = (platform) => {
     line-height: 1.4;
   }
   
-  .btn-primary, .btn-secondary {
+  .btn-primary, .btn-secondary, .btn-tertiary {
     min-width: 100%;
     margin: 0;
     font-size: 1rem;
@@ -1057,11 +1069,11 @@ const getHighlightedCode = (platform) => {
     transition: transform 0.1s ease;
   }
   
-  .btn-primary:hover, .btn-secondary:hover {
+  .btn-primary:hover, .btn-secondary:hover, .btn-tertiary:hover {
     transform: none;
   }
   
-  .btn-primary:active, .btn-secondary:active {
+  .btn-primary:active, .btn-secondary:active, .btn-tertiary:active {
     transform: scale(0.98);
     transition: transform 0.1s ease;
   }
