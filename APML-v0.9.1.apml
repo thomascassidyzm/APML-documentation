@@ -1,9 +1,18 @@
-app APML_Language_Specification:
-  title: "APML v0.9.0 - Complete Language Specification"
-  description: "The Universal Language for Human-AI-Machine Collaboration"
-  version: "0.9.0"
-  status: "Grammar Foundation Release"
-  self_documenting: true
+app APMLLanguageSpecification:
+  title: "APML v0.9.1 - AI Project Markup Language"
+  description: "Triadic architecture specification for human-AI collaborative problem solving"
+  version: "0.9.1"
+  apml_specification_version: "0.9.1"
+  
+  triadic_compliance:
+    trinity_messaging: self_demonstrating
+    implementation_triad: principles_patterns_practices
+    collaborative_intelligence: meta_specification
+    
+  conservation_physics:
+    intent_preservation: language_definition_invariant
+    contextual_adaptation: compilation_target_flexible
+    bandwidth_optimization: full_expressiveness_maintained
   
 data LanguageCore:
   name: "APML"

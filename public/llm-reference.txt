@@ -1,603 +1,355 @@
-# APML Complete Reference for LLMs
-# Version: 0.9.0
-# Generated: 2025-07-20
-# Purpose: Comprehensive reference for AI-assisted APML development
+# APML Development Engine (ADE) - LLM Reference Guide
+# For use by any LLM to generate APML specifications
+# Version: 2.0.0 | Updated: 2025-07-23
+# URL: https://apml.dev/llm-reference.txt
 
-## 1. LANGUAGE SPECIFICATION
+## WHAT IS APML?
 
-### 1.1 Core Syntax
+Application Programming Markup Language (APML) is a declarative language for defining application intent. It captures the pure essence of what an application should do, not how it should be implemented. APML compiles to any frontend framework (React, Vue, Svelte, etc.) making it truly framework-agnostic.
 
-APML applications are structured around four main sections:
+## CORE APML PHILOSOPHY
 
-app [ApplicationName]:
-  title: "Application Title"
-  description: "Brief description"
+1. **Intent over Implementation** - Describe WHAT the app does, not HOW
+2. **Framework Agnostic** - Same APML compiles to React, Vue, Svelte, etc.
+3. **Human Readable** - Designed for conversation between humans and AI
+4. **Trinity Principle** - Three core flows: App→User, User→App, App→App
+
+## APML SYNTAX SPECIFICATION v0.9.1
+
+### Basic App Structure
+```apml
+app AppName:
+  title: "Human Readable Title"
+  description: "Brief description of the app"
   version: "1.0.0"
-  apml_specification_version: "0.9.0"
+  apml_specification_version: "0.9.1"
+```
 
-data [ModelName]:
-  field_name: field_type constraints
-  
-interface [interface_name]:
-  show element_name:
-    property: value
-    
-logic [logic_name]:
+### Data Models
+```apml
+data ModelName:
+  field_name: type required
+  optional_field: type default value
+  id: unique_id
+  created_at: datetime
+  status: text default "active"
+```
+
+**Supported Types:**
+- `text` - String values
+- `number` - Numeric values
+- `boolean` - True/false
+- `datetime` - Date and time
+- `unique_id` - Auto-generated unique identifier
+- `array` - Array of items
+- `object` - Complex object
+
+### Interface Definitions (App→User)
+```apml
+interface screen_name:
+  show panel_name:
+    title: "Panel Title"
+    element_name:
+      text: "Button Text"
+      placeholder: "Input placeholder"
+      type: "password"
+    dynamic_content: ModelName[]
+```
+
+**Common Interface Elements:**
+- Buttons: `button_name: { text: "Click Me" }`
+- Inputs: `input_name: { placeholder: "Enter text" }`
+- Lists: `list_name: ModelName[]`
+- Text: `title: "Static text"`
+- Images: `image_name: { src: "url", alt: "description" }`
+
+### Logic Flows (User→App & App→App)
+```apml
+logic logic_group_name:
   process process_name:
-    step_definition
+    when user clicks button_name:
+      create new ModelName with field_data
+      redirect to target_screen
+      
+  process another_process:
+    when condition_met:
+      update existing_model
+      show success_message
+```
 
-### 1.2 Data Types
+**Common Logic Patterns:**
+- Navigation: `redirect to screen_name`
+- Data Creation: `create new ModelName with data`
+- Data Updates: `update existing_model`
+- Validation: `validate field_name`
+- API Calls: `fetch from endpoint`
 
-- text: String values
-- number: Numeric values  
-- boolean: true/false values
-- unique_id: Auto-generated identifiers
-- list of [type]: Arrays
-- [ModelName]: References to other data models
+## ADE DEVELOPMENT WORKFLOW
 
-### 1.3 Constraints
+### Phase 1: LLM Generation (You Are Here)
+When a user describes an application idea:
 
-- required: Field must have a value
-- optional: Field can be empty
-- unique: Value must be unique across records
-- default: "value": Default value if not specified
+1. **Listen for Intent** - Extract core functionality
+2. **Generate APML** - Use syntax above
+3. **Validate Structure** - Ensure proper APML format
+4. **Export to ADE** - Provide complete APML spec
 
-### 1.4 Interface Elements
+### Phase 2: ADE Visualization
+User takes APML to https://ade.apml.dev where they:
+- See interactive mobile mockups
+- View flow diagrams
+- Test all user paths
+- Create change requests
 
-Common interface element types:
-- show: Display elements to users
-- display: Static content presentation
-- form: User input collection
-- when: Conditional logic triggers
+### Phase 3: Iteration Loop
+ADE sends change requests back to LLM for updates, then redeploys.
 
-## 2. TRINITY PRINCIPLE
+## LLM GENERATION GUIDELINES
 
-The Trinity Principle defines three types of application messages:
+### 1. Start with User Intent
+```
+User: "I want a simple todo app"
 
-### 2.1 App-to-User (Display/Output)
-- Showing information to users
-- Displaying data and content
-- Presenting results and feedback
+Generate: Complete APML with interfaces for todo list, add todo, etc.
+```
 
-### 2.2 User-to-App (Input/Interaction)  
-- User actions and inputs
-- Form submissions
-- Button clicks and navigation
+### 2. Include All Three Components
+Every APML should have:
+- `data` models for information storage
+- `interface` definitions for screens
+- `logic` flows for user interactions
 
-### 2.3 App-to-App (Logic/Processing)
-- Internal workflows and processing
-- Data transformations
-- Business logic execution
+### 3. Use Descriptive Names
+```apml
+# Good
+interface welcome_screen:
+  show greeting_panel:
+    welcome_message: "Welcome to MyApp"
 
-## 3. PATTERN LIBRARIES
+# Avoid
+interface screen1:
+  show div1:
+    text1: "Hello"
+```
 
-### 3.1 Research Methodology Patterns
+### 4. Think Mobile-First
+Design interfaces as mobile screens:
+```apml
+interface task_list:
+  show main_panel:
+    header: "My Tasks"
+    task_items: Task[]
+    add_button:
+      text: "➕ Add Task"
+```
 
-#### Research Methodology Examples
+### 5. Connect Screens with Logic
+Every button should have corresponding logic:
+```apml
+interface welcome_screen:
+  show welcome_panel:
+    get_started_button:
+      text: "Get Started"
 
-**Research Analysis Patterns:**
-- Thematic Analysis: No description
+logic navigation:
+  process start_app:
+    when user clicks get_started_button:
+      redirect to main_dashboard
+```
 
-**Insight Transformation:**
-- Jobs To Be Done Mapping: No description
+## COMMON APPLICATION PATTERNS
 
-**Persona Development:**
-- Persona Synthesis: No description
-
-
-
-### 3.2 Design Intelligence Patterns
-
-#### Design Intelligence Examples
-
-**Intelligent Recommendation Engine:**
-
-**Framework Transformation Patterns:**
-- User Journey To Solution: No description
-
-**Complexity Navigation:**
-- Cynefin Framework Application: No description
-
-**Innovation Acceleration:**
-- Analogical Thinking: No description
-
-**Behavioral Design Patterns:**
-- Nudge Technique Application: No description
-
-
-
-### 3.3 Business Strategy Patterns
-
-#### Business Strategy Examples
-
-**Strategic Decision Frameworks:**
-- Swot Analysis Execution: No description
-
-**Business Model Innovation:**
-- Platform Strategy Design: No description
-
-**Digital Transformation Strategy:**
-- Digital Business Model Evolution: No description
-
-
-
-## 4. COMPONENT PATTERNS
-
-### 4.1 Authentication Flow Example
-
-app UserAuthentication:
-  title: "User Authentication System"
-  version: "1.0.0"
-
+### Authentication App
+```apml
 data User:
   id: unique_id
-  email: text required unique
+  email: text required
   password: text required
-  name: text required
-  created_at: timestamp auto
+  created_at: datetime
 
-interface login:
+interface login_screen:
   show login_form:
-    title: "Sign In"
-    email_input: email required
-    password_input: password required
-    login_button: "Sign In"
-    signup_link: "Create Account"
-    
-  when user clicks login_button:
-    validate credentials
-    redirect to dashboard
+    email_input:
+      placeholder: "Enter email"
+    password_input:
+      type: "password"
+    login_button:
+      text: "Sign In"
 
-interface signup:
-  show registration_form:
-    title: "Create Account"
-    name_input: text required
-    email_input: email required
-    password_input: password required
-    confirm_password_input: password required
-    signup_button: "Create Account"
-    
 logic authentication:
   process user_login:
-    validate email format
-    verify password
-    create session
-    redirect to dashboard
+    when user clicks login_button:
+      validate email_input and password_input
+      if valid:
+        create user_session
+        redirect to dashboard
+      else:
+        show error_message
+```
 
-### 4.2 Business Application Example - Restaurant Ordering
-
-app RestaurantOrdering:
-  title: "Restaurant Online Ordering"
-  version: "1.0.0"
-
-data MenuItem:
+### CRUD Application
+```apml
+data Item:
   id: unique_id
   name: text required
   description: text
-  price: number required
-  category: appetizer | main | dessert | beverage
-  available: boolean default true
+  created_at: datetime
 
-data Order:
-  id: unique_id
-  customer_name: text required
-  customer_phone: text required
-  items: list of OrderItem
-  total_amount: number required
-  status: pending | confirmed | preparing | ready | delivered
-  created_at: timestamp auto
+interface item_list:
+  show list_panel:
+    title: "My Items"
+    items: Item[]
+    add_button:
+      text: "Add New Item"
 
-data OrderItem:
-  menu_item_id: MenuItem required
-  quantity: number required
-  special_instructions: text optional
+interface add_item:
+  show form_panel:
+    name_input:
+      placeholder: "Item name"
+    description_input:
+      placeholder: "Description"
+    save_button:
+      text: "Save Item"
 
-interface menu_display:
-  show category_sections:
-    appetizers_section:
-      title: "Appetizers"
-      items: filter MenuItem where category is appetizer
-      
-    mains_section:
-      title: "Main Courses"  
-      items: filter MenuItem where category is main
-      
-    desserts_section:
-      title: "Desserts"
-      items: filter MenuItem where category is dessert
+logic item_management:
+  process create_item:
+    when user clicks save_button:
+      create new Item with form_data
+      redirect to item_list
+```
 
-  show item_card:
-    for each item in category.items:
-      display item_details:
-        name: item.name
-        description: item.description
-        price: item.price
-        add_button: "Add to Order"
-
-interface order_management:
-  show cart_summary:
-    title: "Your Order"
-    order_items: list current order items
-    total_display: calculated total
-    checkout_button: "Proceed to Checkout"
-    
-  show checkout_form:
-    customer_name: text required
-    customer_phone: text required
-    delivery_address: text required
-    payment_method: cash | card
-    place_order_button: "Place Order"
-
-logic order_processing:
-  process add_to_cart:
-    when user clicks add_button:
-      create OrderItem
-      add to current order
-      update cart display
-      
-  process place_order:
-    when user submits checkout_form:
-      validate customer information
-      calculate final total
-      create Order record
-      send confirmation
-      redirect to order_status
-
-### 4.3 Dashboard Pattern
-
-app AdminDashboard:
-  title: "Business Dashboard"
-  
+### Dashboard Application
+```apml
 interface dashboard:
-  show stats_overview:
-    title: "Overview"
+  show main_layout:
+    header:
+      title: "Dashboard"
+      user_menu: dynamic
     
-    display metric_cards:
-      total_sales:
-        label: "Total Sales"
-        value: sum Order.total_amount where status is delivered
-        
-      pending_orders:
-        label: "Pending Orders"
-        value: count Order where status is pending
-        
-      active_customers:
-        label: "Active Customers"
-        value: count unique User where last_login > 30 days ago
+    stats_section:
+      total_users: number
+      active_sessions: number
+      revenue: currency
+    
+    chart_section:
+      usage_chart: dynamic
+      performance_metrics: dynamic
+    
+    recent_activity:
+      activity_feed: Activity[]
+```
 
-  show recent_activity:
-    title: "Recent Orders"
-    order_list:
-      for each order in Order order by created_at desc limit 10:
-        display order_row:
-          customer: order.customer_name
-          total: order.total_amount
-          status: order.status
-          time: order.created_at
+## VALIDATION CHECKLIST
 
-## 5. THEME SYSTEM
+Before providing APML to users, ensure:
 
-### 5.1 Available Themes
+✅ **Complete Structure**
+- Has `app` declaration
+- Contains `data`, `interface`, and `logic` sections
+- Proper APML syntax throughout
 
-APML supports multiple visual themes that can be applied during compilation:
+✅ **Logical Flow**
+- Every button has corresponding logic
+- Logic properly redirects between interfaces
+- Data models support the interface needs
 
-- **corporate-confidence**: Professional business theme with blue/gray palette
-- **creative-studio**: Vibrant creative theme with purple/orange accents  
-- **zen-garden**: Minimal zen theme with green/earth tones
-- **midnight-mode**: Dark theme with high contrast
-- **startup-energy**: Modern startup theme with bright colors
+✅ **Mobile-Friendly Design**
+- Interfaces designed as mobile screens
+- Clear navigation patterns
+- Touch-friendly interactions
 
-### 5.2 Theme Application
+✅ **Realistic Functionality**
+- App can actually be built from this spec
+- All referenced elements exist
+- Logic flows make sense
 
-Themes are applied during compilation:
+## EXAMPLE PROMPTS TO HANDLE
 
-apml compile --theme=corporate-confidence app.apml
+### Simple Request
+```
+User: "I need a basic contact form"
 
-Or specified in the app definition:
+Response: Generate APML with:
+- Contact data model (name, email, message)
+- Contact form interface
+- Form submission logic
+```
 
-app MyApplication:
-  title: "My App"
-  theme: corporate-confidence
+### Complex Request
+```
+User: "Build me a social media app like Twitter"
 
-### 5.3 Theme Characteristics
+Response: Generate APML with:
+- User, Post, Like, Follow data models
+- Feed, Profile, Compose interfaces
+- Authentication, posting, social logic flows
+```
 
-**Corporate Confidence:**
-- Professional blue (#1e40af) and gray (#64748b) palette
-- Clean typography with Inter font family
-- Subtle shadows and rounded corners
-- Ideal for: Business apps, admin dashboards, professional services
+### Feature Addition
+```
+User: "Add comments to my blog app"
 
-**Creative Studio:**
-- Vibrant purple (#8b5cf6) and orange (#f97316) accents
-- Playful gradients and animations
-- Bold typography with creative flair
-- Ideal for: Design agencies, creative portfolios, artistic platforms
+Response: 
+- Add Comment data model
+- Update post interface with comments
+- Add comment creation logic
+```
 
-**Zen Garden:**
-- Calming green (#10b981) and earth tone (#92400e) palette  
-- Minimal spacing and clean lines
-- Natural, organic feeling design
-- Ideal for: Wellness apps, meditation platforms, sustainable businesses
+## CHANGE REQUEST HANDLING
 
-## 6. EXAMPLES
+When ADE sends change requests, format like:
+```
+# CHANGE REQUEST CR1 (HIGH)
+# Screen: login_screen
+# Type: ui_change
+# Request: Make the login button bigger and blue
+# Added: 7/23/2025
 
-### 6.1 Complete Business Application - Consultant Booking
+interface login_screen:
+  show login_form:
+    login_button:
+      text: "Sign In"
+      style: "large blue button"
+```
 
-app ConsultantBooking:
-  title: "Professional Consulting Services"
-  theme: corporate-confidence
+## OUTPUT FORMAT
+
+Always provide complete APML in code blocks:
+
+```apml
+app YourAppName:
+  title: "App Title"
+  description: "Brief description"
   version: "1.0.0"
+  apml_specification_version: "0.9.1"
 
-data Consultant:
-  id: unique_id
-  name: text required
-  expertise: text required
-  hourly_rate: number required
-  bio: text
-  available_days: list of weekday
-  
-data Appointment:
-  id: unique_id
-  consultant_id: Consultant required
-  client_name: text required
-  client_email: email required
-  appointment_date: date required
-  appointment_time: time required
-  duration: 30min | 60min | 90min
-  status: pending | confirmed | completed | cancelled
-  notes: text optional
+# Complete APML specification here...
+```
 
-interface consultant_listing:
-  show consultant_grid:
-    title: "Our Expert Consultants"
-    
-    for each consultant in Consultant:
-      display consultant_card:
-        name: consultant.name
-        expertise: consultant.expertise
-        rate: consultant.hourly_rate per hour
-        bio: consultant.bio
-        book_button: "Book Consultation"
+## INTEGRATION WITH ADE
 
-interface booking_form:
-  show appointment_booking:
-    title: "Book Your Consultation"
-    
-    consultant_info:
-      display: selected consultant details
-      
-    appointment_details:
-      client_name: text required
-      client_email: email required
-      preferred_date: date required
-      preferred_time: time required
-      duration: 30min | 60min | 90min
-      consultation_notes: textarea optional
-      
-    book_appointment_button: "Confirm Booking"
+After generating APML, instruct users:
 
-logic booking_management:
-  process create_booking:
-    when user submits booking_form:
-      validate appointment availability
-      check consultant schedule
-      create Appointment record
-      send confirmation email
-      update consultant availability
+"Copy this APML specification and paste it into the APML Development Engine at https://ade.apml.dev to see your app visualized, test it interactively, and deploy it to a live website."
 
-### 6.2 E-commerce Pattern
+## SUCCESS METRICS
 
-app OnlineStore:
-  title: "Online Product Store"
-  theme: creative-studio
+A good APML generation should enable:
+- Visual mockup in ADE within seconds
+- Complete user flow testing
+- One-click deployment to live site
+- Easy iteration through change requests
 
-data Product:
-  id: unique_id
-  name: text required
-  description: text
-  price: number required
-  category: electronics | clothing | books | home
-  stock_quantity: number required
-  images: list of image_url
+## REMEMBER
 
-data CartItem:
-  product_id: Product required
-  quantity: number required
-  
-data Customer:
-  id: unique_id
-  name: text required
-  email: email required
-  shipping_address: text required
-
-interface product_catalog:
-  show category_filter:
-    all_products: "All Products"
-    electronics: "Electronics"
-    clothing: "Clothing" 
-    books: "Books"
-    home: "Home & Garden"
-    
-  show product_grid:
-    for each product in Product where category matches filter:
-      display product_card:
-        image: product.images[0]
-        name: product.name
-        price: product.price
-        add_to_cart_button: "Add to Cart"
-
-interface shopping_cart:
-  show cart_contents:
-    title: "Shopping Cart"
-    
-    for each item in CartItem:
-      display cart_item:
-        product_name: item.product.name
-        quantity: item.quantity
-        subtotal: item.quantity * item.product.price
-        remove_button: "Remove"
-        
-    total_amount: sum of all subtotals
-    checkout_button: "Proceed to Checkout"
-
-## 7. BEST PRACTICES
-
-### 7.1 Data Modeling
-- Use descriptive field names (customer_name vs name)
-- Include required constraints for critical fields
-- Use appropriate data types (email for emails, not text)
-- Plan relationships between models carefully
-
-### 7.2 Interface Design
-- Group related elements logically
-- Use clear, action-oriented button labels
-- Provide feedback for user actions
-- Keep forms simple and focused
-
-### 7.3 Logic Organization
-- Break complex processes into smaller steps
-- Use descriptive process names
-- Handle error cases explicitly
-- Include validation at appropriate points
-
-### 7.4 Performance Considerations
-- Use filters to limit data sets in displays
-- Implement pagination for large lists
-- Cache frequently accessed data
-- Optimize database queries
-
-## 8. ERROR PATTERNS AND SOLUTIONS
-
-### 8.1 Common Syntax Errors
-
-**Missing Required Fields:**
-❌ Incorrect:
-data User:
-  name: text
-  
-✅ Correct:
-data User:
-  name: text required
-
-**Invalid Data Type References:**
-❌ Incorrect:
-order_items: list of OrderItems
-
-✅ Correct:
-order_items: list of OrderItem
-
-**Malformed Interface Elements:**
-❌ Incorrect:
-interface menu
-  show items:
-  
-✅ Correct:
-interface menu:
-  show items:
-    title: "Menu Items"
-
-### 8.2 Logic Flow Issues
-
-**Missing Process Steps:**
-❌ Incomplete:
-logic user_registration:
-  process signup:
-    validate email
-    
-✅ Complete:
-logic user_registration:
-  process signup:
-    validate email format
-    check email uniqueness
-    hash password
-    create user record
-    send welcome email
-
-### 8.3 Data Consistency Problems
-
-**Unhandled Edge Cases:**
-❌ Problematic:
-when user clicks buy_button:
-  create order
-  
-✅ Robust:
-when user clicks buy_button:
-  if cart is not empty:
-    if user is authenticated:
-      create order
-      clear cart
-      redirect to confirmation
-    else:
-      redirect to login
-  else:
-    show "cart is empty" message
-
-## 9. COMPILATION AND DEPLOYMENT
-
-### 9.1 Basic Compilation
-apml compile app.apml --target=vue --output=dist/
-
-### 9.2 Theme Application
-apml compile app.apml --theme=corporate-confidence --target=vue
-
-### 9.3 Production Build
-apml compile app.apml --target=vue --optimize=true --theme=zen-garden
-
-## 10. INTEGRATION PATTERNS
-
-### 10.1 API Integration
-logic external_data:
-  process fetch_weather:
-    call external api "https://api.weather.com/current"
-    parse response data
-    update weather_display
-
-### 10.2 Database Connections
-data Product:
-  database_connection: postgresql://localhost:5432/store
-  table_name: products
-
-### 10.3 Authentication Services
-logic authentication:
-  provider: firebase_auth
-  process social_login:
-    authenticate with google
-    create user session
+- APML is about INTENT, not implementation
+- Every element should serve the user's goal
+- Keep it simple but complete
+- Design for mobile interaction
+- Enable the full ADE workflow
 
 ---
 
-# QUICK REFERENCE PATTERNS
+This reference enables any LLM to generate high-quality APML specifications that work seamlessly with the APML Development Engine ecosystem.
 
-## Restaurant/Food Service
-- Menu display with categories
-- Order management with cart
-- Customer information collection
-- Order status tracking
-
-## Professional Services  
-- Service/consultant listings
-- Appointment booking systems
-- Client information management
-- Scheduling and availability
-
-## E-commerce
-- Product catalogs with filtering
-- Shopping cart functionality
-- Checkout and payment processing
-- Order fulfillment tracking
-
-## Content Management
-- Article/blog post creation
-- Content categorization
-- User comment systems
-- Content publishing workflows
-
-## Admin Dashboards
-- Metrics and KPI displays
-- Data visualization
-- User management interfaces
-- System monitoring views
-
----
-
-This reference enables LLMs to assist developers in building any type of APML application through natural conversation, covering all essential patterns and best practices needed for real-world business applications.
+For questions or updates: https://apml.dev/community

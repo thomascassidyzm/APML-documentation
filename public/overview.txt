@@ -48,7 +48,7 @@ KEY FEATURES
 4. Logical Completeness Certification
    - Mathematical verification of application logic
    - Guaranteed crash-free deployment
-   - Enhanced APML Validator v0.9.0
+   - Enhanced APML Validator v0.9.1
 
 USE CASES
 
@@ -67,7 +67,7 @@ DEVELOPMENT WORKFLOW
 
 VERSION STATUS
 
-Current: APML v0.9.0 - Grammar Foundation Release
+Current: APML v0.9.1 - Triadic Architecture Release
 - Complete syntax specification
 - Trinity Principle implementation
 - Vue.js compiler stable

@@ -1,8 +1,8 @@
 app APMLDevSite:
   title: APML - The Universal Language for Human-AI Collaboration
-  description: Official home of APML v0.9.0 - Logically Complete conversational code
+  description: Official home of APML v0.9.1 - Triadic architecture for human-AI collaborative problem solving
   version: 1.0.0
-  apml_specification_version: "0.9.0"
+  apml_specification_version: "0.9.1"
   theme: minimal-documentation
   logical_completeness_certified: true
 
@@ -14,7 +14,7 @@ data SiteResource:
   logical_completeness_status: logically_complete | pending | not_applicable
 
 data APMLDevSiteContent:
-  primary_specification: "APML-v0.9.0.apml"
+  primary_specification: "APML-v0.9.1.apml"
   enhanced_validator: "src/enhanced-validator.apml"
   site_specification: "site-specification.apml"
   vue_app_source: "src/"
@@ -36,10 +36,10 @@ data APMLDevSiteContent:
       app_to_app: Processing, logic, internal workflows
       
     show specification_section:
-      title: APML v0.9.0 Language Specification
-      subtitle: Grammar Foundation Release - Complete syntax and semantics
+      title: APML v0.9.1 Language Specification
+      subtitle: Triadic Architecture Release - Complete triadic principles and conservation physics
       content: Official specification with Trinity Principle and logical completeness requirements
-      specification_file: APML-v0.9.0.apml
+      specification_file: APML-v0.9.1.apml
       
     display logical_completeness_section:
       title: Logically Complete APML

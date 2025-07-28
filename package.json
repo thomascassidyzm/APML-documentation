@@ -1,7 +1,7 @@
 {
   "name": "apmldevsite",
   "version": "1.0.0",
-  "description": "Official home of APML v0.9.0 - Logically Complete conversational code",
+  "description": "Official home of APML v0.9.1 - Triadic architecture for human-AI collaborative problem solving",
   "type": "module",
   "scripts": {
     "dev": "vite",

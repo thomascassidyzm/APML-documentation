@@ -1,644 +1,719 @@
-APML Business Patterns Reference
-For LLMs: Convert any business conversation into perfect APML specifications
+APML v0.9.1 Business Patterns Reference
+Triadic Architecture for Human-AI Collaborative Problem Solving
 
 PURPOSE
-This reference enables any LLM to turn business requirements, user stories, and feature requests into valid, complete APML specifications that can be compiled into working applications.
+This reference enables any LLM to turn business requirements, user stories, and feature requests into valid, complete APML v0.9.1 specifications using triadic architecture principles, conservation physics, and collaborative intelligence frameworks.
 
-BUSINESS → APML TRANSLATION PATTERNS
+BUSINESS → APML v0.9.1 TRANSLATION PATTERNS
 
-1. INTENT DISCOVERY FRAMEWORK
+1. TRIADIC INTENT DISCOVERY FRAMEWORK
 
-When user describes a business need:
-a) Identify the core business entity (User, Product, Order, etc.)
-b) Extract key data fields and relationships
-c) Determine interface requirements (what users see/do)
-d) Map business logic and workflows
-e) Apply Trinity Principle validation
+When user describes a business need, apply the triadic discovery process:
 
-2. COMMON BUSINESS PATTERNS
+a) TRINITY MESSAGING ANALYSIS:
+   - System → User: What displays, outputs, and feedback are needed?
+   - User → System: What interactions, inputs, and commands are required?
+   - System → System: What business logic, data operations, and integrations are necessary?
 
-PATTERN: E-commerce Store
-Business Need: "I need an online store to sell products"
-APML Translation:
-```
+b) CONSERVATION PHYSICS ASSESSMENT:
+   - Intent Preservation: What core functionality must remain identical across platforms?
+   - Contextual Adaptation: What elements need platform-specific adaptation?
+   - Bandwidth Optimization: How can we preserve experiential richness?
+
+c) COLLABORATIVE INTELLIGENCE INTEGRATION:
+   - Human Insight: What intuitive understanding and context is provided?
+   - AI Processing: What systematic analysis and pattern matching is needed?
+   - Emergent Solutions: What novel approaches might transcend individual capabilities?
+
+d) PATTERN LIBRARY UTILIZATION:
+   - Identify existing patterns that can be applied
+   - Determine if new patterns need to be discovered
+   - Ensure anti-fragile development principles
+
+2. TRIADIC BUSINESS PATTERNS
+
+PATTERN: E-commerce with Conservation Physics
+Business Need: "I need an online store that works seamlessly across web and mobile"
+APML v0.9.1 Translation:
+
+```apml
 app OnlineStore:
-  title: My Store
+  title: "Modern E-commerce Platform"
+  description: "Triadic architecture e-commerce with conservation physics"
+  version: "1.0.0"
+  apml_specification_version: "0.9.1"
   
+  triadic_compliance:
+    trinity_messaging: verified
+    implementation_triad: complete
+    collaborative_intelligence: enabled
+
 data Product:
+  id: unique_id
   name: text required
   price: money required
   inventory: number default 0
+  category: electronics | clothing | books | other
   
+  conservation_properties:
+    intent_preservation: pricing_logic_identical_across_platforms
+    contextual_adaptation: image_optimization_per_device
+    referential_integrity: enforced
+
 data Order:
-  customer_email: email required
-  products: list of Product
+  id: unique_id
+  customer: Customer required
+  products: list of OrderItem required
   total: money calculated
-  status: pending | processing | shipped | delivered
+  status: pending | processing | shipped | delivered | cancelled
+  created_at: timestamp auto
   
-interface:
+  conservation_rules:
+    workflow_preservation: order_processing_identical_everywhere
+    adaptation_context: notification_method_per_platform
+
+interface product_discovery:
+  # System → User: Product displays
   show product_catalog:
-    title: "Our Products"
-    for each product:
-      display product.name, product.price
-      when product.inventory > 0:
-        button "Add to Cart"
+    title: "Discover Amazing Products"
+    
+    for each product in Product where inventory > 0:
+      display product_card:
+        name: product.name
+        price: product.price formatted_as_currency
+        image: product.primary_image optimized_for_device
         
-  show shopping_cart:
-    for each item in cart:
-      display item.name, item.price
-    button "Checkout"
-```
-
-PATTERN: Restaurant Management
-Business Need: "I need to manage my restaurant orders and menu"
-APML Translation:
-```
-app RestaurantManager:
-  title: Restaurant Orders
+        # Conservation adaptation: different layouts per platform
+        responsive_behavior:
+          mobile: single_column_stack
+          desktop: grid_layout_4_columns
+          tablet: grid_layout_2_columns
+        
+        trinity_compliance:
+          system_to_user: complete_product_information_displayed
+          user_to_system: add_to_cart_interaction_handled
   
-data MenuItem:
-  name: text required
-  price: money required
-  category: appetizer | main | dessert | drink
-  available: boolean default true
-  
-data Order:
-  table_number: number required
-  items: list of MenuItem
-  status: pending | preparing | ready | served
-  total: money calculated
-  timestamp: datetime auto
-  
-interface:
-  show menu_management:
-    for each category:
-      show items where category = this.category
-      button "Add New Item"
+  # User → System: Shopping interactions
+  when user clicks add_to_cart on product:
+    validate product.inventory > 0
+    add_to_cart product with quantity: 1
+    show success_message: "Added to cart!"
+    update cart_counter
+    
+    # Conservation verification
+    verify intent_preserved: adding_to_cart_identical_across_platforms
+    
+  when user searches for search_term:
+    filter Product where name contains search_term
+    apply_search_highlighting for search_term
+    track_search_analytics search_term
+    
+  # System → System: Background processing
+  process inventory_management:
+    when product.inventory < 5:
+      notify_admin "Low inventory alert for " + product.name
+      trigger_reorder_workflow if product.auto_reorder_enabled
       
-  show order_tracking:
-    for each order where status != served:
-      display order.table_number, order.items, order.status
-      buttons "Mark Ready", "Mark Served"
-```
+    conservation_verification:
+      ensure business_logic_identical across all_platforms
 
-PATTERN: Professional Services
-Business Need: "I need to track clients and appointments"
-APML Translation:
-```
-app ClientTracker:
-  title: Client Management
-  
-data Client:
-  name: text required
-  email: email required
-  phone: phone
-  status: active | inactive
-  
-data Appointment:
-  client: Client required
-  date: datetime required
-  service_type: consultation | meeting | review
-  notes: text
-  status: scheduled | completed | cancelled
-  
-interface:
-  show client_dashboard:
-    for each client where status = active:
-      display client.name, client.email
-      link "Schedule Appointment"
+logic order_processing:
+  process checkout_workflow:
+    when user initiates checkout:
+      # Input validation (User → System)
+      validate cart is not empty
+      validate shipping_address is complete
+      validate payment_method is valid
       
-  show calendar_view:
-    for each appointment this week:
-      display appointment.date, appointment.client.name
-      when appointment.status = scheduled:
-        buttons "Complete", "Cancel"
+      # Business logic (System → System)  
+      calculate_shipping_cost based_on address_and_weight
+      calculate_taxes based_on jurisdiction
+      calculate_final_total including shipping_and_taxes
+      
+      # Conservation physics application
+      verify intent_preservation:
+        pricing_calculation_identical across all_platforms
+        tax_rules_consistent across deployments
+        shipping_logic_preserved in all_contexts
+        
+      if payment_successful:
+        create Order with validated_data
+        decrement_inventory for each_ordered_product
+        send_confirmation_email to customer
+        
+        # Output generation (System → User)
+        redirect_to order_confirmation_page
+        show success_message with order_details
+        
+        # Contextual adaptation
+        platform_specific_behavior:
+          mobile: send_push_notification "Order confirmed!"
+          web: show_browser_notification
+          email: send_detailed_receipt
+          
+      else:
+        # Error handling with conservation
+        show error_message with recovery_options
+        maintain_cart_state for retry_attempt
+        log_failed_transaction for analysis
+        
+        # Ensure consistent error handling across platforms
+        verify error_handling_identical across all_targets
+
+# Pattern library application
+apply_pattern secure_authentication:
+  from_library: apml_standard_patterns
+  customization:
+    multi_factor_enabled: true
+    social_login_providers: [google, facebook, apple]
+  conservation_compliance: verified
+
+apply_pattern payment_processing:
+  from_library: ecommerce_patterns  
+  customization:
+    providers: [stripe, paypal, apple_pay, google_pay]
+    supported_currencies: [USD, EUR, GBP]
+    fraud_detection: enhanced
+  trinity_compliance: complete
 ```
 
-3. INTENT CLARIFICATION TECHNIQUES
-
-When business requirements are unclear, ask:
-
-DATA CLARIFICATION:
-- "What information do you need to track?"
-- "What fields are required vs optional?"
-- "How are these items related?"
-
-INTERFACE CLARIFICATION:
-- "What should users see first?"
-- "What actions can users take?"
-- "What happens when they click/submit?"
-
-LOGIC CLARIFICATION:
-- "When does X happen?"
-- "What are the different states/statuses?"
-- "What business rules apply?"
-
-4. VALIDATION CHECKLIST
-
-Before finalizing APML spec, verify:
-☐ All core business entities are defined as data models
-☐ Required fields are marked as required
-☐ User interface covers all user actions
-☐ Business logic rules are implemented
-☐ Trinity Principle is satisfied:
-  - App → User: All displays and outputs defined
-  - User → App: All inputs and interactions covered
-  - App → App: All business logic workflows included
-
-5. INDUSTRY-SPECIFIC TEMPLATES
-
-HEALTHCARE:
-- Patient, Appointment, Treatment data models
-- HIPAA compliance considerations
-- Medical workflow interfaces
-
-EDUCATION:
-- Student, Course, Assignment data models
-- Grading and progress tracking
-- Communication interfaces
-
-RETAIL:
-- Inventory, Customer, Sale data models
-- Payment processing workflows
-- Order fulfillment interfaces
-
-PROFESSIONAL SERVICES:
-- Client, Project, Invoice data models
-- Time tracking workflows
-- Billing and reporting interfaces
-
-REAL ESTATE:
-- Property, Client, Showing data models
-- Lead management workflows
-- Communication tracking interfaces
-
-6. COMMON BUSINESS LOGIC PATTERNS
-
-STATUS WORKFLOWS:
-```
-when order.status is pending:
-  send confirmation_email
-  update inventory
-when order.status is shipped:
-  send tracking_email
-```
-
-CONDITIONAL ACCESS:
-```
-when user.subscription is premium:
-  grant access_to_advanced_features
-when user.trial_expired:
-  redirect to subscription_page
-```
-
-AUTOMATED CALCULATIONS:
-```
-data Invoice:
-  subtotal: money calculated from line_items
-  tax: money calculated as subtotal * tax_rate
-  total: money calculated as subtotal + tax
-```
-
-NOTIFICATIONS:
-```
-when appointment.date is tomorrow:
-  send reminder_email to client
-when inventory.level < 10:
-  notify admin "Low stock alert"
-```
-
-7. QUALITY ASSURANCE
-
-Ensure APML specs include:
-- Clear data validation rules
-- Proper error handling
-- User-friendly interface labels
-- Logical workflow completion
-- Security considerations (authentication, permissions)
-
-This reference enables any LLM to transform business conversations into production-ready APML specifications that accurately capture business requirements and user needs.
-
-8. COMPLETE EXAMPLE: CITYREP APPLICATION
-
-The following is a comprehensive APML application demonstrating all major language features:
+PATTERN: SaaS Platform with Collaborative Intelligence
+Business Need: "I need a project management tool that adapts to different team sizes and workflows"
 
 ```apml
-app CityRep:
-  title: "CityRep"
-  description: "Share your experiences living in and visiting cities worldwide"
-  version: "1.0.0"
-  apml_specification_version: "0.9.0"
+app ProjectManager:  
+  title: "Adaptive Project Management Platform"
+  description: "SaaS with collaborative intelligence and anti-fragile patterns"
+  apml_specification_version: "0.9.1"
+  
+  triadic_compliance:
+    trinity_messaging: self_demonstrating
+    implementation_triad: principles_patterns_practices
+    collaborative_intelligence: meta_specification
 
-data User:
+data Project:
   id: unique_id
   name: text required
-  email: email required unique
-  profile_photo: image_url optional
-  auth_provider: google | facebook | email required
-  join_date: timestamp auto
-  total_reviews: number default 0
-  review_sort_preference: most_relevant | newest | oldest | highest_rated | lowest_rated | most_helpful default most_relevant
-  onboarding_completed: boolean default false
+  description: text optional
+  owner: User required
+  team_members: list of User
+  status: planning | active | on_hold | completed | cancelled
+  methodology: agile | waterfall | kanban | custom
+  
+  conservation_properties:
+    intent_preservation: project_logic_identical_across_platforms
+    contextual_adaptation: ui_optimized_per_team_size
+    anti_fragile_metrics: learns_from_team_usage_patterns
 
-data City:
-  id: unique_id
-  name: text required
-  country: text required
-  state_province: text optional
-  added_by: User required
-  wikipedia_summary: text optional
-  wikipedia_url: text optional
-  google_images: list of image_url optional
-  user_photos: list of CityPhoto optional
-  average_rating: number default 0
-  total_reviews: number default 0
-  created_date: timestamp auto
-
-data CityPhoto:
-  id: unique_id
-  city_id: City required
-  uploaded_by: User required
-  image_url: image_url required
-  caption: text optional
-  upload_date: timestamp auto
-
-data Review:
-  id: unique_id
-  city_id: City required
-  user_id: User required
-  rating: 1 | 2 | 3 | 4 | 5 required
+data Task:
+  id: unique_id  
+  project: Project required
   title: text required
-  review_text: text required
-  lived_there: boolean default false
-  visited_duration: days | weeks | months | years optional
-  review_photos: list of image_url optional
-  review_date: timestamp auto
-  helpful_votes: number default 0
+  description: text optional
+  assignee: User optional
+  priority: low | medium | high | critical
+  status: todo | in_progress | review | done
+  estimated_hours: number optional
+  actual_hours: number default 0
+  
+  collaborative_intelligence:
+    human_insight: context_and_priorities
+    ai_processing: time_estimation_optimization
+    emergent_solutions: workflow_pattern_discovery
 
-interface authentication:
-  show login_options:
-    title: "Join the Community"
-    google_login_button: "Continue with Google"
-    facebook_login_button: "Continue with Facebook"
-    email_signup_link: "Sign up with Email"
+interface adaptive_dashboard:
+  # System → User: Context-aware displays
+  show project_overview:
+    title: "Your Projects"
     
-  show email_registration:
-    title: "Create Your Account"
-    full_name: text required
-    email_address: email required
-    password: password required
-    confirm_password: password required
-    create_account_button: "Create Account"
-    back_to_options: "← Back to Login Options"
+    # Collaborative intelligence in action
+    when team_size < 5:
+      display simple_kanban_view
+    when team_size >= 5 and team_size < 20:
+      display departmental_view with role_based_filtering
+    when team_size >= 20:
+      display enterprise_dashboard with advanced_analytics
+      
+    # Anti-fragile learning
+    track_usage_patterns for dashboard_optimization
+    adapt_interface based_on team_effectiveness_metrics
     
-  show email_login:
-    title: "Welcome Back"
-    email_address: email required
-    password: password required
-    login_button: "Sign In"
-    forgot_password_link: "Forgot Password?"
-    back_to_options: "← Back to Login Options"
+  display intelligent_recommendations:
+    # AI processing with human insight integration
+    for each project in user.active_projects:
+      analyze project.velocity_trends
+      identify potential_bottlenecks
+      suggest workflow_optimizations
+      
+      # Emergent solutions
+      when pattern_discovered in team_behavior:
+        create_custom_workflow_template
+        add_to_pattern_library for other_teams
+        document_anti_fragile_improvement
 
-interface user_onboarding:
-  show welcome_flow:
-    title: "Welcome to CityRep!"
-    subtitle: "Let's get you started"
-    
-    step_1_question: "Are you currently visiting somewhere, or do you want to review your hometown/city where you live?"
-    visiting_option:
-      button: "I'm Visiting 🧳"
-      description: "Share your travel experience"
-    native_option:
-      button: "I Live Here 🏠"
-      description: "Review your hometown"
+  # User → System: Adaptive interactions
+  when user creates new_project:
+    # Collaborative intelligence workflow
+    gather human_insight:
+      project_context from user
+      team_composition_preferences
+      success_criteria_definition
       
-  show city_selection:
-    when user selects visiting:
-      title: "Where Are You Visiting?"
-      search_existing: "Search for your city"
-      city_search: text placeholder "Enter city name..."
-      not_found_message: "Don't see your city? Add it below!"
+    apply ai_processing:
+      suggest optimal_methodology based_on project_type
+      recommend team_size based_on scope_analysis
+      predict timeline using historical_data
       
-    when user selects native:
-      title: "What's Your Hometown?"
-      search_existing: "Search for your city"
-      city_search: text placeholder "Enter your city name..."
-      not_found_message: "Don't see your city? Add it below!"
-      
-    add_new_city_section:
-      city_name: text required
-      country: text required  
-      state_province: text optional
-      add_city_button: "Add This City"
-      
-  show review_preferences:
-    title: "How Would You Like to See Reviews?"
-    subtitle: "You can change this anytime in settings"
-    
-    sorting_preference: "Default sorting for reviews:"
-      most_relevant: "Most Relevant (Recommended)"
-      newest: "Newest First"
-      oldest: "Oldest First"  
-      highest_rated: "Highest Rated First"
-      lowest_rated: "Lowest Rated First"
-      most_helpful: "Most Helpful First"
-      
-    finish_button: "Complete Setup"
+    enable emergent_solutions:
+      offer hybrid_methodologies when appropriate
+      suggest cross_team_collaboration_opportunities
+      identify_skill_gap_mitigation_strategies
 
-interface city_discovery:
-  show search_section:
-    title: "Find Your Next City"
-    search_input: text placeholder "Search cities, countries..."
-    search_button: "Search"
-    
-  show featured_cities:
-    title: "Popular Destinations"
-    for each city in City order by average_rating desc limit 6:
-      display city_card:
-        name: city.name
-        country: city.country
-        rating: city.average_rating stars
-        review_count: city.total_reviews reviews
+logic anti_fragile_development:
+  process pattern_discovery:
+    when project_completed_successfully:
+      analyze what_worked_well
+      abstract_reusable_patterns from approach
+      validate_pattern across similar_projects
+      integrate_pattern into team_library
+      
+    when project_encountered_difficulties:
+      analyze failure_modes and recovery_strategies
+      strengthen_alternative_approaches
+      update_risk_mitigation_patterns
+      document_lessons_learned for future_teams
+      
+  process collaborative_intelligence_enhancement:
+    # Human insight optimization
+    when user provides_feedback on recommendations:
+      refine_ai_processing_algorithms
+      improve_context_understanding
+      enhance_pattern_recognition_accuracy
+      
+    # Emergent solution facilitation
+    when team_discovers_novel_approach:
+      document_innovation for other_teams
+      test_scalability across different_contexts
+      contribute_to_civilizational_problem_solving_capacity
 
-interface city_details:
-  show city_header:
-    city_name: selected city.name
-    location: city.country, city.state_province
-    overall_rating: city.average_rating stars
-    total_reviews: city.total_reviews reviews
-    add_review_button: "Write a Review"
-    add_photo_button: "Add Photos"
-    
-  show city_information:
-    title: "About " + city.name
-    wikipedia_content:
-      summary: city.wikipedia_summary
-      read_more_link: city.wikipedia_url
-      
-    photo_gallery:
-      title: "Photos"
-      for each photo in city.google_images limit 6:
-        display google_image: photo
-      for each photo in city.user_photos:
-        display user_photo:
-          image: photo.image_url
-          caption: photo.caption
-          by: "Photo by " + photo.uploaded_by.name
-          
-  show reviews_list:
-    title: "What People Are Saying"
-    
-    review_controls:
-      sort_dropdown: "Sort by:"
-        most_relevant: "Most Relevant"
-        newest: "Newest First" 
-        oldest: "Oldest First"
-        highest_rated: "Highest Rated"
-        lowest_rated: "Lowest Rated"
-        most_helpful: "Most Helpful"
-      current_selection: current user.review_sort_preference
-      
-    for each review in Review where city_id is selected city sorted by current user.review_sort_preference:
-      display review_card:
-        reviewer_profile:
-          name: review.user.name
-          photo: review.user.profile_photo
-          status: if review.lived_there then "🏠 Lives in " + city.name else "🧳 Visited " + city.name
-          duration: if not review.lived_there then "for " + review.visited_duration
-        rating: review.rating stars
-        review_date: review.review_date
-        title: review.title
-        review_text: review.review_text
-        review_photos: review.review_photos
-        helpful_votes: review.helpful_votes helpful
-        helpful_button: "👍 Helpful"
-
-interface user_profile:
-  show profile_header:
-    user_photo: current user.profile_photo
-    user_name: current user.name
-    member_since: current user.join_date
-    total_reviews: current user.total_reviews reviews
-    
-  show user_reviews:
-    title: "Your Reviews"
-    for each review in Review where user_id is current user:
-      display review_summary:
-        city: review.city.name
-        rating: review.rating stars
-        title: review.title
-        date: review.review_date
-        helpful_votes: review.helpful_votes
-
-interface review_submission:
-  show review_form:
-    title: "Share Your Experience"
-    subtitle: "Writing as: " + current user.name
-    city_info: "Reviewing: " + selected city.name
-    overall_rating: 1-5 stars required
-    review_title: text required
-    detailed_review: textarea required placeholder "Tell us about your experience - cost of living, safety, culture, job opportunities, nightlife, transportation, or anything that affected your quality of life there"
-    
-    photo_upload_section:
-      title: "Add Photos (Optional)"
-      photo_upload: multiple images
-      photo_previews: show selected photos
-      
-    lived_or_visited: "Your connection to this city:"
-      lived_there: boolean
-      visit_duration: days | weeks | months | years
-      
-    submit_button: "Submit Review"
-
-interface city_creation:
-  show add_city_form:
-    title: "Add Your City"
-    subtitle: "Help others discover this place"
-    city_name: text required
-    country: text required
-    state_province: text optional
-    create_button: "Create City"
-    cancel_button: "Cancel"
-
-logic authentication_processing:
-  process google_login:
-    when user clicks google_login_button:
-      authenticate with google oauth
-      if user exists:
-        create user session
-        if user.onboarding_completed:
-          redirect to city_discovery
-        else:
-          redirect to user_onboarding
-      else:
-        create User record with google data
-        create user session
-        redirect to user_onboarding
-        
-  process facebook_login:
-    when user clicks facebook_login_button:
-      authenticate with facebook oauth
-      if user exists:
-        create user session
-        if user.onboarding_completed:
-          redirect to city_discovery
-        else:
-          redirect to user_onboarding
-      else:
-        create User record with facebook data
-        create user session
-        redirect to user_onboarding
-        
-  process email_registration:
-    when user submits email_registration:
-      validate email uniqueness
-      validate password match
-      hash password
-      create User record
-      send welcome email
-      create user session
-      redirect to user_onboarding
-      
-  process email_login:
-    when user submits email_login:
-      validate email and password
-      create user session
-      if user.onboarding_completed:
-        redirect to city_discovery
-      else:
-        redirect to user_onboarding
-
-logic onboarding_flow:
-  process complete_onboarding:
-    when user completes authentication:
-      if user.onboarding_completed:
-        redirect to city_discovery
-      else:
-        redirect to user_onboarding
-      
-  process select_user_type:
-    when user clicks visiting_option or native_option:
-      store user preference
-      show city_selection interface
-      
-  process search_existing_city:
-    when user enters city_search:
-      filter City where name contains query
-      display matching cities
-      if no matches:
-        show add_new_city_section
-        
-  process complete_onboarding_setup:
-    when user clicks finish_button:
-      update User review_sort_preference
-      set User onboarding_completed to true
-      redirect to city_discovery
-
-logic city_management:
-  process create_new_city:
-    when user submits add_city_form:
-      validate city details
-      create City record with current user as added_by
-      fetch_wikipedia_data for new city
-      fetch_google_images for new city
-      redirect to city_details for new city
-      
-  process fetch_wikipedia_data:
-    call external api "https://en.wikipedia.org/api/rest_v1/page/summary/" + city.name
-    parse wikipedia response
-    update City wikipedia_summary and wikipedia_url
-    
-  process fetch_google_images:
-    call external api "Google Custom Search API" with query city.name + " city photos"
-    parse image results
-    update City google_images with top 10 results
-    
-  process add_city_photo:
-    when user uploads city photos:
-      validate image files
-      upload to cloud storage
-      create CityPhoto records
-      update city photo gallery
-
-logic review_processing:
-  process submit_review:
-    when user submits review_form:
-      if user is authenticated:
-        validate all required fields
-        if review_photos exist:
-          upload photos to cloud storage
-        create Review record with current user and photos
-        update City average_rating
-        increment City total_reviews
-        increment User total_reviews
-        send confirmation message
-        redirect to city_details page
-      else:
-        redirect to authentication
-        
-  process vote_helpful:
-    when user clicks helpful_button:
-      if user is authenticated:
-        increment Review helpful_votes
-        update review display
-      else:
-        redirect to authentication
-      
-  process search_cities:
-    when user enters search query:
-      filter City where name or country contains query
-      display matching results
-      sort by relevance and rating
-
-logic review_display:
-  process change_sort_preference:
-    when user selects sort_dropdown option:
-      update current user.review_sort_preference
-      refresh reviews_list with new sorting
-      
-  process apply_review_sorting:
-    when displaying reviews:
-      if sort is most_relevant:
-        sort by: helpful_votes desc, rating desc, review_date desc
-      if sort is newest:
-        sort by: review_date desc
-      if sort is oldest:
-        sort by: review_date asc
-      if sort is highest_rated:
-        sort by: rating desc, helpful_votes desc
-      if sort is lowest_rated:
-        sort by: rating asc, helpful_votes desc
-      if sort is most_helpful:
-        sort by: helpful_votes desc, rating desc
+# Conservation physics validation
+validate conservation_compliance:
+  verify project_management_logic identical_across platforms
+  test contextual_adaptation quality_for_different_team_sizes
+  measure experiential_richness preservation
+  confirm collaborative_intelligence_integration effectiveness
 ```
 
-ANALYSIS OF THE CITYREP EXAMPLE:
+3. TRIADIC INTENT CLARIFICATION TECHNIQUES
 
-This complete application demonstrates:
+When business requirements are unclear, apply triadic questioning:
 
-✅ TRINITY PRINCIPLE COMPLIANCE:
-- App → User: All interfaces with comprehensive display logic
-- User → App: Complete input handling and validation
-- App → App: Full business logic workflows and data processing
+TRINITY MESSAGING CLARIFICATION:
+- "What should users see and when?" (System → User)
+- "What actions can users take?" (User → System)  
+- "What processing happens behind the scenes?" (System → System)
 
-✅ ADVANCED FEATURES:
-- Multi-step user onboarding flow
-- External API integrations (Wikipedia, Google Images)
-- File upload handling with cloud storage
-- Complex data relationships and filtering
-- Dynamic UI based on user preferences
-- Comprehensive authentication flows
+CONSERVATION PHYSICS CLARIFICATION:
+- "What functionality must be identical across all platforms?"
+- "What elements should adapt to different contexts?"
+- "How can we preserve the full experience across devices?"
 
-✅ BUSINESS LOGIC PATTERNS:
-- User-generated content workflows
-- Rating and review systems
-- Photo upload and management
-- Search and discovery patterns
-- Social interaction features (helpful votes)
+COLLABORATIVE INTELLIGENCE CLARIFICATION:
+- "What human insights and context are critical?"
+- "What systematic analysis would be valuable?"
+- "What breakthrough solutions might emerge from collaboration?"
 
-✅ DATA MODEL RELATIONSHIPS:
-- One-to-many: City → Reviews, User → Reviews
-- Many-to-many: Cities ↔ Users (through Reviews)
-- Nested data: CityPhotos within Cities
+4. TRIADIC VALIDATION CHECKLIST
 
-This serves as the gold standard for comprehensive APML applications and demonstrates the language's capability to express complex, production-ready applications through natural, conversational syntax.
+Before finalizing APML v0.9.1 specification, verify:
+
+☐ TRINITY MESSAGING COMPLETENESS:
+  - All user-facing displays defined (System → User)
+  - All user interactions handled (User → System)
+  - All business logic specified (System → System)
+
+☐ CONSERVATION PHYSICS COMPLIANCE:
+  - Intent preservation specified across platforms
+  - Contextual adaptation points identified
+  - Bandwidth optimization strategies defined
+
+☐ COLLABORATIVE INTELLIGENCE INTEGRATION:
+  - Human insight leverage documented
+  - AI processing optimization specified
+  - Emergent solution facilitation enabled
+
+☐ PATTERN LIBRARY UTILIZATION:
+  - Existing patterns applied where appropriate
+  - New patterns identified for discovery
+  - Anti-fragile development principles integrated
+
+☐ ANTI-FRAGILE DEVELOPMENT:
+  - Failure analysis and learning mechanisms
+  - Pattern evolution and optimization paths
+  - Recursive improvement capabilities
+
+5. INDUSTRY-SPECIFIC TRIADIC TEMPLATES
+
+HEALTHCARE WITH CONSERVATION PHYSICS:
+```apml
+data Patient:
+  id: unique_id
+  medical_record_number: text required unique
+  name: text required
+  date_of_birth: date required
+  
+  conservation_properties:
+    intent_preservation: medical_data_integrity_across_all_systems
+    privacy_compliance: hipaa_verified_contextual_adaptation
+    security_requirements: end_to_end_encryption_all_platforms
+
+interface patient_care_dashboard:
+  # Collaborative intelligence for healthcare
+  show clinical_overview:
+    # Human insight: clinical experience and intuition
+    display doctor_notes and clinical_observations
+    # AI processing: pattern recognition and risk assessment
+    display ai_generated_risk_scores and trend_analysis
+    # Emergent solutions: personalized care recommendations
+    suggest optimal_treatment_pathways
+```
+
+EDUCATION WITH ADAPTIVE INTELLIGENCE:
+```apml
+data Student:
+  id: unique_id
+  name: text required
+  learning_style: visual | auditory | kinesthetic | mixed
+  progress_metrics: LearningMetrics
+  
+  collaborative_intelligence:
+    human_insight: teacher_observations_and_context
+    ai_processing: learning_pattern_analysis
+    emergent_solutions: personalized_curriculum_optimization
+
+interface adaptive_learning:
+  show curriculum_dashboard:
+    # Conservation physics: core learning preserved
+    display essential_concepts identical_across_platforms
+    # Contextual adaptation: delivery method optimized
+    adapt_presentation for student.learning_style
+    # Bandwidth optimization: full educational experience
+    maintain experiential_richness across devices
+```
+
+6. ADVANCED BUSINESS LOGIC PATTERNS WITH CONSERVATION
+
+STATUS WORKFLOWS WITH INTENT PRESERVATION:
+```apml
+logic order_fulfillment:
+  process status_transitions:
+    when order.status transitions_to processing:
+      # Intent preservation: identical across platforms
+      send_confirmation_email identical_content_all_channels
+      update_inventory using_same_algorithm_everywhere
+      
+      # Contextual adaptation: delivery method varies
+      notification_method:
+        mobile: push_notification
+        web: browser_notification  
+        email: detailed_status_update
+        
+      # Conservation verification
+      verify intent_preserved: core_business_logic_identical
+      verify adaptation_appropriate: context_specific_optimizations
+```
+
+COLLABORATIVE INTELLIGENCE IN BUSINESS RULES:
+```apml
+logic intelligent_pricing:
+  process dynamic_pricing_optimization:
+    # Human insight: market understanding and strategy
+    incorporate business_strategy and market_positioning
+    
+    # AI processing: data analysis and optimization
+    analyze competitor_pricing and demand_patterns
+    optimize_for profit_maximization and market_share
+    
+    # Emergent solutions: novel pricing strategies
+    discover breakthrough_pricing_models
+    test_innovative_approaches with a_b_testing
+    
+    # Conservation physics: pricing logic preserved
+    ensure pricing_calculation_identical across_all_channels
+    adapt_display_format for different_customer_contexts
+```
+
+7. ANTI-FRAGILE BUSINESS PATTERN DEVELOPMENT
+
+PATTERN EVOLUTION TRACKING:
+```apml
+logic business_pattern_evolution:
+  process pattern_improvement:
+    when business_process_succeeds:
+      abstract_successful_pattern from implementation
+      validate_pattern across_multiple_business_contexts
+      measure_anti_fragile_metrics: improvement_under_stress
+      integrate_pattern into_business_library
+      
+    when business_process_encounters_challenges:
+      analyze_failure_modes and_recovery_strategies
+      strengthen_resilience_mechanisms
+      document_lessons_learned for_future_implementations
+      improve_pattern_robustness
+```
+
+CAPABILITY SCALING FOR ORGANIZATIONS:
+```apml
+process organizational_capability_scaling:
+  when problem_solved_successfully:
+    increment_collective_problem_solving_capacity
+    update_organizational_pattern_libraries
+    enhance_decision_making_methodologies
+    contribute_to_industry_best_practices
+    
+  when complex_challenge_addressed:
+    analyze_solution_approach_effectiveness
+    abstract_reusable_organizational_patterns
+    validate_scalability to_larger_organizational_challenges
+    contribute_to_civilizational_capability_growth
+```
+
+8. COMPLETE EXAMPLE: INTELLIGENT HEALTHCARE PLATFORM
+
+The following demonstrates comprehensive APML v0.9.1 application with full triadic architecture:
+
+```apml
+app IntelligentHealthcarePlatform:
+  title: "AI-Enhanced Patient Care System"
+  description: "Triadic architecture healthcare platform with conservation physics"
+  version: "1.0.0"
+  apml_specification_version: "0.9.1"
+  
+  triadic_compliance:
+    trinity_messaging: self_demonstrating
+    implementation_triad: principles_patterns_practices
+    collaborative_intelligence: meta_specification
+    
+  conservation_physics:
+    intent_preservation: medical_logic_identical_across_all_systems
+    contextual_adaptation: interface_optimized_per_healthcare_role
+    bandwidth_optimization: full_clinical_richness_maintained
+
+data Patient:
+  id: unique_id
+  medical_record_number: text required unique
+  name: text required
+  date_of_birth: date required
+  primary_care_physician: Physician required
+  medical_history: list of MedicalRecord
+  current_medications: list of Medication
+  allergies: list of Allergy
+  
+  conservation_properties:
+    intent_preservation: patient_data_integrity_across_all_platforms
+    privacy_compliance: hipaa_gdpr_verified
+    security_requirements: end_to_end_encryption_enforced
+    audit_trail: complete_access_logging
+
+data Physician:
+  id: unique_id
+  name: text required
+  specialization: general_practice | cardiology | neurology | oncology | other
+  license_number: text required unique
+  patients: list of Patient
+  
+  collaborative_intelligence:
+    human_insight: clinical_experience_and_intuition
+    ai_processing: diagnostic_pattern_recognition
+    emergent_solutions: personalized_treatment_optimization
+
+interface clinical_dashboard:
+  # System → User: Clinical information display
+  show patient_overview:
+    title: "Patient Care Dashboard"
+    
+    # Conservation: core medical data identical everywhere
+    display patient.vital_signs current_and_historical
+    display patient.lab_results with_trend_analysis
+    display patient.medication_list with_interaction_warnings
+    
+    # Contextual adaptation: role-based views
+    when user.role is physician:
+      show comprehensive_clinical_data
+      display ai_diagnostic_suggestions
+      enable prescription_management
+      
+    when user.role is nurse:
+      show care_plan_execution_view
+      display medication_administration_schedule
+      enable vital_signs_recording
+      
+    when user.role is patient:
+      show simplified_health_summary
+      display appointment_schedule
+      enable_communication with_care_team
+      
+    # Collaborative intelligence integration
+    display ai_insights:
+      # AI processing: pattern recognition
+      risk_assessment_scores based_on_patient_history
+      drug_interaction_warnings using_comprehensive_database
+      treatment_outcome_predictions from_similar_cases
+      
+      # Human insight integration
+      physician_notes_and_observations highlighted
+      care_team_communications_summarized
+      patient_reported_symptoms_analyzed
+      
+      # Emergent solutions
+      personalized_treatment_recommendations
+      innovative_care_pathway_suggestions
+      optimal_resource_allocation_advice
+
+  # User → System: Clinical workflow interactions
+  when physician enters_diagnosis:
+    validate diagnosis_code using_icd_standards
+    check_against patient.medical_history for_consistency
+    trigger_ai_analysis for_treatment_recommendations
+    
+    # Conservation verification
+    verify medical_logic_preserved across_all_platforms
+    ensure regulatory_compliance maintained_everywhere
+    
+  when nurse records_vital_signs:
+    validate measurement_ranges for_patient_demographics
+    check_for critical_values requiring_immediate_attention
+    update_patient_monitoring_dashboard
+    
+    # Contextual adaptation
+    mobile_device: optimized_for_bedside_entry
+    desktop: comprehensive_data_entry_interface
+    tablet: balanced_portability_and_functionality
+
+  # System → System: Clinical decision support
+  process intelligent_monitoring:
+    continuously_analyze patient.vital_signs
+    detect_anomalies using_machine_learning_models
+    
+    when critical_value_detected:
+      alert_attending_physician immediately
+      notify_nursing_staff for_immediate_response
+      document_alert in_patient_record
+      
+      # Conservation physics: critical alerts identical everywhere
+      verify alert_logic_preserved across_all_systems
+      adapt_notification_method to_platform_capabilities
+      maintain_full_clinical_context in_all_alerts
+
+logic collaborative_diagnosis:
+  process diagnostic_workflow:
+    # Human insight: clinical experience
+    when physician_reviews patient_case:
+      gather_clinical_history and_physical_examination
+      apply_medical_knowledge and_experience
+      consider_patient_specific_factors
+      
+    # AI processing: systematic analysis
+    analyze_symptoms against_medical_databases
+    identify_pattern_matches in_similar_cases
+    calculate_diagnostic_probability_scores
+    suggest_additional_tests if_needed
+    
+    # Emergent solutions: collaborative enhancement
+    when human_insight_combined_with ai_processing:
+      generate_comprehensive_differential_diagnosis
+      recommend_optimal_diagnostic_pathway
+      predict_treatment_response_likelihood
+      identify_potential_complications_early
+      
+    # Conservation verification
+    verify diagnostic_logic_identical across_all_platforms
+    ensure medical_standards_compliance everywhere
+    maintain_audit_trail_completeness
+
+# Anti-fragile development for healthcare
+logic medical_pattern_evolution:
+  process clinical_pattern_improvement:
+    when treatment_outcome_successful:
+      analyze_successful_intervention_patterns
+      abstract_reusable_clinical_protocols
+      validate_across multiple_patient_demographics
+      integrate_into medical_pattern_library
+      
+    when treatment_challenges_encountered:
+      analyze_complications and_recovery_strategies
+      strengthen_clinical_decision_support_algorithms
+      improve_risk_assessment_accuracy
+      enhance_patient_safety_protocols
+      
+    # Capability scaling for healthcare
+    when breakthrough_treatment_discovered:
+      document_innovation for_medical_community
+      test_scalability across_different_healthcare_settings
+      contribute_to_global_medical_knowledge_advancement
+
+# Pattern library applications
+apply_pattern hipaa_compliance:
+  from_library: healthcare_security_patterns
+  customization:
+    encryption_level: military_grade
+    audit_logging: comprehensive
+    access_controls: role_based_granular
+  conservation_compliance: verified
+
+apply_pattern clinical_decision_support:
+  from_library: medical_ai_patterns
+  customization:
+    evidence_based_guidelines: latest_medical_research
+    population_health_data: integrated
+    personalization: patient_specific_optimization
+  collaborative_intelligence: enabled
+
+validate healthcare_conservation_physics:
+  verify medical_logic_preservation across_all_deployment_targets
+  test contextual_adaptation for_different_healthcare_roles
+  measure clinical_workflow_optimization effectiveness
+  confirm patient_safety_standards maintained_everywhere
+  
+  when all_healthcare_validations_pass:
+    grant_medical_grade_certification
+    enable_clinical_production_deployment
+    activate_continuous_improvement_capabilities
+```
+
+ANALYSIS OF HEALTHCARE PLATFORM EXAMPLE:
+
+This comprehensive healthcare application demonstrates:
+
+✅ TRIADIC ARCHITECTURE MASTERY:
+- Trinity Messaging: Complete clinical workflow coverage
+- Implementation Triad: Medical principles, clinical patterns, collaborative practices
+- Collaborative Intelligence: Human clinical expertise + AI diagnostic support = Enhanced patient care
+
+✅ CONSERVATION PHYSICS APPLICATION:
+- Intent Preservation: Medical logic identical across all platforms and contexts
+- Contextual Adaptation: Role-based interfaces optimized for physicians, nurses, patients
+- Bandwidth Optimization: Full clinical richness maintained across all devices
+
+✅ ANTI-FRAGILE HEALTHCARE DEVELOPMENT:
+- Clinical pattern evolution and improvement
+- Treatment outcome learning and optimization
+- Medical knowledge contribution to global advancement
+
+✅ COLLABORATIVE INTELLIGENCE IN HEALTHCARE:
+- Human clinical expertise and intuition
+- AI diagnostic pattern recognition and analysis
+- Emergent personalized treatment optimization
+
+This serves as the gold standard for mission-critical APML applications in regulated industries, demonstrating the language's capability to handle complex, life-critical systems while maintaining safety, compliance, and continuous improvement.
+
+===========================================
+APML BUSINESS PATTERNS VERSION 0.9.1
+Triadic Architecture for Human-AI Collaborative Problem Solving
+
+This reference enables any LLM to transform business conversations into production-ready APML specifications that leverage triadic architecture principles, conservation physics, and collaborative intelligence frameworks for breakthrough business solutions.
+
+For technical implementation: technical-patterns.txt
+For language specification: language-spec.txt
+For development support: apml.dev
+===========================================
