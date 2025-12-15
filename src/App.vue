@@ -15,7 +15,7 @@
       <div class="footer-content">
         <div class="footer-brand">
           <h3 class="footer-title">{{ title }}</h3>
-          <p class="footer-tagline">✨ Powered by APML - Logically Complete conversational code</p>
+          <p class="footer-tagline">Directions, not destinations. Grounded in distinction as primitive.</p>
         </div>
         <div class="footer-meta">
           <p>&copy; {{ new Date().getFullYear() }} {{ title }}</p>
@@ -31,8 +31,8 @@ import { ref, computed, onMounted } from 'vue'
 import { useRouter } from 'vue-router'
 
 // App metadata
-const title = ref('APML - The Universal Language for Human-AI Collaboration')
-const description = ref('Official home of APML v0.9.1 - Triadic architecture for human-AI collaborative problem solving')
+const title = ref('APML - Distinction as Primitive')
+const description = ref('Design Principles v2.0.0 - Directions for human-AI collaborative systems, grounded in distinction-primacy')
 const version = ref('1.0.0')
 
 // Navigation

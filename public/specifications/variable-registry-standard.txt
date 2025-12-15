@@ -1,0 +1,245 @@
+APML v1.1.0 - Variable Registry and Naming Standard
+Complete Framework for Variable Management and Validation
+=======================================================
+
+OVERVIEW
+========
+
+The Variable Registry Standard ensures that all variables, functions, and identifiers in an APML project are defined once in the specification and used consistently throughout all generated code. This eliminates naming errors, typos, and inconsistencies that can occur during manual coding.
+
+CORE PRINCIPLE:
+"One source of truth for all identifiers eliminates naming errors"
+
+IMPLEMENTATION GUARANTEE:
+Variable Registry → Code Generation → Runtime Validation → Error Prevention
+
+===========================================
+VARIABLE REGISTRY SPECIFICATION
+===========================================
+
+Every APML project MUST include a comprehensive Variable Registry section that defines:
+
+1. COMPONENT VARIABLES
+   - Reactive state variables (ref, reactive, computed)
+   - Props and emitted events
+   - Local component methods
+   - Template references
+
+2. API IDENTIFIERS
+   - Endpoint paths and parameters
+   - Request/response field names
+   - Header names and values
+   - Error codes and messages
+
+3. DATABASE SCHEMA
+   - Table names and column names
+   - Constraint names and indexes
+   - Stored procedure names
+   - Migration identifiers
+
+4. CONFIGURATION CONSTANTS
+   - Environment variable names
+   - Configuration keys
+   - Feature flag identifiers
+   - Build constants
+
+===========================================
+REGISTRY FORMAT SPECIFICATION
+===========================================
+
+## Variable Registry
+
+### Component: DashboardComponent
+```
+REACTIVE_VARIABLES:
+  - targetLanguageDisplay: ref<string>
+    PURPOSE: Display name for target language selection
+    DEFAULT: ""
+    VALIDATION: non-empty string
+
+  - knownLanguageDisplay: ref<string>
+    PURPOSE: Display name for known language selection
+    DEFAULT: "English"
+    VALIDATION: non-empty string
+
+  - selectedCourse: ref<string>
+    PURPOSE: Currently selected course identifier
+    DEFAULT: ""
+    VALIDATION: format "{target}_for_{known}_speakers"
+
+COMPUTED_VARIABLES:
+  - courseDisplayName: computed<string>
+    PURPOSE: Human-readable course name
+    DERIVES_FROM: [targetLanguageDisplay, knownLanguageDisplay]
+
+METHODS:
+  - updateSelectedCourse: function
+    PURPOSE: Updates selectedCourse based on language selections
+    PARAMETERS: none
+    RETURNS: void
+    SIDE_EFFECTS: updates selectedCourse.value
+
+  - selectLanguage: function
+    PURPOSE: Sets language selection and updates display
+    PARAMETERS: type: 'target'|'known', language: LanguageObject
+    RETURNS: void
+    SIDE_EFFECTS: updates reactive variables, triggers course update
+```
+
+### API Endpoints
+```
+ENDPOINTS:
+  - /api/tunnel/endpoint
+    METHOD: GET
+    PURPOSE: Discover tunnel bridge endpoint
+    PARAMETERS: none
+    RETURNS: { endpoint: string | null }
+
+  - /api/bridge/health
+    METHOD: GET
+    PURPOSE: Check bridge server health
+    PARAMETERS: none
+    RETURNS: { status: 'healthy' | 'unhealthy', ... }
+```
+
+### Database Schema
+```
+TABLES:
+  - courses
+    COLUMNS:
+      - id: SERIAL PRIMARY KEY
+      - course_code: VARCHAR(50) NOT NULL
+        FORMAT: "{target_iso}_for_{known_iso}_speakers"
+        EXAMPLE: "fra_for_eng_speakers"
+      - created_at: TIMESTAMP DEFAULT NOW()
+
+CONSTRAINTS:
+  - courses_code_unique: UNIQUE(course_code)
+  - courses_code_format: CHECK(course_code ~ '^[a-z]{3}_for_[a-z]{3}_speakers$')
+```
+
+===========================================
+VALIDATION RULES
+===========================================
+
+1. NAMING CONSISTENCY
+   - All identifiers MUST be defined in Variable Registry before use
+   - Generated code MUST use exact names from Registry
+   - Manual deviations from Registry names are COMPILATION ERRORS
+
+2. TYPE SAFETY
+   - All variables MUST specify exact TypeScript types
+   - Runtime validation MUST match Registry type specifications
+   - Type mismatches are COMPILATION ERRORS
+
+3. SCOPE VALIDATION
+   - Component variables MUST be scoped to their declaring component
+   - Global variables MUST be explicitly marked as GLOBAL
+   - Cross-component references MUST be through props/events only
+
+4. LIFECYCLE VALIDATION
+   - Variable initialization MUST match Registry defaults
+   - Method signatures MUST match Registry specifications exactly
+   - Side effects MUST be documented and validated
+
+===========================================
+CODE GENERATION REQUIREMENTS
+===========================================
+
+1. AUTOMATIC GENERATION
+   - All variable declarations generated from Registry
+   - Type definitions auto-generated with strict typing
+   - Validation functions auto-generated for all constraints
+
+2. COMPILE-TIME VALIDATION
+   - Registry completeness check before compilation
+   - Cross-reference validation for all identifiers
+   - Type consistency validation across components
+
+3. RUNTIME VALIDATION
+   - Optional runtime validation for Registry constraints
+   - Development-mode identifier tracking
+   - Production assertion removal
+
+===========================================
+TOOLING REQUIREMENTS
+===========================================
+
+1. APML COMPILER INTEGRATION
+   - Registry parsing and validation built into compiler
+   - Auto-completion from Registry in IDEs
+   - Real-time Registry compliance checking
+
+2. DEVELOPMENT TOOLS
+   - Registry editor with validation
+   - Identifier usage tracking across files
+   - Automated Registry updates from code changes
+
+3. BUILD PIPELINE
+   - Pre-commit hooks for Registry validation
+   - CI/CD Registry compliance gates
+   - Registry diff tracking in version control
+
+===========================================
+MIGRATION STRATEGY
+===========================================
+
+For existing APML projects without Variable Registries:
+
+1. INVENTORY PHASE
+   - Scan all code files for variable declarations
+   - Extract all API endpoint definitions
+   - Document all database schema elements
+   - Identify naming inconsistencies
+
+2. REGISTRY CREATION
+   - Create comprehensive Variable Registry
+   - Resolve naming conflicts and inconsistencies
+   - Define proper types and validation rules
+   - Document variable purposes and relationships
+
+3. CODE ALIGNMENT
+   - Update all code to match Registry definitions
+   - Replace manual declarations with generated code
+   - Add Registry validation to build pipeline
+   - Test thoroughly for naming consistency
+
+4. ENFORCEMENT
+   - Enable strict Registry validation
+   - Block commits with Registry violations
+   - Monitor for Registry drift over time
+
+===========================================
+SUCCESS METRICS
+===========================================
+
+✅ Zero naming-related runtime errors
+✅ 100% Registry coverage of all identifiers
+✅ Automatic identifier completion in IDEs
+✅ Build-time validation preventing Registry violations
+✅ Consistent naming across all generated code
+✅ Reduced development time through auto-completion
+✅ Eliminated variable name typos and inconsistencies
+
+===========================================
+EXAMPLE REGISTRY VALIDATION ERROR
+===========================================
+
+ERROR: Variable Registry Violation
+FILE: components/Dashboard.vue:542
+LINE: targetLanguageInput.value = 'Portuguese'
+ISSUE: Variable 'targetLanguageInput' not found in Registry
+EXPECTED: Use 'targetLanguageDisplay' from Component:DashboardComponent registry
+FIX: Replace 'targetLanguageInput' with 'targetLanguageDisplay'
+
+REGISTRY_ENTRY:
+  Component: DashboardComponent
+  Variable: targetLanguageDisplay
+  Type: ref<string>
+  Purpose: Display name for target language selection
+
+This standard prevents the exact class of errors encountered in the SSi project and ensures APML's promise of specification-driven development is maintained.
+
+VERSION: APML v1.1.0
+EFFECTIVE: Immediate for all new projects
+MIGRATION: Required within 30 days for existing projects

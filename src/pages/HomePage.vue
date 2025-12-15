@@ -1,243 +1,241 @@
 <template>
-  <div class="home-page">
-    <!-- Simplified Hero Section -->
-    <section class="hero-section">
-      <div class="hero-container">
-        <div class="hero-badge">
-          <span>✨ APML v0.9.1 - Triadic Architecture Release</span>
+  <div class="principles-page">
+    <!-- Hero: The Primitive -->
+    <section class="hero">
+      <div class="hero-content">
+        <div class="version-badge">
+          <span class="badge-dot"></span>
+          <span>Design Principles v2.0.0</span>
         </div>
-        
+
         <h1 class="hero-title">
-          Code that reads like<br>
-          <span class="highlight">conversation</span>
+          <span class="title-small">APML is grounded in</span>
+          <span class="title-main">Distinction<br/>as Primitive</span>
         </h1>
-        
-        <p class="hero-subtitle">
-          Speak your ideas to life
+
+        <p class="hero-philosophy">
+          All distinctions cost energy. All observers have finite budgets.<br/>
+          Therefore: all accessible reality is effectively discrete.
         </p>
 
-        <!-- APML Code Preview -->
-        <div class="code-preview">
-          <div class="code-header">
-            <div class="status">✅ Logically Complete</div>
-          </div>
-          
-          <div class="code-content">
-            <div class="code-input">
-              <pre><code><span class="keyword">app</span> <span class="app-name">CityRep</span><span class="punctuation">:</span>
-  <span class="property">title</span><span class="punctuation">:</span> <span class="string">"CityRep"</span>
-  <span class="property">description</span><span class="punctuation">:</span> <span class="string">"Share your experiences living in and visiting cities worldwide"</span>
-  <span class="property">version</span><span class="punctuation">:</span> <span class="string">"1.0.0"</span>
-  <span class="property">apml_specification_version</span><span class="punctuation">:</span> <span class="string">"0.9.1"</span>
-
-<span class="keyword">data</span> <span class="type">User</span><span class="punctuation">:</span>
-  <span class="property">id</span><span class="punctuation">:</span> <span class="type">unique_id</span>
-  <span class="property">name</span><span class="punctuation">:</span> <span class="type">text</span> <span class="modifier">required</span>
-  <span class="property">email</span><span class="punctuation">:</span> <span class="type">email</span> <span class="modifier">required unique</span>
-  <span class="property">profile_photo</span><span class="punctuation">:</span> <span class="type">image_url</span> <span class="modifier">optional</span>
-  <span class="property">auth_provider</span><span class="punctuation">:</span> <span class="enum">google | facebook | email</span> <span class="modifier">required</span>
-  <span class="property">join_date</span><span class="punctuation">:</span> <span class="type">timestamp</span> <span class="modifier">auto</span>
-  <span class="property">total_reviews</span><span class="punctuation">:</span> <span class="type">number</span> <span class="modifier">default</span> <span class="number">0</span>
-  <span class="property">onboarding_completed</span><span class="punctuation">:</span> <span class="type">boolean</span> <span class="modifier">default</span> <span class="number">false</span>
-
-<span class="keyword">data</span> <span class="type">City</span><span class="punctuation">:</span>
-  <span class="property">id</span><span class="punctuation">:</span> <span class="type">unique_id</span>
-  <span class="property">name</span><span class="punctuation">:</span> <span class="type">text</span> <span class="modifier">required</span>
-  <span class="property">country</span><span class="punctuation">:</span> <span class="type">text</span> <span class="modifier">required</span>
-  <span class="property">state_province</span><span class="punctuation">:</span> <span class="type">text</span> <span class="modifier">optional</span>
-  <span class="property">added_by</span><span class="punctuation">:</span> <span class="type">User</span> <span class="modifier">required</span>
-  <span class="property">wikipedia_summary</span><span class="punctuation">:</span> <span class="type">text</span> <span class="modifier">optional</span>
-  <span class="property">average_rating</span><span class="punctuation">:</span> <span class="type">number</span> <span class="modifier">default</span> <span class="number">0</span>
-  <span class="property">total_reviews</span><span class="punctuation">:</span> <span class="type">number</span> <span class="modifier">default</span> <span class="number">0</span>
-  <span class="property">created_date</span><span class="punctuation">:</span> <span class="type">timestamp</span> <span class="modifier">auto</span>
-
-<span class="keyword">data</span> <span class="type">Review</span><span class="punctuation">:</span>
-  <span class="property">id</span><span class="punctuation">:</span> <span class="type">unique_id</span>
-  <span class="property">city_id</span><span class="punctuation">:</span> <span class="type">City</span> <span class="modifier">required</span>
-  <span class="property">user_id</span><span class="punctuation">:</span> <span class="type">User</span> <span class="modifier">required</span>
-  <span class="property">rating</span><span class="punctuation">:</span> <span class="enum">1 | 2 | 3 | 4 | 5</span> <span class="modifier">required</span>
-  <span class="property">title</span><span class="punctuation">:</span> <span class="type">text</span> <span class="modifier">required</span>
-  <span class="property">review_text</span><span class="punctuation">:</span> <span class="type">text</span> <span class="modifier">required</span>
-  <span class="property">lived_there</span><span class="punctuation">:</span> <span class="type">boolean</span> <span class="modifier">default</span> <span class="number">false</span>
-  <span class="property">visited_duration</span><span class="punctuation">:</span> <span class="enum">days | weeks | months | years</span> <span class="modifier">optional</span>
-  <span class="property">review_date</span><span class="punctuation">:</span> <span class="type">timestamp</span> <span class="modifier">auto</span>
-  <span class="property">helpful_votes</span><span class="punctuation">:</span> <span class="type">number</span> <span class="modifier">default</span> <span class="number">0</span>
-
-<span class="keyword">interface</span> <span class="interface-name">authentication</span><span class="punctuation">:</span>
-  <span class="ui-keyword">show</span> <span class="ui-element">login_options</span><span class="punctuation">:</span>
-    <span class="property">title</span><span class="punctuation">:</span> <span class="string">"Join the Community"</span>
-    <span class="property">google_login_button</span><span class="punctuation">:</span> <span class="string">"Continue with Google"</span>
-    <span class="property">facebook_login_button</span><span class="punctuation">:</span> <span class="string">"Continue with Facebook"</span>
-    <span class="property">email_signup_link</span><span class="punctuation">:</span> <span class="string">"Sign up with Email"</span>
-    
-  <span class="ui-keyword">show</span> <span class="ui-element">email_registration</span><span class="punctuation">:</span>
-    <span class="property">title</span><span class="punctuation">:</span> <span class="string">"Create Your Account"</span>
-    <span class="property">full_name</span><span class="punctuation">:</span> <span class="type">text</span> <span class="modifier">required</span>
-    <span class="property">email_address</span><span class="punctuation">:</span> <span class="type">email</span> <span class="modifier">required</span>
-    <span class="property">password</span><span class="punctuation">:</span> <span class="type">password</span> <span class="modifier">required</span>
-    <span class="property">create_account_button</span><span class="punctuation">:</span> <span class="string">"Create Account"</span>
-
-<span class="keyword">interface</span> <span class="interface-name">city_discovery</span><span class="punctuation">:</span>
-  <span class="ui-keyword">show</span> <span class="ui-element">search_section</span><span class="punctuation">:</span>
-    <span class="property">title</span><span class="punctuation">:</span> <span class="string">"Find Your Next City"</span>
-    <span class="property">search_input</span><span class="punctuation">:</span> <span class="type">text</span> <span class="modifier">placeholder</span> <span class="string">"Search cities, countries..."</span>
-    <span class="property">search_button</span><span class="punctuation">:</span> <span class="string">"Search"</span>
-    
-  <span class="ui-keyword">show</span> <span class="ui-element">featured_cities</span><span class="punctuation">:</span>
-    <span class="property">title</span><span class="punctuation">:</span> <span class="string">"Popular Destinations"</span>
-    <span class="flow-keyword">for each</span> <span class="variable">city</span> <span class="flow-keyword">in</span> <span class="type">City</span> <span class="flow-keyword">order by</span> <span class="property">average_rating</span> <span class="flow-keyword">desc limit</span> <span class="number">6</span><span class="punctuation">:</span>
-      <span class="ui-keyword">display</span> <span class="ui-element">city_card</span><span class="punctuation">:</span>
-        <span class="property">name</span><span class="punctuation">:</span> <span class="variable">city.name</span>
-        <span class="property">country</span><span class="punctuation">:</span> <span class="variable">city.country</span>
-        <span class="property">rating</span><span class="punctuation">:</span> <span class="variable">city.average_rating</span> <span class="modifier">stars</span>
-        <span class="property">review_count</span><span class="punctuation">:</span> <span class="variable">city.total_reviews</span> <span class="modifier">reviews</span>
-
-<span class="keyword">interface</span> <span class="interface-name">city_details</span><span class="punctuation">:</span>
-  <span class="ui-keyword">show</span> <span class="ui-element">city_header</span><span class="punctuation">:</span>
-    <span class="property">city_name</span><span class="punctuation">:</span> <span class="variable">selected city.name</span>
-    <span class="property">location</span><span class="punctuation">:</span> <span class="variable">city.country, city.state_province</span>
-    <span class="property">overall_rating</span><span class="punctuation">:</span> <span class="variable">city.average_rating</span> <span class="modifier">stars</span>
-    <span class="property">total_reviews</span><span class="punctuation">:</span> <span class="variable">city.total_reviews</span> <span class="modifier">reviews</span>
-    <span class="property">add_review_button</span><span class="punctuation">:</span> <span class="string">"Write a Review"</span>
-    
-  <span class="ui-keyword">show</span> <span class="ui-element">reviews_list</span><span class="punctuation">:</span>
-    <span class="property">title</span><span class="punctuation">:</span> <span class="string">"What People Are Saying"</span>
-    <span class="flow-keyword">for each</span> <span class="variable">review</span> <span class="flow-keyword">in</span> <span class="type">Review</span> <span class="flow-keyword">where</span> <span class="property">city_id</span> <span class="condition">is</span> <span class="variable">selected city</span><span class="punctuation">:</span>
-      <span class="ui-keyword">display</span> <span class="ui-element">review_card</span><span class="punctuation">:</span>
-        <span class="property">reviewer_name</span><span class="punctuation">:</span> <span class="variable">review.user.name</span>
-        <span class="property">rating</span><span class="punctuation">:</span> <span class="variable">review.rating</span> <span class="modifier">stars</span>
-        <span class="property">title</span><span class="punctuation">:</span> <span class="variable">review.title</span>
-        <span class="property">review_text</span><span class="punctuation">:</span> <span class="variable">review.review_text</span>
-        <span class="property">helpful_votes</span><span class="punctuation">:</span> <span class="variable">review.helpful_votes</span> <span class="modifier">helpful</span>
-
-<span class="keyword">interface</span> <span class="interface-name">review_submission</span><span class="punctuation">:</span>
-  <span class="ui-keyword">show</span> <span class="ui-element">review_form</span><span class="punctuation">:</span>
-    <span class="property">title</span><span class="punctuation">:</span> <span class="string">"Share Your Experience"</span>
-    <span class="property">city_info</span><span class="punctuation">:</span> <span class="string">"Reviewing: "</span> <span class="punctuation">+</span> <span class="variable">selected city.name</span>
-    <span class="property">overall_rating</span><span class="punctuation">:</span> <span class="enum">1-5</span> <span class="modifier">stars required</span>
-    <span class="property">review_title</span><span class="punctuation">:</span> <span class="type">text</span> <span class="modifier">required</span>
-    <span class="property">detailed_review</span><span class="punctuation">:</span> <span class="type">textarea</span> <span class="modifier">required</span>
-    <span class="property">lived_or_visited</span><span class="punctuation">:</span> <span class="string">"Your connection to this city:"</span>
-    <span class="property">lived_there</span><span class="punctuation">:</span> <span class="type">boolean</span>
-    <span class="property">visit_duration</span><span class="punctuation">:</span> <span class="enum">days | weeks | months | years</span>
-    <span class="property">submit_button</span><span class="punctuation">:</span> <span class="string">"Submit Review"</span>
-
-<span class="keyword">logic</span> <span class="logic-name">authentication_processing</span><span class="punctuation">:</span>
-  <span class="process-keyword">process</span> <span class="process-name">google_login</span><span class="punctuation">:</span>
-    <span class="flow-keyword">when</span> <span class="variable">user</span> <span class="action">clicks</span> <span class="ui-element">google_login_button</span><span class="punctuation">:</span>
-      <span class="action">authenticate</span> <span class="flow-keyword">with</span> <span class="modifier">google oauth</span>
-      <span class="flow-keyword">if</span> <span class="variable">user</span> <span class="condition">exists</span><span class="punctuation">:</span>
-        <span class="action">create</span> <span class="modifier">user session</span>
-        <span class="flow-keyword">if</span> <span class="property">user.onboarding_completed</span><span class="punctuation">:</span>
-          <span class="action">redirect</span> <span class="flow-keyword">to</span> <span class="ui-element">city_discovery</span>
-        <span class="flow-keyword">else</span><span class="punctuation">:</span>
-          <span class="action">redirect</span> <span class="flow-keyword">to</span> <span class="ui-element">user_onboarding</span>
-      <span class="flow-keyword">else</span><span class="punctuation">:</span>
-        <span class="action">create</span> <span class="type">User</span> <span class="modifier">record with google data</span>
-        <span class="action">redirect</span> <span class="flow-keyword">to</span> <span class="ui-element">user_onboarding</span>
-
-<span class="keyword">logic</span> <span class="logic-name">review_processing</span><span class="punctuation">:</span>
-  <span class="process-keyword">process</span> <span class="process-name">submit_review</span><span class="punctuation">:</span>
-    <span class="flow-keyword">when</span> <span class="variable">user</span> <span class="action">submits</span> <span class="ui-element">review_form</span><span class="punctuation">:</span>
-      <span class="flow-keyword">if</span> <span class="variable">user</span> <span class="condition">is authenticated</span><span class="punctuation">:</span>
-        <span class="action">validate</span> <span class="modifier">all required fields</span>
-        <span class="action">create</span> <span class="type">Review</span> <span class="modifier">record</span>
-        <span class="action">update</span> <span class="property">City.average_rating</span>
-        <span class="action">increment</span> <span class="property">City.total_reviews</span>
-        <span class="action">increment</span> <span class="property">User.total_reviews</span>
-        <span class="action">send</span> <span class="modifier">confirmation message</span>
-        <span class="action">redirect</span> <span class="flow-keyword">to</span> <span class="ui-element">city_details</span>
-      <span class="flow-keyword">else</span><span class="punctuation">:</span>
-        <span class="action">redirect</span> <span class="flow-keyword">to</span> <span class="ui-element">authentication</span>
-        
-  <span class="process-keyword">process</span> <span class="process-name">vote_helpful</span><span class="punctuation">:</span>
-    <span class="flow-keyword">when</span> <span class="variable">user</span> <span class="action">clicks</span> <span class="ui-element">helpful_button</span><span class="punctuation">:</span>
-      <span class="flow-keyword">if</span> <span class="variable">user</span> <span class="condition">is authenticated</span><span class="punctuation">:</span>
-        <span class="action">increment</span> <span class="property">Review.helpful_votes</span>
-        <span class="action">update</span> <span class="modifier">review display</span>
-      <span class="flow-keyword">else</span><span class="punctuation">:</span>
-        <span class="action">redirect</span> <span class="flow-keyword">to</span> <span class="ui-element">authentication</span></code></pre>
-            </div>
-            <div class="arrow">→</div>
-            <div class="code-output">
-              <div class="output-header">
-                <div class="platform-selector">
-                  <button 
-                    v-for="platform in platforms" 
-                    :key="platform.id"
-                    @click="selectedPlatform = platform.id"
-                    :class="['platform-btn', { active: selectedPlatform === platform.id }]"
-                  >
-                    {{ platform.icon }} {{ platform.name }}
-                  </button>
-                </div>
-              </div>
-              <div class="code-preview-container">
-                <div class="file-tab">{{ compilationExamples[selectedPlatform].filename }}</div>
-                <pre><code v-html="getHighlightedCode(selectedPlatform)"></code></pre>
-              </div>
-              <div class="compilation-info">
-                <div 
-                  v-for="infoItem in compilationExamples[selectedPlatform].info" 
-                  :key="infoItem.label"
-                  class="info-item"
-                >
-                  <span class="info-label">{{ infoItem.label }}</span>
-                  <span>{{ infoItem.value }}</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- LLM-Friendly Documentation Links -->
-        <div class="hero-actions">
-          <a href="/language-spec.txt" class="btn-primary">
-            📋 LLM Reference: Full Specification
+        <div class="hero-cta">
+          <a href="#directions" class="btn-explore">
+            <span>Explore the 12 Directions</span>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M12 5v14M5 12l7 7 7-7"/>
+            </svg>
           </a>
-          <a href="/business-patterns.txt" class="btn-secondary">
-            💼 LLM Guide: Business→APML Patterns
-          </a>
-          <a href="/technical-patterns.txt" class="btn-secondary">
-            ⚙️ LLM Manual: Compilation Patterns
-          </a>
-          <a href="/overview.txt" class="btn-tertiary">
-            📖 Overview: APML Introduction
-          </a>
-          <a href="/ade-ecosystem.txt" class="btn-tertiary">
-            🏗️ ADE Ecosystem: Complete Workflow
-          </a>
-        </div>
-
-        <!-- Feature Pills -->
-        <div class="feature-pills">
-          <div class="pill">⚡ Instant Compilation</div>
-          <div class="pill">🎯 Logically Complete</div>
-          <div class="pill">🌐 Multi-Platform</div>
         </div>
       </div>
-      
-      <!-- Trinity Principle -->
-      <div class="trinity-section">
-        <h2>The Trinity Principle</h2>
-        <div class="trinity-nodes">
-          <div class="node">
-            <div class="icon">👤</div>
-            <div class="label">App → User</div>
-            <div class="desc">Display & Output</div>
+
+      <div class="hero-visual">
+        <div class="distinction-orb">
+          <div class="orb-ring ring-1"></div>
+          <div class="orb-ring ring-2"></div>
+          <div class="orb-ring ring-3"></div>
+          <div class="orb-core"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- The Meta-Principle -->
+    <section class="meta-principle">
+      <div class="meta-content">
+        <div class="meta-label">The First Rule</div>
+        <blockquote class="meta-quote">
+          "These are <em>directions</em>, not destinations.<br/>
+          Every principle is a gradient to move toward,<br/>
+          not a law to enforce."
+        </blockquote>
+        <p class="meta-explanation">
+          AI contributions are non-deterministic. Human judgment is contextual.
+          Rigid rules break; flexible directions guide.
+        </p>
+      </div>
+    </section>
+
+    <!-- The Physics -->
+    <section class="physics">
+      <div class="physics-header">
+        <h2>The Physics</h2>
+        <p class="physics-subtitle">From TPML Module 0.3: Distinction Thermodynamics</p>
+      </div>
+
+      <div class="axioms">
+        <div class="axiom">
+          <div class="axiom-number">I</div>
+          <div class="axiom-content">
+            <h3>All distinctions cost energy</h3>
+            <p>To maintain that a system is in state A rather than state B requires energy expenditure. Making or maintaining any distinction is not free.</p>
           </div>
-          <div class="node">
-            <div class="icon">🎯</div>
-            <div class="label">User → App</div>
-            <div class="desc">Input & Commands</div>
-          </div>
-          <div class="node">
-            <div class="icon">⚙️</div>
-            <div class="label">App → App</div>
-            <div class="desc">Logic & Processing</div>
+        </div>
+
+        <div class="axiom">
+          <div class="axiom-number">II</div>
+          <div class="axiom-content">
+            <h3>All observers have finite budgets</h3>
+            <p>Every observer-like-us operates with limited energy. No OLU has access to infinite energy. This finitude is absolute.</p>
           </div>
         </div>
       </div>
+
+      <div class="derivations">
+        <div class="derivation" v-for="d in derivations" :key="d.name">
+          <div class="derivation-icon">{{ d.icon }}</div>
+          <div class="derivation-text">
+            <h4>{{ d.name }}</h4>
+            <p>{{ d.description }}</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- The 12 Directions -->
+    <section id="directions" class="directions">
+      <div class="directions-header">
+        <h2>The Twelve Directions</h2>
+        <p>Not rules to follow, but gradients to move toward</p>
+      </div>
+
+      <div class="directions-grid">
+        <div
+          v-for="(direction, index) in directions"
+          :key="direction.id"
+          class="direction-card"
+          :class="{ expanded: expandedDirection === direction.id }"
+          @click="toggleDirection(direction.id)"
+        >
+          <div class="direction-number">{{ String(index + 1).padStart(2, '0') }}</div>
+
+          <div class="direction-header">
+            <h3 class="direction-name">{{ direction.name }}</h3>
+            <p class="direction-shorthand">{{ direction.shorthand }}</p>
+          </div>
+
+          <div class="direction-gradient">
+            <div class="gradient-toward">
+              <span class="gradient-label">Toward</span>
+              <span class="gradient-value">{{ direction.toward }}</span>
+            </div>
+            <div class="gradient-arrow">
+              <svg viewBox="0 0 100 20" preserveAspectRatio="none">
+                <defs>
+                  <linearGradient id="arrowGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                    <stop offset="0%" stop-color="#10b981"/>
+                    <stop offset="50%" stop-color="#6b7280"/>
+                    <stop offset="100%" stop-color="#ef4444"/>
+                  </linearGradient>
+                </defs>
+                <line x1="5" y1="10" x2="95" y2="10" stroke="url(#arrowGradient)" stroke-width="2"/>
+                <polygon points="5,10 12,6 12,14" fill="#10b981"/>
+                <polygon points="95,10 88,6 88,14" fill="#ef4444"/>
+              </svg>
+            </div>
+            <div class="gradient-away">
+              <span class="gradient-label">Away from</span>
+              <span class="gradient-value">{{ direction.away }}</span>
+            </div>
+          </div>
+
+          <div class="direction-details" v-if="expandedDirection === direction.id">
+            <div class="grounding">
+              <h4>Grounded in</h4>
+              <p>{{ direction.grounding }}</p>
+            </div>
+
+            <div class="indicators">
+              <div class="indicator-column toward">
+                <h5>Moving Toward</h5>
+                <ul>
+                  <li v-for="item in direction.movingToward" :key="item">{{ item }}</li>
+                </ul>
+              </div>
+              <div class="indicator-column away">
+                <h5>Moving Away</h5>
+                <ul>
+                  <li v-for="item in direction.movingAway" :key="item">{{ item }}</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="contextual-note" v-if="direction.note">
+              <h5>Contextual Note</h5>
+              <p>{{ direction.note }}</p>
+            </div>
+          </div>
+
+          <div class="direction-expand">
+            <span>{{ expandedDirection === direction.id ? 'Collapse' : 'Expand' }}</span>
+            <svg :class="{ rotated: expandedDirection === direction.id }" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M6 9l6 6 6-6"/>
+            </svg>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Resources -->
+    <section class="resources">
+      <h2>Documentation</h2>
+      <div class="resource-grid">
+        <a href="/specifications/APML-Design-Principles-v2.0.0.apml" class="resource-card" target="_blank">
+          <div class="resource-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+              <polyline points="14,2 14,8 20,8"/>
+            </svg>
+          </div>
+          <h3>Design Principles</h3>
+          <p>Full APML specification with all 12 directions</p>
+        </a>
+
+        <a href="/specifications/APML-v0.9.1.apml" class="resource-card" target="_blank">
+          <div class="resource-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
+              <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
+            </svg>
+          </div>
+          <h3>Language Spec v0.9.1</h3>
+          <p>Complete APML language specification</p>
+        </a>
+
+        <a href="/language-spec.txt" class="resource-card">
+          <div class="resource-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="10"/>
+              <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/>
+              <line x1="12" y1="17" x2="12.01" y2="17"/>
+            </svg>
+          </div>
+          <h3>LLM Reference</h3>
+          <p>Plain text for AI context windows</p>
+        </a>
+
+        <a href="/specifications/APML-v2.0.0.md" class="resource-card" target="_blank">
+          <div class="resource-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+              <path d="M2 17l10 5 10-5"/>
+              <path d="M2 12l10 5 10-5"/>
+            </svg>
+          </div>
+          <h3>Full Specification v2.0.0</h3>
+          <p>Comprehensive markdown documentation</p>
+        </a>
+      </div>
+    </section>
+
+    <!-- Footer Attribution -->
+    <section class="attribution">
+      <p>
+        <span class="attr-label">Philosophical Foundation:</span>
+        Distinction as Primitive (TPML Module 0)
+      </p>
+      <p>
+        <span class="attr-label">Contributors:</span>
+        Tom Cassidy & Claude
+      </p>
     </section>
   </div>
 </template>
@@ -245,837 +243,984 @@
 <script setup>
 import { ref } from 'vue'
 
-const selectedPlatform = ref('vue')
+const expandedDirection = ref(null)
 
-const platforms = [
-  { id: 'vue', name: 'Vue.js', icon: '🟢' },
-  { id: 'react', name: 'React', icon: '🔵' },
-  { id: 'swift', name: 'Swift', icon: '🟠' },
-  { id: 'kotlin', name: 'Kotlin', icon: '🟣' }
+const toggleDirection = (id) => {
+  expandedDirection.value = expandedDirection.value === id ? null : id
+}
+
+const derivations = [
+  {
+    icon: '◈',
+    name: 'Effective Discreteness',
+    description: 'No continuous quantity can be accessed. Infinite precision requires infinite energy.'
+  },
+  {
+    icon: '◇',
+    name: 'Finitude',
+    description: 'Only finitely many distinctions can be maintained. Prioritization is necessary.'
+  },
+  {
+    icon: '◎',
+    name: 'Dynamism',
+    description: 'Distinctions require continuous investment. Without energy, boundaries decay.'
+  },
+  {
+    icon: '◉',
+    name: 'Relationality',
+    description: 'No isolated systems. All observers must draw energy from environment.'
+  }
 ]
 
-const compilationExamples = {
-  vue: {
-    filename: 'CityRep.vue',
-    code: `&lt;template&gt;
-  &lt;div class="city-rep-app"&gt;
-    &lt;AuthenticationView v-if="!user.authenticated" /&gt;
-    &lt;CityDiscoveryView v-else-if="currentView === 'discovery'" /&gt;
-    &lt;CityDetailsView v-else-if="currentView === 'details'" /&gt;
-    &lt;ReviewSubmissionView v-else-if="currentView === 'review'" /&gt;
-  &lt;/div&gt;
-&lt;/template&gt;
-
-&lt;script setup&gt;
-import { ref, reactive } from 'vue'
-
-// Generated data models
-const user = reactive({
-  id: null,
-  name: '',
-  email: '',
-  authenticated: false
-})
-
-const cities = ref([])
-const reviews = ref([])
-const currentView = ref('discovery')
-
-// Generated authentication logic
-const authenticateWithGoogle = async () => {
-  // OAuth integration
-  user.authenticated = true
-  currentView.value = 'discovery'
-}
-&lt;/script&gt;`,
-    info: [
-      { label: 'Components:', value: '4 Vue files' },
-      { label: 'Data Models:', value: 'User, City, Review' },
-      { label: 'Logic Flows:', value: 'Authentication, Reviews' }
-    ]
+const directions = [
+  {
+    id: 'D01',
+    name: 'Toward Parameterization',
+    shorthand: 'Everything is a parameter',
+    toward: 'Configuration, flexibility, tunability',
+    away: 'Hardcoded values, magic numbers, embedded assumptions',
+    grounding: 'Different observers need different parameters. What works at one energy budget may not work at another. Parameterization enables adaptation.',
+    movingToward: [
+      'Thresholds in config, not code',
+      'Behavior changeable without deployment',
+      'A/B testable without regeneration'
+    ],
+    movingAway: [
+      'Regex patterns embedded in schemas',
+      'Magic numbers in logic',
+      "Assumptions that 'this will never change'"
+    ],
+    note: 'Not everything CAN be parameterized economically. The direction is toward parameterization WHERE IT ENABLES ADAPTATION.'
   },
-  react: {
-    filename: 'CityRep.tsx',
-    code: `import React, { useState } from 'react'
-import { useAppDispatch, useAppSelector } from './hooks/redux'
-
-const CityRep: React.FC = () => {
-  const dispatch = useAppDispatch()
-  const user = useAppSelector(state =&gt; state.auth.user)
-  const [currentView, setCurrentView] = useState('discovery')
-
-  const handleGoogleAuth = async () => {
-    try {
-      await dispatch(authenticateWithGoogle())
-      setCurrentView('discovery')
-    } catch (error) {
-      console.error('Auth failed:', error)
-    }
-  }
-
-  if (!user.authenticated) {
-    return &lt;AuthenticationView onLogin={handleGoogleAuth} /&gt;
-  }
-
-  return (
-    &lt;div className="city-rep-app"&gt;
-      {currentView === 'discovery' &amp;&amp; &lt;CityDiscoveryView /&gt;}
-      {currentView === 'details' &amp;&amp; &lt;CityDetailsView /&gt;}
-      {currentView === 'review' &amp;&amp; &lt;ReviewSubmissionView /&gt;}
-    &lt;/div&gt;
-  )
-}
-
-export default CityRep`,
-    info: [
-      { label: 'Components:', value: '4 React components' },
-      { label: 'State Management:', value: 'Redux Toolkit' },
-      { label: 'Type Safety:', value: 'Full TypeScript' }
-    ]
+  {
+    id: 'D02',
+    name: 'Toward User Experience',
+    shorthand: 'Learner experience is sacred in PLAY',
+    toward: 'Uninterrupted user flow, graceful handling, invisible complexity',
+    away: 'Technical errors surfaced to users, broken flows, confusion',
+    grounding: 'The user is the observer we serve. Their distinction-making is the purpose. Our system exists to support their boundary-refinement process.',
+    movingToward: [
+      'Errors caught before reaching user',
+      'Sensible defaults when data missing',
+      'Flow continues despite backend issues'
+    ],
+    movingAway: [
+      'Stack traces shown to users',
+      'System crashes interrupt learning',
+      'Technical constraints become user problems'
+    ],
+    note: '"In PLAY" is key. During BUILD, different rules apply. The developer IS the user during build.'
   },
-  swift: {
-    filename: 'CityRepView.swift',
-    code: `import SwiftUI
-
-struct CityRepView: View {
-    @StateObject private var authStore = AuthStore()
-    @State private var currentView: AppView = .discovery
-    
-    enum AppView {
-        case discovery, details, review
-    }
-    
-    var body: some View {
-        NavigationView {
-            Group {
-                if !authStore.isAuthenticated {
-                    AuthenticationView(authStore: authStore)
-                } else {
-                    switch currentView {
-                    case .discovery:
-                        CityDiscoveryView()
-                    case .details:
-                        CityDetailsView()
-                    case .review:
-                        ReviewSubmissionView()
-                    }
-                }
-            }
-            .navigationBarHidden(true)
-        }
-    }
-}
-
-// MARK: - Auth Store
-@MainActor
-class AuthStore: ObservableObject {
-    @Published var isAuthenticated = false
-    @Published var currentUser: User?
-    
-    func authenticateWithGoogle() async {
-        // Google OAuth implementation
-        isAuthenticated = true
-    }
-}`,
-    info: [
-      { label: 'Views:', value: '4 SwiftUI views' },
-      { label: 'Architecture:', value: 'MVVM + ObservableObject' },
-      { label: 'Platform:', value: 'iOS 15+' }
-    ]
+  {
+    id: 'D03',
+    name: 'Toward Appropriate Failure',
+    shorthand: 'Fail fast in BUILD, gracefully in PLAY',
+    toward: 'Clarity during development, resilience during use',
+    away: 'Silent build failures, runtime crashes',
+    grounding: 'BUILD is distinction-CLARITY: see exactly what\'s happening. PLAY is distinction-MAINTENANCE: the show must go on.',
+    movingToward: [
+      'Validation errors halt import with clear message',
+      'Build fails loudly on any issue',
+      'Runtime recovers gracefully, logs for later'
+    ],
+    movingAway: [
+      'Silently skipping invalid records',
+      'try/catch that swallows without logging',
+      'Runtime crashes on unexpected data'
+    ],
+    note: 'The boundary between BUILD and PLAY isn\'t always sharp. Staging environments require judgment.'
   },
-  kotlin: {
-    filename: 'CityRepActivity.kt',
-    code: `@Composable
-fun CityRepApp(
-    navController: NavHostController = rememberNavController()
-) {
-    val authViewModel: AuthViewModel = hiltViewModel()
-    val authState by authViewModel.authState.collectAsState()
-    
-    NavHost(
-        navController = navController,
-        startDestination = if (authState.isAuthenticated) {
-            "city_discovery"
-        } else {
-            "authentication"
-        }
-    ) {
-        composable("authentication") {
-            AuthenticationScreen(
-                onAuthSuccess = { user ->
-                    if (user.onboardingCompleted) {
-                        navController.navigate("city_discovery")
-                    } else {
-                        navController.navigate("user_onboarding")
-                    }
-                }
-            )
-        }
-        
-        composable("city_discovery") {
-            CityDiscoveryScreen(
-                onCitySelected = { cityId ->
-                    navController.navigate("city_details/$cityId")
-                }
-            )
-        }
-        
-        composable("city_details/{cityId}") { backStackEntry ->
-            val cityId = backStackEntry.arguments?.getString("cityId")
-            CityDetailsScreen(
-                cityId = cityId!!,
-                onWriteReview = {
-                    navController.navigate("review_submission/$cityId")
-                }
-            )
-        }
-    }
-}`,
-    info: [
-      { label: 'Screens:', value: '4 Compose screens' },
-      { label: 'Navigation:', value: 'Navigation Component' },
-      { label: 'DI:', value: 'Hilt dependency injection' }
-    ]
+  {
+    id: 'D04',
+    name: 'Toward Single Truth',
+    shorthand: 'APML is truth; code implements',
+    toward: 'One authoritative specification, derived implementations',
+    away: 'Multiple conflicting definitions, code-as-spec',
+    grounding: 'A distinction-pattern is more stable when maintained in one place. Multiple sources = more energy. Divergence is entropy.',
+    movingToward: [
+      'Schema defined in APML, SQL generated',
+      'Types defined once, shared everywhere',
+      'Reality changes → APML changes first'
+    ],
+    movingAway: [
+      'Code and spec diverge',
+      'Database has columns not in any spec',
+      '"We\'ll document it later"'
+    ],
+    note: 'Perfect sync is asymptotic. Sometimes code must lead spec temporarily (discovery). But the debt must be paid.'
+  },
+  {
+    id: 'D05',
+    name: 'Toward Raw Data',
+    shorthand: 'Store raw, compute derived',
+    toward: 'Neutral measurements, runtime interpretation',
+    away: 'Pre-computed classifications, embedded interpretations',
+    grounding: 'Interpretations are observer-dependent. Raw data is stable; classification is context. Storing raw enables multiple observers.',
+    movingToward: [
+      'Store word_count, compute phrase_type',
+      'Store timestamps, compute "recent"',
+      'Store measurements, compute judgments'
+    ],
+    movingAway: [
+      'Storing phrase_type, requiring regeneration to change rules',
+      'Pre-computing "is_important" with hardcoded threshold'
+    ],
+    note: 'Performance sometimes requires caching derived values. Cache where necessary, but keep raw data as truth.'
+  },
+  {
+    id: 'D06',
+    name: 'Toward Dual Identity',
+    shorthand: 'Natural keys for humans, UUIDs for machines',
+    toward: 'Human-readable identifiers AND stable machine references',
+    away: 'Parsing display strings, encoding meaning in IDs',
+    grounding: 'Different observers access at different resolutions. Humans need semantic identifiers. Machines need collision-free stable references.',
+    movingToward: [
+      'id: UUID, seed_number: 42, display: computed',
+      'Natural key for uniqueness, surrogate key for references'
+    ],
+    movingAway: [
+      'Regex-parsing IDs to extract semantic content',
+      'Using display strings as foreign keys'
+    ],
+    note: 'Legacy systems may require ID parsing. The direction is toward clean separation in new design.'
+  },
+  {
+    id: 'D07',
+    name: 'Toward Reusability',
+    shorthand: "Don't duplicate, reference",
+    toward: 'Shared patterns, referenced resources, general utilities',
+    away: 'Duplicated code, copied resources, project-specific hacks',
+    grounding: 'Maintaining the same distinction in multiple places costs energy. Every duplicate is entropy waiting to happen.',
+    movingToward: [
+      'Audio sample referenced by text+voice, shared across courses',
+      'Validation library used by all importers',
+      'Pattern abstracted when used 3+ times'
+    ],
+    movingAway: [
+      'Copy-pasting audio files per course',
+      'Each script has its own validation logic'
+    ],
+    note: 'Premature abstraction has costs too. Wait for the pattern to emerge; then extract.'
+  },
+  {
+    id: 'D08',
+    name: 'Toward Explicitness',
+    shorthand: 'No magic; if it matters, it\'s visible',
+    toward: 'Declared behavior, visible state, documented assumptions',
+    away: 'Convention-over-configuration, hidden defaults, implicit coupling',
+    grounding: 'Implicit behavior is a hidden energy cost. Explicit declarations make distinctions visible—and visible distinctions can be maintained.',
+    movingToward: [
+      "status: 'draft' (explicit default in schema)",
+      'belongs_to: Course via course_code (explicit)',
+      'Assumptions documented, not just coded'
+    ],
+    movingAway: [
+      'Null means draft (implicit)',
+      'Joining on matching column names (implicit)'
+    ],
+    note: 'Not everything needs to be explicit to the same degree. Stable conventions can remain implicit; surprising behavior should be explicit.'
+  },
+  {
+    id: 'D09',
+    name: 'Toward Idempotency',
+    shorthand: 'Every operation safe to re-run',
+    toward: 'Repeatable operations, upsert semantics, stable outcomes',
+    away: 'Side effects, duplicate creation, order-dependent results',
+    grounding: 'Stable distinction-patterns can be re-accessed without degradation. Idempotency is thermodynamic stability for operations.',
+    movingToward: [
+      'UPSERT with ON CONFLICT',
+      'Check-then-create patterns',
+      'Scripts that converge to same state'
+    ],
+    movingAway: [
+      'INSERT without conflict handling',
+      'Counters incremented without checking state'
+    ],
+    note: 'Some operations are inherently non-idempotent (emails, charges). Be idempotent WHERE POSSIBLE.'
+  },
+  {
+    id: 'D10',
+    name: 'Toward Observability',
+    shorthand: 'See what the system is doing',
+    toward: 'Visible state, meaningful logs, progress indicators',
+    away: 'Black boxes, silent operations, hidden state',
+    grounding: 'Observers need access to make distinctions. A system that hides its state is inaccessible for debugging.',
+    movingToward: [
+      "Import logs: 'Seeds: 30, LEGOs: 130, PASS'",
+      'Health endpoints showing status',
+      'Progress bars for long operations'
+    ],
+    movingAway: [
+      "'Import complete.' (How many? Was it successful?)",
+      'Background jobs with no status visibility'
+    ],
+    note: 'Observability has costs. The direction is enough visibility to debug and understand.'
+  },
+  {
+    id: 'D11',
+    name: 'Toward Proper Abstractions',
+    shorthand: 'Typed structures over string hacks',
+    toward: 'Proper parsers, typed data, clean transformations',
+    away: 'Regex for structured data, stringly-typed code, clever hacks',
+    grounding: 'Proper boundaries are easier to maintain. A typed structure has clear distinctions; a string has implicit ones.',
+    movingToward: [
+      'seed_number: INTEGER stored directly',
+      "status: ENUM('draft', 'released')",
+      'Parser that produces typed AST'
+    ],
+    movingAway: [
+      'Regex to extract numbers from formatted strings',
+      'status: TEXT (hope nobody typos)'
+    ],
+    note: 'Legacy systems may require parsing hacks. New code uses proper abstractions; legacy interfaces get explicit adapters.'
+  },
+  {
+    id: 'D12',
+    name: 'Toward Delta Sync',
+    shorthand: 'version + updated_at on everything',
+    toward: 'Incremental updates, change tracking, efficient sync',
+    away: 'Full reloads, re-fetching everything, blind overwrites',
+    grounding: 'Finite energy means finite distinctions per cycle. Delta sync processes only changed distinctions—thermodynamic efficiency.',
+    movingToward: [
+      'version INTEGER, updated_at TIMESTAMPTZ on all content',
+      'SELECT WHERE updated_at > :last_sync',
+      'Conflict resolution via version comparison'
+    ],
+    movingAway: [
+      'No timestamps on content tables',
+      'Full table download on every app open'
+    ],
+    note: 'Simple systems may not need delta sync. The direction matters as systems scale and go offline-first.'
   }
-}
-
-const getHighlightedCode = (platform) => {
-  const code = compilationExamples[platform].code
-  
-  if (platform === 'vue') {
-    return code
-      // Template tags
-      .replace(/&lt;(\/?)(\w+)([^&]*?)&gt;/g, '<span class="vue-tag">&lt;$1$2</span><span class="vue-attr">$3</span><span class="vue-tag">&gt;</span>')
-      // Strings
-      .replace(/"([^"]*)"/g, '<span class="vue-string">"$1"</span>')
-      .replace(/'([^']*)'/g, '<span class="vue-string">\'$1\'</span>')
-      // Keywords
-      .replace(/\b(import|const|from|async|await|export|default)\b/g, '<span class="vue-keyword">$1</span>')
-      // Vue specific functions
-      .replace(/\b(ref|reactive)\b/g, '<span class="vue-function">$1</span>')
-      // Properties and object keys
-      .replace(/(\w+):/g, '<span class="vue-property">$1</span>:')
-      // Comments
-      .replace(/(\/\/.*)/g, '<span class="vue-comment">$1</span>')
-      
-  } else if (platform === 'react') {
-    return code
-      // JSX tags  
-      .replace(/&lt;(\/?)(\w+)([^&]*?)&gt;/g, '<span class="react-jsx">&lt;$1$2$3&gt;</span>')
-      // Strings
-      .replace(/"([^"]*)"/g, '<span class="react-string">"$1"</span>')
-      .replace(/'([^']*)'/g, '<span class="react-string">\'$1\'</span>')
-      // Keywords
-      .replace(/\b(import|const|from|async|await|try|catch|if|return|export|default)\b/g, '<span class="react-keyword">$1</span>')
-      // React hooks and functions
-      .replace(/\b(useState|useAppDispatch|useAppSelector|React|FC)\b/g, '<span class="react-function">$1</span>')
-      // Properties
-      .replace(/(\w+):/g, '<span class="react-property">$1</span>:')
-      // Comments
-      .replace(/(\/\/.*)/g, '<span class="react-comment">$1</span>')
-      // JSX expressions
-      .replace(/({[^}]*})/g, '<span class="react-jsx">$1</span>')
-      
-  } else if (platform === 'swift') {
-    return code
-      // Strings
-      .replace(/"([^"]*)"/g, '<span class="swift-string">"$1"</span>')
-      // Keywords
-      .replace(/\b(import|struct|class|func|var|let|if|else|case|switch|async|await|private)\b/g, '<span class="swift-keyword">$1</span>')
-      // Property wrappers
-      .replace(/(@StateObject|@State|@Published)/g, '<span class="swift-keyword">$1</span>')
-      // Types
-      .replace(/\b(View|ObservableObject|NavigationView|Group|AppView|String|Int|Bool)\b/g, '<span class="swift-type">$1</span>')
-      // Comments
-      .replace(/(\/\/.*)/g, '<span class="swift-comment">$1</span>')
-      // MARK comments
-      .replace(/(\/\/ MARK:.*)/g, '<span class="swift-mark">$1</span>')
-      
-  } else if (platform === 'kotlin') {
-    return code
-      // Strings
-      .replace(/"([^"]*)"/g, '<span class="kotlin-string">"$1"</span>')
-      // Keywords
-      .replace(/\b(fun|val|var|if|else|when|import|class|private|async|suspend)\b/g, '<span class="kotlin-keyword">$1</span>')
-      // Annotations
-      .replace(/(@Composable)/g, '<span class="kotlin-keyword">$1</span>')
-      // Functions
-      .replace(/\b(NavHost|NavHostController|hiltViewModel|collectAsState|composable|navigate|rememberNavController)\b/g, '<span class="kotlin-function">$1</span>')
-      // Properties
-      .replace(/(\w+):/g, '<span class="kotlin-property">$1</span>:')
-      // Comments
-      .replace(/(\/\/.*)/g, '<span class="kotlin-comment">$1</span>')
-  }
-  
-  return code
-}
+]
 </script>
 
 <style scoped>
-.home-page {
+@import url('https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500&family=Space+Mono:wght@400;700&display=swap');
+
+.principles-page {
   min-height: 100vh;
-  background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #374151 100%);
-  color: #f8fafc;
-  padding: 2rem 0;
+  background: #0c0c0c;
+  color: #e8e4df;
+  font-family: 'Crimson Pro', Georgia, serif;
+  font-size: 18px;
+  line-height: 1.7;
 }
 
-.hero-container {
-  max-width: 1400px;
-  margin: 0 auto;
-  padding: 0 2rem;
-  text-align: center;
+/* Hero Section */
+.hero {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  padding: 4rem;
+  position: relative;
+  overflow: hidden;
 }
 
-.hero-badge {
-  display: inline-block;
-  background: rgba(99, 102, 241, 0.1);
-  border: 1px solid rgba(99, 102, 241, 0.3);
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse at 30% 50%, rgba(212, 175, 55, 0.08) 0%, transparent 50%),
+    radial-gradient(ellipse at 70% 80%, rgba(212, 175, 55, 0.04) 0%, transparent 40%);
+  pointer-events: none;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+  max-width: 600px;
+}
+
+.version-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
   padding: 0.5rem 1rem;
-  border-radius: 50px;
+  background: rgba(212, 175, 55, 0.1);
+  border: 1px solid rgba(212, 175, 55, 0.3);
+  border-radius: 2px;
+  font-family: 'Space Mono', monospace;
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #d4af37;
   margin-bottom: 2rem;
-  font-size: 0.875rem;
+}
+
+.badge-dot {
+  width: 6px;
+  height: 6px;
+  background: #d4af37;
+  border-radius: 50%;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
 }
 
 .hero-title {
-  font-size: clamp(3rem, 6vw, 5rem);
-  font-weight: 800;
-  line-height: 1.1;
-  margin-bottom: 1.5rem;
+  margin: 0 0 2rem;
 }
 
-.highlight {
-  background: linear-gradient(135deg, #6366f1, #8b5cf6);
+.title-small {
+  display: block;
+  font-size: 1rem;
+  font-weight: 400;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #8a8580;
+  margin-bottom: 0.5rem;
+}
+
+.title-main {
+  display: block;
+  font-size: clamp(3rem, 6vw, 5rem);
+  font-weight: 300;
+  line-height: 1.1;
+  background: linear-gradient(135deg, #e8e4df 0%, #d4af37 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 
-.hero-subtitle {
+.hero-philosophy {
   font-size: 1.25rem;
-  color: #94a3b8;
-  max-width: 600px;
-  margin: 0 auto 3rem;
-}
-
-.code-preview {
-  background: rgba(15, 23, 42, 0.8);
-  border: 1px solid rgba(99, 102, 241, 0.2);
-  border-radius: 16px;
+  font-style: italic;
+  color: #a09a94;
   margin-bottom: 3rem;
-  overflow: hidden;
+  padding-left: 1.5rem;
+  border-left: 2px solid rgba(212, 175, 55, 0.3);
 }
 
-.code-header {
-  display: flex;
-  justify-content: flex-end;
+.btn-explore {
+  display: inline-flex;
   align-items: center;
-  padding: 1rem;
-  background: rgba(30, 41, 59, 0.5);
-  border-bottom: 1px solid rgba(99, 102, 241, 0.1);
+  gap: 0.75rem;
+  padding: 1rem 2rem;
+  background: transparent;
+  border: 1px solid rgba(212, 175, 55, 0.5);
+  color: #d4af37;
+  text-decoration: none;
+  font-family: 'Crimson Pro', serif;
+  font-size: 1rem;
+  letter-spacing: 0.05em;
+  transition: all 0.3s ease;
 }
 
-.status {
-  color: #10b981;
-  font-size: 0.875rem;
-  font-weight: 600;
+.btn-explore:hover {
+  background: rgba(212, 175, 55, 0.1);
+  border-color: #d4af37;
 }
 
-/* APML Syntax Highlighting */
-.keyword { color: #8b5cf6; font-weight: 600; }
-.app-name, .type, .interface-name, .logic-name { color: #06b6d4; font-weight: 600; }
-.property { color: #f59e0b; }
-.string { color: #10b981; }
-.punctuation { color: #64748b; }
-.modifier { color: #ec4899; font-weight: 500; }
-.enum { color: #3b82f6; }
-.number { color: #f97316; }
-.ui-keyword { color: #8b5cf6; font-weight: 500; }
-.ui-element { color: #06b6d4; }
-.flow-keyword { color: #6366f1; font-weight: 500; }
-.variable { color: #eab308; }
-.action { color: #ef4444; font-weight: 500; }
-.process-keyword { color: #8b5cf6; font-weight: 600; }
-.process-name { color: #06b6d4; font-weight: 600; }
-.condition { color: #10b981; }
-
-/* Vue.js Syntax Highlighting */
-.vue-tag { color: #ef4444; font-weight: 500; }
-.vue-attr { color: #f59e0b; }
-.vue-string { color: #10b981; }
-.vue-keyword { color: #8b5cf6; font-weight: 600; }
-.vue-var { color: #06b6d4; }
-.vue-function { color: #3b82f6; font-weight: 500; }
-.vue-property { color: #eab308; }
-.vue-comment { color: #64748b; font-style: italic; }
-
-.code-content {
-  display: grid;
-  grid-template-columns: 1fr auto 1fr;
-  gap: 2rem;
-  padding: 2rem;
-  align-items: flex-start;
+.btn-explore svg {
+  animation: bounce 2s infinite;
 }
 
-.code-input {
-  text-align: left;
-  max-height: 500px;
-  overflow-y: auto;
-  scrollbar-width: thin;
-  scrollbar-color: rgba(99, 102, 241, 0.3) rgba(30, 41, 59, 0.3);
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+  40% { transform: translateY(4px); }
+  60% { transform: translateY(2px); }
 }
 
-.code-input::-webkit-scrollbar {
-  width: 6px;
+/* Distinction Orb */
+.hero-visual {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
 }
 
-.code-input::-webkit-scrollbar-track {
-  background: rgba(30, 41, 59, 0.3);
-  border-radius: 3px;
+.distinction-orb {
+  position: relative;
+  width: 400px;
+  height: 400px;
 }
 
-.code-input::-webkit-scrollbar-thumb {
-  background: rgba(99, 102, 241, 0.3);
-  border-radius: 3px;
+.orb-ring {
+  position: absolute;
+  border: 1px solid rgba(212, 175, 55, 0.2);
+  border-radius: 50%;
+  animation: orbit 20s linear infinite;
 }
 
-.code-input::-webkit-scrollbar-thumb:hover {
-  background: rgba(99, 102, 241, 0.5);
+.ring-1 {
+  inset: 0;
+  animation-duration: 20s;
 }
 
-.code-input pre {
-  margin: 0;
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 0.875rem;
-  line-height: 1.5;
-  padding-right: 1rem;
+.ring-2 {
+  inset: 50px;
+  animation-duration: 15s;
+  animation-direction: reverse;
 }
 
-.arrow {
-  font-size: 1.5rem;
-  color: #6366f1;
+.ring-3 {
+  inset: 100px;
+  animation-duration: 10s;
 }
 
-.code-output {
-  background: rgba(30, 41, 59, 0.5);
-  border: 1px solid rgba(99, 102, 241, 0.2);
-  border-radius: 12px;
-  padding: 1.5rem;
-  text-align: left;
-  min-width: 500px;
+@keyframes orbit {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
 }
 
-.output {
-  color: #10b981;
-  font-weight: 600;
-  font-size: 1.125rem;
-  margin-bottom: 0.5rem;
+.orb-core {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 120px;
+  height: 120px;
+  background: radial-gradient(circle, rgba(212, 175, 55, 0.3) 0%, transparent 70%);
+  border-radius: 50%;
+  box-shadow:
+    0 0 60px rgba(212, 175, 55, 0.2),
+    0 0 120px rgba(212, 175, 55, 0.1);
 }
 
-.output-details {
-  color: #94a3b8;
-  font-size: 0.875rem;
-  line-height: 1.4;
-}
-
-.output-header {
-  color: #10b981;
-  font-weight: 600;
-  font-size: 1.125rem;
-  margin-bottom: 1rem;
+/* Meta Principle */
+.meta-principle {
+  background: linear-gradient(180deg, #0c0c0c 0%, #141210 100%);
+  padding: 8rem 4rem;
   text-align: center;
 }
 
-.platform-selector {
-  display: flex;
-  gap: 0.5rem;
-  justify-content: center;
-  margin-bottom: 1rem;
+.meta-content {
+  max-width: 800px;
+  margin: 0 auto;
 }
 
-.platform-btn {
-  padding: 0.5rem 1rem;
-  border: 1px solid rgba(99, 102, 241, 0.3);
-  background: rgba(99, 102, 241, 0.1);
-  color: #a5b4fc;
-  border-radius: 6px;
-  font-size: 0.875rem;
-  font-weight: 500;
-  cursor: pointer;
-  transition: all 0.3s ease;
+.meta-label {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.75rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #d4af37;
+  margin-bottom: 2rem;
 }
 
-.platform-btn:hover {
-  background: rgba(99, 102, 241, 0.2);
-  border-color: rgba(99, 102, 241, 0.5);
-  color: #c7d2fe;
+.meta-quote {
+  font-size: clamp(1.5rem, 3vw, 2.5rem);
+  font-weight: 300;
+  font-style: italic;
+  line-height: 1.5;
+  margin: 0 0 2rem;
+  padding: 0;
+  border: none;
 }
 
-.platform-btn.active {
-  background: rgba(99, 102, 241, 0.3);
-  border-color: rgba(99, 102, 241, 0.6);
-  color: #e0e7ff;
+.meta-quote em {
+  font-style: normal;
+  color: #d4af37;
 }
 
-.code-preview-container {
-  background: rgba(15, 23, 42, 0.8);
-  border: 1px solid rgba(99, 102, 241, 0.1);
-  border-radius: 8px;
-  overflow: hidden;
-  margin-bottom: 1rem;
+.meta-explanation {
+  font-size: 1.125rem;
+  color: #8a8580;
+  max-width: 500px;
+  margin: 0 auto;
 }
 
-.file-tab {
-  background: rgba(99, 102, 241, 0.1);
-  padding: 0.5rem 1rem;
-  font-size: 0.875rem;
-  font-weight: 500;
-  color: #a5b4fc;
-  border-bottom: 1px solid rgba(99, 102, 241, 0.1);
+/* Physics Section */
+.physics {
+  padding: 6rem 4rem;
+  background: #0c0c0c;
 }
 
-.code-preview-container pre {
-  margin: 0;
-  padding: 1rem;
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 0.8rem;
-  line-height: 1.4;
-  max-height: 400px;
-  overflow-y: auto;
-  scrollbar-width: thin;
-  scrollbar-color: rgba(99, 102, 241, 0.3) rgba(30, 41, 59, 0.3);
-}
-
-.code-preview-container::-webkit-scrollbar {
-  width: 4px;
-}
-
-.code-preview-container::-webkit-scrollbar-track {
-  background: rgba(30, 41, 59, 0.3);
-}
-
-.code-preview-container::-webkit-scrollbar-thumb {
-  background: rgba(99, 102, 241, 0.3);
-  border-radius: 2px;
-}
-
-/* React Syntax Highlighting */
-.react-keyword { color: #8b5cf6; font-weight: 600; }
-.react-function { color: #3b82f6; font-weight: 500; }
-.react-string { color: #10b981; }
-.react-property { color: #eab308; }
-.react-comment { color: #64748b; font-style: italic; }
-.react-jsx { color: #ef4444; font-weight: 500; }
-
-/* Swift Syntax Highlighting */
-.swift-keyword { color: #8b5cf6; font-weight: 600; }
-.swift-type { color: #06b6d4; font-weight: 600; }
-.swift-string { color: #10b981; }
-.swift-comment { color: #64748b; font-style: italic; }
-.swift-mark { color: #f59e0b; font-weight: 500; font-style: italic; }
-
-/* Kotlin Syntax Highlighting */
-.kotlin-keyword { color: #8b5cf6; font-weight: 600; }
-.kotlin-function { color: #3b82f6; font-weight: 500; }
-.kotlin-string { color: #10b981; }
-.kotlin-property { color: #eab308; }
-.kotlin-comment { color: #64748b; font-style: italic; }
-
-.compilation-info {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-}
-
-.info-item {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0.25rem 0;
-  font-size: 0.875rem;
-}
-
-.info-label {
-  color: #94a3b8;
-  font-weight: 500;
-}
-
-.info-item span:last-child {
-  color: #a5b4fc;
-}
-
-.hero-actions {
-  display: flex;
-  gap: 1rem;
-  justify-content: center;
-  margin-bottom: 3rem;
-}
-
-.btn-primary, .btn-secondary, .btn-tertiary {
-  padding: 1rem 2rem;
-  border-radius: 12px;
-  font-weight: 600;
-  text-decoration: none;
-  transition: all 0.3s ease;
-}
-
-.btn-primary {
-  background: linear-gradient(135deg, #6366f1, #8b5cf6);
-  color: white;
-}
-
-.btn-secondary {
-  background: rgba(99, 102, 241, 0.1);
-  color: #a5b4fc;
-  border: 1px solid rgba(99, 102, 241, 0.3);
-}
-
-.btn-tertiary {
-  background: rgba(148, 163, 184, 0.1);
-  color: #94a3b8;
-  border: 1px solid rgba(148, 163, 184, 0.3);
-}
-
-.feature-pills {
-  display: flex;
-  gap: 1rem;
-  justify-content: center;
+.physics-header {
+  text-align: center;
   margin-bottom: 4rem;
 }
 
-.pill {
-  background: rgba(255, 255, 255, 0.05);
-  padding: 0.5rem 1rem;
-  border-radius: 50px;
+.physics-header h2 {
+  font-size: 2.5rem;
+  font-weight: 300;
+  margin: 0 0 0.5rem;
+}
+
+.physics-subtitle {
+  font-family: 'Space Mono', monospace;
   font-size: 0.875rem;
-  color: #94a3b8;
+  color: #6a6560;
+  margin: 0;
 }
 
-.trinity-section {
-  max-width: 800px;
-  margin: 0 auto;
-  padding-top: 4rem;
-}
-
-.trinity-section h2 {
-  font-size: 2rem;
-  margin-bottom: 2rem;
-  text-align: center;
-}
-
-.trinity-nodes {
+.axioms {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
   gap: 2rem;
+  max-width: 1000px;
+  margin: 0 auto 4rem;
 }
 
-.node {
-  background: rgba(99, 102, 241, 0.1);
-  border: 1px solid rgba(99, 102, 241, 0.3);
-  border-radius: 12px;
+.axiom {
+  display: flex;
+  gap: 1.5rem;
+  padding: 2rem;
+  background: rgba(212, 175, 55, 0.03);
+  border: 1px solid rgba(212, 175, 55, 0.1);
+}
+
+.axiom-number {
+  font-family: 'Crimson Pro', serif;
+  font-size: 3rem;
+  font-weight: 300;
+  color: #d4af37;
+  line-height: 1;
+}
+
+.axiom-content h3 {
+  font-size: 1.25rem;
+  font-weight: 500;
+  margin: 0 0 0.75rem;
+  color: #e8e4df;
+}
+
+.axiom-content p {
+  margin: 0;
+  color: #a09a94;
+  font-size: 1rem;
+}
+
+.derivations {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5rem;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.derivation {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
   padding: 1.5rem;
-  text-align: center;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.05);
 }
 
-.node .icon {
-  font-size: 2rem;
+.derivation-icon {
+  font-size: 1.5rem;
+  color: #d4af37;
+  line-height: 1;
+}
+
+.derivation-text h4 {
+  font-size: 1rem;
+  font-weight: 600;
+  margin: 0 0 0.5rem;
+  color: #e8e4df;
+}
+
+.derivation-text p {
+  font-size: 0.875rem;
+  color: #8a8580;
+  margin: 0;
+}
+
+/* Directions Section */
+.directions {
+  padding: 6rem 4rem;
+  background: linear-gradient(180deg, #0c0c0c 0%, #0f0e0c 100%);
+}
+
+.directions-header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.directions-header h2 {
+  font-size: 2.5rem;
+  font-weight: 300;
+  margin: 0 0 0.5rem;
+}
+
+.directions-header p {
+  font-style: italic;
+  color: #8a8580;
+  margin: 0;
+}
+
+.directions-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+  gap: 1.5rem;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.direction-card {
+  background: rgba(20, 18, 16, 0.8);
+  border: 1px solid rgba(212, 175, 55, 0.1);
+  padding: 2rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.direction-card:hover {
+  border-color: rgba(212, 175, 55, 0.3);
+  background: rgba(25, 23, 20, 0.9);
+}
+
+.direction-card.expanded {
+  border-color: rgba(212, 175, 55, 0.4);
+  grid-column: 1 / -1;
+}
+
+.direction-number {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.75rem;
+  color: #d4af37;
+  letter-spacing: 0.1em;
   margin-bottom: 1rem;
 }
 
-.node .label {
-  font-weight: 600;
-  color: #a5b4fc;
-  margin-bottom: 0.5rem;
+.direction-header {
+  margin-bottom: 1.5rem;
 }
 
-.node .desc {
-  color: #94a3b8;
+.direction-name {
+  font-size: 1.25rem;
+  font-weight: 500;
+  margin: 0 0 0.25rem;
+  color: #e8e4df;
+}
+
+.direction-shorthand {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.8rem;
+  color: #8a8580;
+  margin: 0;
+}
+
+.direction-gradient {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  gap: 1rem;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.gradient-toward, .gradient-away {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.gradient-away {
+  text-align: right;
+}
+
+.gradient-label {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.65rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.gradient-toward .gradient-label {
+  color: #10b981;
+}
+
+.gradient-away .gradient-label {
+  color: #ef4444;
+}
+
+.gradient-value {
   font-size: 0.875rem;
+  color: #a09a94;
+}
+
+.gradient-arrow {
+  width: 80px;
+}
+
+.gradient-arrow svg {
+  width: 100%;
+  height: 20px;
+}
+
+.direction-details {
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(212, 175, 55, 0.1);
+  margin-top: 0.5rem;
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.grounding {
+  margin-bottom: 1.5rem;
+}
+
+.grounding h4,
+.indicators h5,
+.contextual-note h5 {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #d4af37;
+  margin: 0 0 0.75rem;
+}
+
+.grounding p {
+  margin: 0;
+  color: #a09a94;
+  font-size: 1rem;
+}
+
+.indicators {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  margin-bottom: 1.5rem;
+}
+
+.indicator-column ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.indicator-column li {
+  position: relative;
+  padding-left: 1.25rem;
+  margin-bottom: 0.5rem;
+  font-size: 0.875rem;
+  color: #8a8580;
+}
+
+.indicator-column li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.5em;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+}
+
+.indicator-column.toward li::before {
+  background: #10b981;
+}
+
+.indicator-column.away li::before {
+  background: #ef4444;
+}
+
+.contextual-note {
+  padding: 1rem;
+  background: rgba(212, 175, 55, 0.05);
+  border-left: 2px solid rgba(212, 175, 55, 0.3);
+}
+
+.contextual-note p {
+  margin: 0;
+  font-size: 0.875rem;
+  font-style: italic;
+  color: #a09a94;
+}
+
+.direction-expand {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  font-family: 'Space Mono', monospace;
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #6a6560;
+  margin-top: 1rem;
+}
+
+.direction-expand svg {
+  transition: transform 0.3s ease;
+}
+
+.direction-expand svg.rotated {
+  transform: rotate(180deg);
+}
+
+/* Resources Section */
+.resources {
+  padding: 6rem 4rem;
+  background: #0c0c0c;
+}
+
+.resources h2 {
+  text-align: center;
+  font-size: 2rem;
+  font-weight: 300;
+  margin: 0 0 3rem;
+}
+
+.resource-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.resource-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 2rem;
+  background: rgba(20, 18, 16, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  text-decoration: none;
+  color: inherit;
+  transition: all 0.3s ease;
+}
+
+.resource-card:hover {
+  border-color: rgba(212, 175, 55, 0.3);
+  background: rgba(25, 23, 20, 0.8);
+}
+
+.resource-icon {
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1rem;
+  color: #d4af37;
+}
+
+.resource-card h3 {
+  font-size: 1rem;
+  font-weight: 500;
+  margin: 0 0 0.5rem;
+  color: #e8e4df;
+}
+
+.resource-card p {
+  font-size: 0.875rem;
+  color: #6a6560;
+  margin: 0;
+}
+
+/* Attribution */
+.attribution {
+  padding: 3rem 4rem;
+  text-align: center;
+  background: rgba(10, 10, 10, 0.8);
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.attribution p {
+  margin: 0.5rem 0;
+  font-size: 0.875rem;
+  color: #6a6560;
+}
+
+.attr-label {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #4a4540;
+  margin-right: 0.5rem;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .hero {
+    grid-template-columns: 1fr;
+    text-align: center;
+    padding: 3rem 2rem;
+    min-height: auto;
+  }
+
+  .hero-content {
+    max-width: none;
+  }
+
+  .hero-visual {
+    display: none;
+  }
+
+  .hero-philosophy {
+    border-left: none;
+    padding-left: 0;
+    border-top: 2px solid rgba(212, 175, 55, 0.3);
+    border-bottom: 2px solid rgba(212, 175, 55, 0.3);
+    padding: 1.5rem 0;
+  }
+
+  .directions-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .direction-card.expanded {
+    grid-column: auto;
+  }
 }
 
 @media (max-width: 768px) {
-  .trinity-nodes {
+  .principles-page {
+    font-size: 16px;
+  }
+
+  .hero, .meta-principle, .physics, .directions, .resources {
+    padding: 3rem 1.5rem;
+  }
+
+  .axioms {
     grid-template-columns: 1fr;
   }
-  
-  .code-content {
+
+  .axiom {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .direction-gradient {
     grid-template-columns: 1fr;
-    gap: 1.5rem;
-    padding: 1rem;
+    gap: 0.75rem;
+    text-align: center;
   }
-  
-  .code-input {
-    order: 1;
-    max-height: 350px;
-    font-size: 0.75rem;
+
+  .gradient-toward, .gradient-away {
+    text-align: center;
   }
-  
-  .arrow {
-    order: 2;
-    font-size: 2rem;
+
+  .gradient-arrow {
+    width: 100%;
     transform: rotate(90deg);
-    color: #6366f1;
-    margin: 0.5rem 0;
+    height: 40px;
   }
-  
-  .code-output {
-    order: 3;
-    min-width: unset;
-    margin-top: 0;
-  }
-  
-  .output-header {
-    font-size: 1rem;
-  }
-  
-  .platform-selector {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 0.5rem;
-    margin-bottom: 1rem;
-  }
-  
-  .platform-btn {
-    font-size: 0.875rem;
-    padding: 0.75rem 1rem;
-    border-radius: 8px;
-    min-height: 48px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-  }
-  
-  .code-preview-container pre {
-    font-size: 0.75rem;
-    max-height: 300px;
-    padding: 0.75rem;
-    line-height: 1.5;
-  }
-  
-  .compilation-info {
-    gap: 0.75rem;
-  }
-  
-  .info-item {
-    font-size: 0.875rem;
-    padding: 0.5rem 0;
-  }
-  
-  .hero-actions {
-    flex-direction: column;
-    align-items: center;
-    gap: 0.75rem;
-  }
-  
-  .btn-primary, .btn-secondary, .btn-tertiary {
-    min-width: 280px;
-    text-align: center;
-    padding: 0.875rem 1.5rem;
-    font-size: 0.9rem;
-  }
-  
-  .feature-pills {
-    flex-direction: column;
-    align-items: center;
-    gap: 0.5rem;
-  }
-  
-  .pill {
-    min-width: 200px;
-    text-align: center;
-    padding: 0.75rem 1rem;
+
+  .indicators {
+    grid-template-columns: 1fr;
   }
 }
 
 @media (max-width: 480px) {
-  .hero-container {
-    padding: 0 1rem;
+  .title-main {
+    font-size: 2.5rem;
   }
-  
-  .hero-title {
-    font-size: clamp(2rem, 8vw, 3rem);
-  }
-  
-  .hero-subtitle {
-    font-size: 1.1rem;
-    margin-bottom: 2rem;
-  }
-  
-  .code-preview {
-    margin: 0 -1rem 2rem;
-    border-radius: 0;
-  }
-  
-  .code-content {
-    padding: 0.75rem;
-  }
-  
-  .code-input {
-    max-height: 280px;
-    font-size: 0.7rem;
-  }
-  
-  .platform-selector {
-    grid-template-columns: 1fr;
-    gap: 0.75rem;
-  }
-  
-  .platform-btn {
-    padding: 1rem;
-    min-height: 52px;
-    font-size: 0.9rem;
-    font-weight: 600;
-  }
-  
-  .code-preview-container pre {
-    font-size: 0.7rem;
-    max-height: 250px;
-    padding: 0.5rem;
-    line-height: 1.4;
-  }
-  
-  .btn-primary, .btn-secondary, .btn-tertiary {
-    min-width: 100%;
-    margin: 0;
-    font-size: 1rem;
-    padding: 1rem 1.5rem;
-  }
-  
-  .trinity-section {
-    padding-top: 2rem;
-  }
-  
-  .trinity-section h2 {
-    font-size: 1.5rem;
-  }
-  
-  .node {
-    padding: 1rem;
-  }
-  
-  .node .icon {
-    font-size: 1.5rem;
-  }
-}
 
-/* Touch improvements for all mobile */
-@media (hover: none) and (pointer: coarse) {
-  .platform-btn:hover {
-    transform: none;
+  .meta-quote {
+    font-size: 1.25rem;
   }
-  
-  .platform-btn:active {
-    transform: scale(0.98);
-    transition: transform 0.1s ease;
-  }
-  
-  .btn-primary:hover, .btn-secondary:hover, .btn-tertiary:hover {
-    transform: none;
-  }
-  
-  .btn-primary:active, .btn-secondary:active, .btn-tertiary:active {
-    transform: scale(0.98);
-    transition: transform 0.1s ease;
+
+  .resource-grid {
+    grid-template-columns: 1fr;
   }
 }
 </style>

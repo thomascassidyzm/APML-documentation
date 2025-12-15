@@ -1,0 +1,653 @@
+# APML Design Principles v2.0.0
+# Grounded in Distinction as Primitive
+#
+# Version: 2.0.0
+# Date: 2025-12-15
+# Status: Proposed addition to APML v2.1.0
+# Philosophical Foundation: Distinction as Primitive (TPML Module 0)
+
+app APMLDesignPrinciples:
+  title: "APML Design Principles"
+  description: "Directions for human-AI collaborative systems, grounded in distinction-primacy"
+  version: "2.0.0"
+  apml_version: "2.0.0"
+
+  philosophical_foundation:
+    source: "Distinction as Primitive (TPML Module 0)"
+    author: "Tom Cassidy"
+    core_insight: |
+      Distinction-making is ontologically primitive for observers-like-us.
+      All distinctions cost energy. All observers have finite budgets.
+      Therefore: all accessible reality is effectively discrete.
+
+# =============================================================================
+# THE PRIMITIVE
+# =============================================================================
+
+primitive Distinction:
+  definition: |
+    The capacity to differentiate one aspect of reality from another.
+    Equivalent to: differential response, boundary, information.
+
+  properties:
+    transcendentally_necessary: true
+    requires_observer: true
+    requires_energy: true
+
+  implication: |
+    To be (accessible) is to be distinct.
+    An entity is nothing but the bundle of distinctions that constitute it.
+
+# =============================================================================
+# THE PHYSICS (From TPML Module 0.3)
+# =============================================================================
+
+physics DistinctionThermodynamics:
+
+  axiom_1:
+    statement: "All distinctions cost energy"
+    implication: |
+      To maintain that a system is in state A rather than state B
+      requires energy expenditure. Making or maintaining any distinction—
+      any boundary, any difference—is not free.
+
+  axiom_2:
+    statement: "All observers have finite energy budgets"
+    implication: |
+      Every observer-like-us (OLU) operates with limited energy.
+      No OLU has access to infinite energy. This finitude is absolute.
+
+  derivations:
+
+    effective_discreteness:
+      statement: "No continuous quantity can be accessed by any OLU"
+      reason: "Infinite precision requires infinite distinctions requires infinite energy"
+      application_to_apml: |
+        Systems cannot know everything. Parameters have resolution limits.
+        Different observers (humans, AIs, tools) access different effective granularities.
+
+    finitude:
+      statement: "Only finitely many distinctions can be maintained simultaneously"
+      formula: "N_max ≤ E_total / E_min"
+      application_to_apml: |
+        Specifications cannot capture infinite detail.
+        Prioritization is thermodynamically necessary, not a weakness.
+
+    dynamism:
+      statement: "Distinctions require continuous energy investment to maintain"
+      reason: "Without energy input, boundaries decay toward equilibrium"
+      application_to_apml: |
+        Living documentation. Specifications must evolve with reality.
+        Static specs decay into irrelevance.
+
+    relationality:
+      statement: "No isolated systems; all OLUs must draw energy from environment"
+      application_to_apml: |
+        No system exists alone. Context matters.
+        Human-AI collaboration is not optional but thermodynamically necessary.
+
+# =============================================================================
+# THE META-PRINCIPLE
+# =============================================================================
+
+meta_principle TheFirstRule:
+  name: "The First Rule"
+  nickname: "Fight Club Principle"
+
+  statement: |
+    These are directions, not destinations.
+    Every principle is a gradient to move toward, not a law to enforce.
+
+  rationale: |
+    AI contributions are non-deterministic. Human judgment is contextual.
+    Rigid rules break; flexible directions guide.
+
+    The map is not the territory. The principle is not the practice.
+    We move TOWARD these directions, understanding that:
+    - Context determines how far
+    - Trade-offs are inevitable
+    - Perfection is not the goal; improvement is
+
+  application: |
+    When evaluating whether code/spec/behavior follows these principles,
+    ask not "Does it comply?" but "Is it moving in this direction?"
+
+    Violations are not failures but opportunities to ask:
+    "What prevented movement toward this direction?"
+    "Is there a better direction for this context?"
+
+  recursive_application: |
+    This meta-principle applies to itself.
+    Even "these are directions not rules" is a direction, not a rule.
+    There may be contexts where a firm rule is the right direction.
+
+# =============================================================================
+# THE TWELVE DIRECTIONS
+# =============================================================================
+
+registry design_directions:
+
+  # ---------------------------------------------------------------------------
+  # DIRECTION 1: PARAMETERIZATION
+  # ---------------------------------------------------------------------------
+
+  direction D01_TOWARD_PARAMETERS:
+    name: "Toward Parameterization"
+    shorthand: "Everything is a parameter"
+
+    toward: "Configuration, flexibility, tunability"
+    away_from: "Hardcoded values, magic numbers, embedded assumptions"
+
+    grounded_in: |
+      Different OLUs need different parameters.
+      What works at one energy budget / resolution / context
+      may not work at another. Parameterization enables adaptation.
+
+    gradient_indicators:
+      moving_toward:
+        - "Thresholds in config, not code"
+        - "Behavior changeable without deployment"
+        - "A/B testable without regeneration"
+      moving_away:
+        - "Regex patterns embedded in schemas"
+        - "Magic numbers in logic"
+        - "Assumptions that 'this will never change'"
+
+    contextual_note: |
+      Not everything CAN be parameterized economically.
+      The direction is toward parameterization WHERE IT ENABLES ADAPTATION.
+      Over-parameterization has its own energy cost (complexity).
+
+  # ---------------------------------------------------------------------------
+  # DIRECTION 2: USER EXPERIENCE PRIORITY
+  # ---------------------------------------------------------------------------
+
+  direction D02_TOWARD_USER_FLOW:
+    name: "Toward User Experience"
+    shorthand: "Learner experience is sacred in PLAY"
+
+    toward: "Uninterrupted user flow, graceful handling, invisible complexity"
+    away_from: "Technical errors surfaced to users, broken flows, confusion"
+
+    grounded_in: |
+      The user/learner is the OLU we serve.
+      Their distinction-making (learning, understanding, doing) is the purpose.
+      Our system exists to support their boundary-refinement process.
+
+    gradient_indicators:
+      moving_toward:
+        - "Errors caught before reaching user"
+        - "Sensible defaults when data missing"
+        - "Flow continues despite backend issues"
+      moving_away:
+        - "Stack traces shown to users"
+        - "System crashes interrupt learning"
+        - "Technical constraints become user problems"
+
+    contextual_note: |
+      "In PLAY" is key. During BUILD, different rules apply.
+      The developer IS the user during build; clarity serves them.
+
+  # ---------------------------------------------------------------------------
+  # DIRECTION 3: FAIL-FAST BUILD, GRACEFUL PLAY
+  # ---------------------------------------------------------------------------
+
+  direction D03_TOWARD_APPROPRIATE_FAILURE:
+    name: "Toward Appropriate Failure Modes"
+    shorthand: "Fail fast in BUILD, fail gracefully in PLAY"
+
+    toward: "Clarity during development, resilience during use"
+    away_from: "Silent build failures, runtime crashes"
+
+    grounded_in: |
+      BUILD is distinction-CLARITY: we need to see exactly what's happening.
+      Hidden failures compound; unclear states propagate errors.
+
+      PLAY is distinction-MAINTENANCE: the show must go on.
+      Users shouldn't suffer for our mistakes.
+
+    gradient_indicators:
+      moving_toward:
+        - "Validation errors halt import with clear message"
+        - "Build fails loudly on any issue"
+        - "Runtime recovers gracefully, logs for later"
+      moving_away:
+        - "Silently skipping invalid records"
+        - "try/catch that swallows without logging"
+        - "Runtime crashes on unexpected data"
+
+    contextual_note: |
+      The boundary between BUILD and PLAY isn't always sharp.
+      Staging environments, preview modes, etc. require judgment.
+
+  # ---------------------------------------------------------------------------
+  # DIRECTION 4: SINGLE SOURCE OF TRUTH
+  # ---------------------------------------------------------------------------
+
+  direction D04_TOWARD_SINGLE_TRUTH:
+    name: "Toward Single Source of Truth"
+    shorthand: "APML is truth; code implements; reality updates APML"
+
+    toward: "One authoritative specification, derived implementations"
+    away_from: "Multiple conflicting definitions, code-as-spec"
+
+    grounded_in: |
+      A distinction-pattern is more stable when maintained in one place.
+      Multiple sources = multiple boundaries to maintain = more energy.
+      Divergence is entropy; single source resists decay.
+
+    gradient_indicators:
+      moving_toward:
+        - "Schema defined in APML, SQL generated"
+        - "Types defined once, shared everywhere"
+        - "Reality changes → APML changes first"
+      moving_away:
+        - "Code and spec diverge"
+        - "Database has columns not in any spec"
+        - "'We'll document it later'"
+
+    contextual_note: |
+      Perfect sync is asymptotic. The direction matters.
+      Sometimes code must lead spec temporarily (discovery).
+      But the debt must be paid—spec updated to match.
+
+  # ---------------------------------------------------------------------------
+  # DIRECTION 5: RAW OVER DERIVED
+  # ---------------------------------------------------------------------------
+
+  direction D05_TOWARD_RAW_DATA:
+    name: "Toward Raw Data"
+    shorthand: "Store raw, compute derived"
+
+    toward: "Neutral measurements, runtime interpretation"
+    away_from: "Pre-computed classifications, embedded interpretations"
+
+    grounded_in: |
+      Interpretations are observer-dependent.
+      What counts as "eternal" vs "debut" depends on configuration.
+      Raw data (word_count, position) is stable; classification is context.
+
+      Storing interpretations couples data to one observer's perspective.
+      Storing raw enables multiple observers with different parameters.
+
+    gradient_indicators:
+      moving_toward:
+        - "Store word_count, compute phrase_type"
+        - "Store timestamps, compute 'recent'"
+        - "Store measurements, compute judgments"
+      moving_away:
+        - "Storing phrase_type, requiring regeneration to change rules"
+        - "Pre-computing 'is_important' with hardcoded threshold"
+
+    contextual_note: |
+      Performance sometimes requires caching derived values.
+      The direction is: derive where practical, cache where necessary,
+      but keep the raw data as source of truth.
+
+  # ---------------------------------------------------------------------------
+  # DIRECTION 6: DUAL IDENTITY
+  # ---------------------------------------------------------------------------
+
+  direction D06_TOWARD_DUAL_IDENTITY:
+    name: "Toward Dual Identity"
+    shorthand: "Natural keys for humans, UUIDs for machines"
+
+    toward: "Human-readable identifiers AND stable machine references"
+    away_from: "Parsing display strings, encoding meaning in IDs"
+
+    grounded_in: |
+      Different OLUs access at different resolutions.
+      Humans need semantic identifiers ("Seed 42", "spa_for_eng").
+      Machines need collision-free stable references (UUIDs).
+
+      Encoding meaning in format (regex-parsing "S0042" to get 42)
+      conflates two distinct purposes—human display and machine reference.
+
+    gradient_indicators:
+      moving_toward:
+        - "id: UUID, seed_number: 42, display: 'S0042' (computed)"
+        - "Natural key for uniqueness, surrogate key for references"
+      moving_away:
+        - "Regex-parsing IDs to extract semantic content"
+        - "Using display strings as foreign keys"
+
+    contextual_note: |
+      Legacy systems may require ID parsing.
+      The direction is toward clean separation in new design.
+
+  # ---------------------------------------------------------------------------
+  # DIRECTION 7: CONTEXT-AGNOSTIC
+  # ---------------------------------------------------------------------------
+
+  direction D07_TOWARD_REUSABILITY:
+    name: "Toward Context-Agnostic Components"
+    shorthand: "Reusable across contexts; don't duplicate, reference"
+
+    toward: "Shared patterns, referenced resources, general utilities"
+    away_from: "Duplicated code, copied resources, project-specific hacks"
+
+    grounded_in: |
+      Maintaining the same distinction in multiple places costs energy.
+      Every duplicate is entropy waiting to happen (drift, inconsistency).
+
+      Course-agnostic audio samples serve all courses.
+      General utilities serve all projects.
+      The energy saved enables other distinctions.
+
+    gradient_indicators:
+      moving_toward:
+        - "Audio sample referenced by text+voice, shared across courses"
+        - "Validation library used by all importers"
+        - "Pattern abstracted when used 3+ times"
+      moving_away:
+        - "Copy-pasting audio files per course"
+        - "Each script has its own validation logic"
+
+    contextual_note: |
+      Premature abstraction has costs too.
+      Wait for the pattern to emerge; then extract.
+
+  # ---------------------------------------------------------------------------
+  # DIRECTION 8: EXPLICIT
+  # ---------------------------------------------------------------------------
+
+  direction D08_TOWARD_EXPLICITNESS:
+    name: "Toward Explicitness"
+    shorthand: "No magic; if it matters, it's visible"
+
+    toward: "Declared behavior, visible state, documented assumptions"
+    away_from: "Convention-over-configuration, hidden defaults, implicit coupling"
+
+    grounded_in: |
+      Distinction requires energy. Implicit behavior is a hidden energy cost.
+      When behavior depends on unstated assumptions, debugging costs spike.
+
+      Explicit declarations make distinctions visible—
+      and visible distinctions can be maintained, debugged, evolved.
+
+    gradient_indicators:
+      moving_toward:
+        - "status: 'draft' (explicit default in schema)"
+        - "belongs_to: Course via course_code (explicit relationship)"
+        - "Assumptions documented, not just coded"
+      moving_away:
+        - "Null means draft (implicit)"
+        - "Joining on matching column names (implicit relationship)"
+
+    contextual_note: |
+      Not everything needs to be explicit to the same degree.
+      Stable, well-understood conventions can remain implicit.
+      New, evolving, or surprising behavior should be explicit.
+
+  # ---------------------------------------------------------------------------
+  # DIRECTION 9: IDEMPOTENT
+  # ---------------------------------------------------------------------------
+
+  direction D09_TOWARD_IDEMPOTENCY:
+    name: "Toward Idempotent Operations"
+    shorthand: "Every operation safe to re-run"
+
+    toward: "Repeatable operations, upsert semantics, stable outcomes"
+    away_from: "Side effects, duplicate creation, order-dependent results"
+
+    grounded_in: |
+      Stable distinction-patterns can be re-accessed without degradation.
+      If running an operation twice produces different results,
+      the operation creates unstable boundaries—entropy.
+
+      Idempotency is thermodynamic stability for operations.
+
+    gradient_indicators:
+      moving_toward:
+        - "UPSERT with ON CONFLICT"
+        - "Check-then-create patterns"
+        - "Scripts that converge to same state regardless of starting point"
+      moving_away:
+        - "INSERT without conflict handling"
+        - "Counters incremented without checking current state"
+
+    contextual_note: |
+      Some operations are inherently non-idempotent (sending emails, charging cards).
+      The direction is idempotent WHERE POSSIBLE, explicit side-effects otherwise.
+
+  # ---------------------------------------------------------------------------
+  # DIRECTION 10: OBSERVABLE
+  # ---------------------------------------------------------------------------
+
+  direction D10_TOWARD_OBSERVABILITY:
+    name: "Toward Observability"
+    shorthand: "You should be able to see what the system is doing"
+
+    toward: "Visible state, meaningful logs, progress indicators, counts"
+    away_from: "Black boxes, silent operations, hidden state"
+
+    grounded_in: |
+      OLUs need access to make distinctions.
+      A system that hides its state is inaccessible—
+      it might as well not exist for debugging purposes.
+
+      Observability is making the system's distinctions accessible
+      to the humans and AIs that maintain it.
+
+    gradient_indicators:
+      moving_toward:
+        - "Import logs: 'Seeds: 30, LEGOs: 130, Validation: PASS'"
+        - "Health endpoints showing status"
+        - "Progress bars for long operations"
+      moving_away:
+        - "'Import complete.' (Was it successful? How many?)"
+        - "Background jobs with no status visibility"
+
+    contextual_note: |
+      Observability has costs (logging overhead, storage).
+      The direction is: enough visibility to debug and understand,
+      not necessarily complete state dumps.
+
+  # ---------------------------------------------------------------------------
+  # DIRECTION 11: PROPER ABSTRACTIONS
+  # ---------------------------------------------------------------------------
+
+  direction D11_TOWARD_PROPER_ABSTRACTIONS:
+    name: "Toward Proper Abstractions"
+    shorthand: "Typed structures over string hacks; parse properly"
+
+    toward: "Proper parsers, typed data, clean transformations"
+    away_from: "Regex for structured data, stringly-typed code, clever hacks"
+
+    grounded_in: |
+      Proper boundaries are easier to maintain than fuzzy ones.
+      A typed structure has clear distinctions; a string has implicit ones.
+
+      Regex-parsing "S0042" to extract 42 conflates:
+      - The format (display concern)
+      - The value (semantic concern)
+      - The validation (integrity concern)
+
+      Proper abstractions separate these.
+
+    gradient_indicators:
+      moving_toward:
+        - "seed_number: INTEGER stored directly"
+        - "status: ENUM('draft', 'released')"
+        - "Parser that produces typed AST"
+      moving_away:
+        - "Regex to extract numbers from formatted strings"
+        - "status: TEXT (hope nobody typos)"
+
+    contextual_note: |
+      Legacy systems may require parsing hacks.
+      The direction is: new code uses proper abstractions,
+      legacy interfaces get explicit adapters.
+
+  # ---------------------------------------------------------------------------
+  # DIRECTION 12: DELTA SYNC
+  # ---------------------------------------------------------------------------
+
+  direction D12_TOWARD_DELTA_SYNC:
+    name: "Toward Delta Sync"
+    shorthand: "version + updated_at on everything; incremental updates"
+
+    toward: "Incremental updates, change tracking, efficient sync"
+    away_from: "Full reloads, re-fetching everything, blind overwrites"
+
+    grounded_in: |
+      Finite energy means finite distinctions per cycle.
+      Full sync requires re-processing all distinctions every time.
+      Delta sync processes only changed distinctions.
+
+      This is thermodynamic efficiency applied to data synchronization.
+
+    gradient_indicators:
+      moving_toward:
+        - "version INTEGER, updated_at TIMESTAMPTZ on all content"
+        - "SELECT WHERE updated_at > :last_sync"
+        - "Conflict resolution via version comparison"
+      moving_away:
+        - "No timestamps on content tables"
+        - "Full table download on every app open"
+
+    contextual_note: |
+      Simple systems may not need delta sync.
+      The direction matters as systems scale and go offline-first.
+
+# =============================================================================
+# APPLICATION FRAMEWORK
+# =============================================================================
+
+logic direction_application:
+
+  process evaluate_alignment:
+    description: "How to evaluate whether something aligns with these directions"
+
+    steps:
+      1_identify_context:
+        ask: "What is the situation? BUILD or PLAY? New or legacy?"
+        why: "Context determines which directions apply most strongly"
+
+      2_assess_movement:
+        ask: "Is this moving TOWARD or AWAY from the direction?"
+        why: "We're not checking compliance; we're checking gradient"
+        note: "Even small movement toward is positive"
+
+      3_understand_constraints:
+        ask: "What prevented further movement toward the direction?"
+        why: "Constraints are real; understanding them enables better choices"
+        examples:
+          - "Legacy system required parsing—acknowledged, contained"
+          - "Performance required caching derived values—documented"
+
+      4_document_trade_offs:
+        ask: "What trade-off was made and why?"
+        why: "Explicit trade-offs are maintainable; implicit ones decay"
+
+  process handle_violations:
+    description: "What to do when code/spec moves away from a direction"
+
+    not_failures_but_signals:
+      statement: "Violations are not failures but opportunities"
+
+      questions_to_ask:
+        - "What context made this direction impractical?"
+        - "Is there a better direction for this context?"
+        - "Can we create a path toward the direction over time?"
+        - "Should this be an acknowledged exception?"
+
+    acknowledged_exceptions:
+      definition: "Cases where we intentionally move away from a direction"
+      requirement: "Must be documented with rationale"
+      example: |
+        # EXCEPTION: D11 (Proper Abstractions)
+        # We parse seed_id via regex here because legacy API returns it this way.
+        # TODO: Update API to return seed_number directly.
+        const seedNumber = parseInt(seedId.match(/S(\d+)/)[1], 10)
+
+# =============================================================================
+# INTEGRATION WITH TPML
+# =============================================================================
+
+interface tpml_connection:
+
+  relationship:
+    tpml: "Describes theories and philosophical frameworks"
+    apml: "Describes applications built with those frameworks"
+    design_directions: "The physics connecting philosophy to practice"
+
+  grounding:
+    primitive: "Distinction (from TPML Module 0)"
+    axioms: "Distinctions cost energy; observers have finite budgets"
+    derivations: "Effective discreteness, finitude, dynamism, relationality"
+    directions: "Practical gradients for human-AI system building"
+
+  self_application:
+    statement: |
+      These design directions are themselves an APML specification.
+      They follow their own directions (to the extent practical).
+      They are grounded in TPML's distinction-primacy framework.
+      This is recursive—and that's the point.
+
+# =============================================================================
+# VERSION HISTORY
+# =============================================================================
+
+version_history:
+
+  v1.0.0:
+    date: "2025-12-15"
+    status: "Superseded by v2.0.0"
+    description: "Initial 12 principles as rules"
+
+  v2.0.0:
+    date: "2025-12-15"
+    status: "Current"
+    changes:
+      - "Grounded in Distinction as Primitive (TPML Module 0)"
+      - "Reframed principles as directions, not rules"
+      - "Added meta-principle (The First Rule)"
+      - "Added physics section connecting to thermodynamics"
+      - "Added gradient indicators (toward/away from)"
+      - "Added contextual notes acknowledging trade-offs"
+      - "Added TPML integration section"
+    contributors:
+      - "Tom Cassidy"
+      - "Claude (AI Assistant)"
+    philosophical_foundation: |
+      This version recognizes that AI contributions are non-deterministic
+      and human judgment is contextual. Rigid rules break; flexible
+      directions guide. The shift from rules to directions reflects
+      the deeper insight that distinction-making operates under
+      resource constraints—including the constraint of human attention
+      and AI context windows.
+
+# =============================================================================
+# META-VALIDATION
+# =============================================================================
+
+validate self_application:
+
+  D01_parameters:
+    status: "aligned"
+    evidence: "Directions defined as data structures, not hardcoded prose"
+
+  D04_single_truth:
+    status: "aligned"
+    evidence: "These directions defined in one APML file"
+
+  D08_explicit:
+    status: "aligned"
+    evidence: "Each direction has explicit toward/away/grounding"
+
+  D10_observable:
+    status: "aligned"
+    evidence: "Gradient indicators make alignment assessable"
+
+  meta_principle:
+    status: "self-referential"
+    evidence: "The First Rule applies to itself—even this is a direction"
+
+# =============================================================================
+# Generated: 2025-12-15
+# Grounded in: Distinction as Primitive (TPML Module 0)
+#
+# "These are directions, not destinations.
+#  Every principle is a gradient to move toward, not a law to enforce."
+# =============================================================================
