@@ -33,7 +33,7 @@ import { useRouter } from 'vue-router'
 // App metadata
 const title = ref('APML - Distinction as Primitive')
 const description = ref('Design Principles v2.0.0 - Directions for human-AI collaborative systems, grounded in distinction-primacy')
-const version = ref('1.0.0')
+const version = ref('2.0.0')
 
 // Navigation
 const router = useRouter()
