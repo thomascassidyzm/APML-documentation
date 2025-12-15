@@ -1,560 +1,415 @@
-APML v0.9.1 - AI Project Markup Language Specification
-Triadic Architecture for Human-AI Collaborative Problem Solving
+# APML v2.0.0 Language Specification
+
+**Version**: 2.0.0
+**Status**: Production Ready
+**Date**: 2025-12-15
+**Philosophical Foundation**: Distinction as Primitive
 
 ===========================================
-TABLE OF CONTENTS
+LANGUAGE OVERVIEW
 ===========================================
 
-1. LANGUAGE OVERVIEW - TRIADIC ARCHITECTURE
-2. FOUNDATIONAL TRIADIC PRINCIPLES
-3. CONSERVATION PHYSICS FRAMEWORK
-4. PATTERN LIBRARY SYSTEM
-5. COLLABORATIVE INTELLIGENCE PROCESS
-6. CORE SYNTAX CONSTRUCTS
-7. DATA MODEL SPECIFICATION
-8. INTERFACE DEFINITIONS
-9. LOGIC FLOW SPECIFICATIONS
-10. COMPILATION FRAMEWORK
-11. TRINITY PRINCIPLE COMPLIANCE
-12. INTENT PRESERVATION VALIDATION
-13. ANTI-FRAGILE DEVELOPMENT
-14. RECURSIVE IMPROVEMENT SYSTEM
-15. META-LANGUAGE CAPABILITIES
+APML v2.0.0 is a specification language for human-AI collaborative systems, grounded in the philosophical insight that distinction-making is ontologically primitive for observers-like-us.
+
+CORE INSIGHT:
+All distinctions cost energy. All observers have finite budgets.
+Therefore: all accessible reality is effectively discrete.
+
+APML provides directions (not rules) for building systems that respect this fundamental constraint.
 
 ===========================================
-1. LANGUAGE OVERVIEW - TRIADIC ARCHITECTURE
+THE PRIMITIVE
 ===========================================
 
-APML v0.9.1 represents a paradigm shift from traditional programming languages to a triadic architecture designed for human-AI collaborative problem solving. This specification introduces conservation physics principles that ensure intent preservation across all compilation targets while enabling contextual adaptation and bandwidth optimization.
+DISTINCTION:
+The capacity to differentiate one aspect of reality from another.
+Equivalent to: differential response, boundary, information.
 
-CORE ARCHITECTURAL PRINCIPLES:
-- Triadic Compliance: Trinity messaging, implementation triad, collaborative intelligence
-- Conservation Physics: Intent preservation, contextual adaptation, bandwidth optimization
-- Pattern Library Integration: Reusable solution templates with anti-fragile metrics
-- Collaborative Intelligence: Structured human-AI partnership frameworks
-- Recursive Improvement: Self-enhancing development methodologies
+Properties:
+- Transcendentally necessary: true
+- Requires observer: true
+- Requires energy: true
 
-TRIADIC FOUNDATION:
-The language is built on three fundamental triads:
-
-1. TRINITY MESSAGING PRINCIPLE:
-   - System → User: All user-facing outputs specified
-   - User → System: All user interactions handled
-   - System → System: All internal processes defined
-
-2. IMPLEMENTATION TRIAD:
-   - Principles: Core language constructs and invariant rules
-   - Patterns: Reusable solution templates
-   - Practices: Conversational refinement methodologies
-
-3. COLLABORATIVE INTELLIGENCE TRIAD:
-   - Human Insight: Intuitive understanding, creative synthesis, contextual awareness
-   - AI Processing: Systematic analysis, pattern matching, logical verification
-   - Emergent Solutions: Novel approaches, transcendent insights, breakthrough discoveries
+Implication:
+To be (accessible) is to be distinct.
+An entity is nothing but the bundle of distinctions that constitute it.
 
 ===========================================
-2. FOUNDATIONAL TRIADIC PRINCIPLES
+THE PHYSICS
 ===========================================
 
-TRINITY MESSAGING PRINCIPLE:
-Complete message flow coverage ensures logical completeness:
+AXIOM 1: All distinctions cost energy
+To maintain that a system is in state A rather than state B requires energy expenditure.
 
-SYSTEM TO USER FLOWS:
-- UI displays with complete visual specifications
-- Feedback messages for all user actions
-- Progress indicators for long-running processes
-- Error notifications with recovery guidance
-- Success confirmations with next steps
+AXIOM 2: All observers have finite energy budgets
+Every observer-like-us (OLU) operates with limited energy. No OLU has access to infinite energy.
 
-USER TO SYSTEM FLOWS:
-- Button clicks with action handlers
-- Form submissions with validation
-- Gestures and voice commands (mobile/accessibility)
-- Navigation and routing requests
-- Real-time input processing
+DERIVATIONS:
 
-SYSTEM TO SYSTEM FLOWS:
-- Business logic execution paths
-- Data operations and transformations
-- API calls and external integrations
-- State management and synchronization
-- Background processing workflows
+Effective Discreteness:
+No continuous quantity can be accessed by any OLU.
+Application: Systems cannot know everything. Parameters have resolution limits.
 
-COMPLETENESS VERIFICATION:
-```apml
-validate trinity_completeness:
-  check all_ui_elements_specified
-  check all_user_interactions_handled
-  check all_business_logic_defined
-  
-  when all_message_flows_complete:
-    grant logical_completeness_certification
-```
+Finitude:
+Only finitely many distinctions can be maintained simultaneously.
+Formula: N_max <= E_total / E_min
+Application: Prioritization is thermodynamically necessary, not a weakness.
+
+Dynamism:
+Distinctions require continuous energy investment to maintain.
+Application: Living documentation. Specifications must evolve with reality.
+
+Relationality:
+No isolated systems; all OLUs must draw energy from environment.
+Application: Human-AI collaboration is thermodynamically necessary.
 
 ===========================================
-3. CONSERVATION PHYSICS FRAMEWORK
+THE META-PRINCIPLE (THE FIRST RULE)
 ===========================================
 
-APML v0.9.1 introduces conservation physics - mathematical principles ensuring intent preservation across transformations:
+"These are directions, not destinations.
+Every principle is a gradient to move toward, not a law to enforce."
 
-SYMMETRY PRINCIPLES (Intent Conservation):
-Invariant properties that remain unchanged across all compilation targets:
-- Core business logic functionality
-- Essential data relationships
-- User workflow completeness
-- Security and validation rules
+RATIONALE:
+AI contributions are non-deterministic. Human judgment is contextual.
+Rigid rules break; flexible directions guide.
 
-CONTINUITY PRINCIPLES (Contextual Adaptation):
-Smooth transformation while preserving essence:
-- Responsive design adaptation (mobile ↔ desktop)
-- Platform-specific UI patterns (iOS ↔ Android ↔ Web)
-- Cultural localization (language, conventions, compliance)
-- Accessibility accommodations (visual, motor, cognitive)
+The map is not the territory. The principle is not the practice.
+We move TOWARD these directions, understanding that:
+- Context determines how far
+- Trade-offs are inevitable
+- Perfection is not the goal; improvement is
 
-BANDWIDTH OPTIMIZATION (Experiential Richness):
-Minimize compression artifacts in intent transmission:
-- Natural language leverage for nuanced communication
-- Collaborative emergence enabling transcendent solutions
-- Pattern library utilization for efficient expression
-- Full expressiveness maintenance across platforms
+APPLICATION:
+When evaluating whether code/spec/behavior follows these directions,
+ask not "Does it comply?" but "Is it moving in this direction?"
 
-CONSERVATION VALIDATION:
-```apml
-validate conservation_physics:
-  verify intent_preservation across all_platforms
-  test contextual_adaptation quality
-  measure bandwidth_optimization effectiveness
-  
-  when conservation_verified:
-    enable production_deployment
-```
+Violations are not failures but opportunities to ask:
+- "What prevented movement toward this direction?"
+- "Is there a better direction for this context?"
+
+RECURSIVE APPLICATION:
+This meta-principle applies to itself.
+Even "these are directions not rules" is a direction, not a rule.
 
 ===========================================
-4. PATTERN LIBRARY SYSTEM
+THE TWELVE DIRECTIONS
 ===========================================
 
-APML v0.9.1 introduces a sophisticated pattern library system with anti-fragile development capabilities:
+D01: TOWARD PARAMETERIZATION
+-------------------------------------------
+Toward: Configuration, flexibility, tunability
+Away from: Hardcoded values, magic numbers, embedded assumptions
 
-PATTERN STRUCTURE:
-```apml
-data Pattern:
-  name: text required
-  domain: text required
-  intent_description: text required
-  implementation_template: text required
-  usage_examples: list of text required
-  trinity_compliance: boolean default false
-  conservation_verified: boolean default false
-```
+Grounding: Different OLUs need different parameters. What works at one energy budget may not work at another.
 
-PATTERN EVOLUTION LIFECYCLE:
-1. DISCOVERY: Emerge from successful conversations
-2. VALIDATION: Tested across multiple implementations
-3. INTEGRATION: Added to reusable library
-4. OPTIMIZATION: Improved through recursive feedback
+Moving toward:
+- Thresholds in config, not code
+- Behavior changeable without deployment
+- A/B testable without regeneration
 
-ANTI-FRAGILE METRICS:
-Patterns that become stronger under stress, improving through:
-- Failure analysis and learning
-- Usage pattern optimization
-- Context adaptation enhancement
-- Performance improvement under load
+Moving away:
+- Magic numbers in logic
+- Assumptions that "this will never change"
 
-PATTERN CATEGORIES:
-- Authentication & Authorization
-- Data Validation & Processing
-- User Interface Components
-- Business Logic Workflows
-- External Integrations
-- Performance Optimizations
-- Security Implementations
-- Testing Patterns
+
+D02: TOWARD USER EXPERIENCE
+-------------------------------------------
+Toward: Uninterrupted user flow, graceful handling, invisible complexity
+Away from: Technical errors surfaced to users, broken flows, confusion
+
+Grounding: The user is the OLU we serve. Their distinction-making is the purpose.
+
+Moving toward:
+- Errors caught before reaching user
+- Sensible defaults when data missing
+- Flow continues despite backend issues
+
+Moving away:
+- Stack traces shown to users
+- System crashes interrupt work
+
+
+D03: TOWARD APPROPRIATE FAILURE MODES
+-------------------------------------------
+Toward: Clarity during development, resilience during use
+Away from: Silent build failures, runtime crashes
+
+Grounding: BUILD is distinction-CLARITY. PLAY is distinction-MAINTENANCE.
+
+Moving toward:
+- Validation errors halt import with clear message
+- Build fails loudly on any issue
+- Runtime recovers gracefully, logs for later
+
+Moving away:
+- Silently skipping invalid records
+- try/catch that swallows without logging
+
+
+D04: TOWARD SINGLE SOURCE OF TRUTH
+-------------------------------------------
+Toward: One authoritative specification, derived implementations
+Away from: Multiple conflicting definitions, code-as-spec
+
+Grounding: Multiple sources = multiple boundaries to maintain = more energy.
+
+Moving toward:
+- Schema defined in APML, code generated
+- Types defined once, shared everywhere
+- Reality changes -> APML changes first
+
+Moving away:
+- Code and spec diverge
+- "We'll document it later"
+
+
+D05: TOWARD RAW DATA
+-------------------------------------------
+Toward: Neutral measurements, runtime interpretation
+Away from: Pre-computed classifications, embedded interpretations
+
+Grounding: Interpretations are observer-dependent. Raw data enables multiple perspectives.
+
+Moving toward:
+- Store word_count, compute phrase_type
+- Store timestamps, compute "recent"
+- Store measurements, compute judgments
+
+Moving away:
+- Pre-computing classifications with hardcoded thresholds
+
+
+D06: TOWARD DUAL IDENTITY
+-------------------------------------------
+Toward: Human-readable identifiers AND stable machine references
+Away from: Parsing display strings, encoding meaning in IDs
+
+Grounding: Different OLUs access at different resolutions.
+
+Moving toward:
+- id: UUID, display_number: 42, formatted: "S0042" (computed)
+- Natural key for uniqueness, surrogate key for references
+
+Moving away:
+- Regex-parsing IDs to extract semantic content
+
+
+D07: TOWARD CONTEXT-AGNOSTIC COMPONENTS
+-------------------------------------------
+Toward: Shared patterns, referenced resources, general utilities
+Away from: Duplicated code, copied resources, project-specific hacks
+
+Grounding: Maintaining the same distinction in multiple places costs energy.
+
+Moving toward:
+- Pattern abstracted when used 3+ times
+- Validation library used by all importers
+
+Moving away:
+- Copy-pasting code between projects
+- Each module has its own validation logic
+
+
+D08: TOWARD EXPLICITNESS
+-------------------------------------------
+Toward: Declared behavior, visible state, documented assumptions
+Away from: Convention-over-configuration, hidden defaults, implicit coupling
+
+Grounding: Implicit behavior is a hidden energy cost.
+
+Moving toward:
+- status: "draft" (explicit default in schema)
+- Assumptions documented, not just coded
+
+Moving away:
+- Null means draft (implicit)
+- Joining on matching column names
+
+
+D09: TOWARD IDEMPOTENT OPERATIONS
+-------------------------------------------
+Toward: Repeatable operations, upsert semantics, stable outcomes
+Away from: Side effects, duplicate creation, order-dependent results
+
+Grounding: Idempotency is thermodynamic stability for operations.
+
+Moving toward:
+- UPSERT with ON CONFLICT
+- Scripts that converge to same state regardless of starting point
+
+Moving away:
+- INSERT without conflict handling
+- Counters incremented without checking current state
+
+
+D10: TOWARD OBSERVABILITY
+-------------------------------------------
+Toward: Visible state, meaningful logs, progress indicators
+Away from: Black boxes, silent operations, hidden state
+
+Grounding: A system that hides its state is inaccessible for debugging.
+
+Moving toward:
+- Import logs: "Seeds: 30, Items: 130, Validation: PASS"
+- Health endpoints showing status
+- Progress bars for long operations
+
+Moving away:
+- "Import complete." (Was it successful? How many?)
+
+
+D11: TOWARD PROPER ABSTRACTIONS
+-------------------------------------------
+Toward: Proper parsers, typed data, clean transformations
+Away from: Regex for structured data, stringly-typed code
+
+Grounding: Proper boundaries are easier to maintain than fuzzy ones.
+
+Moving toward:
+- seed_number: INTEGER stored directly
+- status: ENUM("draft", "released")
+- Parser that produces typed AST
+
+Moving away:
+- Regex to extract numbers from formatted strings
+
+
+D12: TOWARD DELTA SYNC
+-------------------------------------------
+Toward: Incremental updates, change tracking, efficient sync
+Away from: Full reloads, re-fetching everything, blind overwrites
+
+Grounding: Finite energy means finite distinctions per cycle.
+
+Moving toward:
+- version INTEGER, updated_at TIMESTAMPTZ on all content
+- SELECT WHERE updated_at > :last_sync
+- Conflict resolution via version comparison
+
+Moving away:
+- No timestamps on content tables
+- Full table download on every app open
+
 
 ===========================================
-5. COLLABORATIVE INTELLIGENCE PROCESS
-===========================================
-
-APML v0.9.1 formalizes the human-AI collaboration process through structured phases:
-
-PROCESS PHASES:
-```apml
-data ConversationalProcess:
-  phase: exploration | specification | refinement | verification required
-  human_contribution: list of text required
-  ai_contribution: list of text required
-  emergent_insights: list of text optional
-  quality_metrics: ProcessMetrics required
-```
-
-EXPLORATION PHASE:
-- Human: Provides context, requirements, constraints
-- AI: Asks clarifying questions, suggests patterns
-- Emergent: Novel problem framing, creative approaches
-
-SPECIFICATION PHASE:
-- Human: Validates intent, provides examples, feedback
-- AI: Generates formal specification, ensures completeness
-- Emergent: Optimal solution architecture
-
-REFINEMENT PHASE:
-- Human: Reviews implementation, suggests improvements
-- AI: Optimizes code, ensures best practices
-- Emergent: Performance and usability enhancements
-
-VERIFICATION PHASE:
-- Human: Tests functionality, validates user experience
-- AI: Runs automated tests, checks compliance
-- Emergent: Quality assurance and deployment readiness
-
-===========================================
-6. CORE SYNTAX CONSTRUCTS
+SYNTAX CONSTRUCTS
 ===========================================
 
 APPLICATION DECLARATION:
 ```apml
 app ApplicationName:
-  title: "User-facing application name"
-  description: "Human-readable purpose statement"
+  title: "User-facing name"
+  description: "Purpose statement"
   version: "semantic.version.number"
-  apml_specification_version: "0.9.1"
-  triadic_compliance: verified
-  conservation_physics: enforced
+  apml_version: "2.0.0"
+
+  philosophical_foundation:
+    source: "Distinction as Primitive"
 ```
 
-DATA MODEL SPECIFICATION WITH CONSERVATION:
+DATA MODEL:
 ```apml
-data ModelName:
-  property_name: type modifier_list
-  relationship_field: RelatedModel modifier_list
-  conservation_properties:
-    intent_preservation: across_all_platforms
-    referential_integrity: enforced
+data EntityName:
+  id: uuid required
+  name: text required
+  version: integer default 1
+  updated_at: timestamp auto
+
+  constraints:
+    unique: [natural_key_field]
 ```
 
-INTERFACE DEFINITION WITH TRINITY COMPLIANCE:
+DIRECTION DECLARATION:
+```apml
+direction DirectionName:
+  toward: "Description of positive movement"
+  away_from: "Description of anti-pattern"
+
+  grounded_in: |
+    Explanation connecting to distinction physics
+
+  gradient_indicators:
+    moving_toward:
+      - "Observable positive indicator"
+    moving_away:
+      - "Observable negative indicator"
+```
+
+INTERFACE DEFINITION:
 ```apml
 interface interface_name:
   show element_name:
     property: value
-    trinity_compliance:
-      system_to_user: complete
-      user_to_system: handled
-    conservation_adaptation:
-      responsive_behavior: enabled
+
+  when user_interaction:
+    action_statements
 ```
 
-LOGIC SPECIFICATION WITH VERIFICATION:
+LOGIC SPECIFICATION:
 ```apml
-logic logic_group_name:
+logic logic_group:
   process process_name:
     when trigger_condition:
       action_statements
-      trinity_verification: complete
-      intent_preservation: verified
 ```
 
-PATTERN APPLICATION:
+VALIDATION:
 ```apml
-apply_pattern pattern_name:
-  from_library: pattern_library_name
-  customization: parameter_overrides
-  conservation_compliance: verified
+validate validation_name:
+  check condition_1
+  check condition_2
+
+  when all_pass:
+    grant certification
 ```
 
 ===========================================
-7. DATA MODEL SPECIFICATION
+APPLYING THE DIRECTIONS
 ===========================================
 
-TRIADIC DATA MODELS:
-Data models in APML v0.9.1 incorporate triadic principles and conservation physics:
+EVALUATION PROCESS:
 
-ENHANCED TYPE SYSTEM:
-- All v0.9.0 types (text, number, boolean, email, etc.)
-- Conservation-aware relationships
-- Cross-platform type mapping
-- Intent preservation validation
+1. Identify Context
+   - What is the situation? BUILD or PLAY? New or legacy?
+   - Context determines which directions apply most strongly
 
-RELATIONSHIP PATTERNS:
-```apml
-data User:
-  id: unique_id
-  name: text required
-  preferences: UserPreferences
-  projects: list of Project
-  
-  conservation_rules:
-    identity_preservation: across_all_platforms
-    data_integrity: enforced
-    privacy_compliance: gdpr_verified
+2. Assess Movement
+   - Is this moving TOWARD or AWAY from the direction?
+   - Even small movement toward is positive
+
+3. Understand Constraints
+   - What prevented further movement toward the direction?
+   - Constraints are real; understanding them enables better choices
+
+4. Document Trade-offs
+   - What trade-off was made and why?
+   - Explicit trade-offs are maintainable; implicit ones decay
+
+HANDLING VIOLATIONS:
+
+Violations are not failures but signals. Questions to ask:
+- What context made this direction impractical?
+- Is there a better direction for this context?
+- Can we create a path toward the direction over time?
+
+ACKNOWLEDGED EXCEPTIONS:
+When intentionally moving away from a direction:
+
 ```
-
-VALIDATION WITH CONSERVATION:
-```apml
-validate user_data:
-  name must be_present and be_reasonable_length
-  email must be_valid_format and be_unique
-  
-  conservation_check:
-    ensure data_consistency across platforms
-    verify referential_integrity
-    maintain privacy_compliance
-```
-
-===========================================
-8. INTERFACE DEFINITIONS
-===========================================
-
-TRIADIC INTERFACE SPECIFICATION:
-Interfaces must satisfy all three message flow types:
-
-COMPLETE INTERFACE PATTERN:
-```apml
-interface user_dashboard:
-  # System → User: Display logic
-  show dashboard_header:
-    title: "Welcome, " + user.name
-    last_login: user.last_login formatted
-    
-  display activity_feed:
-    for each activity in user.recent_activities:
-      show activity_card:
-        timestamp: activity.timestamp
-        description: activity.description
-        
-  # User → System: Interaction handling  
-  when user clicks refresh_button:
-    reload activity_feed
-    show loading_indicator
-    
-  when user submits settings_form:
-    validate form_data
-    update user_preferences
-    show success_message
-    
-  # System → System: Internal processing
-  process background_updates:
-    sync_with_external_services
-    update_notification_counts
-    refresh_user_status
-    
-  # Conservation adaptation
-  responsive_behavior:
-    mobile: stack_vertically
-    desktop: side_by_side_layout
-    tablet: adaptive_grid
+# EXCEPTION: D11 (Proper Abstractions)
+# We parse ID via regex here because legacy API returns it this way.
+# TODO: Update API to return number directly.
+const number = parseInt(id.match(/S(\d+)/)[1], 10)
 ```
 
 ===========================================
-9. LOGIC FLOW SPECIFICATIONS
-===========================================
+APML v2.0.0 SPECIFICATION
+Language for Human-AI Collaborative Systems
+Grounded in Distinction as Primitive
 
-CONSERVATION-AWARE LOGIC:
-Logic flows must preserve intent across all compilation targets:
+"These are directions, not destinations."
 
-VALIDATED LOGIC PATTERN:
-```apml
-logic user_authentication:
-  process secure_login:
-    when user submits credentials:
-      # Input validation (User → System)
-      validate email_format and password_strength
-      
-      # Business logic (System → System)
-      authenticate_with_provider user.credentials
-      
-      if authentication_successful:
-        create_secure_session with user.id
-        log_security_event "successful_login"
-        
-        # Output generation (System → User)
-        redirect_to dashboard
-        show_welcome_message
-        
-      else:
-        # Error handling (System → User)
-        increment_failure_count
-        show_error_with_recovery_options
-        
-      # Conservation verification
-      verify intent_preserved across all_platforms
-      ensure security_standards_maintained
-```
-
-===========================================
-10. COMPILATION FRAMEWORK
-===========================================
-
-MULTI-PLATFORM COMPILATION WITH CONSERVATION:
-APML v0.9.1 compiles to multiple platforms while preserving intent:
-
-COMPILATION TARGETS:
-- Vue.js + TypeScript (Web)
-- React + TypeScript (Web)
-- Swift + SwiftUI (iOS)
-- Kotlin + Jetpack Compose (Android)
-
-COMPILATION PROCESS:
-1. INTENT ANALYSIS PHASE:
-   - Extract invariant business logic
-   - Identify context adaptation points
-   - Verify Trinity Principle compliance
-   - Map appropriate pattern selections
-
-2. CONTEXT OPTIMIZATION PHASE:
-   - Apply platform-specific adaptations
-   - Integrate accessibility requirements
-   - Optimize for device capabilities
-   - Validate cross-platform consistency
-
-3. VERIFICATION TESTING PHASE:
-   - Confirm intent preservation
-   - Test contextual adaptation quality
-   - Validate collaborative intelligence integration
-   - Document anti-fragile improvements
-
-===========================================
-11. TRINITY PRINCIPLE COMPLIANCE
-===========================================
-
-MATHEMATICAL VERIFICATION:
-APML v0.9.1 provides mathematical proof of Trinity Principle compliance:
-
-COMPLIANCE VALIDATION:
-```apml
-logic trinity_validation:
-  process system_to_user_completeness:
-    verify all_ui_elements_specified
-    verify all_feedback_mechanisms_defined
-    verify all_progress_indicators_included
-    
-  process user_to_system_completeness:
-    verify all_interactions_handled
-    verify all_input_validation_specified
-    verify all_authentication_flows_complete
-    
-  process system_to_system_completeness:
-    verify all_business_logic_defined
-    verify all_data_operations_specified
-    verify all_external_integrations_handled
-    
-  when all_validations_pass:
-    grant trinity_completeness_certification
-    enable crash_free_deployment
-```
-
-===========================================
-12. INTENT PRESERVATION VALIDATION
-===========================================
-
-CONSERVATION PHYSICS VALIDATION:
-Ensures intent preservation across all transformations:
-
-PRESERVATION VERIFICATION:
-```apml
-validate intent_preservation:
-  compare business_logic across all_platforms
-  validate data_relationship_consistency
-  confirm user_workflow_equivalence
-  
-  test_cases:
-    user_journey_equivalence across platforms
-    data_integrity_maintenance across databases
-    security_policy_consistency across environments
-    
-  when preservation_verified:
-    enable_production_deployment
-    guarantee_behavioral_equivalence
-```
-
-===========================================
-13. ANTI-FRAGILE DEVELOPMENT
-===========================================
-
-RECURSIVE IMPROVEMENT SYSTEM:
-APML v0.9.1 includes self-improving capabilities:
-
-ANTI-FRAGILE PATTERNS:
-```apml
-logic anti_fragile_development:
-  process pattern_evolution:
-    when new_pattern_discovered:
-      abstract_pattern from successful_implementation
-      validate_pattern across multiple_contexts
-      integrate_pattern into appropriate_library
-      document_evolution_metrics
-      
-    when pattern_failure_detected:
-      analyze_failure_characteristics
-      remove_weak_pattern from library
-      strengthen_alternative_patterns
-      document_learning for future_avoidance
-```
-
-CAPABILITY SCALING:
-```apml
-process capability_scaling:
-  when problem_solved_successfully:
-    increment_collective_problem_solving_capacity
-    update_pattern_libraries with new_solutions
-    enhance_conversation_methodologies
-    contribute_to_civilizational_capability_growth
-```
-
-===========================================
-14. RECURSIVE IMPROVEMENT SYSTEM
-===========================================
-
-METHODOLOGY ENHANCEMENT:
-```apml
-logic methodology_improvement:
-  when conversation_methodology_enhanced:
-    document_improved_technique
-    validate_enhancement across multiple_conversations
-    propagate_improvement to pattern_libraries
-    update_collaborative_intelligence_practices
-    
-  measure_improvement:
-    conversation_effectiveness_increase
-    pattern_discovery_acceleration
-    implementation_quality_enhancement
-    user_satisfaction_improvement
-```
-
-===========================================
-15. META-LANGUAGE CAPABILITIES
-===========================================
-
-DOMAIN-AGNOSTIC APPLICABILITY:
-APML v0.9.1 transcends software development:
-
-APPLICATION DOMAINS:
-- Software Development: Proven and production-ready
-- Scientific Research: Hypothesis testing and data analysis
-- Organizational Design: Process optimization and workflow management
-- Educational Systems: Curriculum design and learning path optimization
-- Business Strategy: Market analysis and decision frameworks
-
-META-VALIDATION:
-```apml
-validate meta_language_completeness:
-  check domain_agnostic_applicability
-  check recursive_improvement_capability
-  check conservation_physics_compliance
-  check collaborative_intelligence_integration
-  
-  when all_meta_validations_pass:
-    grant_apml_specification_completeness_certification
-    enable_production_deployment_for_civilizational_challenges
-    activate_recursive_self_improvement_capabilities
-```
-
-===========================================
-APML SPECIFICATION VERSION 0.9.1
-Triadic Architecture Release - Complete Meta-Language Reference
-
-This specification represents a breakthrough in human-AI collaborative problem solving, introducing conservation physics principles and anti-fragile development methodologies that enable recursive improvement and civilizational capability scaling.
-
-For compilation patterns see: technical-patterns.txt
-For business examples see: business-patterns.txt
-For implementation support: apml.dev
+For design principles: /specifications/APML-Design-Principles-v2.0.0.apml
+For examples: https://apml.dev/examples/
 ===========================================
